@@ -1,0 +1,32 @@
+﻿@page
+@using System.Data
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<script>
+    // send id to server-side
+    function sendId() {
+        var form = $('#MainWindowForm');
+
+        
+        $.ajax({
+            type: "POST",
+            url: "/Index?handler=SendID",
+            headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+            data: form.serialize(),
+            success: function (response) {
+                console.log('Server response:', response);
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+</script>

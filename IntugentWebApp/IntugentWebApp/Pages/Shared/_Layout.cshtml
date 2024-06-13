@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IntugetnPI - IntugentWebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/IntugentWebApp.styles.css" asp-append-version="true" />
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
+    <link href="~/plugins/material/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="~/plugins/simplebar/simplebar.css" rel="stylesheet" />
+    <link href="~/plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link id="main-css-href" rel="stylesheet" href="~/css/style.css" />
+
+    <!-- FAVICON -->
+    <link href="~/images/int.png" rel="icon" type="image/png" />
+</head>
+<body class="navbar-fixed sidebar-fixed" id="body">
+    @Html.AntiForgeryToken()
+    @{
+        var activePage = ViewData["ActivePage"] as string;
+    }
+
+    <div class="wrapper">
+        <!-- ====================================
+          sidebar menu
+        ===================================== -->
+        <aside class="left-sidebar sidebar-light" id="left-sidebar">
+            <div id="sidebar" class="sidebar sidebar-with-footer">
+                <!-- logo -->
+                <div class="app-brand">
+                    <a href="/Index">
+                        <img src="~/images/int.png" alt="Intugent">
+                        <span class="brand-name">INTUGENT</span>
+                    </a>
+                </div>
+                <div class="sidebar-left" data-simplebar style="height: 100%;">
+                    <ul class="nav sidebar-inner" id="sidebar-menu">
+                        <!-- ====================================
+                          sidebar - MFG GROUP
+                        ===================================== -->
+
+                        <li class="section-title">
+                            MFG Pages
+                        </li>
+                        <li class="@(activePage == "Mfg. Home" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/Mfg_Group/Home">
+                                <i class="mdi mdi-briefcase-account-outline"></i>
+                                <span class="nav-text">Home</span>
+                            </a>
+                        </li>
+
+                        <li class="@(activePage == "In-Process Board Properties" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/Mfg_Group/InProcessBoardProperties">
+                                <i class="mdi mdi-check"></i>
+                                <span class="nav-text">Green/Fresh Props</span>
+                            </a>
+                        </li>
+                        
+                        <li class="@(activePage == "Finished Board Properties" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/Mfg_Group/FinishedBoardProperties">
+                                <i class="mdi mdi-check-all"></i>
+                                <span class="nav-text">Finished Good Props</span>
+                            </a>
+                        </li>
+
+                        <li class="@(activePage == "test" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/Mfg_Group/testPage">
+                                <i class="mdi mdi-briefcase-account-outline"></i>
+                                <span class="nav-text">Test</span>
+                            </a>
+                        </li>
+                        <li class="section-title">
+                            Shared Mfg. Pages
+                        </li>
+
+                        <li class="@(activePage == "Mfg Analysis-1 Page" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/RnD_Users/MfgAnalysis1">
+                                <i class="mdi mdi-chart-line"></i>
+                                <span class="nav-text">Mfg. Analysis - 1</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidenav-item-link" href="analytics.html">
+                                <i class="mdi mdi-chart-bell-curve"></i>
+                                <span class="nav-text">Mfg. Analysis - 2</span>
+                            </a>
+                        </li>
+                        <!-- ====================================
+                          sidebar - MFG GROUP - END
+                        ===================================== -->
+
+                        @* <!-- ====================================
+                          sidebar - USERS GROUP
+                        ===================================== -->
+
+                        <li class="section-title">
+                            R&D Pages
+                        </li>
+                        <li class="@(activePage == "R&D Home Page" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/RnD_Users/Home">
+                                <i class="mdi mdi-briefcase-account-outline"></i>
+                                <span class="nav-text">Home</span>
+                            </a>
+                        </li>
+
+                        <li class="@(activePage == "Formulations Page" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/RnD_Users/Formulations">
+                                <i class="mdi mdi-information-variant"></i>
+                                <span class="nav-text">Formulations</span>
+                            </a>
+                        </li>
+
+                        <li class="section-title">
+                            MFG Pages
+                        </li>
+
+                        <li class="@(activePage == "Mfg Analysis-1 Page" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/RnD_Users/MfgAnalysis1">
+                                <i class="mdi mdi-chart-line"></i>
+                                <span class="nav-text">Mfg. Analysis - 1</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sidenav-item-link" href="analytics.html">
+                                <i class="mdi mdi-chart-bell-curve"></i>
+                                <span class="nav-text">Mfg. Analysis - 2</span>
+                            </a>
+                        </li>
+                        <!-- ====================================
+                          sidebar - USERS GROUP - END
+                        ===================================== --> *@
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <div class="page-wrapper">
+
+            <!-- Header -->
+            <header class="main-header" id="header">
+                <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+                    <!-- Sidebar toggle button -->
+                    <button id="sidebar-toggler" class="sidebar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                    </button>
+
+                    <span class="page-title">@activePage  </span>
+
+                    <div class="navbar-right ">
+
+
+                        <ul class="nav navbar-nav">
+                            <!-- User Account -->
+                            <li class="dropdown user-menu">
+                                <button class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <img src="~/images/user/user-xs-01.jpg" class="user-image rounded-circle" alt="User Image" />
+                                    <span class="d-none d-lg-inline-block">John Doe</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a class="dropdown-link-item" href="user-account-settings.html">
+                                            <i class="mdi mdi-settings"></i>
+                                            <span class="nav-text">Account Setting</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="dropdown-footer">
+                                        <a class="dropdown-link-item" href="sign-in.html"> <i class="mdi mdi-logout"></i> Log Out </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Main Pages Here -->
+            <div class="content-wrapper">
+                <div class="content">
+                    @RenderBody()
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer mt-auto">
+                <div class="copyright bg-white">
+                    <p>
+                        Copyright © Developed by <a class="text-primary" href="https://www.intugent.com/" target="_blank">Intugent</a>.
+                    </p>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/plugins/simplebar/simplebar.min.js"></script>
+    <script src="~/plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/mono.js"></script>
+    <script src="~/js/custom.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

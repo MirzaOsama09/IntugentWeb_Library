@@ -1,0 +1,1051 @@
+﻿@page
+@using System.Data
+@model IntugentWebApp.Pages.Mfg_Group.InProcessBoardPropertiesModel
+@{
+    ViewData["ActivePage"] = "In-Process Board Properties";
+}
+
+<!-- Error message -->
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-1">
+        <div class="row">
+            <!-- Thickness Card -->
+            <div class="card card-default ">
+                <div class="card-header align-items-center">
+                    <h2 class="">Thickness</h2>
+                </div>
+                <div class="card-body d-flex flex-column justify-content-evenly">
+                    <p class="text-end" style="color: #894DD9">@Model.gsLoc3E</p>
+                    <!-- Thickness Ip -1 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp1" placeholder="" asp-for="gThicknessIP_1Text" onblur="gThickness_LF('gThicknessIP_1', this.value)">
+                        <label for="thicknessIp1">Thickness Ip 1</label>
+                    </div>
+                    <!-- Thickness Ip -2 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp2" placeholder="" asp-for="gThicknessIP_2Text" onblur="gThickness_LF('gThicknessIP_2', this.value)">
+                        <label for="thicknessIp2">Thickness Ip 2</label>
+                    </div>
+                    <!-- Thickness Ip -3 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp3" placeholder="" asp-for="gThicknessIP_3Text" onblur="gThickness_LF('gThicknessIP_3', this.value)">
+                        <label for="thicknessIp3">Thickness Ip 3</label>
+                    </div>
+                    <!-- Thickness Ip -4 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp4" placeholder="" asp-for="gThicknessIP_4Text" onblur="gThickness_LF('gThicknessIP_4', this.value)">
+                        <label for="thicknessIp4">Thickness Ip 4</label>
+                    </div>
+                    <!-- Thickness Ip -5 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp5" placeholder="" asp-for="gThicknessIP_5Text" onblur="gThickness_LF('gThicknessIP_5', this.value)">
+                        <label for="thicknessIp5">Thickness Ip 5</label>
+                    </div>
+                    <!-- Thickness Ip -6 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp6" placeholder="" asp-for="gThicknessIP_6Text" onblur="gThickness_LF('gThicknessIP_6', this.value)">
+                        <label for="thicknessIp6">Thickness Ip 6</label>
+                    </div>
+                    <!-- Thickness Ip -7 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp7" placeholder="" asp-for="gThicknessIP_7Text" onblur="gThickness_LF('gThicknessIP_7', this.value)">
+                        <label for="thicknessIp7">Thickness Ip 7</label>
+                    </div>
+                    <!-- Thickness Ip -8 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp8" placeholder="" asp-for="gThicknessIP_8Text" onblur="gThickness_LF('gThicknessIP_8', this.value)">
+                        <label for="thicknessIp8">Thickness Ip 8</label>
+                    </div>
+                    <!-- Thickness Ip -9 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp9" placeholder="" asp-for="gThicknessIP_9Text" onblur="gThickness_LF('gThicknessIP_9', this.value)">
+                        <label for="thicknessIp9">Thickness Ip 9</label>
+                    </div>
+                    <!-- Thickness Ip -10 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp10" placeholder="" asp-for="gThicknessIP_10Text" onblur="gThickness_LF('gThicknessIP_10', this.value)">
+                        <label for="thicknessIp10">Thickness Ip 10</label>
+                    </div>
+                    <!-- Thickness Ip -11 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp11" placeholder="" asp-for="gThicknessIP_11Text" onblur="gThickness_LF('gThicknessIP_11', this.value)">
+                        <label for="thicknessIp11">Thickness Ip 11</label>
+                    </div>
+                    <!-- Thickness Ip -12 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp12" placeholder="" asp-for="gThicknessIP_12Text" onblur="gThickness_LF('gThicknessIP_12', this.value)">
+                        <label for="thicknessIp12">Thickness Ip 12</label>
+                    </div>
+                    <!-- Thickness Ip -13 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp13" placeholder="" asp-for="gThicknessIP_13Text" onblur="gThickness_LF('gThicknessIP_13', this.value)">
+                        <label for="thicknessIp13">Thickness Ip 13</label>
+                    </div>
+                    <!-- Thickness Ip -14 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp14" placeholder="" asp-for="gThicknessIP_14Text" onblur="gThickness_LF('gThicknessIP_14', this.value)">
+                        <label for="thicknessIp14">Thickness Ip 14</label>
+                    </div>
+                    <!-- Thickness Ip -15 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp15" placeholder="" asp-for="gThicknessIP_15Text" onblur="gThickness_LF('gThicknessIP_15', this.value)">
+                        <label for="thicknessIp15">Thickness Ip 15</label>
+                    </div>
+                    <!-- Thickness Ip -16 -->
+                    <div class="form-floating mb-1">
+                        <input type="number" class="form-control" id="thicknessIp16" placeholder="" asp-for="gThicknessIP_16Text" onblur="gThickness_LF('gThicknessIP_16', this.value)">
+                        <label for="thicknessIp16">Thickness Ip 16</label>
+                    </div>
+                    <!-- Thickness Ip -17 -->
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="thicknessIp17" placeholder="" asp-for="gThicknessIP_17Text" onblur="gThickness_LF('gThicknessIP_17', this.value)">
+                        <label for="thicknessIp17">Thickness Ip 17</label>
+                    </div>
+                    <p class="text-end" style="color: #894DD9">@Model.gsLoc1E</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-11 ps-3">
+        <div class="row">
+            <div class="col-md-2 ">
+                <!-- Avg Values Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Average Values</h2>
+                    </div>
+                    <div class="card-body">
+
+                        <!-- coreDensityAvg -->
+                        <div class="form-floating mb-1">
+                            <input type="number" class="form-control" id="coreDensityAvg" placeholder="" asp-for="gCoreDensityIPText" disabled>
+                            <label for="coreDensityAvg">Core Density Avg</label>
+                        </div>
+                        <!-- thicknessAvg -->
+                        <div class="form-floating mb-1">
+                            <input type="number" class="form-control" id="thicknessAvg" placeholder="" asp-for="gThicknessIPText" disabled>
+                            <label for="thicknessAvg">Thickness Avg</label>
+                        </div>
+                        <!-- thicknessValley -->
+                        <div class="form-floating mb-1">
+                            <input type="number" class="form-control" id="thicknessValley" placeholder="" asp-for="gThicknessValleyText" disabled>
+                            <label for="thicknessValley">Thickness Valley</label>
+                        </div>
+                        <!-- thicknessPeak -->
+                        <div class="form-floating mb-1">
+                            <input type="number" class="form-control" id="thicknessPeak" placeholder="" asp-for="gThicknessPeakText" disabled>
+                            <label for="thicknessPeak">Thickness Peak</label>
+                        </div>
+
+                        <!-- boardProfile -->
+                        <div class="form-floating mb-1">
+                            <input type="number" class="form-control" id="boardProfile" placeholder="" asp-for="gFlatnessText" disabled>
+                            <label for="boardProfile">Board Profile</label>
+                        </div>
+                        <!-- avgCompStrength5 -->
+                        <div class="form-floating mb-1">
+                            <input type="number" class="form-control" id="avgCompStrength5" placeholder="" asp-for="gCompressiveIP5Text" disabled>
+                            <label for="avgCompStrength5">Avg Comp Strength-5</label>
+                        </div>
+                        <!-- avgCompStrength6 -->
+                        <div class="form-floating mb-1">
+                            <input type="number" class="form-control" id="avgCompStrength6" placeholder="" asp-for="gCompressiveIPText" disabled>
+                            <label for="avgCompStrength6">Avg Comp Strength-6</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Compressive Strength Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Compressive Strength</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-end" style="color: #894DD9">Knit Line</p>
+                        <!-- compressiveIP1 -->
+                        <div class="row">
+                            <div class="form-floating mb-1 col-9">
+                                <input type="number" class="form-control" id="compressiveIP1" placeholder="" asp-for="gCompressiveIP_1Text" onblur="CompressiveStr_LF('gCompressiveIP_1', this.value)">
+                                <label for="compressiveIP1">Compressive IP-1</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP1Check" asp-for="gCompStrKnitPresent_1IsChecked" checked="@Model.gCompStrKnitPresent_1IsChecked">
+                                <label class="custom-control-label" for="compressiveIP1Check"> </label>
+                            </div>
+                        </div>
+
+                        <!-- compressiveIP2 -->
+                        <div class="row">
+                            <div class="form-floating mb-1 col-9">
+                                <input type="number" class="form-control" id="compressiveIP2" placeholder="" asp-for="gCompressiveIP_2Text" onblur="CompressiveStr_LF('gCompressiveIP_2', this.value)">
+                                <label for="compressiveIP2">Compressive IP-2</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP2Check" asp-for="gCompStrKnitPresent_2IsChecked" checked="@Model.gCompStrKnitPresent_2IsChecked">
+                                <label class="custom-control-label" for="compressiveIP2Check"> </label>
+                            </div>
+                        </div>
+                        <!-- compressiveIP3 -->
+                        <div class="row">
+                            <div class="form-floating mb-1 col-9">
+                                <input type="number" class="form-control" id="compressiveIP3" placeholder="" asp-for="gCompressiveIP_3Text" onblur="CompressiveStr_LF('gCompressiveIP_3', this.value)">
+                                <label for="compressiveIP3">Compressive IP-3</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP3Check" asp-for="gCompStrKnitPresent_3IsChecked" checked="@Model.gCompStrKnitPresent_3IsChecked">
+                                <label class="custom-control-label" for="compressiveIP3Check"> </label>
+                            </div>
+                        </div>
+                        <!-- compressiveIP4 -->
+                        <div class="row">
+                            <div class="form-floating mb-1 col-9">
+                                <input type="number" class="form-control" id="compressiveIP4" placeholder="" asp-for="gCompressiveIP_4Text" onblur="CompressiveStr_LF('gCompressiveIP_4', this.value)">
+                                <label for="compressiveIP4">Compressive IP-4</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP4Check" asp-for="gCompStrKnitPresent_4IsChecked" checked="@Model.gCompStrKnitPresent_4IsChecked">
+                                <label class="custom-control-label" for="compressiveIP4Check"> </label>
+                            </div>
+                        </div>
+                        <!-- compressiveIP5 -->
+                        <div class="row">
+                            <div class="form-floating mb-1 col-9">
+                                <input type="number" class="form-control" id="compressiveIP5" placeholder="" asp-for="gCompressiveIP_5Text" onblur="CompressiveStr_LF('gCompressiveIP_5', this.value)">
+                                <label for="compressiveIP5">Compressive IP-5</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP5Check" asp-for="gCompStrKnitPresent_5IsChecked" checked="@Model.gCompStrKnitPresent_5IsChecked">
+                                <label class="custom-control-label" for="compressiveIP5Check"> </label>
+                            </div>
+                        </div>
+                        <!-- compressiveIP6 -->
+                        <div class="row">
+                            <div class="form-floating mb-1 col-9">
+                                <input type="number" class="form-control" id="compressiveIP6" placeholder="" asp-for="gCompressiveIP_6Text" onblur="CompressiveStr_LF('gCompressiveIP_6', this.value)">
+                                <label for="compressiveIP6">Compressive IP-6</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP6Check" asp-for="gCompStrKnitPresent_6IsChecked" checked="@Model.gCompStrKnitPresent_6IsChecked">
+                                <label class="custom-control-label" for="compressiveIP6Check"> </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <!-- General Info Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">General Info</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <!-- Dataset -->
+                                    <div class="row">
+                                        <label for="dataset" class="col-3 col-form-label text-end">Dataset</label>
+                                        <div class="input-group col-9 d-flex align-items-center">
+                                            <button class="btn btn-primary m-auto" type="button" style="padding: 9px; height: calc(1.5em + 0.9rem + 4px);" @(Model.gDataSetPrevIsEnabled ? "" : "disabled") onclick="NewDataset('gDataSetPrev')"><span class="mdi mdi-chevron-left"></span></button>
+                                            <input type="number" class="form-control text-center w-50" asp-for="gID" disabled>
+                                            <button class="btn btn-primary m-auto" type="button" style="padding: 9px; height: calc(1.5em + 0.9rem + 4px);" @(Model.gDataSetNextIsEnabled ? "" : "disabled") onclick="NewDataset('gDataSetNext')"><span class="mdi mdi-chevron-right"></span></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2 ps-2">
+                                    <!-- inProcessTestingComplete -->
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="inProcessTestingComplete" checked="@Model.gInProcessDoneIsChecked">
+                                        <label class="custom-control-label" for="inProcessTestingComplete">In Process Testing Complete</label>
+                                    </div>
+                                    <!-- abandoned -->
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="abandoned" checked="@Model.gAbandonedIsChecked">
+                                        <label class="custom-control-label" for="abandoned">Abandoned</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2 d-flex justify-content-end m-sm-2 m-lg-1">
+                                    <div class="row" style="margin: 0;">
+                                        <button type="button" class="btn btn-primary m-auto">
+                                            Create New Dataset
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <!-- Run Type -->
+                                    <div class="form-floating mb-1">
+                                        <select class="form-select" id="runType">
+                                            @foreach (DataRowView row in Model.gRunType)
+                                            {
+                                                <option value="@row["ID"]" selected="@(Model.gRunTypeSelectedValue == (int)row["ID"])">@row["sName"]</option>
+                                            }
+                                        </select>
+                                        <label for="runType">Run Type</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <!-- Product Code -->
+                                    <div class="form-floating mb-1">
+                                        <select class="form-select" id="productCode">
+                                            @foreach (DataRowView row in Model.gProdID)
+                                            {
+                                                <option value="@row["Product Code"]" selected="@(Model.gProdIDSelectedValue == row["Product Code"].ToString())">@row["Product"]</option>
+                                            }
+                                        </select>
+                                        <label for="productCode">Product Code</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <!-- paperManufacturer -->
+                                    <div class="form-floating mb-1">
+                                        <select class="form-select" id="paperManufacturer">
+                                            @foreach (DataRowView row in Model.gPaperManufacturer)
+                                            {
+                                                <option value="@row["ID"]" selected="@(Model.gPaperManufacturerSelectedValue == (int)row["ID"])">@row["sName"]</option>
+                                            }
+                                        </select>
+                                        <label for="paperManufacturer">Paper Manufacturer</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <!-- shift -->
+                                    <div class="form-floating mb-1">
+                                        <select class="form-select" id="shift">
+                                            @foreach (DataRowView row in Model.gShift)
+                                            {
+                                                <option value="@row["ID"]" selected="@(Model.gShiftSelectedValue == (int)row["ID"])">@row["sName"]</option>
+                                            }
+                                        </select>
+                                        <label for="shift">Shift</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <!-- operator -->
+                                    <div class="form-floating mb-1">
+                                        <select class="form-select" id="operator">
+                                            @foreach (DataRowView row in Model.gOperator)
+                                            {
+                                                <option value="@row["ID"]" selected="@(Model.gOperatorSelectedItem == (int)row["ID"])">@row["Employees"]</option>
+                                            }
+                                        </select>
+                                        <label for="operator">Operator</label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                    <!-- runningWetDensity -->
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="runningWetDensity" placeholder="" asp-for="gRunningWetDesnsity">
+                                        <label for="runningWetDensity">Running Wet Density</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <!-- warehouseTemp -->
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="warehouseTemp" placeholder="" asp-for="gWarehouseTemp">
+                                        <label for="warehouseTemp">Warehouse Temp</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <!-- warehouseHumidity -->
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="warehouseHumidity" placeholder="" asp-for="gWarehouseHumidity">
+                                        <label for="warehouseHumidity">Warehouse Humidity</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <!-- propTimeStamp -->
+                                    <div class="form-floating">
+                                        <input type="datetime-local" class="form-control" id="propTimeStamp" asp-for="gTestDateTime">
+                                        <label for="propTimeStamp">Prop. Time Stamp</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <!-- checkTimestamp -->
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="checkTimestamp" asp-for="gTimeStampNotLegibleIsChecked" checked="@Model.gTimeStampNotLegibleIsChecked" )>
+                                        <label class="custom-control-label" for="checkTimestamp">Check if TimeStamp NOT legible</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <!-- Core Density Card -->
+                <div class="card card-default">
+                    <style>
+                        .coreDensityTable td {
+                            padding: 2px;
+                        }
+                    </style>
+                    <div class="card-header align-items-center">
+                        <h2 class="">Core Density</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table coreDensityTable">
+                            <thead>
+                                <tr class="text-center">
+                                    <th></th>
+                                    <th>Mass</th>
+                                    <th>Length</th>
+                                    <th>Width</th>
+                                    <th colspan="5">Thickness</th>
+                                    <th>Core Knit Present</th>
+                                    <th>Density</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>@Model.gsLoc3A</th>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gMass_3Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " asp-for="gL1_3Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " asp-for="gW1_3Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT1_3Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT2_3Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT3_3Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT4_3Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT5_3Text">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <label class="switch switch-primary switch-pill form-control-label ">
+                                            <input type="checkbox" class="switch-input form-check-input" id="" asp-for="gCoreKnitPresent_3IsChecked" checked="@Model.gCoreKnitPresent_3IsChecked">
+                                            <span class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" asp-for="gCoreDensityIP_3Text" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>@Model.gsLoc2A</th>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gMass_2Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " asp-for="gL1_2Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " asp-for="gW1_2Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT1_2Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT2_2Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT3_2Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT4_2Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT5_2Text">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <label class="switch switch-primary switch-pill form-control-label ">
+                                            <input type="checkbox" class="switch-input form-check-input" id="" asp-for="gCoreKnitPresent_2IsChecked" checked="@Model.gCoreKnitPresent_2IsChecked">
+                                            <span class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" asp-for="gCoreDensityIP_2Text" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>@Model.gsLoc1A</th>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gMass_1Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " asp-for="gL1_1Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " asp-for="gW1_1Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT1_1Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT2_1Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT3_1Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT4_1Text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" asp-for="gT5_1Text">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <label class="switch switch-primary switch-pill form-control-label ">
+                                            <input type="checkbox" class="switch-input form-check-input" id="" asp-for="gCoreKnitPresent_1IsChecked" checked="@Model.gCoreKnitPresent_1IsChecked">
+                                            <span class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" asp-for="gCoreDensityIP_1Text" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Pour Table Card -->
+                <div class="card card-default ">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Pour Table - In Process Check</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <!-- TimeQCCheck -->
+                                <div class="form-floating mb-1">
+                                    <input type="datetime-local" class="form-control" id="timeQCCheck" asp-for="gTimePourTableQCCheckValue">
+                                    <label for="timeQCCheck">Time of Pour Table QC Check</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <!-- surfactantType -->
+                                <div class="form-floating mb-1">
+                                    <select class="form-select" id="surfactantType">
+                                        @foreach (DataRowView row in Model.gSurfactant)
+                                        {
+                                            <option value="@row["ID"]" selected="@(Model.gSurfactantSelectedValue == (int)row["ID"])">@row["sName"]</option>
+                                        }
+                                    </select>
+                                    <label for="surfactantType">Surfactant Type</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <!-- pourHeadLayout -->
+                                <div class="form-floating mb-1">
+                                    <select class="form-select" id="pourHeadLayout">
+                                        @foreach (DataRowView row in Model.gLayout)
+                                        {
+                                            <option value="@row["ID"]" selected="@(Model.gLayoutSelectedValue == (int)row["ID"])">@row["sName"]</option>
+                                        }
+                                    </select>
+                                    <label for="pourHeadLayout">Pour Head Layout</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+
+                                @* //////////// clear amiguity - names swaped in desktop app *@
+
+                                <!-- irFacerTempUpper -->
+                                <div class="form-floating mb-1">
+                                    <input type="number" class="form-control" id="irFacerTempUpper" placeholder="" asp-for="gIRFacerTempUpperText">
+                                    <label for="irFacerTempUpper">IR Facer Temp-Upper</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <!-- irFacerTempLower -->
+                                <div class="form-floating mb-1">
+                                    <input type="number" class="form-control" id="irFacerTempLower" placeholder="" asp-for="gIRFacerTempLowerText">
+                                    <label for="irFacerTempLower">IR Facer Temp-Lower</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row mx-0">
+
+                                    <div class="col-md-3">
+                                        <!-- irstph -->
+                                        <div class="form-floating mb-1">
+                                            <label>IR Stream Temp - Pour Head</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <!-- irstphWest -->
+                                        <div class="form-floating mb-1">
+                                            <input type="number" class="form-control" id="irstphWest" placeholder="" asp-for="gIRStreamTempPourHead_3Text">
+                                            <label for="irstphWest">@Model.gsLoc3D</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <!-- irstphCenter -->
+                                        <div class="form-floating mb-1">
+                                            <input type="number" class="form-control" id="irstphCenter" placeholder="" asp-for="gIRStreamTempPourHead_2Text">
+                                            <label for="irstphCenter">@Model.gsLoc2D</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <!-- irstphEast -->
+                                        <div class="form-floating mb-1">
+                                            <input type="number" class="form-control" id="irstphEast" placeholder="" asp-for="gIRStreamTempPourHead_1Text">
+                                            <label for="irstphEast">@Model.gsLoc1D</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <!-- splitterAge -->
+                                <div class="form-floating mb-1">
+                                    <input type="number" class="form-control" id="splitterAge" placeholder="" asp-for="gSplitterAgeText">
+                                    <label for="splitterAge">Splitter Age - Mins.</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row mx-0">
+                                    <div class="col-md-3">
+                                        <!-- irstnr -->
+                                        <div class="form-floating mb-1">
+                                            <label>IR Stream Temp - Nip Roll</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <!-- irstnrWest -->
+                                        <div class="form-floating mb-1">
+                                            <input type="number" class="form-control" id="irstnrWest" placeholder="" asp-for="gIRNipRoll_3Text">
+                                            <label for="irstnrWest">@Model.gsLoc3C</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <!-- irstnrCenter -->
+                                        <div class="form-floating mb-1">
+                                            <input type="number" class="form-control" id="irstnrCenter" placeholder="" asp-for="gIRNipRoll_2Text">
+                                            <label for="irstnrCenter">@Model.gsLoc2C</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <!-- irstnrEast -->
+                                        <div class="form-floating mb-1">
+                                            <input type="number" class="form-control" id="irstnrEast" placeholder="" asp-for="gIRNipRoll_1Text">
+                                            <label for="irstnrEast">@Model.gsLoc1C</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <!-- headPlateAge -->
+                                <div class="form-floating mb-1">
+                                    <input type="number" class="form-control" id="headPlateAge" placeholder="" asp-for="gHeadPlateAgeText">
+                                    <label for="headPlateAge">Head Plate Age/Pour Run Time - Mins.</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row mx-0">
+                                    <div class="col-md-3">
+                                        <!-- phPosition -->
+                                        <div class="form-floating mb-1">
+                                            <label>Pour Head Position</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <!-- phPositionWest -->
+                                        <div class="form-floating mb-1">
+                                            <input type="number" class="form-control" id="phPositionWest" placeholder="" asp-for="gPourHeadPosition_3Text">
+                                            <label for="phPositionWest">@Model.gsLoc3B</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <!-- phPositionCenter -->
+                                        <div class="form-floating mb-1">
+                                            <input type="number" class="form-control" id="phPositionCenter" placeholder="" asp-for="gPourHeadPosition_2Text">
+                                            <label for="phPositionCenter">@Model.gsLoc2B</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <!-- phPositionEast -->
+                                        <div class="form-floating mb-1">
+                                            <input type="number" class="form-control" id="phPositionEast" placeholder="" asp-for="gPourHeadPosition_1Text">
+                                            <label for="phPositionEast">@Model.gsLoc1B</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row px-2">
+                    <div class="col-md-4 ">
+                        <!-- Board Dimensions Card -->
+                        <div class="card card-default">
+                            <div class="card-header align-items-center">
+                                <h2 class="">Board Dimensions</h2>
+                            </div>
+                            <div class="card-body row">
+                                <div class="col-md-6">
+                                    <!-- length -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="length" placeholder="" asp-for="gLengthText" onblur="gBoardDimensions_LF('gLength', this.value)">
+                                        <label for="length">Length</label>
+                                    </div>
+                                    <!-- width -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="width" placeholder="" asp-for="gWidthText" onblur="gBoardDimensions_LF('gWidth', this.value)">
+                                        <label for="width">Width</label>
+                                    </div>
+                                    <!-- bundleHeightIP -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="bundleHeightIP" placeholder="" asp-for="gBundleHeightIPText" onblur="gBoardDimensions_LF('gBundleHeightIP', this.value)">
+                                        <label for="bundleHeightIP">Bundle Height IP</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- diagonal1 -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="diagonal1" placeholder="" asp-for="gDiagoanl1Text" onblur="gBoardDimensions_LF('gDiagoanl1', this.value)">
+                                        <label for="diagonal1">Diagonal 1</label>
+                                    </div>
+                                    <!-- diagonal2 -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="diagonal2" placeholder="" asp-for="gDiagoanl2Text" onblur="gBoardDimensions_LF('gDiagoanl2', this.value)">
+                                        <label for="diagonal2">Diagonal 2</label>
+                                    </div>
+                                    <!-- absDifference -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="absDifference" placeholder="" asp-for="gDiagoanlDiffText" disabled>
+                                        <label for="absDifference">Abs. Difference</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <!-- avgThicknessEachSide Card -->
+                        <div class="card card-default">
+                            <div class="card-header align-items-center">
+                                <h2 class="">Avg Thickness of Each Side</h2>
+                            </div>
+                            <div class="card-body">
+                                <!-- avgThickness1to8 -->
+                                <div class="form-floating mb-1">
+                                    <input type="number" class="form-control" id="avgThickness1to8" placeholder="" asp-for="gThicknessAvg1Text" disabled>
+                                    <label for="avgThickness1to8">Avg Thickness 1-8</label>
+                                </div>
+                                <!-- avgThickness10to17 -->
+                                <div class="form-floating mb-1">
+                                    <input type="number" class="form-control" id="avgThickness10to17" placeholder="" asp-for="gThicknessAvg2Text" disabled>
+                                    <label for="avgThickness10to17">Avg Thickness 10-17</label>
+                                </div>
+                                <!-- thicknessSlope -->
+                                <div class="form-floating mb-1">
+                                    <input type="number" class="form-control" id="thicknessSlope" placeholder="" asp-for="gThicknessSlopeText" disabled>
+                                    <label for="thicknessSlope">Thickness Slope</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- Board Perforations Card -->
+                        <div class="card card-default">
+                            <div class="card-header align-items-center">
+                                <h2 class="">Board Perforations</h2>
+                            </div>
+                            <div class="card-body">
+                                <!-- topBoardPerforated -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="topBoardPerforated" asp-for="gTopBoardPerforatedIsChecked" checked="@Model.gTopBoardPerforatedIsChecked" onclick="gBoardPerfs('gTopBoardPerforated', this.checked)">
+                                    <label class="custom-control-label" for="topBoardPerforated">Top Board Perforated</label>
+                                </div>
+                                <!-- bottomBoardPerforated -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="bottomBoardPerforated" asp-for="gBottomBoardPerforatedIsChecked" checked="@Model.gBottomBoardPerforatedIsChecked" onclick="gBoardPerfs('gBottomBoardPerforated', this.checked)">
+                                    <label class="custom-control-label" for="bottomBoardPerforated">Bottom Board Perforated</label>
+                                </div>
+                                <!-- topBoardPrintOK -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="topBoardPrintOK" asp-for="gTopBoardPrintOKIsChecked" checked="@Model.gTopBoardPrintOKIsChecked" onclick="gBoardPerfs('gTopBoardPrintOK', this.checked)">
+                                    <label class="custom-control-label" for="topBoardPrintOK">Top Board Print OK</label>
+                                </div>
+                                <!-- bottomBoardPrintOK -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="bottomBoardPrintOK" asp-for="gBottomBoardPrintOKIsChecked" checked="@Model.gBottomBoardPrintOKIsChecked" onclick="gBoardPerfs('gBottomBoardPrintOK', this.checked)">
+                                    <label class="custom-control-label" for="bottomBoardPrintOK">Bottom Board Print OK</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 ">
+                        <!-- Knit Line Locations Card -->
+                        <div class="card card-default">
+                            <div class="card-header align-items-center">
+                                <h2 class="">Knit Line Locations from</h2>
+                            </div>
+                            <div class="card-body row">
+                                <p class="text-end" style="color: #894DD9">@Model.gsLoc3F</p>
+                                <div class="col-md-6">
+                                    <!-- kll1 -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="kll1" placeholder="" asp-for="gKnitLineLoc_1Text" onblur="gKintLineLocs_LF('gKnitLineLoc_1', this.value)">
+                                        <label for="kll1">1st</label>
+                                    </div>
+                                    <!-- kll2 -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="kll2" placeholder="" asp-for="gKnitLineLoc_2Text" onblur="gKintLineLocs_LF('gKnitLineLoc_2', this.value)">
+                                        <label for="kll2">2nd</label>
+                                    </div>
+                                    <!-- kll3 -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="kll3" placeholder="" asp-for="gKnitLineLoc_3Text" onblur="gKintLineLocs_LF('gKnitLineLoc_3', this.value)">
+                                        <label for="kll3">3rd</label>
+                                    </div>
+                                    <!-- kll4 -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="kll4" placeholder="" asp-for="gKnitLineLoc_4Text" onblur="gKintLineLocs_LF('gKnitLineLoc_4', this.value)">
+                                        <label for="kll4">4th</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- kll5 -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="kll5" placeholder="" asp-for="gKnitLineLoc_5Text" onblur="gKintLineLocs_LF('gKnitLineLoc_5', this.value)">
+                                        <label for="kll5">5th</label>
+                                    </div>
+                                    <!-- kll6 -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="kll6" placeholder="" asp-for="gKnitLineLoc_6Text" onblur="gKintLineLocs_LF('gKnitLineLoc_6', this.value)">
+                                        <label for="kll6">6th</label>
+                                    </div>
+                                    <!-- kll7 -->
+                                    <div class="form-floating mb-1">
+                                        <input type="number" class="form-control" id="kll7" placeholder="" asp-for="gKnitLineLoc_7Text" onblur="gKintLineLocs_LF('gKnitLineLoc_7', this.value)">
+                                        <label for="kll7">7th</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        function NewDataset(caller) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/InProcessBoardProperties?handler=NewDataset",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { caller: caller },
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function gBoardPerfs(caller, state) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/InProcessBoardProperties?handler=GBoardPerfs_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { caller: caller, state: state },
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function gThickness_LF(caller, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/InProcessBoardProperties?handler=GThickness_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { caller: caller, value: value },
+                success: function (response) {
+                    //console.log(response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function gKintLineLocs_LF(caller, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/InProcessBoardProperties?handler=GKintLineLocs_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { caller: caller, value: value },
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function gBoardDimensions_LF(caller, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/InProcessBoardProperties?handler=GBoardDimensions_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { caller: caller, value: value },
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function CompressiveStr_LF(caller, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/InProcessBoardProperties?handler=CompressiveStr_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { caller: caller, value: value },
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+    </script>
+
+}

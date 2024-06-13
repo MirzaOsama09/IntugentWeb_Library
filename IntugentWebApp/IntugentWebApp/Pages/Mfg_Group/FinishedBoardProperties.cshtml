@@ -1,0 +1,1115 @@
+﻿@page
+@model IntugentWebApp.Pages.Mfg_Group.FinishedBoardPropertiesModel
+@{
+    ViewData["ActivePage"] = "Finished Board Properties";
+}
+
+<!-- Error message -->
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="row">
+    <!-- General Info Card -->
+    <div class="card card-default">
+        <div class="card-header align-items-center">
+            <h2 class="">General Info</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-4 d-flex align-items-center">
+                    <!-- Dataset -->
+                    <label class="col-3 col-form-label text-end">Dataset</label>
+                    <div class="input-group col-9 d-flex">
+                        <button class="btn btn-primary m-auto" type="button" style="padding: 9px"><span class="mdi mdi-chevron-left"></span></button>
+                        <input type="number" class="form-control text-center w-50" value="425" disabled>
+                        <button class="btn btn-primary m-auto" type="button" style="padding: 9px"><span class="mdi mdi-chevron-right"></span></button>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <!-- ipLength -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="ipLength" placeholder="" value="96.1354" disabled />
+                        <label for="ipLength">IP Length</label>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <!-- ipWidth -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="ipWidth" placeholder="" value="84.124" disabled />
+                        <label for="ipWidth">IP Width</label>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- mfgDate -->
+                    <div class="form-floating mb-2">
+                        <input type="datetime-local" class="form-control" id="mfgDate" value="2024-06-13T08:24" disabled>
+                        <label for="mfgDate">Mfg. Date</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- productCode -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="productCode" placeholder="" value="Prod 1xFD30" disabled>
+                        <label for="productCode">Product Code</label>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- finishedBoardTimeStamp -->
+                    <div class="form-floating mb-2">
+                        <input type="datetime-local" class="form-control" id="finishedBoardTimeStamp" value="2024-06-13T08:24">
+                        <label for="finishedBoardTimeStamp">Finished Board Time Stamp</label>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- bundleHeight -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="bundleHeight" placeholder="" value="45">
+                        <label for="bundleHeight">Bundle Height</label>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- passedQualityTesting -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="passedQualityTesting" checked="checked">
+                        <label class="custom-control-label" for="passedQualityTesting">Passed Quality Testing</label>
+                    </div>
+                    <!-- fgTestingComplete -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="fgTestingComplete" checked="checked">
+                        <label class="custom-control-label" for="fgTestingComplete">FG Testing Complete</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- qcTimes Card -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">QC Times</h2>
+            </div>
+            <div class="card-body my-3">
+                <!-- timePourTable -->
+                <div class="form-floating mb-2">
+                    <input type="time" class="form-control text-center" id="timePourTable" value="08:24" disabled>
+                    <label for="timePourTable">Time Pour Table QC Check</label>
+                </div>
+                <!-- inProcessBoardTimeStamp -->
+                <div class="form-floating mb-2">
+                    <input type="datetime-local" class="form-control text-center" id="inProcessBoardTimeStamp" value="2024-06-13T08:24" disabled>
+                    <label for="inProcessBoardTimeStamp">In Process Board Time Stamp</label>
+                </div>
+                <!-- nextDayQCCollectionTime -->
+                <div class="form-floating mb-2">
+                    <input type="datetime-local" class="form-control text-center illegalValue" id="nextDayQCCollectionTime" value="2024-06-13T08:24">
+                    <label for="nextDayQCCollectionTime">Next Day QC Collection Time</label>
+                </div>
+                <!-- ipTimeStampNotLegible -->
+                <div class="custom-control custom-checkbox mb-2">
+                    <input type="checkbox" class="custom-control-input" id="ipTimeStampNotLegible" checked="checked">
+                    <label class="custom-control-label" for="ipTimeStampNotLegible">If Checked - IP Time Stamp was NOT Legible</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <!-- qcSummary Card -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">QC Summary</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- fgCoreDensity -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="fgCoreDensity" placeholder="" value="1.670" disabled>
+                            <label for="fgCoreDensity">FG Core Density</label>
+                        </div>
+                        <!-- avgCompStrength5 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="avgCompStrength5" placeholder="" value="1" disabled>
+                            <label for="avgCompStrength5">Avg Comp Strength-5</label>
+                        </div>
+                        <!-- avgCompStrength6 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="avgCompStrength6" placeholder="" value="1" disabled>
+                            <label for="avgCompStrength6">Avg Comp Strength-6</label>
+                        </div>
+                        <!-- fgThicknessAvg -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="fgThicknessAvg" placeholder="" value="1.123" disabled>
+                            <label for="fgThicknessAvg">Thickness Avg FG</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- fgBoardProfile -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="fgBoardProfile" placeholder="" value="1" disabled>
+                            <label for="fgBoardProfile">Board Profile FG</label>
+                        </div>
+                        <!-- initialRValueAvgQC -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="initialRValueAvgQC" placeholder="" value="1.124" disabled>
+                            <label for="initialRValueAvgQC">Initial R Value Avg</label>
+                        </div>
+                        <!-- facerPeelAvgQC -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center illegalValue" id="facerPeelAvgQC" placeholder="" value="1" disabled>
+                            <label for="facerPeelAvgQC">Facer Peel Avg</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <!-- ipQcSummary Card -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">IP QC Summary</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- warehouseTemp -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="warehouseTemp" placeholder="" value="1.670" disabled>
+                            <label for="warehouseTemp">Warehouse Temp</label>
+                        </div>
+                        <!-- warehouseHumidity -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="warehouseHumidity" placeholder="" value="1" disabled>
+                            <label for="warehouseHumidity">Warehouse Humidity</label>
+                        </div>
+                        <!-- bundleHeightIP -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="bundleHeightIP" placeholder="" value="1" disabled>
+                            <label for="bundleHeightIP">Bundle Height IP</label>
+                        </div>
+                        <!-- thicknessIP -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="thicknessIP" placeholder="" value="1.123" disabled>
+                            <label for="thicknessIP">Thickness IP</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- coreDensityIP -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="coreDensityIP" placeholder="" value="1" disabled>
+                            <label for="coreDensityIP">Core Density IP</label>
+                        </div>
+                        <!-- avgCompStrength5IP -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="avgCompStrength5IP" placeholder="" value="1.124" disabled>
+                            <label for="avgCompStrength5IP">Avg Comp Strength-5 IP</label>
+                        </div>
+                        <!-- avgCompStrength6IP -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="avgCompStrength6IP" placeholder="" value="1.124" disabled>
+                            <label for="avgCompStrength6IP">Avg Comp Strength-6 IP</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Thickness Card -->
+    <div class="card card-default col-md-3">
+        <div class="card-header align-items-center">
+            <h2 class="">Thickness</h2>
+        </div>
+        <div class="card-body d-flex flex-column justify-content-evenly">
+            <p class="text-end" style="color: #894DD9">WEST</p>
+            <!-- Thickness Ip -1 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp1" placeholder="" value="1">
+                <label for="thicknessIp1">Thickness Ip 1</label>
+            </div>
+            <!-- Thickness Ip -2 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp2" placeholder="" value="1">
+                <label for="thicknessIp2">Thickness Ip 2</label>
+            </div>
+            <!-- Thickness Ip -3 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp3" placeholder="" value="1">
+                <label for="thicknessIp3">Thickness Ip 3</label>
+            </div>
+            <!-- Thickness Ip -4 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp4" placeholder="" value="1">
+                <label for="thicknessIp4">Thickness Ip 4</label>
+            </div>
+            <!-- Thickness Ip -5 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp5" placeholder="" value="1">
+                <label for="thicknessIp5">Thickness Ip 5</label>
+            </div>
+            <!-- Thickness Ip -6 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp6" placeholder="" value="1">
+                <label for="thicknessIp6">Thickness Ip 6</label>
+            </div>
+            <!-- Thickness Ip -7 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp7" placeholder="" value="1">
+                <label for="thicknessIp7">Thickness Ip 7</label>
+            </div>
+            <!-- Thickness Ip -8 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp8" placeholder="" value="1">
+                <label for="thicknessIp8">Thickness Ip 8</label>
+            </div>
+            <!-- Thickness Ip -9 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp9" placeholder="" value="1">
+                <label for="thicknessIp9">Thickness Ip 9</label>
+            </div>
+            <!-- Thickness Ip -10 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp10" placeholder="" value="1">
+                <label for="thicknessIp10">Thickness Ip 10</label>
+            </div>
+            <!-- Thickness Ip -11 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp11" placeholder="" value="1">
+                <label for="thicknessIp11">Thickness Ip 11</label>
+            </div>
+            <!-- Thickness Ip -12 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp12" placeholder="" value="1">
+                <label for="thicknessIp12">Thickness Ip 12</label>
+            </div>
+            <!-- Thickness Ip -13 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp13" placeholder="" value="1">
+                <label for="thicknessIp13">Thickness Ip 13</label>
+            </div>
+            <!-- Thickness Ip -14 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp14" placeholder="" value="1">
+                <label for="thicknessIp14">Thickness Ip 14</label>
+            </div>
+            <!-- Thickness Ip -15 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp15" placeholder="" value="1">
+                <label for="thicknessIp15">Thickness Ip 15</label>
+            </div>
+            <!-- Thickness Ip -16 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp16" placeholder="" value="1">
+                <label for="thicknessIp16">Thickness Ip 16</label>
+            </div>
+            <!-- Thickness Ip -17 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp17" placeholder="" value="1">
+                <label for="thicknessIp17">Thickness Ip 17</label>
+            </div>
+            <p class="text-end" style="color: #894DD9">EAST</p>
+        </div>
+    </div>
+
+    <div class="col-md-9 ps-4 pe-2">
+        <div class="row">
+            <div class="col-md-5">
+                <!-- Compressive Strength Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Compressive Strength</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <p class="text-end" style="color: #894DD9">Knit Line</p>
+                                <!-- compStrength1 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength1" placeholder="" value="1">
+                                        <label for="compStrength1">Comp. Str-1</label>
+                                    </div>
+
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength1Check">
+                                        <label class="custom-control-label" for="compStrength1Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrength2 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength2" placeholder="" value="1">
+                                        <label for="compStrength2">Comp. Str-2</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength2Check">
+                                        <label class="custom-control-label" for="compStrength2Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrength3 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength3" placeholder="" value="1">
+                                        <label for="compStrength3">Comp. Str-3</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength3Check">
+                                        <label class="custom-control-label" for="compStrength3Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrength4 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength4" placeholder="" value="1">
+                                        <label for="compStrength4">Comp. Str-4</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength4Check">
+                                        <label class="custom-control-label" for="compStrength4Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrength5 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength5" placeholder="" value="1">
+                                        <label for="compStrength5">Comp. Str-5</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength5Check">
+                                        <label class="custom-control-label" for="compStrength5Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrength6 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength6" placeholder="" value="1">
+                                        <label for="compStrength6">Comp. Str-6</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength6Check">
+                                        <label class="custom-control-label" for="compStrength6Check"> </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <!-- Comments -->
+                                <div class="form-floating mt-5">
+                                    <textarea class="form-control" placeholder="Address" id="compStrengthComments" style="height: 350px;"></textarea>
+                                    <label for="compStrengthComments">Comments</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <!-- Compressive Strength Retest Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Compressive Strength - Retest</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="text-end" style="color: #894DD9">Knit Line</p>
+                                <!-- compStrengthRetest1 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest1" placeholder="" value="1">
+                                        <label for="compStrengthRetest1">Comp. Str-1</label>
+                                    </div>
+
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest1Check">
+                                        <label class="custom-control-label" for="compStrengthRetest1Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrengthRetest2 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest2" placeholder="" value="1">
+                                        <label for="compStrengthRetest2">Comp. Str-2</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest2Check">
+                                        <label class="custom-control-label" for="compStrengthRetest2Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrengthRetest3 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest3" placeholder="" value="1">
+                                        <label for="compStrengthRetest3">Comp. Str-3</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest3Check">
+                                        <label class="custom-control-label" for="compStrengthRetest3Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrengthRetest4 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest4" placeholder="" value="1">
+                                        <label for="compStrengthRetest4">Comp. Str-4</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest4Check">
+                                        <label class="custom-control-label" for="compStrengthRetest4Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrengthRetest5 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest5" placeholder="" value="1">
+                                        <label for="compStrengthRetest5">Comp. Str-5</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest5Check">
+                                        <label class="custom-control-label" for="compStrengthRetest5Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrengthRetest6 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest6" placeholder="" value="1">
+                                        <label for="compStrengthRetest6">Comp. Str-6</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest6Check">
+                                        <label class="custom-control-label" for="compStrengthRetest6Check"> </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-auto">
+                                <!-- retestCollectionTime -->
+                                <div class="form-floating mb-3">
+                                    <input type="datetime-local" class="form-control text-center" id="retestCollectionTime" value="2024-06-13T08:24">
+                                    <label for="retestCollectionTime">Retest Collection Time</label>
+                                </div>
+                                <!-- retestFromSameBundleCheck -->
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="retestFromSameBundleCheck" checked="checked">
+                                    <label class="custom-control-label" for="retestFromSameBundleCheck">Is Retest From Same Bundle?</label>
+                                </div>
+                                <!-- restestAvgCompStrength5 -->
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control text-center" id="restestAvgCompStrength5" placeholder="" value="1.124" disabled>
+                                    <label for="restestAvgCompStrength5">Retest Avg Comp Strength - 5</label>
+                                </div>
+                                <!-- restestAvgCompStrength6 -->
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control text-center" id="restestAvgCompStrength6" placeholder="" value="1.124" disabled>
+                                    <label for="restestAvgCompStrength6">Retest Avg Comp Strength - 6</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- RValue Card -->
+            <div class="card card-default">
+                <div class="card-header align-items-center">
+                    <h2 class="">R Value</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-5">
+                            <p class="text-center" style="color: #894DD9">k Factor</p>
+                        </div>
+                        <div class="col-2">
+                            <p class="text-center" style="color: #894DD9">Knit Line</p>
+                        </div>
+                        <div class="col-5">
+                            <p class="text-center" style="color: #894DD9">Test Time & Date</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-5">
+                            <!-- rWest -->
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control" id="rWest" placeholder="" value="1">
+                                <label for="rWest">West</label>
+                            </div>
+                        </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <!-- rWestKnitLine -->
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="rWestKnitLine">
+                                <label class="custom-control-label" for="rWestKnitLine"> </label>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <!-- rWestTestTime -->
+                            <div class="form-floating mb-3">
+                                <input type="datetime-local" class="form-control text-center" id="rWestTestTime" value="2024-06-13T08:24">
+                                <label for="rWestTestTime">Test Time</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-5">
+                            <!-- rCenter -->
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control" id="rCenter" placeholder="" value="1">
+                                <label for="rCenter">Center</label>
+                            </div>
+                        </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <!-- rCenterKnitLine -->
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="rCenterKnitLine">
+                                <label class="custom-control-label" for="rCenterKnitLine"> </label>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <!-- rCenterTestTime -->
+                            <div class="form-floating mb-3">
+                                <input type="datetime-local" class="form-control text-center" id="rCenterTestTime" value="2024-06-13T08:24">
+                                <label for="rCenterTestTime">Test Time</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-5">
+                            <!-- rEast -->
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control" id="rEast" placeholder="" value="1">
+                                <label for="rEast">East</label>
+                            </div>
+                        </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <!-- rEastKnitLine -->
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="rEastKnitLine">
+                                <label class="custom-control-label" for="rEastKnitLine"> </label>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <!-- rEastTestTime -->
+                            <div class="form-floating mb-3">
+                                <input type="datetime-local" class="form-control text-center" id="rEastTestTime" value="2024-06-13T08:24">
+                                <label for="rEastTestTime">Test Time</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- initialRValueAvg -->
+                    <div class="form-floating mb-2 w-25">
+                        <input type="number" class="form-control" id="initialRValueAvg" placeholder="" value="1.231" disabled>
+                        <label for="initialRValueAvg">Initial R Value Avg</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- AgedRValue Card -->
+            <div class="card card-default">
+                <div class="card-header align-items-center">
+                    <h2 class="">Aged R Value - k Factor</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <p class="text-center" style="color: #894DD9">90 Day - k Factor</p>
+                        </div>
+                        <div class="col-3">
+                            <p class="text-center" style="color: #894DD9">Date Measured</p>
+                        </div>
+                        <div class="col-3">
+                            <p class="text-center" style="color: #894DD9">180 Day - k Factor</p>
+                        </div>
+                        <div class="col-3">
+                            <p class="text-center" style="color: #894DD9">Date Measured</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <!-- agedR90West -->
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control" id="agedR90West" placeholder="" value="1">
+                                <label for="agedR90West">West</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <!-- agedR90MeasureTimeWest -->
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control text-center" id="agedR90MeasureTimeWest" value="2024-06-13">
+                                <label for="agedR90MeasureTimeWest">Measure Date</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <!-- agedR180West -->
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control" id="agedR180West" placeholder="" value="1">
+                                <label for="agedR180West">West</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <!-- agedR180MeasureTimeWest -->
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control text-center" id="agedR180MeasureTimeWest" value="2024-06-13">
+                                <label for="agedR180MeasureTimeWest">Measure Date</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <!-- agedR90Center -->
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control" id="agedR90Center" placeholder="" value="1">
+                                <label for="agedR90Center">Center</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <!-- agedR90MeasureTimeCenter -->
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control text-center" id="agedR90MeasureTimeCenter" value="2024-06-13">
+                                <label for="agedR90MeasureTimeCenter">Measure Date</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <!-- agedR180Center -->
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control" id="agedR180Center" placeholder="" value="1">
+                                <label for="agedR180Center">Center</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <!-- agedR180MeasureTimeCenter -->
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control text-center" id="agedR180MeasureTimeCenter" value="2024-06-13">
+                                <label for="agedR180MeasureTimeCenter">Measure Date</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <!-- agedR90East -->
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control" id="agedR90East" placeholder="" value="1">
+                                <label for="agedR90East">East</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <!-- agedR90MeasureTimeEast -->
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control text-center" id="agedR90MeasureTimeEast" value="2024-06-13">
+                                <label for="agedR90MeasureTimeEast">Measure Date</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <!-- agedR180East -->
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control" id="agedR180East" placeholder="" value="1">
+                                <label for="agedR180East">East</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <!-- agedR180MeasureTimeEast -->
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control text-center" id="agedR180MeasureTimeEast" value="2024-06-13">
+                                <label for="agedR180MeasureTimeEast">Measure Date</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- agedRValueAvg90 -->
+                        <div class="form-floating mb-2 w-50">
+                            <input type="number" class="form-control" id="agedRValueAvg90" placeholder="" value="1.231" disabled>
+                            <label for="agedRValueAvg90">Aged R Value Avg - 90 Days</label>
+                        </div>
+                        <!-- agedRValueAvg180 -->
+                        <div class="form-floating mb-2 w-50">
+                            <input type="number" class="form-control" id="agedRValueAvg180" placeholder="" value="1.231" disabled>
+                            <label for="agedRValueAvg180">Aged R Value Avg - 180 Days</label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12">
+        <!-- Core Density Card -->
+        <div class="card card-default">
+            <style>
+                .coreDensityTable td {
+                    padding: 2px;
+                }
+            </style>
+            <div class="card-header align-items-center">
+                <h2 class="">Core Density</h2>
+            </div>
+            <div class="card-body">
+                <table class="table coreDensityTable">
+                    <thead>
+                        <tr class="text-center">
+                            <th></th>
+                            <th>Mass</th>
+                            <th>Length</th>
+                            <th>Width</th>
+                            <th colspan="5">Thickness</th>
+                            <th>Core Knit Present</th>
+                            <th>Density</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>WEST</th>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control " value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control " value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control text-center" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control text-center" value="2.1">
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <label class="switch switch-primary switch-pill form-control-label ">
+                                    <input type="checkbox" class="switch-input form-check-input" id="">
+                                    <span class="switch-label"></span>
+                                    <span class="switch-handle"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control text-center" value="2.1" disabled>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>CENTER</th>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control " value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control " value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control text-center" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control text-center" value="2.1">
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <label class="switch switch-primary switch-pill form-control-label ">
+                                    <input type="checkbox" class="switch-input form-check-input" id="">
+                                    <span class="switch-label"></span>
+                                    <span class="switch-handle"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control text-center" value="2.1" disabled>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>EAST</th>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control " value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control " value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control text-center" value="2.1">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control text-center" value="2.1">
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <label class="switch switch-primary switch-pill form-control-label ">
+                                    <input type="checkbox" class="switch-input form-check-input" id="">
+                                    <span class="switch-label"></span>
+                                    <span class="switch-handle"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm ">
+                                    <input type="number" class="form-control text-center" value="2.1" disabled>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <!-- fgBoardDimenstions Card -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">FG Board Dimensions</h2>
+            </div>
+            <div class="card-body">
+                <!-- fgBoardLength -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="fgBoardLength" placeholder="" value="1.670">
+                    <label for="fgBoardLength">length</label>
+                </div>
+                <!-- fgBoardWidth -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="fgBoardWidth" placeholder="" value="1">
+                    <label for="fgBoardWidth">Width</label>
+                </div>
+                <!-- fgBoardDiagonal1 -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="fgBoardDiagonal1" placeholder="" value="1">
+                    <label for="fgBoardDiagonal1">Diagonal 1</label>
+                </div>
+                <!-- fgBoardDiagonal2 -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="fgBoardDiagonal2" placeholder="" value="1">
+                    <label for="fgBoardDiagonal2">Diagonal 2</label>
+                </div>
+                <!-- fgBoardDiagonalDifference -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="fgBoardDiagonalDifference" placeholder="" value="1.123" disabled>
+                    <label for="fgBoardDiagonalDifference">Abs. Diagonal Diff.</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <!-- bundleTemps Card -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">Bundle Temps</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- btLoggerID -->
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control text-center" id="btLoggerID" placeholder="">
+                            <label for="btLoggerID">Logger ID #</label>
+                        </div>
+                        <!-- btInitialProbeTemp -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="btInitialProbeTemp" placeholder="" value="1.13">
+                            <label for="btInitialProbeTemp">Initial Probe Temp</label>
+                        </div>
+                        <!-- btInitialProbeTime -->
+                        <div class="form-floating mb-2">
+                            <input type="datetime-local" class="form-control" id="btInitialProbeTime" value="2024-06-13T08:24">
+                            <label for="btInitialProbeTime">Initial Probe Time</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- btMaxProbeTemp -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="btMaxProbeTemp" placeholder="" value="1.13">
+                            <label for="btMaxProbeTemp">Max. Probe Temp</label>
+                        </div>
+                        <!-- btMaxProbeTimeInitial -->
+                        <div class="form-floating mb-2">
+                            <input type="datetime-local" class="form-control" id="btInitialProbeTime" value="2024-06-13T08:24">
+                            <label for="btInitialProbeTime">Max Probe Time - Initial</label>
+                        </div>
+                        <!-- btMaxProbeTimeFinal -->
+                        <div class="form-floating mb-2">
+                            <input type="datetime-local" class="form-control" id="btMaxProbeTimeFinal" value="2024-06-13T08:24">
+                            <label for="btMaxProbeTimeFinal">Max Probe Time - Final</label>
+                        </div>
+                        <!-- btFinalProbeTemp -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="btFinalProbeTemp" placeholder="" value="1.13">
+                            <label for="btFinalProbeTemp">Final Probe Temp</label>
+                        </div>
+                        <!-- btFinalProbeTime -->
+                        <div class="form-floating mb-2">
+                            <input type="datetime-local" class="form-control" id="btFinalProbeTime" value="2024-06-13T08:24">
+                            <label for="btFinalProbeTime">Final Probe Time</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <!-- facerPeel Card -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">Facer Peel</h2>
+            </div>
+            <div class="card-body">
+                <!-- facerPeelWest -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="facerPeelWest" placeholder="" value="1.670">
+                    <label for="facerPeelWest">West</label>
+                </div>
+                <!-- facerPeelCenter -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="facerPeelCenter" placeholder="" value="1">
+                    <label for="facerPeelCenter">Center</label>
+                </div>
+                <!-- facerPeelEast -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="facerPeelEast" placeholder="" value="1">
+                    <label for="facerPeelEast">East</label>
+                </div>
+                <!-- facerPeelAvg -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="facerPeelAvg" placeholder="" value="1" disabled>
+                    <label for="facerPeelAvg">Avg</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <!-- NailPull Card -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">Nail Pull</h2>
+            </div>
+            <div class="card-body">
+                <!-- nailPullWest -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="nailPullWest" placeholder="" value="1.670">
+                    <label for="nailPullWest">West</label>
+                </div>
+                <!-- nailPullCenter -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="nailPullCenter" placeholder="" value="1">
+                    <label for="nailPullCenter">Center</label>
+                </div>
+                <!-- nailPullEast -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="nailPullEast" placeholder="" value="1">
+                    <label for="nailPullEast">East</label>
+                </div>
+                <!-- nailPullAvg -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="nailPullAvg" placeholder="" value="1" disabled>
+                    <label for="nailPullAvg">Avg</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

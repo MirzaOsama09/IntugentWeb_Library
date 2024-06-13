@@ -1,0 +1,249 @@
+﻿@page
+@using IntugentWebApp.Models
+@model IntugentWebApp.Pages.RnD_Users.HomeModel
+@{
+    ViewData["ActivePage"] = "R&D Home Page";
+}
+
+<!-- Error message -->
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="row">
+    <div class="col">
+
+        <!-- Search Card -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">Search Historical Data</h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <!-- Testing Status -->
+                            <div class="form-floating mb-2">
+                                <select class="form-select" id="testingStatus">
+                                    <option selected>Testing in Progress</option>
+                                    <option value="1">Property Testing Complete</option>
+                                    <option value="2">Abandoned</option>
+                                </select>
+                                <label for="testingStatus">Testing Status</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <!-- Product Code -->
+                            <div class="form-floating mb-2">
+                                <select class="form-select" id="productCode">
+                                    <option selected>PR 101</option>
+                                    <option value="1">PR 102</option>
+                                    <option value="2">PR 103</option>
+                                </select>
+                                <label for="productCode">Product Code</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <!-- Study Type -->
+                            <div class="form-floating mb-2">
+                                <select class="form-select" id="studyType">
+                                    <option selected>All Datasets</option>
+                                    <option value="1">R&D Study</option>
+                                    <option value="2">Mfg. Testing</option>
+                                </select>
+                                <label for="studyType">Study Type</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <!-- Group -->
+                            <div class="mb-2 row">
+                                <label for="Group" class="col-md-3 col-form-label">Group</label>
+                                <div class="col-md-9">
+                                    <input type="text" value="Global R&D" class="form-control" id="Group" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <!-- After Date -->
+                            <div class="form-floating mb-2">
+                                <input type="date" class="form-control" id="afterDate" placeholder="">
+                                <label for="afterDate">Experiment Date - After or At</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+
+                            <!-- Before Date -->
+                            <div class="form-floating mb-2">
+                                <input type="date" class="form-control" id="beforeDate">
+                                <label for="beforeDate">Experiment Date - Before or At</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Project Study Name -->
+                            <div class="form-floating mb-2">
+                                <input type="text" class="form-control" id="projectStudyName" placeholder="">
+                                <label for="projectStudyName">Project/Study Name - Contains</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 d-flex justify-content-end">
+                            <div class="row" style="margin: 0;">
+                                <button type="button" class="btn btn-primary m-auto">
+                                    Retrieve Top 20 Datasets
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="text-end">
+    <button type="button" class="btn btn-primary mb-5">
+        Copy All Datasets Meeting Search Criteria
+    </button>
+</div>
+
+<div class="row">
+    <div class="col">
+
+        <!-- Search Results -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">Search Results - Select any Data Record in the List Below to see Detailed Data</h2>
+            </div>
+            <div class="card-body">
+                <table id="searchResultsTable" class="table table-hover table-product dataTable" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Date Started</th>
+                            <th>Study Name</th>
+                            <th>Operator</th>
+                            <th>Chemist</th>
+                            <th>Product</th>
+                            <th>Select</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.searchResults != null && Model.searchResults.Count > 0)
+                        {
+                            foreach (RNDSearchResult sr in Model.searchResults)
+                            {
+                                <tr>
+                                    <td>@sr.ID</td>
+                                    <td>@sr.DateDSCreated</td>
+                                    <td>@sr.StudyName</td>
+                                    <td>@sr.Operator</td>
+                                    <td>@sr.Chemist</td>
+                                    <td>@sr.ProductID</td>
+                                    <td>
+                                        <label class="switch switch-primary switch-pill form-control-label ">
+                                            <input type="checkbox" class="switch-input form-check-input" id="select_@sr.ID">
+                                            <span class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="text-end">
+    <button type="button" class="btn btn-primary mb-2">
+        Create A New Dataset
+    </button>
+</div>
+
+
+@{
+    // if some dataset is already selected.. set its checkbox to checked..
+    if (Model.selectedDatasetID != null)
+    {
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var currentId = @Html.Raw(Model.selectedDatasetID);
+
+                if (currentId) {
+
+                    var checkbox = document.getElementById('select_' + currentId);
+
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
+                }
+            });
+        </script>
+    }
+}
+
+@section Scripts {
+
+    <script>
+        
+        // handle checkbox change event
+        $('input[type="checkbox"]').change(function () {
+            if ($(this).is(':checked')) {
+                var selectedID = $(this).attr('id').substring(7); // remove "select_" prefix
+                unselectAllRows($(this).attr('id'));
+                localStorage.setItem('selectedDataSetId', selectedID);
+                sendIdToServer(selectedID);
+            }
+        });
+
+        // unselect all other rows
+        function unselectAllRows(selectedID) {
+            $('input[type="checkbox"]').each(function () {
+                if ($(this).attr('id') !== selectedID) {
+                    $(this).prop('checked', false);
+                }
+            });
+        }
+
+        // send id to server-side
+        function sendIdToServer(selectedID) {
+
+            $.ajax({
+                type: "POST",
+                url: "/RnD_Users/Home?handler=CheckboxSelected",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { id: selectedID },
+                success: function (response) {
+                    console.log('Server response:', response);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+
+            
+        }
+
+    </script>
+}
+
