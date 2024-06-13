@@ -1,0 +1,12 @@
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\bin\Release\net8.0\IntugentClassLibrary.deps.json
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\bin\Release\net8.0\IntugentClassLibrary.dll
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\bin\Release\net8.0\IntugentClassLibrary.pdb
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\obj\Release\net8.0\IntugentClassLibrary.csproj.AssemblyReference.cache
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\obj\Release\net8.0\IntugentClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\obj\Release\net8.0\IntugentClassLibrary.AssemblyInfoInputs.cache
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\obj\Release\net8.0\IntugentClassLibrary.AssemblyInfo.cs
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\obj\Release\net8.0\IntugentClassLibrary.csproj.CoreCompileInputs.cache
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\obj\Release\net8.0\IntugentClassLibrary.dll
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\obj\Release\net8.0\refint\IntugentClassLibrary.dll
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\obj\Release\net8.0\IntugentClassLibrary.pdb
+D:\Projects\IntugentWebApp\Library\IntugentClassLbrary\IntugentClassLbrary\obj\Release\net8.0\ref\IntugentClassLibrary.dll
