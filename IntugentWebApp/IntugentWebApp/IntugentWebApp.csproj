@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\Mfg_Group\testing.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Mfg_Group\DimensionStability.cshtml" />
+    <Content Remove="Pages\Mfg_Group\testing.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="wwwroot\Controllers\Mfg\MfgHomeController.cs" />
+    <Compile Include="wwwroot\Controllers\RnD\FormulationsController.cs" />
+    <Compile Include="wwwroot\Controllers\RnD\RndHomeController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="IntugentClassLibrary">
+      <HintPath>..\..\Library\IntugentClassLbrary\IntugentClassLbrary\bin\Release\net8.0\IntugentClassLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Mfg_Group\DimensionStability.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Mfg_Group\DimensionStability.cshtml" />
+  </ItemGroup>
+
+</Project>

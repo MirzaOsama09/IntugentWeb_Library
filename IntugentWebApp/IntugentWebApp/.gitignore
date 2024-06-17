@@ -1,0 +1,115 @@
+# Visual Studio files
+.vs/
+*.vscode/
+*_i.c/
+*.suo
+*.sln.docstates
+*.user
+*.suo
+*.cache
+*.pdb
+*.cache
+*.ilk
+*.log
+*.bin
+*.obj
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2015/2017/2019 cache/options directory
+.vscode/
+.vs/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.docstates
+*.sln.ide
+*.dbmdl
+*.dbproj.suo
+*.jfm
+*.gpState
+Server/sqlite3
+TestResults/
+
+# Rider
+.idea/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet
+packages/
+*.nupkg
+*.paket.*
+*.paket/
+!.paket/paket.exe
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# TeamCity
+_TeamCity*
+
+# Cake - Uncomment if you are using Cake to build the project
+# tools/**
+# !tools/packages.config
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# Visual Studio Code specific files
+.vscode/
+*.code-workspace
+
+# Xamarin-specific
+*.sln.ide
+*.userprefs
+*.apk
+*.ap_
+
+# Rider
+.idea/
+*.sln.iml
+
+# Resharper
+_ReSharper*/
+
+# Rider
+.idea/
+
+# End of Visual Studio specific files

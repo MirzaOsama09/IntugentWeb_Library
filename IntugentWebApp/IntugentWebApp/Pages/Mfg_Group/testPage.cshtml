@@ -1,0 +1,947 @@
+﻿@page
+@model IntugentWebApp.Pages.Mfg_Group.testPageModel
+@{
+    ViewData["ActivePage"] = "test";
+}
+
+<!-- Error message -->
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+
+<div class="row">
+    <div class="col-4">
+    <!-- General Info Card -->
+    <div class="card card-default">
+        <div class="card-header align-items-center">
+            <h2 class="">General Info</h2>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <!-- Dataset -->
+                        <div class="row mb-2">
+                            <label for="dataset" class="col-3 col-form-label text-end">Dataset</label>
+                            <div class="input-group col-9 d-flex">
+                                <button class="btn btn-primary m-auto" type="button" style="padding: 9px"><span class="mdi mdi-chevron-left"></span></button>
+                                <input type="number" class="form-control text-center w-50" value="425" disabled>
+                                <button class="btn btn-primary m-auto" type="button" style="padding: 9px"><span class="mdi mdi-chevron-right"></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 ps-4">
+                        <!-- inProcessTestingComplete -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="inProcessTestingComplete" checked="checked">
+                            <label class="custom-control-label" for="inProcessTestingComplete">In Process Testing Complete</label>
+                        </div>
+                        <!-- abandoned -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="abandoned" checked="checked">
+                            <label class="custom-control-label" for="abandoned">Abandoned</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 d-flex justify-content-end m-sm-2 m-lg-0">
+                        <div class="row" style="margin: 0;">
+                            <button type="button" class="btn btn-primary m-auto">
+                                Create New Dataset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <!-- Run Type -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="runType">
+                                <option value="1">Regular Mfg.</option>
+                                <option value="2">Trial Run</option>
+                                <option selected>All Datasets</option>
+                            </select>
+                            <label for="runType">Run Type</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <!-- Product Code -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="productCode">
+                                <option selected>PR 101</option>
+                                <option value="1">PR 102</option>
+                                <option value="2">PR 103</option>
+                            </select>
+                            <label for="productCode">Product Code</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <!-- paperManufacturer -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="paperManufacturer">
+                                <option value="1">Alabama</option>
+                                <option value="2">Atlas</option>
+                                <option selected>California</option>
+                            </select>
+                            <label for="paperManufacturer">Paper Manufacturer</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <!-- shift -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="shift">
+                                <option selected>A</option>
+                                <option value="1">B</option>
+                                <option value="2">C</option>
+                                <option value="2">D</option>
+                            </select>
+                            <label for="shift">Shift</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <!-- operator -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="operator">
+                                <option selected>Harrison.Maxwell@gaf.com</option>
+                                <option value="1">Lindsay.Tanner@gaf.com</option>
+                                <option value="2">Asjad</option>
+                            </select>
+                            <label for="operator">Operator</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <!-- runningWetDensity -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control" id="runningWetDensity" placeholder="" value="1">
+                            <label for="runningWetDensity">Running Wet Density</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <!-- warehouseTemp -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control" id="warehouseTemp" placeholder="" value="1">
+                            <label for="warehouseTemp">Warehouse Temp</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <!-- warehouseHumidity -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control" id="warehouseHumidity" placeholder="" value="1">
+                            <label for="warehouseHumidity">Warehouse Humidity</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <!-- Before Date -->
+                        <div class="form-floating mb-2">
+                            <input type="datetime-local" class="form-control" id="beforeDate">
+                            <label for="beforeDate">Manufactured - Before or At</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <!-- checkTimestamp -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkTimestamp" checked="checked">
+                            <label class="custom-control-label" for="checkTimestamp">Check if TimeStamp NOT legible</label>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Thickness Card -->
+    <div class="card card-default col-md-3">
+        <div class="card-header align-items-center">
+            <h2 class="">Thickness</h2>
+        </div>
+        <div class="card-body d-flex flex-column justify-content-evenly">
+            <p class="text-end" style="color: #894DD9">WEST</p>
+            <!-- Thickness Ip -1 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp1" placeholder="" value="1">
+                <label for="thicknessIp1">Thickness Ip 1</label>
+            </div>
+            <!-- Thickness Ip -2 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp2" placeholder="" value="1">
+                <label for="thicknessIp2">Thickness Ip 2</label>
+            </div>
+            <!-- Thickness Ip -3 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp3" placeholder="" value="1">
+                <label for="thicknessIp3">Thickness Ip 3</label>
+            </div>
+            <!-- Thickness Ip -4 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp4" placeholder="" value="1">
+                <label for="thicknessIp4">Thickness Ip 4</label>
+            </div>
+            <!-- Thickness Ip -5 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp5" placeholder="" value="1">
+                <label for="thicknessIp5">Thickness Ip 5</label>
+            </div>
+            <!-- Thickness Ip -6 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp6" placeholder="" value="1">
+                <label for="thicknessIp6">Thickness Ip 6</label>
+            </div>
+            <!-- Thickness Ip -7 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp7" placeholder="" value="1">
+                <label for="thicknessIp7">Thickness Ip 7</label>
+            </div>
+            <!-- Thickness Ip -8 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp8" placeholder="" value="1">
+                <label for="thicknessIp8">Thickness Ip 8</label>
+            </div>
+            <!-- Thickness Ip -9 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp9" placeholder="" value="1">
+                <label for="thicknessIp9">Thickness Ip 9</label>
+            </div>
+            <!-- Thickness Ip -10 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp10" placeholder="" value="1">
+                <label for="thicknessIp10">Thickness Ip 10</label>
+            </div>
+            <!-- Thickness Ip -11 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp11" placeholder="" value="1">
+                <label for="thicknessIp11">Thickness Ip 11</label>
+            </div>
+            <!-- Thickness Ip -12 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp12" placeholder="" value="1">
+                <label for="thicknessIp12">Thickness Ip 12</label>
+            </div>
+            <!-- Thickness Ip -13 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp13" placeholder="" value="1">
+                <label for="thicknessIp13">Thickness Ip 13</label>
+            </div>
+            <!-- Thickness Ip -14 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp14" placeholder="" value="1">
+                <label for="thicknessIp14">Thickness Ip 14</label>
+            </div>
+            <!-- Thickness Ip -15 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp15" placeholder="" value="1">
+                <label for="thicknessIp15">Thickness Ip 15</label>
+            </div>
+            <!-- Thickness Ip -16 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp16" placeholder="" value="1">
+                <label for="thicknessIp16">Thickness Ip 16</label>
+            </div>
+            <!-- Thickness Ip -17 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp17" placeholder="" value="1">
+                <label for="thicknessIp17">Thickness Ip 17</label>
+            </div>
+            <p class="text-end" style="color: #894DD9">EAST</p>
+        </div>
+    </div>
+
+    <div class="col-md-9 ps-4 pe-2">
+        <div class="row">
+            <div class="col-md-8 px-1">
+                <!-- Avg Values Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Average Values</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- coreDensityAvg -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="coreDensityAvg" placeholder="" value="1.670" disabled>
+                                    <label for="coreDensityAvg">Core Density Avg</label>
+                                </div>
+                                <!-- thicknessAvg -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="thicknessAvg" placeholder="" value="1.123" disabled>
+                                    <label for="thicknessAvg">Thickness Avg</label>
+                                </div>
+                                <!-- thicknessValley -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="thicknessValley" placeholder="" value="1.124" disabled>
+                                    <label for="thicknessValley">Thickness Valley</label>
+                                </div>
+                                <!-- thicknessPeak -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="thicknessPeak" placeholder="" value="1" disabled>
+                                    <label for="thicknessPeak">Thickness Peak</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <!-- boardProfile -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="boardProfile" placeholder="" value="1" disabled>
+                                    <label for="boardProfile">Board Profile</label>
+                                </div>
+                                <!-- avgCompStrength5 -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="avgCompStrength5" placeholder="" value="1" disabled>
+                                    <label for="avgCompStrength5">Avg Comp Strength-5</label>
+                                </div>
+                                <!-- avgCompStrength6 -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="avgCompStrength6" placeholder="" value="1" disabled>
+                                    <label for="avgCompStrength6">Avg Comp Strength-6</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Board Dimensions Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Board Dimensions</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- length -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="length" placeholder="" value="1">
+                                    <label for="length">Length</label>
+                                </div>
+                                <!-- width -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="width" placeholder="" value="1">
+                                    <label for="width">Width</label>
+                                </div>
+                                <!-- bundleHeightIP -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="bundleHeightIP" placeholder="" value="1">
+                                    <label for="bundleHeightIP">Bundle Height IP</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <!-- diagonal1 -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="diagonal1" placeholder="" value="1">
+                                    <label for="diagonal1">Diagonal 1</label>
+                                </div>
+                                <!-- diagonal2 -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="diagonal2" placeholder="" value="1">
+                                    <label for="diagonal2">Diagonal 2</label>
+                                </div>
+                                <!-- absDifference -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="absDifference" placeholder="" value="1">
+                                    <label for="absDifference">Abs. Difference</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="row m-auto">
+                    <div class="col-md-6">
+                        <!-- avgThicknessEachSide Card -->
+                        <div class="card card-default">
+                            <div class="card-header align-items-center">
+                                <h2 class="">Avg Thickness of Each Side</h2>
+                            </div>
+                            <div class="card-body">
+                                <!-- avgThickness1to8 -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="avgThickness1to8" placeholder="" value="1.145" disabled>
+                                    <label for="avgThickness1to8">Avg Thickness 1-8</label>
+                                </div>
+                                <!-- avgThickness10to17 -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="avgThickness10to17" placeholder="" value="1.1354" disabled>
+                                    <label for="avgThickness10to17">Avg Thickness 10-17</label>
+                                </div>
+                                <!-- thicknessSlope -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="thicknessSlope" placeholder="" value="0.123" disabled>
+                                    <label for="thicknessSlope">Thickness Slope</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Board Perforations Card -->
+                        <div class="card card-default">
+                            <div class="card-header align-items-center">
+                                <h2 class="">Board Perforations</h2>
+                            </div>
+                            <div class="card-body">
+                                <!-- topBoardPerforated -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="topBoardPerforated" checked="checked">
+                                    <label class="custom-control-label" for="topBoardPerforated">Top Board Perforated</label>
+                                </div>
+                                <!-- bottomBoardPerforated -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="bottomBoardPerforated" checked="checked">
+                                    <label class="custom-control-label" for="bottomBoardPerforated">Bottom Board Perforated</label>
+                                </div>
+                                <!-- topBoardPrintOK -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="topBoardPrintOK">
+                                    <label class="custom-control-label" for="topBoardPrintOK">Top Board Print OK</label>
+                                </div>
+                                <!-- bottomBoardPrintOK -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="bottomBoardPrintOK" checked="checked">
+                                    <label class="custom-control-label" for="bottomBoardPrintOK">Bottom Board Print OK</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="col-md-4 px-1">
+                <!-- Knit Line Locations Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Knit Line Locations from</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-end" style="color: #894DD9">WEST</p>
+                        <!-- kll1 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control" id="kll1" placeholder="" value="1">
+                            <label for="kll1">1st</label>
+                        </div>
+                        <!-- kll2 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control" id="kll2" placeholder="" value="1">
+                            <label for="kll2">2nd</label>
+                        </div>
+                        <!-- kll3 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control" id="kll3" placeholder="" value="1">
+                            <label for="kll3">3rd</label>
+                        </div>
+                        <!-- kll4 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control" id="kll4" placeholder="" value="1">
+                            <label for="kll4">4th</label>
+                        </div>
+                        <!-- kll5 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control" id="kll5" placeholder="" value="1">
+                            <label for="kll5">5th</label>
+                        </div>
+                        <!-- kll6 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control" id="kll6" placeholder="" value="1">
+                            <label for="kll6">6th</label>
+                        </div>
+                        <!-- kll7 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control" id="kll7" placeholder="" value="1">
+                            <label for="kll7">7th</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compressive Strength Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Compressive Strength</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-end" style="color: #894DD9">Knit Line</p>
+                        <!-- compressiveIP1 -->
+                        <div class="row">
+                            <div class="form-floating mb-2 col-9">
+                                <input type="number" class="form-control" id="compressiveIP1" placeholder="" value="1">
+                                <label for="compressiveIP1">Compressive IP-1</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP1Check">
+                                <label class="custom-control-label" for="compressiveIP1Check"> </label>
+                            </div>
+                        </div>
+
+                        <!-- compressiveIP2 -->
+                        <div class="row">
+                            <div class="form-floating mb-2 col-9">
+                                <input type="number" class="form-control" id="compressiveIP2" placeholder="" value="1">
+                                <label for="compressiveIP2">Compressive IP-2</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP2Check">
+                                <label class="custom-control-label" for="compressiveIP2Check"> </label>
+                            </div>
+                        </div>
+                        <!-- compressiveIP3 -->
+                        <div class="row">
+                            <div class="form-floating mb-2 col-9">
+                                <input type="number" class="form-control" id="compressiveIP3" placeholder="" value="1">
+                                <label for="compressiveIP3">Compressive IP-3</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP3Check">
+                                <label class="custom-control-label" for="compressiveIP3Check"> </label>
+                            </div>
+                        </div>
+                        <!-- compressiveIP4 -->
+                        <div class="row">
+                            <div class="form-floating mb-2 col-9">
+                                <input type="number" class="form-control" id="compressiveIP4" placeholder="" value="1">
+                                <label for="compressiveIP4">Compressive IP-4</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP4Check">
+                                <label class="custom-control-label" for="compressiveIP4Check"> </label>
+                            </div>
+                        </div>
+                        <!-- compressiveIP5 -->
+                        <div class="row">
+                            <div class="form-floating mb-2 col-9">
+                                <input type="number" class="form-control" id="compressiveIP5" placeholder="" value="1">
+                                <label for="compressiveIP5">Compressive IP-5</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP5Check">
+                                <label class="custom-control-label" for="compressiveIP5Check"> </label>
+                            </div>
+                        </div>
+                        <!-- compressiveIP6 -->
+                        <div class="row">
+                            <div class="form-floating mb-2 col-9">
+                                <input type="number" class="form-control" id="compressiveIP6" placeholder="" value="1">
+                                <label for="compressiveIP6">Compressive IP-6</label>
+                            </div>
+                            <div class="custom-control custom-checkbox col-3 text-center">
+                                <input type="checkbox" class="custom-control-input" id="compressiveIP6Check">
+                                <label class="custom-control-label" for="compressiveIP6Check"> </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col px-1">
+                <!-- Core Density Card -->
+                <div class="card card-default">
+                    <style>
+                        .coreDensityTable td {
+                            padding: 2px;
+                        }
+                    </style>
+                    <div class="card-header align-items-center">
+                        <h2 class="">Core Density</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table coreDensityTable">
+                            <thead>
+                                <tr class="text-center">
+                                    <th></th>
+                                    <th>Mass</th>
+                                    <th>Length</th>
+                                    <th>Width</th>
+                                    <th colspan="5">Thickness</th>
+                                    <th>Core Knit Present</th>
+                                    <th>Density</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>WEST</th>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <label class="switch switch-primary switch-pill form-control-label ">
+                                            <input type="checkbox" class="switch-input form-check-input" id="">
+                                            <span class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="2.1" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>CENTER</th>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <label class="switch switch-primary switch-pill form-control-label ">
+                                            <input type="checkbox" class="switch-input form-check-input" id="">
+                                            <span class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="2.1" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>EAST</th>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="2.1">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <label class="switch switch-primary switch-pill form-control-label ">
+                                            <input type="checkbox" class="switch-input form-check-input" id="">
+                                            <span class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="2.1" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Pour Table Card -->
+    <div class="card card-default ">
+        <div class="card-header align-items-center">
+            <h2 class="">Pour Table - In Process Check</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <!-- TimeQCCheck -->
+                    <div class="form-floating mb-2">
+                        <input type="datetime-local" class="form-control" id="timeQCCheck">
+                        <label for="timeQCCheck">Time of Pour Table QC Check</label>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <!-- surfactantType -->
+                    <div class="form-floating mb-2">
+                        <select class="form-select" id="surfactantType">
+                            <option selected>Harrison.Maxwell@gaf.com</option>
+                            <option value="1">Lindsay.Tanner@gaf.com</option>
+                            <option value="2">Asjad</option>
+                        </select>
+                        <label for="surfactantType">Surfactant Type</label>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <!-- pourHeadLayout -->
+                    <div class="form-floating mb-2">
+                        <select class="form-select" id="pourHeadLayout">
+                            <option selected>Harrison.Maxwell@gaf.com</option>
+                            <option value="1">Lindsay.Tanner@gaf.com</option>
+                            <option value="2">Asjad</option>
+                        </select>
+                        <label for="pourHeadLayout">Pour Head Layout</label>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <!-- irFacerTempUpper -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="irFacerTempUpper" placeholder="" value="1">
+                        <label for="irFacerTempUpper">IR Facer Temp-Upper</label>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <!-- irFacerTempLower -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="irFacerTempLower" placeholder="" value="1.2">
+                        <label for="irFacerTempLower">IR Facer Temp-Lower</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <!-- irstph -->
+                    <div class="form-floating mb-2">
+                        <label>IR Stream Temp - Pour Head</label>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <!-- irstphWest -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="irstphWest" placeholder="" value="1">
+                        <label for="irstphWest">West</label>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- irstphCenter -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="irstphCenter" placeholder="" value="1">
+                        <label for="irstphCenter">Center</label>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- irstphEast -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="irstphEast" placeholder="" value="1">
+                        <label for="irstphEast">East</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <!-- irstnr -->
+                    <div class="form-floating mb-2">
+                        <label>IR Stream Temp - Nip Roll</label>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <!-- irstnrWest -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="irstnrWest" placeholder="" value="1">
+                        <label for="irstnrWest">West</label>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- irstnrCenter -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="irstnrCenter" placeholder="" value="1">
+                        <label for="irstnrCenter">Center</label>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- irstnrEast -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="irstnrEast" placeholder="" value="1">
+                        <label for="irstnrEast">East</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <!-- phPosition -->
+                    <div class="form-floating mb-2">
+                        <label>Pour Head Position</label>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <!-- phPositionWest -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="phPositionWest" placeholder="" value="1">
+                        <label for="phPositionWest">West</label>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- phPositionCenter -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="phPositionCenter" placeholder="" value="1">
+                        <label for="phPositionCenter">Center</label>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- phPositionEast -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="phPositionEast" placeholder="" value="1">
+                        <label for="phPositionEast">East</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <!-- splitterAge -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="splitterAge" placeholder="" value="1">
+                        <label for="splitterAge">Splitter Age - Mins.</label>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <!-- headPlateAge -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="headPlateAge" placeholder="" value="1">
+                        <label for="headPlateAge">Head Plate Age/Pour Run Time - Mins.</label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

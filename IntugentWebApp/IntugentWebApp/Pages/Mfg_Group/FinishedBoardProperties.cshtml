@@ -1,0 +1,1709 @@
+﻿@page
+@model IntugentWebApp.Pages.Mfg_Group.FinishedBoardPropertiesModel
+@{
+    ViewData["ActivePage"] = "Finished Board Properties";
+}
+
+<!-- Error message -->
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="row ">
+    <!-- General Info Card -->
+    <div class="card card-default col-md-4" style="height:280px">
+        <div class="card-header align-items-center">
+            <h2 class="">General Info</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6 d-flex align-items-center">
+                    <!-- Dataset -->
+                    <label class="col-4 col-form-label text-end">Dataset</label>
+                    <div class="input-group col-8 d-flex">
+                        <button class="btn btn-primary m-auto" type="button" style="padding: 9px" name="" onclick="gNavClick('prev')"><span class="mdi mdi-chevron-left"></span></button>
+                        <input type="number" class="form-control text-center w-50" disabled value="@Model.gID">
+                        <button onclick="gNavClick('next')" class="btn btn-primary m-auto" type="button" style="padding: 9px"><span class="mdi mdi-chevron-right"></span></button>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- ipLength -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="ipLength" placeholder="" value="@Model.gIPLength" disabled />
+                        <label for="ipLength">IP Length</label>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- ipWidth -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="ipWidth" placeholder="" value="@Model.gIPWidth" disabled />
+                        <label for="ipWidth">IP Width</label>
+                    </div>
+                </div>
+
+               
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- mfgDate -->
+                    <div class="form-floating mb-2">
+                        <input type="datetime-local" class="form-control" id="mfgDate" value="@Model.gTestDate" disabled>
+                        <label for="mfgDate">Mfg. Date</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- productCode -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="productCode" placeholder="" value="@Model.gProdCode" disabled>
+                        <label for="productCode">Product Code</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                
+
+                <div class="col-md-5">
+                    <!-- finishedBoardTimeStamp -->
+                    <div class="form-floating mb-2">
+                        <input type="datetime-local" class="form-control" id="finishedBoardTimeStamp" value="@Model.gFBTimeStamp?.ToString("yyyy-MM-ddTHH:mm")" onblur="GenInfoQC_Time_LF(this.value)">
+                        <label for="finishedBoardTimeStamp">Finished Board Time Stamp</label>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <!-- bundleHeight -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="bundleHeight" placeholder="" value="@Model.gBundleHeight" onblur="GBundleHeight_LF(this.value)">
+                        <label for="bundleHeight">Bundle Height</label>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- passedQualityTesting -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="passedQualityTesting" checked="@Model.gTestingPassed" onchange="CheckBoxes_LFClick('gTestingPassed',this)">
+                        <label class="custom-control-label" for="passedQualityTesting">Passed Quality Testing</label>
+                    </div>
+                    <!-- fgTestingComplete -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="fgTestingComplete" checked="@Model.gFinsihedGoodsDone" onchange="CheckBoxes_LFClick('gFinsihedGoodsDone',this)">
+                        <label class="custom-control-label" for="fgTestingComplete">FG Testing Complete</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+        <!-- qcTimes Card -->
+    <div class="card card-default col-md-2" style="height:280px">
+            <div class="card-header align-items-center">
+                <h2 class="">QC Times</h2>
+            </div>
+            <div class="card-body my-3">
+                <!-- timePourTable -->
+                <div class="form-floating mb-2">
+                    <input type="time" class="form-control text-center" id="timePourTable" value="@Model.gTimePourTableQC" disabled>
+                    <label for="timePourTable">Time Pour Table QC Check</label>
+                </div>
+                <!-- inProcessBoardTimeStamp -->
+                <div class="form-floating mb-2">
+                    <input type="datetime-local" class="form-control text-center" id="inProcessBoardTimeStamp" value="@Model.gIPBoardTimeStamp" disabled>
+                    <label for="inProcessBoardTimeStamp">In Process Board Time Stamp</label>
+                </div>
+                <!-- nextDayQCCollectionTime -->
+                <div class="form-floating mb-2">
+                    <input type="datetime-local" class="form-control text-center illegalValue" id="nextDayQCCollectionTime" value="@Model.gQCTimesDateTime?.ToString("yyyy-MM-ddTHH:mm")" onblur="GQCTimesDateTime_LF(this.value)" onfocus="">
+                    <label for="nextDayQCCollectionTime">Next Day QC Collection Time</label>
+                </div>
+                <!-- ipTimeStampNotLegible -->
+                <div class="custom-control custom-checkbox mb-2">
+                    <input type="checkbox" class="custom-control-input" id="ipTimeStampNotLegible" checked="@Model.gIPTimeNotLegible" onchange="IPTimeNotLegible(this)">
+                    <label class="custom-control-label" for="ipTimeStampNotLegible">If Checked - IP Time Stamp was NOT Legible</label>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-3">
+        <!-- qcSummary Card -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">QC Summary</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- fgCoreDensity -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="fgCoreDensity" placeholder="" value="@Model.gCoreDensity" disabled>
+                            <label for="fgCoreDensity">FG Core Density</label>
+                        </div>
+                        <!-- avgCompStrength5 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="avgCompStrength5" placeholder="" value="@Model.gCompStrFG_Avg5" disabled>
+                            <label for="avgCompStrength5">Avg Comp Strength-5</label>
+                        </div>
+                        <!-- avgCompStrength6 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="avgCompStrength6" placeholder="" value="@Model.gCompStrFG_Avg6" disabled>
+                            <label for="avgCompStrength6">Avg Comp Strength-6</label>
+                        </div>
+                        <!-- fgThicknessAvg -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="fgThicknessAvg" placeholder="" value="@Model.gThickness" disabled>
+                            <label for="fgThicknessAvg">Thickness Avg FG</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- fgBoardProfile -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="fgBoardProfile" placeholder="" value="@Model.gFlatness" disabled>
+                            <label for="fgBoardProfile">Board Profile FG</label>
+                        </div>
+                        <!-- initialRValueAvgQC -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="initialRValueAvgQC" placeholder="" value="@Model.gRValue" disabled>
+                            <label for="initialRValueAvgQC">Initial R Value Avg</label>
+                        </div>
+                        <!-- facerPeelAvgQC -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center illegalValue" id="facerPeelAvgQC" placeholder="" value="@Model.gFacerPeelAvg_QC" disabled>
+                            <label for="facerPeelAvgQC">Facer Peel Avg</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+    <div class="col-md-3">
+        <!-- ipQcSummary Card -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">IP QC Summary</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- warehouseTemp -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="warehouseTemp" placeholder="" value="@Model.gWarehouseTemp" disabled>
+                            <label for="warehouseTemp">Warehouse Temp</label>
+                        </div>
+                        <!-- warehouseHumidity -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="warehouseHumidity" placeholder="" value="@Model.gWarehouseHumidity" disabled>
+                            <label for="warehouseHumidity">Warehouse Humidity</label>
+                        </div>
+                        <!-- bundleHeightIP -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="bundleHeightIP" placeholder="" value="@Model.gBundleHeightIP" disabled>
+                            <label for="bundleHeightIP">Bundle Height IP</label>
+                        </div>
+                        <!-- thicknessIP -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="thicknessIP" placeholder="" value="@Model.gThicknessIP" disabled>
+                            <label for="thicknessIP">Thickness IP</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- coreDensityIP -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="coreDensityIP" placeholder="" value="@Model.gThicknessIP" disabled>
+                            <label for="coreDensityIP">Core Density IP</label>
+                        </div>
+                        <!-- avgCompStrength5IP -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="avgCompStrength5IP" placeholder="" value="@Model.gCompressiveIP5" disabled>
+                            <label for="avgCompStrength5IP">Avg Comp Strength-5 IP</label>
+                        </div>
+                        <!-- avgCompStrength6IP -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="avgCompStrength6IP" placeholder="" value="@Model.gCompressiveIP" disabled>
+                            <label for="avgCompStrength6IP">Avg Comp Strength-6 IP</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <!-- Thickness Card -->
+    <div class="card card-default col-md-2">
+        <div class="card-header align-items-center">
+            <h2 class="">Thickness</h2>
+        </div>
+        <div class="card-body d-flex flex-column justify-content-evenly">
+            <p class="text-end" style="color: #894DD9">@Model.gLoc3F</p>
+            <!-- Thickness Ip -1 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp1" placeholder="" value="@Model.gThicknessFG_1" onblur="GThickness_LF('gThicknessFG_1', this.value)">
+                <label for="thicknessIp1">Thickness Ip 1</label>
+            </div>
+            <!-- Thickness Ip -2 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp2" placeholder="" value="@Model.gThicknessFG_2" onblur="GThickness_LF('gThicknessFG_2', this.value)">
+                <label for="thicknessIp2">Thickness Ip 2</label>
+            </div>
+            <!-- Thickness Ip -3 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp3" placeholder="" value="@Model.gThicknessFG_3" onblur="GThickness_LF('gThicknessFG_3', this.value)">
+                <label for="thicknessIp3">Thickness Ip 3</label>
+            </div>
+            <!-- Thickness Ip -4 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp4" placeholder="" value="@Model.gThicknessFG_4" onblur="GThickness_LF('gThicknessFG_4', this.value)">
+                <label for="thicknessIp4">Thickness Ip 4</label>
+            </div>
+            <!-- Thickness Ip -5 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp5" placeholder="" value="@Model.gThicknessFG_5" onblur="GThickness_LF('gThicknessFG_5', this.value)">
+                <label for="thicknessIp5">Thickness Ip 5</label>
+            </div>
+            <!-- Thickness Ip -6 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp6" placeholder="" value="@Model.gThicknessFG_6" onblur="GThickness_LF('gThicknessFG_6', this.value)">
+                <label for="thicknessIp6">Thickness Ip 6</label>
+            </div>
+            <!-- Thickness Ip -7 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp7" placeholder="" value="@Model.gThicknessFG_7" onblur="GThickness_LF('gThicknessFG_7', this.value)">
+                <label for="thicknessIp7">Thickness Ip 7</label>
+            </div>
+            <!-- Thickness Ip -8 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp8" placeholder="" value="@Model.gThicknessFG_8" onblur="GThickness_LF('gThicknessFG_8', this.value)">
+                <label for="thicknessIp8">Thickness Ip 8</label>
+            </div>
+            <!-- Thickness Ip -9 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp9" placeholder="" value="@Model.gThicknessFG_9" onblur="GThickness_LF('gThicknessFG_9', this.value)">
+                <label for="thicknessIp9">Thickness Ip 9</label>
+            </div>
+            <!-- Thickness Ip -10 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp10" placeholder="" value="@Model.gThicknessFG_10" onblur="GThickness_LF('gThicknessFG_10', this.value)">
+                <label for="thicknessIp10">Thickness Ip 10</label>
+            </div>
+            <!-- Thickness Ip -11 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp11" placeholder="" value="@Model.gThicknessFG_11" onblur="GThickness_LF('gThicknessFG_11', this.value)">
+                <label for="thicknessIp11">Thickness Ip 11</label>
+            </div>
+            <!-- Thickness Ip -12 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp12" placeholder="" value="@Model.gThicknessFG_12" onblur="GThickness_LF('gThicknessFG_12', this.value)">
+                <label for="thicknessIp12">Thickness Ip 12</label>
+            </div>
+            <!-- Thickness Ip -13 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp13" placeholder="" value="@Model.gThicknessFG_13" onblur="GThickness_LF('gThicknessFG_13', this.value)">
+                <label for="thicknessIp13">Thickness Ip 13</label>
+            </div>
+            <!-- Thickness Ip -14 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp14" placeholder="" value="@Model.gThicknessFG_14" onblur="GThickness_LF('gThicknessFG_14', this.value)">
+                <label for="thicknessIp14">Thickness Ip 14</label>
+            </div>
+            <!-- Thickness Ip -15 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp15" placeholder="" value="@Model.gThicknessFG_15" onblur="GThickness_LF('gThicknessFG_15', this.value)">
+                <label for="thicknessIp15">Thickness Ip 15</label>
+            </div>
+            <!-- Thickness Ip -16 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp16" placeholder="" value="@Model.gThicknessFG_16" onblur="GThickness_LF('gThicknessFG_16', this.value)">
+                <label for="thicknessIp16">Thickness Ip 16</label>
+            </div>
+            <!-- Thickness Ip -17 -->
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="thicknessIp17" placeholder="" value="@Model.gThicknessFG_17" onblur="GThickness_LF('gThicknessFG_17', this.value)">
+                <label for="thicknessIp17">Thickness Ip 17</label>
+            </div>
+            <p class="text-end" style="color: #894DD9">@Model.gLoc1F</p>
+        </div>
+    </div>
+
+    <div class="col-md-10 ps-4 pe-2">
+        <div class="row" style="height:400px">
+            <div class="col-md-4">
+                <!-- Compressive Strength Card -->
+                <div class="card card-default" style="height:385px">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Compressive Strength</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="text-end " style="color: #894DD9">Knit Line</p>
+                                <!-- compStrength1 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength1" placeholder="" value="@Model.gCompStrFG_1" onblur="GCompStrFG_LFClick('gCompStrFG_1', this.value)">
+                                        <label for="compStrength1">Comp. Str-1</label>
+                                    </div>
+
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength1Check" checked="@Model.gCompStrFGKnit_1" onchange="GCompStrFG2_LFClick('gCompStrFGKnit_1',this)">
+                                        <label class="custom-control-label" for="compStrength1Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrength2 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength2" placeholder="" value="@Model.gCompStrFG_2" onblur="GCompStrFG_LFClick('gCompStrFG_2', this.value)">
+                                        <label for="compStrength2">Comp. Str-2</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength2Check" checked="@Model.gCompStrFGKnit_2" onchange="GCompStrFG2_LFClick('gCompStrFGKnit_2',this)">
+                                        <label class="custom-control-label" for="compStrength2Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrength3 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength3" placeholder="" value="@Model.gCompStrFG_3" onblur="GCompStrFG_LFClick('gCompStrFG_3', this.value)">
+                                        <label for="compStrength3">Comp. Str-3</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength3Check" checked="@Model.gCompStrFGKnit_3" onchange="GCompStrFG2_LFClick('gCompStrFGKnit_3',this)">
+                                        <label class="custom-control-label" for="compStrength3Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrength4 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength4" placeholder="" value="@Model.gCompStrFG_4" onblur="GCompStrFG_LFClick('gCompStrFG_4', this.value)">
+                                        <label for="compStrength4">Comp. Str-4</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength4Check" checked="@Model.gCompStrFGKnit_4" onchange="GCompStrFG2_LFClick('gCompStrFGKnit_4',this)">
+                                        <label class="custom-control-label" for="compStrength4Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrength5 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength5" placeholder="" value="@Model.gCompStrFG_5" onblur="GCompStrFG_LFClick('gCompStrFG_5', this.value)">
+                                        <label for="compStrength5">Comp. Str-5</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength5Check" checked="@Model.gCompStrFGKnit_5" onchange="GCompStrFG2_LFClick('gCompStrFGKnit_5',this)">
+                                        <label class="custom-control-label" for="compStrength5Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrength6 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrength6" placeholder="" value="@Model.gCompStrFG_6" onblur="GCompStrFG_LFClick('gCompStrFG_6', this.value)">
+                                        <label for="compStrength6">Comp. Str-6</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrength6Check" checked="@Model.gCompStrFGKnit_6" onchange="GCompStrFG2_LFClick('gCompStrFGKnit_6',this)">
+                                        <label class="custom-control-label" for="compStrength6Check"> </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 h-50">
+                                <!-- Comments -->
+                                <div class="form-floating mt-5 ">
+                                    <textarea class="form-control" placeholder="Address" id="compStrengthComments" style="height: 300px;" onblur="GCompStrFG2_LFClick('gNotes',this)" >@Model.gNotes</textarea>
+                                    <label for="compStrengthComments">Comments</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+           <div class="col-md-6">
+                <!-- RValue Card -->
+                <div class="card card-default" style="height:385px">
+                    <div class="card-header align-items-center">
+                        <h2 class="">R Value</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <p class="text-center" style="color: #894DD9">k Factor</p>
+                            </div>
+                            <div class="col-2">
+                                <p class="text-center" style="color: #894DD9">Knit Line</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-center" style="color: #894DD9">Test Time & Date</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <!-- rWest -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="rWest" placeholder="" value="@Model.gkFactor_3" onblur="gkFactor_LFClick('gkFactor_3',this.value)">
+                                    <label for="rWest">@Model.gLoc3B</label>
+                                </div>
+                            </div>
+                            <div class="col-2 d-flex justify-content-center align-items-center">
+                                <!-- rWestKnitLine -->
+                                <div class="custom-control custom-checkbox col-3 text-center">
+                                    <input type="checkbox" class="custom-control-input" id="rWestKnitLine" checked="@Model.gRValueKnitPresent3" onchange="CheckBoxes_LFClick('gRValueKnitPresent3',this)">
+                                    <label class="custom-control-label" for="rWestKnitLine"> </label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <!-- rWestTestTime -->
+                                <div class="form-floating mb-3">
+                                    <input type="datetime-local" class="form-control text-center" id="rWestTestTime" value="@Model.gkFactorTime3?.ToString("yyyy-MM-ddTHH:mm")" onblur="GkFactorTime3_LF(this.value)">
+                                    <label for="rWestTestTime">Test Time</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <!-- rCenter -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="rCenter" placeholder="" value="@Model.gkFactor_2" onblur="gkFactor_LFClick('gkFactor_2' ,this.value)">
+                                    <label for="rCenter">@Model.gLoc2B</label>
+                                </div>
+                            </div>
+                            <div class="col-2 d-flex justify-content-center align-items-center">
+                                <!-- rCenterKnitLine -->
+                                <div class="custom-control custom-checkbox col-3 text-center">
+                                    <input type="checkbox" class="custom-control-input" id="rCenterKnitLine" checked="@Model.gRValueKnitPresent2" onchange="CheckBoxes_LFClick('gRValueKnitPresent2',this)">
+                                    <label class="custom-control-label" for="rCenterKnitLine"> </label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <!-- rCenterTestTime -->
+                                <div class="form-floating mb-3">
+                                    <input type="datetime-local" class="form-control text-center" id="rCenterTestTime" value="@Model.gkFactorTime2?.ToString("yyyy-MM-ddTHH:mm")" onblur="GkFactorTime2_LF(this.value)">
+                                    <label for="rCenterTestTime">Test Time</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <!-- rEast -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="rEast" placeholder="" value="@Model.gkFactor_1" onblur="gkFactor_LFClick('gkFactor_1' ,this.value)">
+                                    <label for="rEast">@Model.gLoc1B</label>
+                                </div>
+                            </div>
+                            <div class="col-2 d-flex justify-content-center align-items-center">
+                                <!-- rEastKnitLine -->
+                                <div class="custom-control custom-checkbox col-3 text-center">
+                                    <input type="checkbox" class="custom-control-input" id="rEastKnitLine" checked="@Model.gRValueKnitPresent1" onchange="CheckBoxes_LFClick('gRValueKnitPresent1',this)">
+                                    <label class="custom-control-label" for="rEastKnitLine"> </label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <!-- rEastTestTime -->
+                                <div class="form-floating mb-3">
+                                    <input type="datetime-local" class="form-control text-center" id="rEastTestTime" value="@Model.gkFactorTime1?.ToString("yyyy-MM-ddTHH:mm")" onblur="GkFactorTime1_LF(this.value)">
+                                    <label for="rEastTestTime">Test Time</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- initialRValueAvg -->
+                        <div class="form-floating mb-2 w-50">
+                            <input type="number" class="form-control" id="initialRValueAvg" placeholder="" value="@Model.gkFactor_Avg" disabled>
+                            <label for="initialRValueAvg">Initial R Value Avg</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <!-- fgBoardDimenstions Card -->
+                <div class="card card-default" style="height:385px">
+                    <div class="card-header align-items-center">
+                        <h2 class="">FG Board Dimensions</h2>
+                    </div>
+                    <div class="card-body">
+                        <!-- fgBoardLength -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="fgBoardLength" placeholder="" value="@Model.gFGLength" onblur="GBoardDims_LF('gFGLength', this.value)">
+                            <label for="fgBoardLength">length</label>
+                        </div>
+                        <!-- fgBoardWidth -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="fgBoardWidth" placeholder="" value="@Model.gFGWidth" onblur="GBoardDims_LF('gFGWidth', this.value)">
+                            <label for="fgBoardWidth">Width</label>
+                        </div>
+                        <!-- fgBoardDiagonal1 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="fgBoardDiagonal1" placeholder="" value="@Model.gFGDiagoanl1" onblur="GBoardDims_LF('gFGDiagoanl1', this.value)">
+                            <label for="fgBoardDiagonal1">Diagonal 1</label>
+                        </div>
+                        <!-- fgBoardDiagonal2 -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="fgBoardDiagonal2" placeholder="" value="@Model.gFGDiagoanl2" onblur="GBoardDims_LF('gFGDiagoanl2', this.value)">
+                            <label for="fgBoardDiagonal2">Diagonal 2</label>
+                        </div>
+                        <!-- fgBoardDiagonalDifference -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="fgBoardDiagonalDifference" placeholder="" value="@Model.gFGDiagonalDiff" disabled>
+                            <label for="fgBoardDiagonalDifference">Abs. Diagonal Diff.</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Compressive Strength Retest Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Compressive Strength - Retest</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="text-end" style="color: #894DD9">Knit Line</p>
+                                <!-- compStrengthRetest1 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest1" placeholder="" value="@Model.gCompStrFGRetest_1" onblur="GCompStrFGRetest_LFClick('gCompStrFGRetest_1', this.value)">
+                                        <label for="compStrengthRetest1">Comp. Str-1</label>
+                                    </div>
+
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest1Check" checked="@Model.gCompStrFGKnitRetest_1" onchange="GCompStrFG2_LFClick('gCompStrFGKnitRetest_1',this)">
+                                        <label class="custom-control-label" for="compStrengthRetest1Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrengthRetest2 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest2" placeholder="" value="@Model.gCompStrFGRetest_2" onblur="GCompStrFGRetest_LFClick('gCompStrFGRetest_2', this.value)">
+                                        <label for="compStrengthRetest2">Comp. Str-2</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest2Check" checked="@Model.gCompStrFGKnitRetest_2" onchange="GCompStrFG2_LFClick('gCompStrFGKnitRetest_2',this)">
+                                        <label class="custom-control-label" for="compStrengthRetest2Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrengthRetest3 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest3" placeholder="" value="@Model.gCompStrFGRetest_3" onblur="GCompStrFGRetest_LFClick('gCompStrFGRetest_3', this.value)">
+                                        <label for="compStrengthRetest3">Comp. Str-3</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest3Check" checked="@Model.gCompStrFGKnitRetest_3" onchange="GCompStrFG2_LFClick('gCompStrFGKnitRetest_3',this)">
+                                        <label class="custom-control-label" for="compStrengthRetest3Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrengthRetest4 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest4" placeholder="" value="@Model.gCompStrFGRetest_4" onblur="GCompStrFGRetest_LFClick('gCompStrFGRetest_4', this.value)">
+                                        <label for="compStrengthRetest4">Comp. Str-4</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest4Check" checked="@Model.gCompStrFGKnitRetest_4" onchange="GCompStrFG2_LFClick('gCompStrFGKnitRetest_4',this)">
+                                        <label class="custom-control-label" for="compStrengthRetest4Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrengthRetest5 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest5" placeholder="" value="@Model.gCompStrFGRetest_5" onblur="GCompStrFGRetest_LFClick('gCompStrFGRetest_5', this.value)">
+                                        <label for="compStrengthRetest5">Comp. Str-5</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest5Check" checked="@Model.gCompStrFGKnitRetest_5" onchange="GCompStrFG2_LFClick('gCompStrFGKnitRetest_5',this)">
+                                        <label class="custom-control-label" for="compStrengthRetest5Check"> </label>
+                                    </div>
+                                </div>
+                                <!-- compStrengthRetest6 -->
+                                <div class="row">
+                                    <div class="form-floating mb-2 col-9">
+                                        <input type="number" class="form-control" id="compStrengthRetest6" placeholder="" value="@Model.gCompStrFGRetest_6" onblur="GCompStrFGRetest_LFClick('gCompStrFGRetest_6', this.value)">
+                                        <label for="compStrengthRetest6">Comp. Str-6</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox col-3 text-center">
+                                        <input type="checkbox" class="custom-control-input" id="compStrengthRetest6Check" checked="@Model.gCompStrFGKnitRetest_6" onchange="GCompStrFG2_LFClick('gCompStrFGKnitRetest_6',this)">
+                                        <label class="custom-control-label" for="compStrengthRetest6Check"> </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-auto">
+                                <!-- retestCollectionTime -->
+                                <div class="form-floating mb-3">
+                                    <input type="datetime-local" class="form-control text-center" id="retestCollectionTime" value="@Model.gRetestQCTime?.ToString("yyyy-MM-ddTHH:mm")" onblur="GRetestQCTime_LF(this.value)">
+                                    <label for="retestCollectionTime">Retest Collection Time</label>
+                                </div>
+                                <!-- retestFromSameBundleCheck -->
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="retestFromSameBundleCheck" checked="@Model.gRestestFromSameBundle" onchange="GRestestFromSameBundle_LF(this)">
+                                    <label class="custom-control-label" for="retestFromSameBundleCheck">Is Retest From Same Bundle?</label>
+                                </div>
+                                <!-- restestAvgCompStrength5 -->
+                                <div class="form-floating mb-3 h-auto pt-1">
+                                    <input type="number" class="form-control text-center" id="restestAvgCompStrength5" placeholder="" value="@Model.gCompStrFGRetest_Avg5" disabled>
+                                    <label for="restestAvgCompStrength5">Retest Avg Comp Strength - 5</label>
+                                </div>
+                                <!-- restestAvgCompStrength6 -->
+                                <div class="form-floating mb-3 h-auto pt-1">
+                                    <input type="number" class="form-control text-center" id="restestAvgCompStrength6" placeholder="" value="@Model.gCompStrFGRetest_Avg6" disabled>
+                                    <label for="restestAvgCompStrength6">Retest Avg Comp Strength - 6</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- AgedRValue Card -->
+                <div class="card card-default" style="height:400px">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Aged R Value - k Factor</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-2">
+                                <p class="text-center" style="color: #894DD9">90 Day - k Factor</p>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-center" style="color: #894DD9">Date Measured</p>
+                            </div>
+                            <div class="col-2">
+                                <p class="text-center" style="color: #894DD9">180 Day - k Factor</p>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-center" style="color: #894DD9">Date Measured</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <!-- agedR90West -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="agedR90West" placeholder="" value="@Model.gkFactor90_3" onblur="GkFactor90_LF('gkFactor90_3',this.value)">
+                                    <label for="agedR90West">@Model.gLoc3C</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <!-- agedR90MeasureTimeWest -->
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control text-center" id="agedR90MeasureTimeWest" value="@(Model.gKFactor90Date_3.HasValue ? Model.gKFactor90Date_3.Value.ToString("yyyy-MM-dd") : string.Empty)" onblur="GKFactorDates_LF('gkFactor90Date_3',this.value)">
+                                    <label for="agedR90MeasureTimeWest">Measure Date</label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <!-- agedR180West -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="agedR180West" placeholder="" value="@Model.gkFactor180_3" onblur="GkFactor180_LF('gkFactor180_3',this.value)">
+                                    <label for="agedR180West">@Model.gLoc3C</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <!-- agedR180MeasureTimeWest -->
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control text-center" id="agedR180MeasureTimeWest" value="@(Model.gKFactor180Date_3.HasValue ? Model.gKFactor180Date_3.Value.ToString("yyyy-MM-dd") : string.Empty)" onblur="GKFactorDates_LF('gkFactor180Date_3',this.value)">
+                                    <label for="agedR180MeasureTimeWest">Measure Date</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <!-- agedR90Center -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="agedR90Center" placeholder="" value="@Model.gkFactor90_2" onblur="GkFactor90_LF('gkFactor90_2',this.value)">
+                                    <label for="agedR90Center">@Model.gLoc2C</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <!-- agedR90MeasureTimeCenter -->
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control text-center" id="agedR90MeasureTimeCenter" value="@(Model.gKFactor90Date_2.HasValue ? Model.gKFactor90Date_2.Value.ToString("yyyy-MM-dd") : string.Empty)" onblur="GKFactorDates_LF('gkFactor90Date_2',this.value)">
+                                    <label for="agedR90MeasureTimeCenter">Measure Date</label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <!-- agedR180Center -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="agedR180Center" placeholder="" value="@Model.gkFactor180_2" onblur="GkFactor180_LF('gkFactor180_2',this.value)">
+                                    <label for="agedR180Center">@Model.gLoc2C</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <!-- agedR180MeasureTimeCenter -->
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control text-center" id="agedR180MeasureTimeCenter" value="@(Model.gKFactor180Date_2.HasValue ? Model.gKFactor180Date_2.Value.ToString("yyyy-MM-dd") : string.Empty)" onblur="GKFactorDates_LF('gkFactor180Date_2',this.value)">
+                                    <label for="agedR180MeasureTimeCenter">Measure Date</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <!-- agedR90East -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="agedR90East" placeholder="" value="@Model.gkFactor90_1" onblur="GkFactor90_LF('gkFactor90_1',this.value)">
+                                    <label for="agedR90East">@Model.gLoc1C</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <!-- agedR90MeasureTimeEast -->
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control text-center" id="agedR90MeasureTimeEast" value="@(Model.gKFactor90Date_1.HasValue ? Model.gKFactor90Date_1.Value.ToString("yyyy-MM-dd") : string.Empty)" onblur="GKFactorDates_LF('gkFactor90Date_1',this.value)">
+                                    <label for="agedR90MeasureTimeEast">Measure Date</label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <!-- agedR180East -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control" id="agedR180East" placeholder="" value="@Model.gkFactor180_1" onblur="GkFactor180_LF('gkFactor180_1',this.value)">
+                                    <label for="agedR180East">@Model.gLoc1C</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <!-- agedR180MeasureTimeEast -->
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control text-center" id="agedR180MeasureTimeEast" value="@(Model.gKFactor180Date_1.HasValue ? Model.gKFactor180Date_1.Value.ToString("yyyy-MM-dd") : string.Empty)" onblur="GKFactorDates_LF('gkFactor180Date_1',this.value)">
+                                    <label for="agedR180MeasureTimeEast">Measure Date</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- agedRValueAvg90 -->
+                            <div class="form-floating mb-2  w-50">
+                                <input type="number" class="form-control" id="agedRValueAvg90" placeholder="" value="@Model.gkFactor90" disabled>
+                                <label for="agedRValueAvg90">Aged R Value Avg - 90 Days</label>
+                            </div>
+                            <!-- agedRValueAvg180 -->
+                            <div class="form-floating mb-2 w-50">
+                                <input type="number" class="form-control" id="agedRValueAvg180" placeholder="" value="@Model.gkFactor180" disabled>
+                                <label for="agedRValueAvg180">Aged R Value Avg - 180 Days</label>
+                            </div>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="gAgedRValueDone" checked="@Model.gAgedRValueDone" onchange="CheckBoxes_LFClick('gAgedrValueDone', this)">
+                            <label class="custom-control-label" for="gAgedRValueDone">Aged R Value Testing Complete</label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-4">
+                <!-- bundleTemps Card -->
+                <div class="card card-default" style="height:400px">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Bundle Temps</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- btLoggerID -->
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control text-center" id="btLoggerID" placeholder="" value="@Model.gLoggerID" onblur="GBundleTemps_LF('gLoggerID',this.value)">
+                                    <label for="btLoggerID">Logger ID #</label>
+                                </div>
+                                <!-- btInitialProbeTemp -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control text-center" id="btInitialProbeTemp" placeholder="" value="@Model.gInitProbeTemp" onblur="GBundleTemps_LF('gInitProbeTemp',this.value)">
+                                    <label for="btInitialProbeTemp">Initial Probe Temp</label>
+                                </div>
+                                <!-- btInitialProbeTime -->
+                                <div class="form-floating mb-2">
+                                    <input type="datetime-local" class="form-control" id="btInitialProbeTime" value="@Model.gInitProbeTime?.ToString("yyyy-MM-ddTHH:mm")" onblur="GInitProbetime_LF(this.value)">
+                                    <label for="btInitialProbeTime">Initial Probe Time</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <!-- btMaxProbeTemp -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control text-center" id="btMaxProbeTemp" placeholder="" value="@Model.gMaxProbeTemp" onblur="GBundleTemps_LF('gMaxProbeTemp',this.value)">
+                                    <label for="btMaxProbeTemp">Max. Probe Temp</label>
+                                </div>
+                                <!-- btMaxProbeTimeInitial -->
+                                <div class="form-floating mb-2">
+                                    <input type="datetime-local" class="form-control" id="btInitialProbeTime" value="@Model.gMaxTempTimeInit?.ToString("yyyy-MM-ddTHH:mm")" onblur="GMaxTempTimeInit_LF(this.value)">
+                                    <label for="btInitialProbeTime">Max Probe Time - Initial</label>
+                                </div>
+                                <!-- btMaxProbeTimeFinal -->
+                                <div class="form-floating mb-2">
+                                    <input type="datetime-local" class="form-control" id="btMaxProbeTimeFinal" value="@Model.gMaxTempTimeFinal?.ToString("yyyy-MM-ddTHH:mm")" onblur="GMaxTempTimeFinal_LF(this.value)">
+                                    <label for="btMaxProbeTimeFinal">Max Probe Time - Final</label>
+                                </div>
+                                <!-- btFinalProbeTemp -->
+                                <div class="form-floating mb-2">
+                                    <input type="number" class="form-control text-center" id="btFinalProbeTemp" placeholder="" value="@Model.gFinalProbeTemp" onblur="GBundleTemps_LF('gFinalProbeTemp',this.value)">
+                                    <label for="btFinalProbeTemp">Final Probe Temp</label>
+                                </div>
+                                <!-- btFinalProbeTime -->
+                                <div class="form-floating mb-2">
+                                    <input type="datetime-local" class="form-control" id="btFinalProbeTime" value="@Model.gFinalProbeTime?.ToString("yyyy-MM-ddTHH:mm")" onblur="GFinalProbeTime_LF(this.value)">
+                                    <label for="btFinalProbeTime">Final Probe Time</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <!-- Core Density Card -->
+                <div class="card card-default" style="height:280px">
+                    <style>
+                        .coreDensityTable td {
+                            padding: 2px;
+                        }
+                    </style>
+                    <div class="card-header align-items-center">
+                        <h2 class="">Core Density</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table coreDensityTable">
+                            <thead>
+                                <tr class="text-center">
+                                    <th></th>
+                                    <th>Mass</th>
+                                    <th>Length</th>
+                                    <th>Width</th>
+                                    <th colspan="5">Thickness</th>
+                                    <th>Core Knit Present</th>
+                                    <th>Density</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>@Model.gLoc3A</th>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gMass3" onblur="CoreDenAv3_LF('gMass3', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="@Model.gL1_3" onblur="CoreDenAv3_LF('gL1_3', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="@Model.gW1_3" onblur="CoreDenAv3_LF('gW1_3', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gT1_3" onblur="CoreDenAv3_LF('gT1_3', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gT2_3" onblur="CoreDenAv3_LF('gT2_3', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gT3_3" onblur="CoreDenAv3_LF('gT3_3', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="@Model.gT4_3" onblur="CoreDenAv3_LF('gT4_3', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="@Model.gT5_3" onblur="CoreDenAv3_LF('gT5_3', this.value)">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <label class="switch switch-primary switch-pill form-control-label ">
+                                            <input type="checkbox" class="switch-input form-check-input" id="" checked="@Model.gCoreDensKnitLine3" onchange="CheckBoxes_LFClick('gCoreDensKnitLine3',this)">
+                                            <span class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="@Model.gCoreDens3" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>@Model.gLoc2A</th>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gMass2" onblur="CoreDenAv2_LF('gMass2', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="@Model.gL1_2" onblur="CoreDenAv2_LF('gL1_2', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="@Model.gW1_2" onblur="CoreDenAv2_LF('gW1_2', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gT1_2" onblur="CoreDenAv2_LF('gT1_2', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gT2_2" onblur="CoreDenAv2_LF('gT2_2', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gT3_2" onblur="CoreDenAv2_LF('gT3_2', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="@Model.gT4_2" onblur="CoreDenAv2_LF('gT4_2', this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="@Model.gT5_2" onblur="CoreDenAv2_LF('gT5_2', this.value)">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <label class="switch switch-primary switch-pill form-control-label ">
+                                            <input type="checkbox" class="switch-input form-check-input" id="" checked="@Model.gCoreDensKnitLine2" onchange="CheckBoxes_LFClick('gCoreDensKnitLine2',this)">
+                                            <span class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="@Model.gCoreDens2" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>@Model.gLoc1A</th>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gMass1" onblur="CoreDenAv1_LF('gMass1',this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="@Model.gL1_1" onblur="CoreDenAv1_LF('gL1_1',this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control " value="@Model.gW1_1" onblur="CoreDenAv1_LF('gW1_1',this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gT1_1" onblur="CoreDenAv1_LF('gT1_1',this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gT2_1" onblur="CoreDenAv1_LF('gT2_1',this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control" value="@Model.gT3_1" onblur="CoreDenAv1_LF('gT3_1',this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="@Model.gT4_1" onblur="CoreDenAv1_LF('gT4_1',this.value)">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="@Model.gT5_1" onblur="CoreDenAv1_LF('gT5_1',this.value)">
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <label class="switch switch-primary switch-pill form-control-label ">
+                                            <input type="checkbox" class="switch-input form-check-input" id="" checked="@Model.gCoreDensKnitLine1" onchange="CheckBoxes_LFClick('gCoreDensKnitLine1',this)">
+                                            <span class="switch-label"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="number" class="form-control text-center" value="@Model.gCoreDens1" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <!-- facerPeel Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Facer Peel</h2>
+                    </div>
+                    <div class="card-body">
+                        <!-- facerPeelWest -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="facerPeelWest" placeholder="" value="@Model.gFacerPeel3" onblur="GFacerPeel_LF('gFacerPeel3', this.value)">
+                            <label for="facerPeelWest">@Model.gLoc3E</label>
+                        </div>
+                        <!-- facerPeelCenter -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="facerPeelCenter" placeholder="" value="@Model.gFacerPeel2" onblur="GFacerPeel_LF('gFacerPeel2', this.value)">
+                            <label for="facerPeelCenter">@Model.gLoc2E</label>
+                        </div>
+                        <!-- facerPeelEast -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="facerPeelEast" placeholder="" value="@Model.gFacerPeel1" onblur="GFacerPeel_LF('gFacerPeel1', this.value)">
+                            <label for="facerPeelEast">@Model.gLoc1E</label>
+                        </div>
+                        <!-- facerPeelAvg -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="facerPeelAvg" placeholder="" value="@Model.gFacerPeelAvg" disabled>
+                            <label for="facerPeelAvg">Avg</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <!-- NailPull Card -->
+                <div class="card card-default">
+                    <div class="card-header align-items-center">
+                        <h2 class="">Nail Pull</h2>
+                    </div>
+                    <div class="card-body">
+                        <!-- nailPullWest -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="nailPullWest" placeholder="" value="@Model.gNailPull_3" onblur="GNailPull_LF('gNailPull_3', this.value)">
+                            <label for="nailPullWest">@Model.gLoc3D</label>
+                        </div>
+                        <!-- nailPullCenter -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="nailPullCenter" placeholder="" value="@Model.gNailPull_2" onblur="GNailPull_LF('gNailPull_2', this.value)">
+                            <label for="nailPullCenter">@Model.gLoc2D</label>
+                        </div>
+                        <!-- nailPullEast -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="nailPullEast" placeholder="" value="@Model.gNailPull_1" onblur="GNailPull_LF('gNailPull_1', this.value)">
+                            <label for="nailPullEast">@Model.gLoc1D</label>
+                        </div>
+                        <!-- nailPullAvg -->
+                        <div class="form-floating mb-2">
+                            <input type="number" class="form-control text-center" id="nailPullAvg" placeholder="" value="@Model.gNailPull" disabled>
+                            <label for="nailPullAvg">Avg</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </div>
+</div>
+
+
+@section Scripts {
+
+    <script>
+        function gNavClick(direction) {
+
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=NavigateDataSet",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { direction: direction },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function gkFactor_LFClick(Name, values) {
+            const Value = parseFloat(values)
+            //  console.log('Input values - Name:', Name, 'Value:', Value);
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GkFactor_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, Value: Value },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function GCompStrFG_LFClick(Name, Value) {
+            //   console.log('Input values - Name:', Name, 'Value:', Value);
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=CompStrFG_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, Value: Value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function GCompStrFG2_LFClick(name, element) {
+            let value;
+
+            if (element.type === "checkbox") {
+                value = element.checked ? "true" : "false"; 
+            } else {
+                value = element.value;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GCompStrFG2_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { name: name, value: value },
+                success: function (response) {
+                   // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function GCompStrFGRetest_LFClick(Name, Value) {
+            //  console.log('Input values - Name:', Name, 'Value:', Value);
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=CompStrFGRetest_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, Value: Value },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function CoreDenAv1_LF(Name, Value) {
+            // console.log('Input values - Name:', Name, 'Value:', Value);
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=CoreDenAv1_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, Value: Value },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function CoreDenAv2_LF(Name, Value) {
+            //console.log('Input values - Name:', Name, 'Value:', Value);
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GCoreDenAv2_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, Value: Value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function CoreDenAv3_LF(Name, Value) {
+            // console.log('Input values - Name:', Name, 'Value:', Value);
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=CoreDenAv3_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, Value: Value },
+                success: function (response) {
+                   // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function GThickness_LF(Name, Value) {
+            //  console.log('Input values - Name:', Name, 'Value:', Value);
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GThickness_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, Value: Value },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function GQCTimesDateTime_LF(value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GQCTimesDateTime_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function GenInfoQC_Time_LF(value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GenInfoQC_Time_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function GBundleHeight_LF(value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GBundleHeight_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function GKFactorDates_LF(name,value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GKFactorDates_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { name: name, value: value },
+                success: function (response) {
+                   // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+
+        function GkFactor90_LF(Name,Value) {
+         //   console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GkFactor90_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name ,Value: Value},
+                success: function (response) {
+                   // console.log('Server response:', response);
+                     location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function GkFactor180_LF(name,value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GkFactor180_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { name: name , value: value },
+                success: function (response) {
+                   // console.log('Server response:', response);
+                     location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function GBoardDims_LF(name, value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GBoardDims_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { name: name, value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function GBundleTemps_LF(name, value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GBundleTemps_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { name: name, value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function GNailPull_LF(name, value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GNailPull_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { name: name, value: value },
+                success: function (response) {
+                   //console.log('Server response:', response);
+                   location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function GFacerPeel_LF(name, value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GFacerPeel_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { name: name, value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function GkFactorTime1_LF(value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GkFactorTime1_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                   // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+       
+        function GkFactorTime2_LF(value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GkFactorTime2_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: {value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        
+        function GkFactorTime3_LF(value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GkFactorTime3_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+       
+        function GFinalProbeTime_LF(value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GFinalProbeTime_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        
+        function GMaxTempTimeFinal_LF(value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GMaxTempTimeFinal_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+       
+        function GMaxTempTimeInit_LF(value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GMaxTempTimeInit_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        
+        function GInitProbetime_LF(value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GInitProbeTime_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+       
+        function GRetestQCTime_LF(value) {
+            //console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GRetestQCTime_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function IPTimeNotLegible(element) {
+            let value;
+
+            if (element.type === "checkbox") {
+                value = element.checked ? "true" : "false";
+            } else {
+                value = element.value;
+            }
+
+            // console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GIPTimeNotLegible_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                    //  console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function GRestestFromSameBundle_LF(element) {
+            let value;
+
+            if (element.type === "checkbox") {
+                value = element.checked ? "true" : "false";
+            } else {
+                value = element.value;
+            }
+
+           // console.log('Input values - Name:', Name, @Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=GRestestFromSameBundle_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                  //  console.log('Server response:', response);
+                     location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function CheckBoxes_LFClick(Name, element) {
+            let value;
+
+            if (element.type === "checkbox") {
+                value = element.checked ? "true" : "false";
+            } else {
+                value = element.value;
+            }
+
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/FinishedBoardProperties?handler=CheckBoxes_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name , value:value },
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    </script>
+}
+        

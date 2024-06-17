@@ -1,0 +1,388 @@
+﻿@page
+@using IntugentWebApp.Models
+@using System.Data
+@model IntugentWebApp.Pages.Mfg_Group.HomeModel
+@{
+    ViewData["ActivePage"] = "Mfg. Home";
+}
+
+<!-- Error on Server -->
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="row">
+    <!-- Search Card -->
+    <div class="card card-default">
+        <div class="card-header align-items-center">
+            <h2 class="">Search Datasets to Work With</h2>
+        </div>
+        <div class="card-body">
+            <form id="SearchParamsForm" method="post">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <!-- Testing Status -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="testingStatus">
+                                @foreach (DataRowView row in Model.gTestStat1)
+                                {
+                                    <option value="@row["ID"]" selected="@(Model.gTestStat1SelectedValue == (int)row["ID"])">@row["sName"]</option>
+                                }
+                            </select>
+                            <label for="testingStatus">Testing Status</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <!-- Aged R Value -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="agedRValue">
+                                @foreach (DataRowView row in Model.gAgedRValue)
+                                {
+                                    <option value="@row["ID"]" selected="@(Model.gAgedRValueSelectedValue == (int)row["ID"])">@row["sName"]</option>
+                                }
+                            </select>
+                            <label for="agedRValue">Aged R Value Testing</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <!-- Dimension Stability -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="dimensionStability">
+                                @foreach (DataRowView row in Model.gDimStability)
+                                {
+                                    <option value="@row["ID"]" selected="@(Model.gDimStabilitySelectedValue == (int)row["ID"])">@row["sName"]</option>
+                                }
+                            </select>
+                            <label for="dimensionStability">Dimension Stability Testing</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <!-- Product Code -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="productCode">
+                                @foreach (DataRowView row in Model.gProd1)
+                                {
+                                    <option value="@row["Product Code"]" selected="@(Model.gProd1SelectedValue == row["Product Code"].ToString())">@row["Product"]</option>
+                                }
+                            </select>
+                            <label for="productCode">Product Code</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <!-- Run Type -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="runType">
+                                @foreach (DataRowView row in Model.gRunType1)
+                                {
+                                    <option value="@row["ID"]" selected="@(Model.gRunType1SelectedValue == (int)row["ID"])">@row["sName"]</option>
+                                }
+                            </select>
+                            <label for="runType">Run Type</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <!-- Group -->
+                        <div class="mb-2 d-flex align-items-center">
+                            <label for="Group" class="col-md-3 col-form-label text-md-end">Group</label>
+                            <div class="col-md-9">
+                                <input type="text" asp-for="gLoc1" class="form-control" id="Group" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <!-- After Date -->
+                        <div class="form-floating mb-2">
+                            <input type="date" class="form-control" id="afterDate" asp-for="gMfgDate2">
+                            <label for="afterDate">Manufactured - After or At</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+
+                        <!-- Before Date -->
+                        <div class="form-floating mb-2">
+                            <input type="date" class="form-control" id="beforeDate" asp-for="gMfgDate1">
+                            <label for="beforeDate">Manufactured - Before or At</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 d-flex justify-content-end">
+                        <div class="row" style="margin: 0;">
+                            <button type="button" class="btn btn-primary m-auto" onclick="gSearchDB()">
+                                Retrieve Top 50 Datasets
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <input type="hidden" asp-for="gTestStat1SelectedValue" id="hiddentestingStatus" />
+                    <input type="hidden" asp-for="gDimStabilitySelectedValue" id="hiddendimensionStability" />
+                    <input type="hidden" asp-for="gProd1SelectedValue" id="hiddenproductCode" />
+                    <input type="hidden" asp-for="gRunType1SelectedValue" id="hiddenrunType" />
+                    <input type="hidden" asp-for="gMfgDate2" id="hiddenafterDate" />
+                    <input type="hidden" asp-for="gMfgDate1" id="hiddenbeforeDate" />
+                    <input type="hidden" asp-for="gLoc1" id="hiddenGroup" />
+                    <input type="hidden" asp-for="gAgedRValueSelectedValue" id="hiddenAgedRValueSelectedValue" />
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="text-end">
+    <button type="button" onclick="copyDataToClipboard()" class="btn btn-primary mb-3">
+        Copy All Datasets Meeting Search Criteria
+    </button>
+
+</div>
+
+<div class="row">
+
+    <!-- Search Results -->
+    <div class="card card-default">
+        <div class="card-header align-items-center">
+            <h2 class="">Search Results - Select any Data Record in the List Below to View and Edit Detailed Data</h2>
+        </div>
+        <div class="card-body">
+            <table id="searchResultsTable" class="table table-hover table-product dataTable" style="width:100%">
+                <thead>
+                    <tr>
+                        @* <th>ID</th>
+                        <th>Date</th>
+                        <th>Shift</th>
+                        <th>Green Board Time Stamp</th>
+                        <th>FG Board Time Stamp</th>
+                        <th>Product</th>
+                        <th>Location</th>
+                        <th>Select</th> *@
+
+                        @* Verify From Asjad sb !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*@
+                        @if (Model.gMfgSearch.Table != null)
+                        {
+                            foreach (DataColumn column in Model.gMfgSearch.Table.Columns)
+                            {
+                                <th>@column.ColumnName</th>
+                            }
+                            <th>Select</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.gMfgSearch != null && Model.gMfgSearch.Count > 0)
+                    {
+                        int rowIndex = 0;
+                        foreach (DataRowView rowView in Model.gMfgSearch)
+                        {
+
+                            <tr>
+                                @{
+                                    var itemArray = rowView.Row.ItemArray;
+                                    var id = itemArray[0]; // first item is the ID
+                                    for (int i = 0; i < itemArray.Length; i++)
+                                    {
+                                        <td>@itemArray[i]</td>
+                                    }
+                                }
+
+                                <td>
+                                    <label class="switch switch-primary switch-pill form-control-label ">
+                                        <input type="checkbox" class="switch-input form-check-input" id="select_@rowIndex" data-index="@id">
+                                        <span class="switch-label"></span>
+                                        <span class="switch-handle"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                            rowIndex++;
+                        }
+                        @* foreach (MFGSearchResult sr in Model.searchResults)
+                    {
+                    <tr>
+                    <td>@sr.ID</td>
+                    <td>@sr.Date?.ToString("MM/dd/yyyy")</td>
+                    <td>@sr.Shift</td>
+                    <td>@sr.GreenBoardTimeStamp</td>
+                    <td>@sr.FGBoardTimeStamp</td>
+                    <td>@sr.Product</td>
+                    <td>@sr.Location</td>
+                    <td>
+                    <label class="switch switch-primary switch-pill form-control-label ">
+                    <input type="checkbox" class="switch-input form-check-input" id="select_@sr.ID">
+                    <span class="switch-label"></span>
+                    <span class="switch-handle"></span>
+                    </label>
+                    </td>
+                    </tr>
+                    } *@
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div class="text-end">
+    <button type="button" class="btn btn-primary mb-2">
+        Create A New Dataset
+    </button>
+</div>
+
+@{
+    // if some dataset is already selected.. set its checkbox to checked..
+    if (Model.gMfgSearchSelectedIndex != null)
+    {
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var currentId = @Html.Raw(Model.gMfgSearchSelectedIndex);
+
+                if (currentId) {
+
+                    var checkbox = document.getElementById('select_' + currentId);
+
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
+                }
+            });
+        </script>
+    }
+}
+
+@section Scripts {
+
+    <script>
+
+        // handle checkbox change event
+        $('input[type="checkbox"]').change(function () {
+            if ($(this).is(':checked')) {
+                var selectedID = $(this).attr('id').substring(7); // remove "select_" prefix
+                unselectAllRows($(this).attr('id'));
+                var selectedDatasetID = $(this).data('index');
+                sendIdToServer(selectedID, selectedDatasetID);
+            }
+        });
+
+        // unselect all other rows
+        function unselectAllRows(selectedID) {
+            $('input[type="checkbox"]').each(function () {
+                if ($(this).attr('id') !== selectedID) {
+                    $(this).prop('checked', false);
+                }
+            });
+        }
+
+        // send id to server-side
+        function sendIdToServer(selectedID, selectedDatasetID) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/Home?handler=DatasetSelected",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { gMfgSearchSelectedIndex: selectedID, gMfgSearchRowsCount: @Model.gMfgSearch.Count, gMfgSelectedDatasetID: selectedDatasetID },
+                success: function (response) {
+                    console.log('Server response:', response);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+    </script>
+    <script>
+        // Function to update hidden inputs before form submission
+        function updateHiddenInputs() {
+            document.getElementById('hiddentestingStatus').value = document.getElementById('testingStatus').value;
+            document.getElementById('hiddendimensionStability').value = document.getElementById('dimensionStability').value;
+            document.getElementById('hiddenproductCode').value = document.getElementById('productCode').value;
+            document.getElementById('hiddenrunType').value = document.getElementById('runType').value;
+            document.getElementById('hiddenafterDate').value = document.getElementById('afterDate').value;
+            document.getElementById('hiddenbeforeDate').value = document.getElementById('beforeDate').value;
+            document.getElementById('hiddenGroup').value = document.getElementById('Group').value;
+            document.getElementById('hiddenAgedRValueSelectedValue').value = document.getElementById('agedRValue').value;
+            // Repeat for other select elements...
+        }
+
+        // send searchParams form to server-side
+        function gSearchDB() {
+
+            updateHiddenInputs();
+
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/Home?handler=SearchDB_Click",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: form.serialize(),
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    </script>
+    <script>
+        async function copyDataToClipboard() {
+            try {
+                /*
+                const response = await fetch('/Mfg_Group/Home?handler=CopyDataAsync');
+
+                console.log(response);
+
+
+                const data = await response.json();
+
+
+
+                //Create a temporary textarea element to copy the data
+                const textArea = document.createElement("textarea");
+                textArea.value = data;
+                document.body.appendChild(textArea);
+
+                //Select and copy the text
+                textArea.select();
+                document.execCommand("copy");
+
+                //Remove the temporary element
+                document.body.removeChild(textArea);
+                */
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Mfg_Group/Home?handler=CopyDataAsync",
+                    headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                    success: function (data) {
+                        console.log('Server response:', data);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+
+                alert("Data copied to clipboard!");
+            } catch (error) {
+                console.error('Error copying data to clipboard:', error);
+            }
+        }
+    </script>
+}

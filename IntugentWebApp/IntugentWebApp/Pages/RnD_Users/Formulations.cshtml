@@ -1,0 +1,419 @@
+﻿@page
+@model IntugentWebApp.Pages.RnD_Users.FormulationsModel
+@{
+    ViewData["ActivePage"] = "Formulations Page";
+}
+
+<!-- Error message -->
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="row">
+    <!-- Search Card -->
+    <div class="card card-default">
+        <div class="card-header align-items-center">
+            <h2 class="">General Info</h2>
+        </div>
+
+        <div class="card-body">
+            <form method="post">
+                <div class="row mb-2">
+                    <div class="col-lg-3">
+                        <!-- ID -->
+                        <div class="mb-2 row">
+                            <label for="projectID" class="col-md-5 col-form-label">Project ID</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="projectID" asp-for="DataSet.ID" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <!-- Project/StudyName -->
+                        <div class="mb-2 row">
+                            <label for="projectStudyName" class="col-md-3 col-form-label">Project/Study Name</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="projectStudyName" asp-for="DataSet.StudyName" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-lg-3">
+                        <!-- Study Type -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="studyType">
+                                <option value="0">R&D Study</option>
+                                <option value="1">Mfg Study</option>
+                                <option value="2">Competitive Study</option>
+                            </select>
+                            <label for="studyType">Study Type</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <!-- relatedProduct -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="relatedProduct">
+                                <option value="0">Prod 1</option>
+                                <option value="1">Prod 2</option>
+                                <option value="2">Prod 3</option>
+                            </select>
+                            <label for="relatedProduct">Related Product</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <!-- designedBy -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="designedBy">
+                                <option value="1">Asjad</option>
+                                <option value="2">Mike</option>
+                            </select>
+                            <label for="designedBy">Designed By</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <!-- conductedBy -->
+                        <div class="form-floating mb-2">
+                            <select class="form-select" id="conductedBy">
+                                <option value="1">Asjad</option>
+                                <option value="2">Mike</option>
+                            </select>
+                            <label for="conductedBy">Conducted By</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <!-- experimentsDate -->
+                        <div class="form-floating">
+                            <input type="date" class="form-control" id="experimentsDate" placeholder="" asp-for="DataSet.DateDSCreated">
+                            <label for="experimentsDate">Date of Experiments</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 d-flex justify-content-end align-items-center">
+                        <!-- abandoned -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="abandoned" checked="checked">
+                            <label class="custom-control-label" for="abandoned">Abandoned</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="card card-default">
+        <div class="card-header align-items-center">
+            <h2 class="">Formulation Details</h2>
+        </div>
+
+        <div class="card-body">
+            <table class="table mb-4">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">
+                            NCO Index (NCO equivs per 100 Equivalents of Active-H)
+                        </th>
+                        <th scope="col">#1</th>
+                        <th scope="col">#2</th>
+                        <th scope="col">#3</th>
+                        <th scope="col">#4</th>
+                        <th scope="col">#5</th>
+                        <th scope="col">#6</th>
+                        <th scope="col">#7</th>
+                        <th scope="col">#8</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">
+                            NCO Index (Equivalents of NCO per 100 Equivalents of Active-H
+                        </td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table mb-4">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">
+                            Side A (ISO Side) Material
+                        </th>
+                        <th scope="col">Type</th>
+                        <th scope="col">%NCO</th>
+                        <th scope="col">Func.</th>
+                        <th scope="col">#1</th>
+                        <th scope="col">#2</th>
+                        <th scope="col">#3</th>
+                        <th scope="col">#4</th>
+                        <th scope="col">#5</th>
+                        <th scope="col">#6</th>
+                        <th scope="col">#7</th>
+                        <th scope="col">#8</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">
+                            Rubinate 1850 Isocyanate
+                        </td>
+                        <td>Iso-PMDI</td>
+                        <td>33.5</td>
+                        <td>2.9</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-striped mb-4">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">
+                            Side B (Polyol Side) Material
+                        </th>
+                        <th scope="col">Type</th>
+                        <th scope="col">OH#</th>
+                        <th scope="col">Func.</th>
+                        <th scope="col">#1</th>
+                        <th scope="col">#2</th>
+                        <th scope="col">#3</th>
+                        <th scope="col">#4</th>
+                        <th scope="col">#5</th>
+                        <th scope="col">#6</th>
+                        <th scope="col">#7</th>
+                        <th scope="col">#8</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">
+                            TEROL 563
+                        </td>
+                        <td>Polyol - Polyester</td>
+                        <td>245	2</td>
+                        <td>2.9</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+
+                    <tr>
+                        <td scope="row">
+                            Rubinate 1850 Isocyanate
+                        </td>
+                        <td>Iso-PMDI</td>
+                        <td>33.5</td>
+                        <td>2.9</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            ExP. Catalyst 1
+                        </td>
+                        <td>Catalyst</td>
+                        <td>1730</td>
+                        <td>0</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            STEPANPOL PS 2352
+                        </td>
+                        <td>Polyol - Polyester</td>
+                        <td>240</td>
+                        <td>2.9</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            n-pentane
+                        </td>
+                        <td>Blowing Ag. - HC</td>
+                        <td>33.5</td>
+                        <td>2.9</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-primary m-1">
+                        Add A Row
+                    </button>
+                    <button type="button" class="btn btn-primary m-1">
+                        Paste Formulations pbw
+                    </button>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row align-items-center justify-content-between">
+                        <label for="sampleMass" class="col-md-9 col-form-label">Total Sample Mass needed for Foamat Experiment (gm) </label>
+                        <div class="col-md-3">
+                            <input type="number" value="250" class="form-control" id="sampleMass">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="card card-default">
+        <div class="card-header align-items-center">
+            <h2 class="">Preliminary Material Science Analysis of the Formulations</h2>
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">
+                            Descriptors
+                        </th>
+                        <th scope="col">#1</th>
+                        <th scope="col">#2</th>
+                        <th scope="col">#3</th>
+                        <th scope="col">#4</th>
+                        <th scope="col">#5</th>
+                        <th scope="col">#6</th>
+                        <th scope="col">#7</th>
+                        <th scope="col">#8</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">
+                            TEROL 563
+                        </td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+
+                    <tr>
+                        <td scope="row">
+                            Rubinate 1850 Isocyanate
+                        </td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            ExP. Catalyst 1
+                        </td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            STEPANPOL PS 2352
+                        </td>
+                        <td>2.9</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            n-pentane
+                        </td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                        <td>270</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
