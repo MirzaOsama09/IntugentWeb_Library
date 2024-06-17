@@ -13,6 +13,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace IntugentWebApp.Pages.Mfg_Group
 {
+    [BindProperties]
     public class DimensionStabilityModel : PageModel
     {
         public string gID { get; set; }
@@ -158,6 +159,8 @@ namespace IntugentWebApp.Pages.Mfg_Group
         }
         public void OnGet()
         {
+            _objectsService.MfgDimensionsStability.GetDataSet();
+            SetView();
         }
 
         public void SetView()
@@ -175,11 +178,11 @@ namespace IntugentWebApp.Pages.Mfg_Group
 
             gID = _objectsService.MfgDimensionsStability.dr["ID4ALL"].ToString();
             if ((_objectsService.MfgDimensionsStability.dr["DS Testing Complete"] == DBNull.Value)) gDimStabilityDoneIsChecked = false; else gDimStabilityDoneIsChecked = (bool)_objectsService.MfgDimensionsStability.dr["DS Testing Complete"];
-            if (_objectsService.MfgDimensionsStability.drIP["Test Date"] == DBNull.Value) gProductionDate = String.Empty; else gProductionDate = ((DateTime)_objectsService.MfgDimensionsStability.drIP["Test Date"]).ToString("MM/dd/yyyy");
-            if (_objectsService.MfgDimensionsStability.drFG["Finished Board Time Stamp FG"] == DBNull.Value) gProductionTime = String.Empty; else gProductionTime = ((DateTime)_objectsService.MfgDimensionsStability.drFG["Finished Board Time Stamp FG"]).ToString("hh:mm tt");
+            //if (_objectsService.MfgDimensionsStability.drIP["Test Date"] == DBNull.Value) gProductionDate = String.Empty; else gProductionDate = ((DateTime)_objectsService.MfgDimensionsStability.drIP["Test Date"]).ToString("MM/dd/yyyy");
+            //if (_objectsService.MfgDimensionsStability.drFG["Finished Board Time Stamp FG"] == DBNull.Value) gProductionTime = String.Empty; else gProductionTime = ((DateTime)_objectsService.MfgDimensionsStability.drFG["Finished Board Time Stamp FG"]).ToString("hh:mm tt");
 
             //           if (_objectsService.MfgDimensionsStability.drIP["Test Time"] == DBNull.Value) gProductionTime.Text = String.Empty; else gProductionTime.Text = ((DateTime)_objectsService.MfgDimensionsStability.drIP["Test Time"]).ToString("hh:mm tt");
-            if (_objectsService.MfgDimensionsStability.drIP["Product ID"] == DBNull.Value) gProductCode = String.Empty; else gProductCode = _objectsService.MfgDimensionsStability.drIP["Product ID"].ToString();
+          //  if (_objectsService.MfgDimensionsStability.drIP["Product ID"] == DBNull.Value) gProductCode = String.Empty; else gProductCode = _objectsService.MfgDimensionsStability.drIP["Product ID"].ToString();
 
             if (_objectsService.MfgDimensionsStability.dr["Edge H1"] == DBNull.Value) gEdgeH1IsChecked = false; else gEdgeH1IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge H1"];
             if (_objectsService.MfgDimensionsStability.dr["Edge H2"] == DBNull.Value) gEdgeH2IsChecked = false; else gEdgeH2IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge H2"];

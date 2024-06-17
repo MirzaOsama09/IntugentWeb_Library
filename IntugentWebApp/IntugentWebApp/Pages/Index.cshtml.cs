@@ -42,6 +42,10 @@ namespace IntugentWebApp.Pages
 
                 MfgFinishedGoods mfgFinishedGoods =new MfgFinishedGoods(_objectsService.Cbfile);
                 _objectsService.MfgFinishedGoods = mfgFinishedGoods;
+
+                MfgDimStability mfgDimensionsStability = new MfgDimStability(_objectsService.Cbfile);
+                _objectsService.MfgDimensionsStability = mfgDimensionsStability;
+
             }
 
 

@@ -24,7 +24,7 @@
                     <label class="col-3 col-form-label text-end">Dataset</label>
                     <div class="input-group col-9 d-flex">
                         <button class="btn btn-primary m-auto" type="button" style="padding: 9px" name="" onclick=""><span class="mdi mdi-chevron-left"></span></button>
-                        <input type="number" class="form-control text-center w-50" disabled ">
+                        <input type="number" class="form-control text-center w-50" disabled value="@Model.gID">
                         <button onclick="" class="btn btn-primary m-auto" type="button" style="padding: 9px"><span class="mdi mdi-chevron-right"></span></button>
                     </div>
                 </div>
@@ -36,14 +36,14 @@
                 <div class="col-md-6">
                     <!-- mfgDate -->
                     <div class="form-floating mb-2">
-                        <input type="datetime-local" class="form-control" id="mfgDate" value="" disabled>
+                        <input type="datetime-local" class="form-control" id="mfgDate" value="@Model.gProductionDate" disabled>
                         <label for="mfgDate">Production Date</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <!-- productCode -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="productCode" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="productCode" placeholder="" value="@Model.gProductCode" disabled>
                         <label for="productCode">Product Code</label>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                 <div class="col-md-6">
                     <!-- MfgTimeStamp -->
                     <div class="form-floating mb-2">
-                        <input type="datetime-local" class="form-control" id="Mfg Time Stamp" value="" onblur="" disabled>
+                        <input type="datetime-local" class="form-control" id="Mfg Time Stamp" value="@Model.gProductionTime" onblur="" disabled>
                         <label for="Mfg Time Stamp">Mfg Time Stamp</label>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="col-md-6">
                     <!-- DimTestingComplete -->
                     <div class="custom-control custom-checkbox align-items-center">
-                        <input type="checkbox" class="custom-control-input" id="fgTestingComplete" checked="" onchange="">
+                        <input type="checkbox" class="custom-control-input" id="fgTestingComplete" checked="@Model.gDimStabilityDoneIsChecked" onchange="">
                         <label class="custom-control-label" for="fgTestingComplete">Dimensional Stability Testing Complete</label>
                     </div>
                 </div>
@@ -81,28 +81,28 @@
             <div class="row mb-2">
                 <!-- DimTestingComplete -->
                 <div class="custom-control custom-checkbox align-items-center">
-                    <input type="checkbox" class="custom-control-input" id="Edge H1" checked="" onchange="">
+                    <input type="checkbox" class="custom-control-input" id="Edge H1" checked="@Model.gEdgeH1IsChecked" onchange="">
                     <label class="custom-control-label" for="Edge H1">Edge H1</label>
                 </div>
                 </div>
             <div class="row mb-2">
                 <!-- DimTestingComplete -->
                 <div class="custom-control custom-checkbox align-items-center">
-                    <input type="checkbox" class="custom-control-input" id="Edge H2" checked="" onchange="">
+                    <input type="checkbox" class="custom-control-input" id="Edge H2" checked="@Model.gEdgeH2IsChecked" onchange="">
                     <label class="custom-control-label" for="Edge H2">Edge H2</label>
                 </div>
             </div>
             <div class="row mb-2">
                 <!-- DimTestingComplete -->
                 <div class="custom-control custom-checkbox align-items-center">
-                    <input type="checkbox" class="custom-control-input" id="Edge C1" checked="" onchange="">
+                    <input type="checkbox" class="custom-control-input" id="Edge C1" checked="@Model.gEdgeC1IsChecked" onchange="">
                     <label class="custom-control-label" for="Edge C1">Edge C1</label>
                 </div>
             </div>
             <div class="row mb-2">
                 <!-- DimTestingComplete -->
                     <div class="custom-control custom-checkbox align-items-center">
-                    <input type="checkbox" class="custom-control-input" id="Edge C2" checked="" onchange="">
+                    <input type="checkbox" class="custom-control-input" id="Edge C2" checked="@Model.gEdgeC2IsChecked" onchange="">
                     <label class="custom-control-label" for="Edge C2">Edge C2</label>
                     </div>
             </div>
@@ -119,14 +119,14 @@
                 <div class="col-md-6">
                     <!-- % Change Length Oven -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Length Oven" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Change Length Oven" placeholder="" value="@Model.gChangeOvenLength" disabled>
                         <label for="Change Length Oven">% Change Length Oven</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <!-- % Change Width Oven -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="ChangeWidthOven" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="ChangeWidthOven" placeholder="" value="@Model.gChangeOvenWidth" disabled>
                         <label for="ChangeWidthOven">% Change Width Oven</label>
                     </div>
                 </div>
@@ -135,14 +135,14 @@
                 <div class="col-md-6">
                     <!-- % Change Thickness Oven -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Thickness Oven" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Change Thickness Oven" placeholder="" value="@Model.gChangeOvenThickness" disabled>
                         <label for="Change Thickness Oven">% Change Thickness Oven</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <!-- % Change Length Freezer -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Length Freezer" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Change Length Freezer" placeholder="" value="@Model.gChangeFreezerLength" disabled>
                         <label for="Change Length Freezer">% Change Length Freezer</label>
                     </div>
                 </div>
@@ -151,14 +151,14 @@
                 <div class="col-md-6">
                     <!-- % Change Width Freezer -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Width Freezer" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Change Width Freezer" placeholder="" value="@Model.gChangeFreezerWidth" disabled>
                         <label for="Change Width Freezer">% Change Width Freezer</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <!-- % Change Thickness Freezer -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Thickness Freezer" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Change Thickness Freezer" placeholder="" value="@Model.gChangeFreezerThickness" disabled>
                         <label for="Change Thickness Freezer">% Change Thickness Freezer</label>
                     </div>
                 </div>
@@ -175,7 +175,7 @@
                 <div class="col-md-12">
                     <!-- % Change Length -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Length" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Change Length" placeholder="" value="@Model.gChangeWFLength" disabled>
                         <label for="Change Length">% Change Length</label>
                     </div>
                 </div>
@@ -184,7 +184,7 @@
             <div class="col-md-12">
                     <!-- % Change Width -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Width" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Change Width" placeholder="" value="@Model.gChangeWFWidth" disabled>
                         <label for="Change Width">% Change Width</label>
                     </div>
                 </div>
@@ -193,14 +193,14 @@
                 <div class="col-md-6">
                     <!-- Average Depth -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="AverageDepth" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="AverageDepth" placeholder="" value="@Model.gAvgDepth" disabled>
                         <label for="AverageDepth">Average Depth</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <!-- Max Depth -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="MaxDepth" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="MaxDepth" placeholder="" value="@Model.gMaxDepth" disabled>
                         <label for="MaxDepth">Max Depth</label>
                     </div>
                 </div>
@@ -217,7 +217,7 @@
                 <div class="col-md-12">
                     <!-- Date & time sample put in Freezer -->
                     <div class="form-floating mb-2">
-                        <input type="datetime-local" class="form-control" id="DatetimesampleputinFreezer" placeholder="" value="">
+                        <input type="datetime-local" class="form-control" id="DatetimesampleputinFreezer" placeholder="" value="@Model.gTestDateTime">
                         <label for="DatetimesampleputinFreezer">Date & time sample put in Freezer</label>
                     </div>
                 </div>
@@ -227,7 +227,7 @@
                     <!-- Deviation from Table -->
                     <label for="DeviationfromTable">Deviation from Table</label>
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="DeviationfromTable" placeholder="" value="">
+                        <input type="text" class="form-control" id="DeviationfromTable" placeholder="" value="@Model.gDeviation">
                     </div>
                 </div>
 
@@ -259,66 +259,66 @@
               <div class="row">
             <!-- Initial H1 - L1 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Initial H1 - L1" placeholder="" value="" onblur="">
+                <input type="number" class="form-control" id="Initial H1 - L1" placeholder="" value="@Model.gInit_H1_L1" onblur="">
                 <label for="Initial H1 - L1">Initial H1 - L1</label>
             </div>
             <!-- Initial H1 - L2 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Initial H1 - L2" placeholder="" value="" onblur="">
+                <input type="number" class="form-control" id="Initial H1 - L2" placeholder="" value="@Model.gInit_H1_L2" onblur="">
                 <label for="Initial H1 - L2">Initial H1 - L2</label>
             </div>
                 </div>
               <div class="row">
                 <!-- Initial H1 - L3 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Initial H1 - L3" placeholder="" value="" onblur="">
+                <input type="number" class="form-control" id="Initial H1 - L3" placeholder="" value="@Model.gInit_H1_L3" onblur="">
                 <label for="Initial H1 - L3">Initial H1 - L3</label>
             </div>
             <!-- Initial H1 - W1 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Initial H1 - W1" placeholder="" value="" onblur="">
+                <input type="number" class="form-control" id="Initial H1 - W1" placeholder="" value="@Model.gInit_H1_W1" onblur="">
                 <label for="Initial H1 - W1">Initial H1 - W1</label>
             </div>
             </div>
               <div class="row">
             <!-- Initial H1 - W2 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Initial H1 - W2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H1 - W2" placeholder="" value="@Model.gInit_H1_W2" onblur="">
                 <label for="Initial H1 - W2">Initial H1 - W2</label>
             </div>
             <!-- Initial H1 - W3 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Initial H1 - W3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H1 - W3" placeholder="" value="@Model.gInit_H1_W3" onblur="">
                 <label for="Initial H1 - W3">Initial H1 - W3</label>
             </div>
             </div>
               <div class="row">
             <!-- Initial H1 - T1 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Initial H1 - T1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H1 - T1" placeholder="" value="@Model.gInit_H1_T1" onblur="">
                 <label for="Initial H1 - T1">Initial H1 - T1</label>
             </div>
             <!-- Initial H1 - T2 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Initial H1 - T2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H1 - T2" placeholder="" value="@Model.gInit_H1_T2" onblur="">
                 <label for="Initial H1 - T2">Initial H1 - T2</label>
             </div>
             </div>
               <div class="row">
             <!-- Initial H1 - T3 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Initial H1 - T3" placeholder="" value="" onblur="">
+                <input type="number" class="form-control" id="Initial H1 - T3" placeholder="" value="@Model.gInit_H1_T3" onblur="">
                 <label for="Initial H1 - T3">Initial H1 - T3</label>
             </div>
             <!-- Initial H1 - T4 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Initial H1 - T4" placeholder="" value="" onblur="">
+                <input type="number" class="form-control" id="Initial H1 - T4" placeholder="" value="@Model.gInit_H1_T4" onblur="">
                 <label for="Initial H1 - T4">Initial H1 - T4</label>
             </div>
             </div>   
             <!-- Initial H1 - T5 -->
             <div class="form-floating mb-2">
-                <input type="number" class="form-control" id="Initial H1 - T5" placeholder="" value="" onblur="">
+                <input type="number" class="form-control" id="Initial H1 - T5" placeholder="" value="@Model.gInit_H1_T5" onblur="">
                 <label for="Initial H1 - T5">Initial H1 - T5</label>
             </div>        
         </div>
@@ -327,66 +327,66 @@
             <div class="row">
             <!-- Final H1 - L1 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Final H1 - L1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H1 - L1" placeholder="" value="@Model.gFinal_H1_L1" onblur="">
                 <label for="Final H1 - L1">Final H1 - L1</label>
             </div>
             <!-- Final H1 - L2 -->         
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Final H1 - L2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H1 - L2" placeholder="" value="@Model.gFinal_H1_L2" onblur="">
                 <label for="Final H1 - L2">Final H1 - L2</label>
             </div>
             </div>
              <div class="row">              
             <!-- Final H1 - L3 -->         
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Final H1 - L3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H1 - L3" placeholder="" value="@Model.gFinal_H1_L3" onblur="">
                 <label for="Final H1 - L3">Final H1 - L3</label>
             </div>
             <!-- Final H1 - W1 -->        
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Final H1 - W1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H1 - W1" placeholder="" value="@Model.gFinal_H1_W1" onblur="">
                 <label for="Final H1 - W1">Final H1 - W1</label>
             </div>
                 </div>
             <div class="row">
             <!-- Final H1 - W2 -->         
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Final H1 - W2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H1 - W2" placeholder="" value="@Model.gFinal_H1_W2" onblur="">
                 <label for="Final H1 - W2">Final H1 - W2</label>
             </div>
             <!-- Final H1 - W3 -->         
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Final H1 - W3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H1 - W3" placeholder="" value="@Model.gFinal_H1_W3" onblur="">
                 <label for="Final H1 - W3">Final H1 - W3</label>
             </div>
              </div>
             <div class="row">
             <!-- Final H1 - T1 -->         
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Final H1 - T1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H1 - T1" placeholder="" value="@Model.gFinal_H1_T1" onblur="">
                 <label for="Final H1 - T1">Final H1 - T1</label>
             </div>
             <!-- Final H1 - T2 -->       
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Final H1 - T2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H1 - T2" placeholder="" value="@Model.gFinal_H1_T2" onblur="">
                 <label for="Final H1 - T2">Final H1 - T2</label>
             </div>
                 </div>
             <div class="row">
             <!-- Final H1 - T3 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Final H1 - T3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H1 - T3" placeholder="" value="@Model.gFinal_H1_T3" onblur="">
                 <label for="Final H1 - T3">Final H1 - T3</label>
             </div>
             <!-- Final H1 - T4 -->
             <div class="form-floating mb-2 col-6">
-                <input type="number" class="form-control" id="Final H1 - T4" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H1 - T4" placeholder="" value="@Model.gFinal_H1_T4" onblur="">
                 <label for="Final H1 - T4">Final H1 - T4</label>
             </div>
                 </div>
             <!-- Final H1 - T5 -->
             <div class="form-floating mb-2">
-                <input type="number" class="form-control" id="Final H1 - T5" placeholder="" value="" onblur="">
+                <input type="number" class="form-control" id="Final H1 - T5" placeholder="" value="@Model.gFinal_H1_T5" onblur="">
                 <label for="Final H1 - T5">Final H1 - T5</label>
             </div>
         </div>
@@ -403,66 +403,66 @@
                 <div class="row">
                     <!-- Initial H2 - L1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial H2 - L1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H2 - L1" placeholder="" value="@Model.gInit_H2_L1" onblur="">
                         <label for="Initial H2 - L1">Initial H2 - L1</label>
                     </div>
                     <!-- Initial H2 - L2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial H2 - L2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H2 - L2" placeholder="" value="@Model.gInit_H2_L2" onblur="">
                         <label for="Initial H2 - L2">Initial H2 - L2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial H2 - L3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial H2 - L3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H2 - L3" placeholder="" value="@Model.gInit_H2_L3" onblur="">
                         <label for="Initial H2 - L3">Initial H2 - L3</label>
                     </div>
                     <!-- Initial H2 - W1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial H2 - W1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H2 - W1" placeholder="" value="@Model.gInit_H2_W1" onblur="">
                         <label for="Initial H2 - W1">Initial H2 - W1</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial H2 - W2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial H2 - W2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H2 - W2" placeholder="" value="@Model.gInit_H2_W2" onblur="">
                         <label for="Initial H2 - W2">Initial H2 - W2</label>
                     </div>
                     <!-- Initial H2 - W3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial H2 - W3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H2 - W3" placeholder="" value="@Model.gInit_H2_W3" onblur="">
                         <label for="Initial H2 - W3">Initial H2 - W3</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial H2 - T1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial H2 - T1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H2 - T1" placeholder="" value="@Model.gInit_H2_T1" onblur="">
                         <label for="Initial H2 - T1">Initial H2 - T1</label>
                     </div>
                     <!-- Initial H2 - T2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial H2 - T2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H2 - T2" placeholder="" value="@Model.gInit_H2_T2" onblur="">
                         <label for="Initial H2 - T2">Initial H2 - T2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial H2 - T3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial H2 - T3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H2 - T3" placeholder="" value="@Model.gInit_H2_T3" onblur="">
                         <label for="Initial H2 - T3">Initial H2 - T3</label>
                     </div>
                     <!-- Initial H2 - T4 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial H2 - T4" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial H2 - T4" placeholder="" value="@Model.gInit_H2_T4" onblur="">
                         <label for="Initial H2 - T4">Initial H2 - T4</label>
                     </div>
                 </div>
                 <!-- Initial H2 - T5 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial H2 - T5" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Initial H2 - T5" placeholder="" value="@Model.gInit_H2_T5" onblur="">
                     <label for="Initial H2 - T5">Initial H2 - T5</label>
                 </div>
             </div>
@@ -471,66 +471,66 @@
                 <div class="row">
                     <!-- Final H2 - L1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final H2 - L1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H2 - L1" placeholder="" value="@Model.gFinal_H2_L1" onblur="">
                         <label for="Final H2 - L1">Final H2 - L1</label>
                     </div>
                     <!-- Final H2 - L2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final H2 - L2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H2 - L2" placeholder="" value="@Model.gFinal_H2_L2" onblur="">
                         <label for="Final H2 - L2">Final H2 - L2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final H2 - L3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final H2 - L3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H2 - L3" placeholder="" value="@Model.gFinal_H2_L3" onblur="">
                         <label for="Final H2 - L3">Final H2 - L3</label>
                     </div>
                     <!-- Final H2 - W1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final H2 - W1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H2 - W1" placeholder="" value="@Model.gFinal_H2_W1" onblur="">
                         <label for="Final H2 - W1">Final H2 - W1</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final H2 - W2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final H2 - W2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H2 - W2" placeholder="" value="@Model.gFinal_H2_W2" onblur="">
                         <label for="Final H2 - W2">Final H2 - W2</label>
                     </div>
                     <!-- Final H2 - W3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final H2 - W3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H2 - W3" placeholder="" value="@Model.gFinal_H2_W3" onblur="">
                         <label for="Final H2 - W3">Final H2 - W3</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final H2 - T1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final H2 - T1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H2 - T1" placeholder="" value="@Model.gFinal_H2_T1" onblur="">
                         <label for="Final H2 - T1">Final H2 - T1</label>
                     </div>
                     <!-- Final H2 - T2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final H2 - T2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H2 - T2" placeholder="" value="@Model.gFinal_H2_T2" onblur="">
                         <label for="Final H2 - T2">Final H2 - T2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final H2 - T3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final H2 - T3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H2 - T3" placeholder="" value="@Model.gFinal_H2_T3" onblur="">
                         <label for="Final H2 - T3">Final H2 - T3</label>
                     </div>
                     <!-- Final H2 - T4 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final H2 - T4" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final H2 - T4" placeholder="" value="@Model.gFinal_H2_T4" onblur="">
                         <label for="Final H2 - T4">Final H2 - T4</label>
                     </div>
                 </div>
                 <!-- Final H2 - T5 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final H2 - T5" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Final H2 - T5" placeholder="" value="@Model.gFinal_H2_T5" onblur="">
                     <label for="Final H2 - T5">Final H2 - T5</label>
                 </div>
             </div>
@@ -550,32 +550,32 @@
                 <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
                     <!-- Initial WF - L1 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Initial WF - L1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial WF - L1" placeholder="" value="@Model.gInit_WF_L1" onblur="">
                         <label for="Initial WF - L1">Initial WF - L1</label>
                     </div>
                     <!-- Initial WF - L2 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Initial WF - L2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial WF - L2" placeholder="" value="@Model.gInit_WF_L2" onblur="">
                         <label for="Initial WF - L2">Initial WF - L2</label>
                     </div>
                     <!-- Initial WF - L3 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Initial WF - L3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial WF - L3" placeholder="" value="@Model.gInit_WF_L3" onblur="">
                         <label for="Initial WF - L3">Initial WF - L3</label>
                     </div>
                     <!-- Initial WF - W1 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Initial WF - W1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial WF - W1" placeholder="" value="@Model.gInit_WF_W1" onblur="">
                         <label for="Initial WF - W1">Initial WF - W1</label>
                     </div>
                     <!-- Initial WF - W2 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Initial WF - W2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial WF - W2" placeholder="" value="@Model.gInit_WF_W2" onblur="">
                         <label for="Initial WF - W2">Initial WF - W2</label>
                     </div>
                     <!-- Initial WF - W3 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Initial WF - W3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial WF - W3" placeholder="" value="@Model.gInit_WF_W3" onblur="">
                         <label for="Initial WF - W3">Initial WF - W3</label>
                     </div>
                 </div>
@@ -583,32 +583,32 @@
                 <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
                     <!-- Final WF - L1 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Final WF - L1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final WF - L1" placeholder="" value="@Model.gFinal_WF_L1" onblur="">
                         <label for="Final WF - L1">Final WF - L1</label>
                     </div>
                     <!-- Final WF - L2 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Final WF - L2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final WF - L2" placeholder="" value="@Model.gFinal_WF_L2" onblur="">
                         <label for="Final WF - L2">Final WF - L2</label>
                     </div>
                     <!-- Final WF - L3 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Final WF - L3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final WF - L3" placeholder="" value="@Model.gFinal_WF_L3" onblur="">
                         <label for="Final WF - L3">Final WF - L3</label>
                     </div>
                     <!-- Final WF - W1 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Final WF - W1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final WF - W1" placeholder="" value="@Model.gFinal_WF_W1" onblur="">
                         <label for="Final WF - W1">Final WF - W1</label>
                     </div>
                     <!-- Final WF - W2 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Final WF - W2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final WF - W2" placeholder="" value="@Model.gFinal_WF_W2" onblur="">
                         <label for="Final WF - W2">Final WF - W2</label>
                     </div>
                     <!-- Final WF - W3 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Final WF - W3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final WF - W3" placeholder="" value="@Model.gFinal_WF_W3" onblur="">
                         <label for="Final WF - W3">Final WF - W3</label>
                     </div>
                 </div>
@@ -631,66 +631,66 @@
                 <div class="row">
                     <!-- Initial C1 - L1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C1 - L1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C1 - L1" placeholder="" value="@Model.gInit_C1_L1" onblur="">
                         <label for="Initial C1 - L1">Initial C1 - L1</label>
                     </div>
                     <!-- Initial C1 - L2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C1 - L2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C1 - L2" placeholder="" value="@Model.gInit_C1_L2" onblur="">
                         <label for="Initial C1 - L2">Initial C1 - L2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial C1 - L3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C1 - L3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C1 - L3" placeholder="" value="@Model.gInit_C1_L3" onblur="">
                         <label for="Initial C1 - L3">Initial C1 - L3</label>
                     </div>
                     <!-- Initial C1 - W1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C1 - W1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C1 - W1" placeholder="" value="@Model.gInit_C1_W1" onblur="">
                         <label for="Initial C1 - W1">Initial C1 - W1</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial C1 - W2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C1 - W2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C1 - W2" placeholder="" value="@Model.gInit_C1_W2" onblur="">
                         <label for="Initial C1 - W2">Initial C1 - W2</label>
                     </div>
                     <!-- Initial C1 - W3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C1 - W3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C1 - W3" placeholder="" value="@Model.gInit_C1_W3" onblur="">
                         <label for="Initial C1 - W3">Initial C1 - W3</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial C1 - T1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C1 - T1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C1 - T1" placeholder="" value="@Model.gInit_C1_T1" onblur="">
                         <label for="Initial C1 - T1">Initial C1 - T1</label>
                     </div>
                     <!-- Initial C1 - T2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C1 - T2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C1 - T2" placeholder="" value="@Model.gInit_C1_T2" onblur="">
                         <label for="Initial C1 - T2">Initial C1 - T2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial C1 - T3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C1 - T3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C1 - T3" placeholder="" value="@Model.gInit_C1_T3" onblur="">
                         <label for="Initial C1 - T3">Initial C1 - T3</label>
                     </div>
                     <!-- Initial C1 - T4 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C1 - T4" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C1 - T4" placeholder="" value="@Model.gInit_C1_T4" onblur="">
                         <label for="Initial C1 - T4">Initial C1 - T4</label>
                     </div>
                 </div>
                 <!-- Initial C1 - T5 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C1 - T5" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Initial C1 - T5" placeholder="" value="@Model.gInit_C1_T5" onblur="">
                     <label for="Initial C1 - T5">Initial C1 - T5</label>
                 </div>
             </div>
@@ -699,66 +699,66 @@
                 <div class="row">
                     <!-- Final C1 - L1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C1 - L1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C1 - L1" placeholder="" value="@Model.gFinal_C1_L1" onblur="">
                         <label for="Final C1 - L1">Final C1 - L1</label>
                     </div>
                     <!-- Final C1 - L2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C1 - L2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C1 - L2" placeholder="" value="@Model.gFinal_C1_L2" onblur="">
                         <label for="Final C1 - L2">Final C1 - L2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final C1 - L3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C1 - L3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C1 - L3" placeholder="" value="@Model.gFinal_C1_L3" onblur="">
                         <label for="Final C1 - L3">Final C1 - L3</label>
                     </div>
                     <!-- Final C1 - W1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C1 - W1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C1 - W1" placeholder="" value="@Model.gFinal_C1_W1" onblur="">
                         <label for="Final C1 - W1">Final C1 - W1</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final C1 - W2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C1 - W2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C1 - W2" placeholder="" value="@Model.gFinal_C1_W2" onblur="">
                         <label for="Final C1 - W2">Final C1 - W2</label>
                     </div>
                     <!-- Final C1 - W3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C1 - W3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C1 - W3" placeholder="" value="@Model.gFinal_C1_W3" onblur="">
                         <label for="Final C1 - W3">Final C1 - W3</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final C1 - T1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C1 - T1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C1 - T1" placeholder="" value="@Model.gFinal_C1_T1" onblur="">
                         <label for="Final C1 - T1">Final C1 - T1</label>
                     </div>
                     <!-- Final C1 - T2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C1 - T2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C1 - T2" placeholder="" value="@Model.gFinal_C1_T2" onblur="">
                         <label for="Final C1 - T2">Final C1 - T2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final C1 - T3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C1 - T3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C1 - T3" placeholder="" value="@Model.gFinal_C1_T3" onblur="">
                         <label for="Final C1 - T3">Final C1 - T3</label>
                     </div>
                     <!-- Final C1 - T4 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C1 - T4" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C1 - T4" placeholder="" value="@Model.gFinal_C1_T4" onblur="">
                         <label for="Final C1 - T4">Final C1 - T4</label>
                     </div>
                 </div>
                 <!-- Final C1 - T5 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C1 - T5" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Final C1 - T5" placeholder="" value="@Model.gFinal_C1_T5" onblur="">
                     <label for="Final C1 - T5">Final C1 - T5</label>
                 </div>
             </div>
@@ -775,66 +775,66 @@
                 <div class="row">
                     <!-- Initial C2 - L1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C2 - L1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C2 - L1" placeholder="" value="@Model.gInit_C2_L1" onblur="">
                         <label for="Initial C2 - L1">Initial C2 - L1</label>
                     </div>
                     <!-- Initial C2 - L2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C2 - L2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C2 - L2" placeholder="" value="@Model.gInit_C2_L2" onblur="">
                         <label for="Initial C2 - L2">Initial C2 - L2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial C2 - L3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C2 - L3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C2 - L3" placeholder="" value="@Model.gInit_C2_L3" onblur="">
                         <label for="Initial C2 - L3">Initial C2 - L3</label>
                     </div>
                     <!-- Initial C2 - W1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C2 - W1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C2 - W1" placeholder="" value="@Model.gInit_C2_W1" onblur="">
                         <label for="Initial C2 - W1">Initial C2 - W1</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial C2 - W2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C2 - W2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C2 - W2" placeholder="" value="@Model.gInit_C2_W2" onblur="">
                         <label for="Initial C2 - W2">Initial C2 - W2</label>
                     </div>
                     <!-- Initial C2 - W3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C2 - W3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C2 - W3" placeholder="" value="@Model.gInit_C2_W3" onblur="">
                         <label for="Initial C2 - W3">Initial C2 - W3</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial C2 - T1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C2 - T1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C2 - T1" placeholder="" value="@Model.gInit_C2_T1" onblur="">
                         <label for="Initial C2 - T1">Initial C2 - T1</label>
                     </div>
                     <!-- Initial C2 - T2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C2 - T2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C2 - T2" placeholder="" value="@Model.gInit_C2_T2" onblur="">
                         <label for="Initial C2 - T2">Initial C2 - T2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Initial C2 - T3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C2 - T3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C2 - T3" placeholder="" value="@Model.gInit_C2_T3" onblur="">
                         <label for="Initial C2 - T3">Initial C2 - T3</label>
                     </div>
                     <!-- Initial C2 - T4 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Initial C2 - T4" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Initial C2 - T4" placeholder="" value="@Model.gInit_C2_T4" onblur="">
                         <label for="Initial C2 - T4">Initial C2 - T4</label>
                     </div>
                 </div>
                 <!-- Initial C2 - T5 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C2 - T5" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Initial C2 - T5" placeholder="" value="@Model.gInit_C2_T5" onblur="">
                     <label for="Initial C2 - T5">Initial C2 - T5</label>
                 </div>
             </div>
@@ -843,66 +843,66 @@
                 <div class="row">
                     <!-- Final C2 - L1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C2 - L1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C2 - L1" placeholder="" value="@Model.gFinal_C2_L1" onblur="">
                         <label for="Final C2 - L1">Final C2 - L1</label>
                     </div>
                     <!-- Final C2 - L2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C2 - L2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C2 - L2" placeholder="" value="@Model.gFinal_C2_L2" onblur="">
                         <label for="Final C2 - L2">Final C2 - L2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final C2 - L3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C2 - L3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C2 - L3" placeholder="" value="@Model.gFinal_C2_L3" onblur="">
                         <label for="Final C2 - L3">Final C2 - L3</label>
                     </div>
                     <!-- Final C2 - W1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C2 - W1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C2 - W1" placeholder="" value="@Model.gFinal_C2_W1" onblur="">
                         <label for="Final C2 - W1">Final C2 - W1</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final C2 - W2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C2 - W2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C2 - W2" placeholder="" value="@Model.gFinal_C2_W2" onblur="">
                         <label for="Final C2 - W2">Final C2 - W2</label>
                     </div>
                     <!-- Final C2 - W3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C2 - W3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C2 - W3" placeholder="" value="@Model.gFinal_C2_W3" onblur="">
                         <label for="Final C2 - W3">Final C2 - W3</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final C2 - T1 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C2 - T1" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C2 - T1" placeholder="" value="@Model.gFinal_C2_T1" onblur="">
                         <label for="Final C2 - T1">Final C2 - T1</label>
                     </div>
                     <!-- Final C2 - T2 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C2 - T2" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C2 - T2" placeholder="" value="@Model.gFinal_C2_T2" onblur="">
                         <label for="Final C2 - T2">Final C2 - T2</label>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Final C2 - T3 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C2 - T3" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C2 - T3" placeholder="" value="@Model.gFinal_C2_T3" onblur="">
                         <label for="Final C2 - T3">Final C2 - T3</label>
                     </div>
                     <!-- Final C2 - T4 -->
                     <div class="form-floating mb-2 col-6">
-                        <input type="number" class="form-control" id="Final C2 - T4" placeholder="" value="" onblur="">
+                        <input type="number" class="form-control" id="Final C2 - T4" placeholder="" value="@Model.gFinal_C2_T4" onblur="">
                         <label for="Final C2 - T4">Final C2 - T4</label>
                     </div>
                 </div>
                 <!-- Final C2 - T5 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C2 - T5" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Final C2 - T5" placeholder="" value="@Model.gFinal_C2_T5" onblur="">
                     <label for="Final C2 - T5">Final C2 - T5</label>
                 </div>
             </div>
@@ -919,27 +919,27 @@
                 <p class="text-center mb-1">Loc 1</p>
                 <!-- Depth 1 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Depth1" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Depth1" placeholder="" value="@Model.gSide1_Depth1" onblur="">
                     <label for="Depth1">Depth 1</label>
                 </div>
                 <!-- Depth 2 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Depth2" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Depth2" placeholder="" value="@Model.gSide1_Depth2" onblur="">
                     <label for="Depth2">Depth 2</label>
                 </div>
                 <!-- Depth 3 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Depth3" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Depth3" placeholder="" value="@Model.gSide1_Depth3" onblur="">
                     <label for="Depth3">Depth 3</label>
                 </div>
                 <!-- Depth 4 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Depth4" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Depth4" placeholder="" value="@Model.gSide1_Depth4" onblur="">
                     <label for="Depth4">Depth 4</label>
                 </div>
                 <!-- Depth 5 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Depth5" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Depth5" placeholder="" value="@Model.gSide1_Depth5" onblur="">
                     <label for="Depth5">Depth 5</label>
                 </div>
             </div>
@@ -948,27 +948,27 @@
                 <p class="text-center mb-1">Loc 3</p>
                 <!-- Depth 1 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Depth1" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Depth1" placeholder="" value="@Model.gSide2_Depth1" onblur="">
                     <label for="Depth1">Depth 1</label>
                 </div>
                 <!-- Depth 2 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Depth2" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Depth2" placeholder="" value="@Model.gSide2_Depth2" onblur="">
                     <label for="Depth2">Depth 2</label>
                 </div>
                 <!-- Depth 3 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Depth3" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Depth3" placeholder="" value="@Model.gSide2_Depth3" onblur="">
                     <label for="Depth3">Depth 3</label>
                 </div>
                 <!-- Depth 4 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Depth4" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Depth4" placeholder="" value="@Model.gSide2_Depth4" onblur="">
                     <label for="Depth4">Depth 4</label>
                 </div>
                 <!-- Depth 5 -->
                 <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Depth5" placeholder="" value="" onblur="">
+                    <input type="number" class="form-control" id="Depth5" placeholder="" value="@Model.gSide2_Depth5" onblur="">
                     <label for="Depth5">Depth 5</label>
                 </div>
             </div>
