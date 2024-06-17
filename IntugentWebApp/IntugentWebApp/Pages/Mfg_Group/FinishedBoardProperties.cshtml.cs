@@ -747,7 +747,7 @@ namespace IntugentWebApp.Pages.Mfg_Group
             _objectsService.CLists.drEmployee["MfgIDSelected"] = _objectsService.Cbfile.iIDMfg;
             _objectsService.CLists.UpdateEmployee();
 
-            (_objectsService.MfgInProcess, _objectsService.MfgFinishedGoods) = _objectsService.MfgHome.GetAllMfgData(_objectsService.MfgInProcess, _objectsService.MfgFinishedGoods);
+            (_objectsService.MfgInProcess, _objectsService.MfgFinishedGoods,_objectsService.MfgDimensionsStability) = _objectsService.MfgHome.GetAllMfgData(_objectsService.MfgInProcess, _objectsService.MfgFinishedGoods, _objectsService.MfgDimensionsStability);
             SetData();
 
             // Enable/disable buttons based on the index

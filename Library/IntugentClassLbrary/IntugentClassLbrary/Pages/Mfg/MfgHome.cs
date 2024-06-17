@@ -375,18 +375,18 @@ namespace IntugentClassLibrary.Pages.Mfg
               return;
           }*/
 
-        public (MfgInProcess,MfgFinishedGoods) GetAllMfgData(MfgInProcess mfgInProcess,MfgFinishedGoods mfgFinishedGoods)
+        public (MfgInProcess,MfgFinishedGoods,MfgDimStability) GetAllMfgData(MfgInProcess mfgInProcess,MfgFinishedGoods mfgFinishedGoods,MfgDimStability mfgDimensionStability)
         {
             //if (CPages.PageInProcess_1 == null || CPages.PageFinishedGoods_1 == null || CPages.PageDimStability_1 == null || CPages.PagePlantData_1 == null) return;
             mfgInProcess.GetDataSet();
             mfgFinishedGoods.GetDataSet();
-            /*CPages.PageDimStability_1.GetDataSet();
-            CPages.PagePlantData_1.GetDataSet();
+            mfgDimensionStability.GetDataSet();
+      /*      CPages.PagePlantData_1.GetDataSet();
 
             CPages.PageFinishedGoods_1.drIP = CPages.PageDimStability_1.drIP = CPages.PagePlantData_1.drIP = CPages.PageInProcess_1.dr;
             CPages.PageInProcess_1.drFG = CPages.PageDimStability_1.drFG = CPages.PagePlantData_1.drFG = CPages.PageFinishedGoods_1.dr;
 */
-            return (mfgInProcess,mfgFinishedGoods);
+            return (mfgInProcess,mfgFinishedGoods,mfgDimensionStability);
         }
 
 

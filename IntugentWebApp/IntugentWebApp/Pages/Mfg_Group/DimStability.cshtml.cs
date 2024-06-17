@@ -427,10 +427,10 @@ namespace IntugentWebApp.Pages.Mfg_Group
 
             switch (sName)
             {
-                case "gEdgeH1": if (_objectsService.MfgDimensionsStability.dr["Edge H1"] == null) gEdgeH1IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge H1"] = value; break;
-                case "gEdgeH2": if (_objectsService.MfgDimensionsStability.dr["Edge H2"] == null) gEdgeH2IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge H2"] = value; break;
-                case "gEdgeC1": if (_objectsService.MfgDimensionsStability.dr["Edge C1"] == null) gEdgeC1IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge C1"] = value; break;
-                case "gEdgeC2": if (_objectsService.MfgDimensionsStability.dr["Edge C2"] == null) gEdgeC2IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge C2"] = value; break;
+                case "gEdgeH1": if (_objectsService.MfgDimensionsStability.dr["Edge H1"] == null) gEdgeH1IsChecked = false; else gEdgeH1IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge H1"] ; break;
+                case "gEdgeH2": if (_objectsService.MfgDimensionsStability.dr["Edge H2"] == null) gEdgeH2IsChecked = false; else gEdgeH2IsChecked =(bool)_objectsService.MfgDimensionsStability.dr["Edge H2"] ; break;
+                case "gEdgeC1": if (_objectsService.MfgDimensionsStability.dr["Edge C1"] == null) gEdgeC1IsChecked = false; else gEdgeC1IsChecked =(bool)_objectsService.MfgDimensionsStability.dr["Edge C1"] ; break;
+                case "gEdgeC2": if (_objectsService.MfgDimensionsStability.dr["Edge C2"] == null) gEdgeC2IsChecked = false; else gEdgeC2IsChecked =(bool)_objectsService.MfgDimensionsStability.dr["Edge C2"] ; break;
                 case "gDimStabilityDone": if (_objectsService.MfgDimensionsStability.dr["DS Testing Complete"] == null) gDimStabilityDoneIsChecked = false; else _objectsService.MfgDimensionsStability.dr["DS Testing Complete"] = value; break;
             }
             _objectsService.MfgDimensionsStability.UpdateDataSet();
@@ -698,6 +698,287 @@ namespace IntugentWebApp.Pages.Mfg_Group
             return new JsonResult(new { message = Name, value });
 
         }
+
+        public IActionResult OnPostGFreezer2_LF(string Name, string value)
+        {
+
+            string sName = Name;
+            bool bl = false, bw = false, bt = false;
+            int nCount = 0;
+            double dSum = 0, dSumInit = 0, dSumFinal = 0;
+
+            _objectsService.MfgDimensionsStability.bDataSetChanged = true;
+            switch (sName)
+            {
+                case "gInit_C2_L1": _objectsService.MfgDimensionsStability.dr["Initial C2 - L1"]=value; bl = true; break;
+                case "gInit_C2_L2": _objectsService.MfgDimensionsStability.dr["Initial C2 - L2"]=value; bl = true; break;
+                case "gInit_C2_L3": _objectsService.MfgDimensionsStability.dr["Initial C2 - L3"]=value; bl = true; break;
+                case "gFinal_C2_L1": _objectsService.MfgDimensionsStability.dr["Final C2 - L1"]=value; bl = true; break;
+                case "gFinal_C2_L2": _objectsService.MfgDimensionsStability.dr["Final C2 - L2"]=value; bl = true; break;
+                case "gFinal_C2_L3": _objectsService.MfgDimensionsStability.dr["Final C2 - L3"]=value; bl = true; break;
+
+                case "gInit_C2_W1": _objectsService.MfgDimensionsStability.dr["Initial C2 - W1"]=value; bw = true; break;
+                case "gInit_C2_W2": _objectsService.MfgDimensionsStability.dr["Initial C2 - W2"]=value; bw = true; break;
+                case "gInit_C2_W3": _objectsService.MfgDimensionsStability.dr["Initial C2 - W3"]=value; bw = true; break;
+                case "gFinal_C2_W1": _objectsService.MfgDimensionsStability.dr["Final C2 - W1"]=value; bw = true; break;
+                case "gFinal_C2_W2": _objectsService.MfgDimensionsStability.dr["Final C2 - W2"]=value; bw = true; break;
+                case "gFinal_C2_W3": _objectsService.MfgDimensionsStability.dr["Final C2 - W3"]=value; bw = true; break;
+
+                case "gInit_C2_T1": _objectsService.MfgDimensionsStability.dr["Initial C2 - T1"]=value; bt = true; break;
+                case "gInit_C2_T2": _objectsService.MfgDimensionsStability.dr["Initial C2 - T2"]=value; bt = true; break;
+                case "gInit_C2_T3": _objectsService.MfgDimensionsStability.dr["Initial C2 - T3"]=value; bt = true; break;
+                case "gInit_C2_T4": _objectsService.MfgDimensionsStability.dr["Initial C2 - T4"]=value; bt = true; break;
+                case "gInit_C2_T5": _objectsService.MfgDimensionsStability.dr["Initial C2 - T5"]=value; bt = true; break;
+                case "gFinal_C2_T1": _objectsService.MfgDimensionsStability.dr["Final C2 - T1"]=value; bt = true; break;
+                case "gFinal_C2_T2": _objectsService.MfgDimensionsStability.dr["Final C2 - T2"]=value; bt = true; break;
+                case "gFinal_C2_T3": _objectsService.MfgDimensionsStability.dr["Final C2 - T3"]=value; bt = true; break;
+                case "gFinal_C2_T4": _objectsService.MfgDimensionsStability.dr["Final C2 - T4"]=value; bt = true; break;
+                case "gFinal_C2_T5": _objectsService.MfgDimensionsStability.dr["Final C2 - T5"]=value; bt = true; break;
+            }
+
+
+            if (bl)
+            {
+                if (!(_objectsService.MfgDimensionsStability.dr["Initial C2 - L1"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["Final C2 - L1"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["Initial C2 - L1"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["Final C2 - L1"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["Initial C2 - L2"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["Final C2 - L2"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["Initial C2 - L2"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["Final C2 - L2"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["Initial C2 - L3"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["Final C2 - L3"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["Initial C2 - L3"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["Final C2 - L3"]; }
+                if (nCount == 3 && dSumInit > 0) { _objectsService.MfgDimensionsStability.dr["%change L - C2"] = 100.0 * (dSumFinal - dSumInit) / dSumInit; } else _objectsService.MfgDimensionsStability.dr["%change L - C2"] = DBNull.Value;
+                DimensionChanges("Freezer-L");
+            }
+            else if (bw)
+            {
+                if (!(_objectsService.MfgDimensionsStability.dr["Initial C2 - W1"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["Final C2 - W1"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["Initial C2 - W1"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["Final C2 - W1"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["Initial C2 - W2"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["Final C2 - W2"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["Initial C2 - W2"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["Final C2 - W2"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["Initial C2 - W3"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["Final C2 - W3"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["Initial C2 - W3"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["Final C2 - W3"]; }
+                if (nCount == 3 && dSumInit > 0) { _objectsService.MfgDimensionsStability.dr["%change W - C2"] = 100.0 * (dSumFinal - dSumInit) / dSumInit; } else _objectsService.MfgDimensionsStability.dr["%change W - C2"] = DBNull.Value;
+                DimensionChanges("Freezer-W");
+            }
+            else if (bt)
+            {
+                if (!(_objectsService.MfgDimensionsStability.dr["Initial C2 - T1"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["Final C2 - T1"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["Initial C2 - T1"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["Final C2 - T1"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["Initial C2 - T2"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["Final C2 - T2"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["Initial C2 - T2"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["Final C2 - T2"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["Initial C2 - T3"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["Final C2 - T3"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["Initial C2 - T3"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["Final C2 - T3"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["Initial C2 - T4"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["Final C2 - T4"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["Initial C2 - T4"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["Final C2 - T4"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["Initial C2 - T5"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["Final C2 - T5"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["Initial C2 - T5"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["Final C2 - T5"]; }
+
+
+                if (nCount == 5 && dSumInit > 0) { _objectsService.MfgDimensionsStability.dr["%change T - C2"] = 100.0 * (dSumFinal - dSumInit) / dSumInit; } else _objectsService.MfgDimensionsStability.dr["%change T - C2"] = DBNull.Value;
+                DimensionChanges("Freezer-T");
+            }
+
+            _objectsService.MfgDimensionsStability.UpdateDataSet();
+            return new JsonResult(new { message = Name, value });
+
+        }
+
+        public IActionResult OnPostGDateTime_LF(string value)
+        {
+            if (_objectsService.MfgDimensionsStability.dr["DateSampleIn"]==null)
+                gTestDateTime = null;
+             else
+                gTestDateTime = (DateTime)_objectsService.MfgDimensionsStability.dr["DateSampleIn"];
+
+            _objectsService.MfgDimensionsStability.UpdateDataSet();
+            return new JsonResult(new { message = value });
+        }
+
+        public IActionResult OnPostGWFDim_LF(string Name, string value)
+        {
+
+            string sName = Name;
+            bool bl = false, bw = false, bt = false;
+            int nCount = 0;
+            double dSumInit = 0, dMax = double.MinValue, dSumFinal = 0;
+            string sField; double dtmp;
+
+            _objectsService.MfgDimensionsStability.bDataSetChanged = true;
+            switch (sName)
+            {
+                case "gInit_WF_L1":
+                    _objectsService.MfgDimensionsStability.dr["InitialWF-L1"]=value; bl = true; break;
+                case "gInit_WF_L2":
+                    _objectsService.MfgDimensionsStability.dr[ "InitialWF-L2"] = value; bl = true; break;
+                case "gInit_WF_L3":
+                    _objectsService.MfgDimensionsStability.dr["InitialWF-L3"] = value; bl = true; break;
+                case "gFinal_WF_L1":
+                    _objectsService.MfgDimensionsStability.dr["FinalWF-L1"] = value; bl = true; break;
+                case "gFinal_WF_L2":
+                    _objectsService.MfgDimensionsStability.dr[ "FinalWF-L2"] = value; bl = true; break;
+                case "gFinal_WF_L3":
+                    _objectsService.MfgDimensionsStability.dr["FinalWF-L3"] = value; bl = true; break;
+
+                case "gInit_WF_W1":
+                    _objectsService.MfgDimensionsStability.dr[ "InitialWF-W1"] = value; bw = true; break;
+                case "gInit_WF_W2":
+                    _objectsService.MfgDimensionsStability.dr["InitialWF-W2"] = value; bw = true; break;
+                case "gInit_WF_W3":
+                    _objectsService.MfgDimensionsStability.dr[ "InitialWF-W3"] = value; bw = true; break;
+                case "gFinal_WF_W1":
+                    _objectsService.MfgDimensionsStability.dr[ "FinalWF-W1"] = value; bw = true; break;
+                case "gFinal_WF_W2":
+                    _objectsService.MfgDimensionsStability.dr[ "FinalWF-W2"] = value; bw = true; break;
+                case "gFinal_WF_W3":
+                    _objectsService.MfgDimensionsStability.dr["FinalWF-W3"] = value; bw = true; break;
+            }
+
+            if (bl)
+            {
+                if (!(_objectsService.MfgDimensionsStability.dr["InitialWF-L1"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["FinalWF-L1"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["InitialWF-L1"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["FinalWF-L1"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["InitialWF-L2"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["FinalWF-L2"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["InitialWF-L2"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["FinalWF-L2"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["InitialWF-L3"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["FinalWF-L3"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["InitialWF-L3"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["FinalWF-L3"]; }
+
+                if (nCount > 1)
+                {
+                    dtmp = 100.0 * (dSumFinal - dSumInit) / dSumInit; _objectsService.MfgDimensionsStability.dr["%ChangeLengthWF"] = dtmp; gChangeWFLength = dtmp.ToString(MfgDimStability.sOr);
+                }
+                else { _objectsService.MfgDimensionsStability.dr["%ChangeLengthWF"] = DBNull.Value; gChangeWFLength = string.Empty; }
+            }
+            else if (bw)
+            {
+                if (!(_objectsService.MfgDimensionsStability.dr["InitialWF-W1"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["FinalWF-W1"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["InitialWF-W1"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["FinalWF-W1"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["InitialWF-W2"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["FinalWF-W2"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["InitialWF-W2"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["FinalWF-W2"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["InitialWF-W3"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["FinalWF-W3"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["InitialWF-3"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["FinalWF-W3"]; }
+
+                if (nCount > 1)
+                {
+                    dtmp = 100.0 * (dSumFinal - dSumInit) / dSumInit; _objectsService.MfgDimensionsStability.dr["%ChangeWidthWF"] = dtmp; gChangeWFWidth = dtmp.ToString(MfgDimStability.sOr);
+                }
+                else
+                {
+                    _objectsService.MfgDimensionsStability.dr["%ChangeWidthWF"] = DBNull.Value; gChangeWFWidth = string.Empty;
+                }
+
+            }
+            _objectsService.MfgDimensionsStability.UpdateDataSet();
+            return new JsonResult(new { message = value }); 
+
+
+        }
+
+        public IActionResult OnPostGWFDepth_LF(string Name, string value)
+        {
+
+            string sName = Name;
+            bool b1 = false, b2 = false, bt = false;
+            int nCount1 = 0, nCount2 = 0;
+            double dSum = 0, dMax = double.MinValue, dSumFinal = 0;
+            string sField; double dtmp;
+
+            _objectsService.MfgDimensionsStability.bDataSetChanged = true;
+            switch (sName)
+            {
+                case "gSide1_Depth1": _objectsService.MfgDimensionsStability.dr["Loc1Depth1"]=value; b1 = true; break;
+                case "gSide1_Depth2": _objectsService.MfgDimensionsStability.dr["Loc1Depth2"]=value; b1 = true; break;
+                case "gSide1_Depth3": _objectsService.MfgDimensionsStability.dr["Loc1Depth3"]=value; b1 = true; break;
+                case "gSide1_Depth4": _objectsService.MfgDimensionsStability.dr["Loc1Depth4"]=value; b1 = true; break;
+                case "gSide1_Depth5": _objectsService.MfgDimensionsStability.dr["Loc1Depth5"]=value; b1 = true; break;
+
+                case "gSide2_Depth1": _objectsService.MfgDimensionsStability.dr["Loc2Depth1"]=value; b2 = true; break;
+                case "gSide2_Depth2": _objectsService.MfgDimensionsStability.dr["Loc2Depth2"]=value; b2 = true; break;
+                case "gSide2_Depth3": _objectsService.MfgDimensionsStability.dr["Loc2Depth3"]=value; b2 = true; break;
+                case "gSide2_Depth4": _objectsService.MfgDimensionsStability.dr["Loc2Depth4"]=value; b2 = true; break;
+                case "gSide2_Depth5": _objectsService.MfgDimensionsStability.dr["Loc2Depth5"]=value; b2 = true; break;
+            }
+
+            for (int i = 1; i <= 5; i++)
+            {
+                sField = "Loc1Depth" + i.ToString();
+                if (!(_objectsService.MfgDimensionsStability.dr[sField] == DBNull.Value))
+                { nCount1++; dSum += (double)_objectsService.MfgDimensionsStability.dr[sField]; if (dMax < (double)_objectsService.MfgDimensionsStability.dr[sField]) dMax = (double)_objectsService.MfgDimensionsStability.dr[sField]; }
+
+                sField = "Loc2Depth" + i.ToString();
+                if (!(_objectsService.MfgDimensionsStability.dr[sField] == DBNull.Value)) { nCount2++; dSum += (double)_objectsService.MfgDimensionsStability.dr[sField]; if (dMax < (double)_objectsService.MfgDimensionsStability.dr[sField]) dMax = (double)_objectsService.MfgDimensionsStability.dr[sField]; }
+            }
+
+            if (nCount1 > 3 && nCount2 > 3)
+            {
+                dtmp = dSum / (double)(nCount1 + nCount2); _objectsService.MfgDimensionsStability.dr["AvgDepth"] = dtmp; gAvgDepth = dtmp.ToString(MfgDimStability.sOr);
+                _objectsService.MfgDimensionsStability.dr["MaxDepth"] = dMax; gMaxDepth = dMax.ToString(MfgDimStability.sDef);
+            }
+            else
+            {
+                _objectsService.MfgDimensionsStability.dr["MaxDepth"] = _objectsService.MfgDimensionsStability.dr["AvgDepth"] = DBNull.Value; gMaxDepth = gAvgDepth = string.Empty;
+            }
+
+            _objectsService.MfgDimensionsStability.UpdateDataSet();
+            return new JsonResult(new { message = value });
+        }
+
+
+        public IActionResult gWF_Info_LF(string Name, string value)
+        {
+            string sName = Name;
+            switch (sName)
+            {
+                case "gDeviation":
+                    _objectsService.MfgDimensionsStability.dr["DevFromTable"]=value; break;
+                //case "gDevType":
+                //    if (_objectsService.MfgDimensionsStability.dr["DevType"] == null) _objectsService.MfgDimensionsStability.dr["DevType"] = DBNull.Value; else 
+                //        _objectsService.MfgDimensionsStability.dr["DevType"] = value; break;
+            }
+
+            _objectsService.MfgDimensionsStability.UpdateDataSet();
+            return new JsonResult(new { message = Name,value });
+        }
+        public IActionResult OnPostNavigateDataSet(string direction)
+        {
+            if (!_objectsService.Cbfile.bCanSwitchRecord)
+            {
+                //   MessageBox.Show(Cbfile.sNoRecSwitchMsg, Cbfile.sAppName);
+                return new JsonResult(new { success = false, message = "Cannot switch record" });
+
+            }
+
+            switch (direction)
+            {
+                case "prev":
+                    _objectsService.Cbfile.iIDMfgIndex += 1;
+                    break;
+                case "next":
+                    _objectsService.Cbfile.iIDMfgIndex -= 1;
+                    break;
+                default:
+                    return new JsonResult(new { success = false, message = "Invalid direction" });
+            }
+
+            if (_objectsService.Cbfile.iIDMfgIndex < 0)
+            {
+                _objectsService.Cbfile.iIDMfgIndex = 0;
+            }
+
+            if (_objectsService.Cbfile.iIDMfgIndex > _objectsService.MfgHome.dt.Rows.Count - 1)
+            {
+                _objectsService.Cbfile.iIDMfgIndex = _objectsService.MfgHome.dt.Rows.Count - 1;
+            }
+
+            UpdateDataSetView();
+            return new JsonResult(new
+            {
+                success = true,
+                newIndex = _objectsService.Cbfile.iIDMfgIndex
+            });
+        }
+        private void UpdateDataSetView()
+        {
+            _objectsService.Cbfile.iIDMfg = (int)_objectsService.MfgHome.dt.Rows[_objectsService.Cbfile.iIDMfgIndex]["ID4All"];
+            _objectsService.CLists.drEmployee["MfgIDSelected"] = _objectsService.Cbfile.iIDMfg;
+            _objectsService.CLists.UpdateEmployee();
+
+            (_objectsService.MfgInProcess, _objectsService.MfgFinishedGoods,_objectsService.MfgDimensionsStability) = _objectsService.MfgHome.GetAllMfgData(_objectsService.MfgInProcess, _objectsService.MfgFinishedGoods,_objectsService.MfgDimensionsStability);
+            SetView();
+
+            // Enable/disable buttons based on the index
+            gDataSetNextIsEnabled = _objectsService.Cbfile.iIDMfgIndex < (_objectsService.MfgHome.dt.Rows.Count - 1);
+            gDataSetPrevIsEnabled = _objectsService.Cbfile.iIDMfgIndex > 0;
+        }
+
+        //public IActionResult gDateTime_GF(object sender, EventArgs e)
+        //{
+
+        //    System.Windows.Forms.DateTimePicker dtp = sender as System.Windows.Forms.DateTimePicker;
+        //    if (dtp.CustomFormat == sNull) { dtp.Value = DateTime.Now; dtp.CustomFormat = sDateTimeFormat; }
+
+        //}
 
         /*
         if (bl)
