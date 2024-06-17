@@ -39,7 +39,7 @@ namespace IntugentClassLibrary.Pages.Mfg
                 {
                     sMsg = "Could not find the Dimension Stability Data for the Selected Dataset";
                     //MessageBox.Show(sMsg, Cbfile.sAppName, MessageBoxButton.OK, MessageBoxImage.Stop);
-                   // System.Diagnostics.Trace.TraceError(sMsg);
+                    System.Diagnostics.Trace.TraceError(sMsg);
                    // CPages.PageMfgHome_1.MfgDataNotFound();
                     return;
 
