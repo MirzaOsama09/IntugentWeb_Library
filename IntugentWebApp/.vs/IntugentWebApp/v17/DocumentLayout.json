@@ -7,7 +7,8 @@
       "RelativeMoniker": "D:0:0:{9164A543-3BCC-4531-98CB-E0B4C439A013}|IntugentWebApp\\IntugentWebApp.csproj|solutionrelative:intugentwebapp\\pages\\mfg_group\\dimstability.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.300\\Sdks\\Microsoft.Build.Tasks.Git\\build\\Microsoft.Build.Tasks.Git.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{9164A543-3BCC-4531-98CB-E0B4C439A013}|IntugentWebApp\\IntugentWebApp.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\intugentwebapp\\intugentwebapp\\pages\\mfg_group\\dimstability.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9164A543-3BCC-4531-98CB-E0B4C439A013}|IntugentWebApp\\IntugentWebApp.csproj|solutionrelative:intugentwebapp\\pages\\mfg_group\\dimstability.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,14 +27,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Microsoft.Build.Tasks.Git.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\Sdks\\Microsoft.Build.Tasks.Git\\build\\Microsoft.Build.Tasks.Git.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.300\\Sdks\\Microsoft.Build.Tasks.Git\\build\\Microsoft.Build.Tasks.Git.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\Sdks\\Microsoft.Build.Tasks.Git\\build\\Microsoft.Build.Tasks.Git.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.300\\Sdks\\Microsoft.Build.Tasks.Git\\build\\Microsoft.Build.Tasks.Git.targets",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-06-17T12:12:23.558Z"
+              "Title": "DimStability.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\IntugentWebApp\\IntugentWebApp\\Pages\\Mfg_Group\\DimStability.cshtml.cs",
+              "RelativeDocumentMoniker": "IntugentWebApp\\Pages\\Mfg_Group\\DimStability.cshtml.cs",
+              "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\IntugentWebApp\\IntugentWebApp\\Pages\\Mfg_Group\\DimStability.cshtml.cs",
+              "RelativeToolTip": "IntugentWebApp\\Pages\\Mfg_Group\\DimStability.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T13:38:05.717Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -43,7 +45,7 @@
               "RelativeDocumentMoniker": "IntugentWebApp\\Pages\\Mfg_Group\\DimStability.cshtml",
               "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\IntugentWebApp\\IntugentWebApp\\Pages\\Mfg_Group\\DimStability.cshtml",
               "RelativeToolTip": "IntugentWebApp\\Pages\\Mfg_Group\\DimStability.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwv2MDAAAOAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAADwvw8AAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-17T10:29:17.09Z",
               "EditorCaption": ""

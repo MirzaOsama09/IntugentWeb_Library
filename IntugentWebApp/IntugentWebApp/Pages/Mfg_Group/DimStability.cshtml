@@ -13,7 +13,7 @@
 }
 <div class="row ">
     <!-- General Info Card -->
-    <div class="card card-default col-md-4" >
+    <div class="card card-default col-md-3" >
         <div class="card-header align-items-center">
             <h2 class="">General Info</h2>
         </div>
@@ -166,7 +166,7 @@
         </div>
     </div>
     <!-- Walk-in Freezer: Test Summary -->
-    <div class="card card-default col-md-3">
+    <div class="card card-default col-md-2">
         <div class="card-header align-items-center">
             <h2 class="">Walk-in Freezer: Test Summary</h2>
         </div>
@@ -207,68 +207,115 @@
             </div>
         </div>
     </div>
+    <!-- Walk-in Freezer Testing -->
+    <div class="card card-default h-auto col-md-2">
+        <div class="card-header align-items-center">
+            <h2 class="">Walk-in Freezer Testing</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Date & time sample put in Freezer -->
+                    <div class="form-floating mb-2">
+                        <input type="datetime-local" class="form-control" id="DatetimesampleputinFreezer" placeholder="" value="">
+                        <label for="DatetimesampleputinFreezer">Date & time sample put in Freezer</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Deviation from Table -->
+                    <label for="DeviationfromTable">Deviation from Table</label>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="DeviationfromTable" placeholder="" value="">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <!-- Deviation (Bowing) Type -->
+                    <label for="DeviationType">Deviation Type</label>
+                    <div class="form-floating mb-2">
+                        <select class="form-select" id="DeviationType">
+                            <option value="" selected="">Up</option>
+                            <option value="" selected="">Down</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
 <div class="row">
     <!-- Dimensional Stability Oven - 1 -->
-    <div class="card card-default col-md-4">
+    <div class="card card-default col-md-5">
         <div class="card-header align-items-center">
             <h2 class="">Dimensional Stability Oven - 1</h2>
         </div>
       <div class="row px-4">
             <!-- Initial H1 -->
             <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
+              <div class="row">
             <!-- Initial H1 - L1 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Initial H1 - L1" placeholder="" value="" onblur="">
                 <label for="Initial H1 - L1">Initial H1 - L1</label>
             </div>
             <!-- Initial H1 - L2 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Initial H1 - L2" placeholder="" value="" onblur="">
                 <label for="Initial H1 - L2">Initial H1 - L2</label>
             </div>
-            <!-- Initial H1 - L3 -->
-            <div class="form-floating mb-2">
+                </div>
+              <div class="row">
+                <!-- Initial H1 - L3 -->
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Initial H1 - L3" placeholder="" value="" onblur="">
                 <label for="Initial H1 - L3">Initial H1 - L3</label>
             </div>
             <!-- Initial H1 - W1 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Initial H1 - W1" placeholder="" value="" onblur="">
                 <label for="Initial H1 - W1">Initial H1 - W1</label>
             </div>
+            </div>
+              <div class="row">
             <!-- Initial H1 - W2 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Initial H1 - W2" placeholder="" value="" onblur="">
                 <label for="Initial H1 - W2">Initial H1 - W2</label>
             </div>
             <!-- Initial H1 - W3 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Initial H1 - W3" placeholder="" value="" onblur="">
                 <label for="Initial H1 - W3">Initial H1 - W3</label>
             </div>
+            </div>
+              <div class="row">
             <!-- Initial H1 - T1 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Initial H1 - T1" placeholder="" value="" onblur="">
                 <label for="Initial H1 - T1">Initial H1 - T1</label>
             </div>
             <!-- Initial H1 - T2 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Initial H1 - T2" placeholder="" value="" onblur="">
                 <label for="Initial H1 - T2">Initial H1 - T2</label>
             </div>
+            </div>
+              <div class="row">
             <!-- Initial H1 - T3 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Initial H1 - T3" placeholder="" value="" onblur="">
                 <label for="Initial H1 - T3">Initial H1 - T3</label>
             </div>
             <!-- Initial H1 - T4 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Initial H1 - T4" placeholder="" value="" onblur="">
                 <label for="Initial H1 - T4">Initial H1 - T4</label>
             </div>
+            </div>   
             <!-- Initial H1 - T5 -->
             <div class="form-floating mb-2">
                 <input type="number" class="form-control" id="Initial H1 - T5" placeholder="" value="" onblur="">
@@ -277,121 +324,141 @@
         </div>
             <!-- Final H1 -->
             <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
+            <div class="row">
             <!-- Final H1 - L1 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Final H1 - L1" placeholder="" value="" onblur="">
                 <label for="Final H1 - L1">Final H1 - L1</label>
             </div>
-            <!-- Final H1 - L2 -->
-            <div class="form-floating mb-2">
+            <!-- Final H1 - L2 -->         
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Final H1 - L2" placeholder="" value="" onblur="">
                 <label for="Final H1 - L2">Final H1 - L2</label>
             </div>
-            <!-- Final H1 - L3 -->
-            <div class="form-floating mb-2">
+            </div>
+             <div class="row">              
+            <!-- Final H1 - L3 -->         
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Final H1 - L3" placeholder="" value="" onblur="">
                 <label for="Final H1 - L3">Final H1 - L3</label>
             </div>
-            <!-- Final H1 - W1 -->
-            <div class="form-floating mb-2">
+            <!-- Final H1 - W1 -->        
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Final H1 - W1" placeholder="" value="" onblur="">
                 <label for="Final H1 - W1">Final H1 - W1</label>
             </div>
-            <!-- Final H1 - W2 -->
-            <div class="form-floating mb-2">
+                </div>
+            <div class="row">
+            <!-- Final H1 - W2 -->         
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Final H1 - W2" placeholder="" value="" onblur="">
                 <label for="Final H1 - W2">Final H1 - W2</label>
             </div>
-            <!-- Final H1 - W3 -->
-            <div class="form-floating mb-2">
+            <!-- Final H1 - W3 -->         
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Final H1 - W3" placeholder="" value="" onblur="">
                 <label for="Final H1 - W3">Final H1 - W3</label>
             </div>
-            <!-- Final H1 - T1 -->
-            <div class="form-floating mb-2">
+             </div>
+            <div class="row">
+            <!-- Final H1 - T1 -->         
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Final H1 - T1" placeholder="" value="" onblur="">
                 <label for="Final H1 - T1">Final H1 - T1</label>
             </div>
-            <!-- Final H1 - T2 -->
-            <div class="form-floating mb-2">
+            <!-- Final H1 - T2 -->       
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Final H1 - T2" placeholder="" value="" onblur="">
                 <label for="Final H1 - T2">Final H1 - T2</label>
             </div>
+                </div>
+            <div class="row">
             <!-- Final H1 - T3 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Final H1 - T3" placeholder="" value="" onblur="">
                 <label for="Final H1 - T3">Final H1 - T3</label>
             </div>
             <!-- Final H1 - T4 -->
-            <div class="form-floating mb-2">
+            <div class="form-floating mb-2 col-6">
                 <input type="number" class="form-control" id="Final H1 - T4" placeholder="" value="" onblur="">
                 <label for="Final H1 - T4">Final H1 - T4</label>
             </div>
+                </div>
             <!-- Final H1 - T5 -->
             <div class="form-floating mb-2">
                 <input type="number" class="form-control" id="Final H1 - T5" placeholder="" value="" onblur="">
                 <label for="Final H1 - T5">Final H1 - T5</label>
             </div>
         </div>
-        </div>
+       </div>
     </div>
     <!-- Dimensional Stability Oven - 2 -->
-    <div class="card card-default col-md-4">
+    <div class="card card-default col-md-5">
         <div class="card-header align-items-center">
             <h2 class="">Dimensional Stability Oven - 2</h2>
         </div>
         <div class="row px-4">
             <!-- Initial H2 -->
             <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
-                <!-- Initial H2 - L1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial H2 - L1" placeholder="" value="" onblur="">
-                    <label for="Initial H2 - L1">Initial H2 - L1</label>
+                <div class="row">
+                    <!-- Initial H2 - L1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial H2 - L1" placeholder="" value="" onblur="">
+                        <label for="Initial H2 - L1">Initial H2 - L1</label>
+                    </div>
+                    <!-- Initial H2 - L2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial H2 - L2" placeholder="" value="" onblur="">
+                        <label for="Initial H2 - L2">Initial H2 - L2</label>
+                    </div>
                 </div>
-                <!-- Initial H2 - L2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial H2 - L2" placeholder="" value="" onblur="">
-                    <label for="Initial H2 - L2">Initial H2 - L2</label>
+                <div class="row">
+                    <!-- Initial H2 - L3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial H2 - L3" placeholder="" value="" onblur="">
+                        <label for="Initial H2 - L3">Initial H2 - L3</label>
+                    </div>
+                    <!-- Initial H2 - W1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial H2 - W1" placeholder="" value="" onblur="">
+                        <label for="Initial H2 - W1">Initial H2 - W1</label>
+                    </div>
                 </div>
-                <!-- Initial H2 - L3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial H2 - L3" placeholder="" value="" onblur="">
-                    <label for="Initial H2 - L3">Initial H2 - L3</label>
+                <div class="row">
+                    <!-- Initial H2 - W2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial H2 - W2" placeholder="" value="" onblur="">
+                        <label for="Initial H2 - W2">Initial H2 - W2</label>
+                    </div>
+                    <!-- Initial H2 - W3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial H2 - W3" placeholder="" value="" onblur="">
+                        <label for="Initial H2 - W3">Initial H2 - W3</label>
+                    </div>
                 </div>
-                <!-- Initial H2 - W1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial H2 - W1" placeholder="" value="" onblur="">
-                    <label for="Initial H2 - W1">Initial H2 - W1</label>
+                <div class="row">
+                    <!-- Initial H2 - T1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial H2 - T1" placeholder="" value="" onblur="">
+                        <label for="Initial H2 - T1">Initial H2 - T1</label>
+                    </div>
+                    <!-- Initial H2 - T2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial H2 - T2" placeholder="" value="" onblur="">
+                        <label for="Initial H2 - T2">Initial H2 - T2</label>
+                    </div>
                 </div>
-                <!-- Initial H2 - W2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial H2 - W2" placeholder="" value="" onblur="">
-                    <label for="Initial H2 - W2">Initial H2 - W2</label>
-                </div>
-                <!-- Initial H2 - W3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial H2 - W3" placeholder="" value="" onblur="">
-                    <label for="Initial H2 - W3">Initial H2 - W3</label>
-                </div>
-                <!-- Initial H2 - T1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial H2 - T1" placeholder="" value="" onblur="">
-                    <label for="Initial H2 - T1">Initial H2 - T1</label>
-                </div>
-                <!-- Initial H2 - T2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial H2 - T2" placeholder="" value="" onblur="">
-                    <label for="Initial H2 - T2">Initial H2 - T2</label>
-                </div>
-                <!-- Initial H2 - T3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial H2 - T3" placeholder="" value="" onblur="">
-                    <label for="Initial H2 - T3">Initial H2 - T3</label>
-                </div>
-                <!-- Initial H2 - T4 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial H2 - T4" placeholder="" value="" onblur="">
-                    <label for="Initial H2 - T4">Initial H2 - T4</label>
+                <div class="row">
+                    <!-- Initial H2 - T3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial H2 - T3" placeholder="" value="" onblur="">
+                        <label for="Initial H2 - T3">Initial H2 - T3</label>
+                    </div>
+                    <!-- Initial H2 - T4 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial H2 - T4" placeholder="" value="" onblur="">
+                        <label for="Initial H2 - T4">Initial H2 - T4</label>
+                    </div>
                 </div>
                 <!-- Initial H2 - T5 -->
                 <div class="form-floating mb-2">
@@ -401,55 +468,65 @@
             </div>
             <!-- Final H2 -->
             <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
-                <!-- Final H2 - L1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final H2 - L1" placeholder="" value="" onblur="">
-                    <label for="Final H2 - L1">Final H2 - L1</label>
+                <div class="row">
+                    <!-- Final H2 - L1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final H2 - L1" placeholder="" value="" onblur="">
+                        <label for="Final H2 - L1">Final H2 - L1</label>
+                    </div>
+                    <!-- Final H2 - L2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final H2 - L2" placeholder="" value="" onblur="">
+                        <label for="Final H2 - L2">Final H2 - L2</label>
+                    </div>
                 </div>
-                <!-- Final H2 - L2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final H2 - L2" placeholder="" value="" onblur="">
-                    <label for="Final H2 - L2">Final H2 - L2</label>
+                <div class="row">
+                    <!-- Final H2 - L3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final H2 - L3" placeholder="" value="" onblur="">
+                        <label for="Final H2 - L3">Final H2 - L3</label>
+                    </div>
+                    <!-- Final H2 - W1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final H2 - W1" placeholder="" value="" onblur="">
+                        <label for="Final H2 - W1">Final H2 - W1</label>
+                    </div>
                 </div>
-                <!-- Final H2 - L3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final H2 - L3" placeholder="" value="" onblur="">
-                    <label for="Final H2 - L3">Final H2 - L3</label>
+                <div class="row">
+                    <!-- Final H2 - W2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final H2 - W2" placeholder="" value="" onblur="">
+                        <label for="Final H2 - W2">Final H2 - W2</label>
+                    </div>
+                    <!-- Final H2 - W3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final H2 - W3" placeholder="" value="" onblur="">
+                        <label for="Final H2 - W3">Final H2 - W3</label>
+                    </div>
                 </div>
-                <!-- Final H2 - W1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final H2 - W1" placeholder="" value="" onblur="">
-                    <label for="Final H2 - W1">Final H2 - W1</label>
+                <div class="row">
+                    <!-- Final H2 - T1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final H2 - T1" placeholder="" value="" onblur="">
+                        <label for="Final H2 - T1">Final H2 - T1</label>
+                    </div>
+                    <!-- Final H2 - T2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final H2 - T2" placeholder="" value="" onblur="">
+                        <label for="Final H2 - T2">Final H2 - T2</label>
+                    </div>
                 </div>
-                <!-- Final H2 - W2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final H2 - W2" placeholder="" value="" onblur="">
-                    <label for="Final H2 - W2">Final H2 - W2</label>
-                </div>
-                <!-- Final H2 - W3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final H2 - W3" placeholder="" value="" onblur="">
-                    <label for="Final H2 - W3">Final H2 - W3</label>
-                </div>
-                <!-- Final H2 - T1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final H2 - T1" placeholder="" value="" onblur="">
-                    <label for="Final H2 - T1">Final H2 - T1</label>
-                </div>
-                <!-- Final H2 - T2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final H2 - T2" placeholder="" value="" onblur="">
-                    <label for="Final H2 - T2">Final H2 - T2</label>
-                </div>
-                <!-- Final H2 - T3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final H2 - T3" placeholder="" value="" onblur="">
-                    <label for="Final H2 - T3">Final H2 - T3</label>
-                </div>
-                <!-- Final H2 - T4 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final H2 - T4" placeholder="" value="" onblur="">
-                    <label for="Final H2 - T4">Final H2 - T4</label>
+                <div class="row">
+                    <!-- Final H2 - T3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final H2 - T3" placeholder="" value="" onblur="">
+                        <label for="Final H2 - T3">Final H2 - T3</label>
+                    </div>
+                    <!-- Final H2 - T4 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final H2 - T4" placeholder="" value="" onblur="">
+                        <label for="Final H2 - T4">Final H2 - T4</label>
+                    </div>
                 </div>
                 <!-- Final H2 - T5 -->
                 <div class="form-floating mb-2">
@@ -460,47 +537,9 @@
         </div>
     </div>
    
-    <div class=" col-md-4">
+    <div class=" col-md-2">
      
-        <!-- Walk-in Freezer Testing -->
-        <div class="card card-default h-auto">
-            <div class="card-header align-items-center">
-                <h2 class="">Walk-in Freezer Testing</h2>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- Date & time sample put in Freezer -->
-                        <div class="form-floating mb-2">
-                            <input type="datetime-local" class="form-control" id="DatetimesampleputinFreezer" placeholder="" value="">
-                            <label for="DatetimesampleputinFreezer">Date & time sample put in Freezer</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- Deviation from Table -->
-                        <div class="form-floating mb-2">
-                            <input type="text" class="form-control" id="DeviationfromTable" placeholder="" value="" >
-                            <label for="DeviationfromTable">Deviation from Table</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- Deviation (Bowing) Type -->
-                        <div class="form-floating mb-2">
-                            <select class="form-select" id="DeviationType">
-                                <option value="" selected="">Up</option>                      
-                                <option value="" selected="">Down</option>
-                            </select>
-                            <label for="DeviationType">Deviation (Bowing) Type</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      
+  
         <!-- Walk-in Freezer Testing: Changes in Major Dimensions -->
         <div class="card card-default h-auto">
             <div class="card-header align-items-center">
@@ -582,62 +621,72 @@
 
 <div class="row">
     <!-- Dimensional Stability Freezer - 1 -->
-    <div class="card card-default col-md-4">
+    <div class="card card-default col-md-5">
         <div class="card-header align-items-center">
             <h2 class="">Dimensional Stability Freezer - 1</h2>
         </div>
-        <div class="row px-4">
+        <div class="row px-3">
             <!-- Initial C1 -->
-            <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
-                <!-- Initial C1 - L1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C1 - L1" placeholder="" value="" onblur="">
-                    <label for="Initial C1 - L1">Initial C1 - L1</label>
+            <div class="card-body d-flex flex-column col-md-6 justify-content-evenly px-3">
+                <div class="row">
+                    <!-- Initial C1 - L1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C1 - L1" placeholder="" value="" onblur="">
+                        <label for="Initial C1 - L1">Initial C1 - L1</label>
+                    </div>
+                    <!-- Initial C1 - L2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C1 - L2" placeholder="" value="" onblur="">
+                        <label for="Initial C1 - L2">Initial C1 - L2</label>
+                    </div>
                 </div>
-                <!-- Initial C1 - L2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C1 - L2" placeholder="" value="" onblur="">
-                    <label for="Initial C1 - L2">Initial C1 - L2</label>
+                <div class="row">
+                    <!-- Initial C1 - L3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C1 - L3" placeholder="" value="" onblur="">
+                        <label for="Initial C1 - L3">Initial C1 - L3</label>
+                    </div>
+                    <!-- Initial C1 - W1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C1 - W1" placeholder="" value="" onblur="">
+                        <label for="Initial C1 - W1">Initial C1 - W1</label>
+                    </div>
                 </div>
-                <!-- Initial C1 - L3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C1 - L3" placeholder="" value="" onblur="">
-                    <label for="Initial C1 - L3">Initial C1 - L3</label>
+                <div class="row">
+                    <!-- Initial C1 - W2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C1 - W2" placeholder="" value="" onblur="">
+                        <label for="Initial C1 - W2">Initial C1 - W2</label>
+                    </div>
+                    <!-- Initial C1 - W3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C1 - W3" placeholder="" value="" onblur="">
+                        <label for="Initial C1 - W3">Initial C1 - W3</label>
+                    </div>
                 </div>
-                <!-- Initial C1 - W1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C1 - W1" placeholder="" value="" onblur="">
-                    <label for="Initial C1 - W1">Initial C1 - W1</label>
+                <div class="row">
+                    <!-- Initial C1 - T1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C1 - T1" placeholder="" value="" onblur="">
+                        <label for="Initial C1 - T1">Initial C1 - T1</label>
+                    </div>
+                    <!-- Initial C1 - T2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C1 - T2" placeholder="" value="" onblur="">
+                        <label for="Initial C1 - T2">Initial C1 - T2</label>
+                    </div>
                 </div>
-                <!-- Initial C1 - W2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C1 - W2" placeholder="" value="" onblur="">
-                    <label for="Initial C1 - W2">Initial C1 - W2</label>
-                </div>
-                <!-- Initial C1 - W3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C1 - W3" placeholder="" value="" onblur="">
-                    <label for="Initial C1 - W3">Initial C1 - W3</label>
-                </div>
-                <!-- Initial C1 - T1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C1 - T1" placeholder="" value="" onblur="">
-                    <label for="Initial C1 - T1">Initial C1 - T1</label>
-                </div>
-                <!-- Initial C1 - T2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C1 - T2" placeholder="" value="" onblur="">
-                    <label for="Initial C1 - T2">Initial C1 - T2</label>
-                </div>
-                <!-- Initial C1 - T3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C1 - T3" placeholder="" value="" onblur="">
-                    <label for="Initial C1 - T3">Initial C1 - T3</label>
-                </div>
-                <!-- Initial C1 - T4 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C1 - T4" placeholder="" value="" onblur="">
-                    <label for="Initial C1 - T4">Initial C1 - T4</label>
+                <div class="row">
+                    <!-- Initial C1 - T3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C1 - T3" placeholder="" value="" onblur="">
+                        <label for="Initial C1 - T3">Initial C1 - T3</label>
+                    </div>
+                    <!-- Initial C1 - T4 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C1 - T4" placeholder="" value="" onblur="">
+                        <label for="Initial C1 - T4">Initial C1 - T4</label>
+                    </div>
                 </div>
                 <!-- Initial C1 - T5 -->
                 <div class="form-floating mb-2">
@@ -646,56 +695,66 @@
                 </div>
             </div>
             <!-- Final C1 -->
-            <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
-                <!-- Final C1 - L1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C1 - L1" placeholder="" value="" onblur="">
-                    <label for="Final C1 - L1">Final C1 - L1</label>
+            <div class="card-body d-flex flex-column col-md-6 justify-content-evenly px-3">
+                <div class="row">
+                    <!-- Final C1 - L1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C1 - L1" placeholder="" value="" onblur="">
+                        <label for="Final C1 - L1">Final C1 - L1</label>
+                    </div>
+                    <!-- Final C1 - L2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C1 - L2" placeholder="" value="" onblur="">
+                        <label for="Final C1 - L2">Final C1 - L2</label>
+                    </div>
                 </div>
-                <!-- Final C1 - L2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C1 - L2" placeholder="" value="" onblur="">
-                    <label for="Final C1 - L2">Final C1 - L2</label>
+                <div class="row">
+                    <!-- Final C1 - L3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C1 - L3" placeholder="" value="" onblur="">
+                        <label for="Final C1 - L3">Final C1 - L3</label>
+                    </div>
+                    <!-- Final C1 - W1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C1 - W1" placeholder="" value="" onblur="">
+                        <label for="Final C1 - W1">Final C1 - W1</label>
+                    </div>
                 </div>
-                <!-- Final C1 - L3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C1 - L3" placeholder="" value="" onblur="">
-                    <label for="Final C1 - L3">Final C1 - L3</label>
+                <div class="row">
+                    <!-- Final C1 - W2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C1 - W2" placeholder="" value="" onblur="">
+                        <label for="Final C1 - W2">Final C1 - W2</label>
+                    </div>
+                    <!-- Final C1 - W3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C1 - W3" placeholder="" value="" onblur="">
+                        <label for="Final C1 - W3">Final C1 - W3</label>
+                    </div>
                 </div>
-                <!-- Final C1 - W1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C1 - W1" placeholder="" value="" onblur="">
-                    <label for="Final C1 - W1">Final C1 - W1</label>
+                <div class="row">
+                    <!-- Final C1 - T1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C1 - T1" placeholder="" value="" onblur="">
+                        <label for="Final C1 - T1">Final C1 - T1</label>
+                    </div>
+                    <!-- Final C1 - T2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C1 - T2" placeholder="" value="" onblur="">
+                        <label for="Final C1 - T2">Final C1 - T2</label>
+                    </div>
                 </div>
-                <!-- Final C1 - W2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C1 - W2" placeholder="" value="" onblur="">
-                    <label for="Final C1 - W2">Final C1 - W2</label>
-                </div>
-                <!-- Final C1 - W3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C1 - W3" placeholder="" value="" onblur="">
-                    <label for="Final C1 - W3">Final C1 - W3</label>
-                </div>
-                <!-- Final C1 - T1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C1 - T1" placeholder="" value="" onblur="">
-                    <label for="Final C1 - T1">Final C1 - T1</label>
-                </div>
-                <!-- Final C1 - T2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C1 - T2" placeholder="" value="" onblur="">
-                    <label for="Final C1 - T2">Final C1 - T2</label>
-                </div>
-                <!-- Final C1 - T3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C1 - T3" placeholder="" value="" onblur="">
-                    <label for="Final C1 - T3">Final C1 - T3</label>
-                </div>
-                <!-- Final C1 - T4 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C1 - T4" placeholder="" value="" onblur="">
-                    <label for="Final C1 - T4">Final C1 - T4</label>
+                <div class="row">
+                    <!-- Final C1 - T3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C1 - T3" placeholder="" value="" onblur="">
+                        <label for="Final C1 - T3">Final C1 - T3</label>
+                    </div>
+                    <!-- Final C1 - T4 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C1 - T4" placeholder="" value="" onblur="">
+                        <label for="Final C1 - T4">Final C1 - T4</label>
+                    </div>
                 </div>
                 <!-- Final C1 - T5 -->
                 <div class="form-floating mb-2">
@@ -706,62 +765,72 @@
         </div>
     </div>
     <!-- Dimensional Stability Freezer - 2 -->
-    <div class="card card-default col-md-4">
+    <div class="card card-default col-md-5">
         <div class="card-header align-items-center">
             <h2 class="">Dimensional Stability Freezer - 2</h2>
         </div>
         <div class="row px-4">
             <!-- Initial C2 -->
-            <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
-                <!-- Initial C2 - L1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C2 - L1" placeholder="" value="" onblur="">
-                    <label for="Initial C2 - L1">Initial C2 - L1</label>
+            <div class="card-body d-flex flex-column col-md-6 px-3 justify-content-evenly">
+                <div class="row">
+                    <!-- Initial C2 - L1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C2 - L1" placeholder="" value="" onblur="">
+                        <label for="Initial C2 - L1">Initial C2 - L1</label>
+                    </div>
+                    <!-- Initial C2 - L2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C2 - L2" placeholder="" value="" onblur="">
+                        <label for="Initial C2 - L2">Initial C2 - L2</label>
+                    </div>
                 </div>
-                <!-- Initial C2 - L2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C2 - L2" placeholder="" value="" onblur="">
-                    <label for="Initial C2 - L2">Initial C2 - L2</label>
+                <div class="row">
+                    <!-- Initial C2 - L3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C2 - L3" placeholder="" value="" onblur="">
+                        <label for="Initial C2 - L3">Initial C2 - L3</label>
+                    </div>
+                    <!-- Initial C2 - W1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C2 - W1" placeholder="" value="" onblur="">
+                        <label for="Initial C2 - W1">Initial C2 - W1</label>
+                    </div>
                 </div>
-                <!-- Initial C2 - L3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C2 - L3" placeholder="" value="" onblur="">
-                    <label for="Initial C2 - L3">Initial C2 - L3</label>
+                <div class="row">
+                    <!-- Initial C2 - W2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C2 - W2" placeholder="" value="" onblur="">
+                        <label for="Initial C2 - W2">Initial C2 - W2</label>
+                    </div>
+                    <!-- Initial C2 - W3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C2 - W3" placeholder="" value="" onblur="">
+                        <label for="Initial C2 - W3">Initial C2 - W3</label>
+                    </div>
                 </div>
-                <!-- Initial C2 - W1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C2 - W1" placeholder="" value="" onblur="">
-                    <label for="Initial C2 - W1">Initial C2 - W1</label>
+                <div class="row">
+                    <!-- Initial C2 - T1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C2 - T1" placeholder="" value="" onblur="">
+                        <label for="Initial C2 - T1">Initial C2 - T1</label>
+                    </div>
+                    <!-- Initial C2 - T2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C2 - T2" placeholder="" value="" onblur="">
+                        <label for="Initial C2 - T2">Initial C2 - T2</label>
+                    </div>
                 </div>
-                <!-- Initial C2 - W2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C2 - W2" placeholder="" value="" onblur="">
-                    <label for="Initial C2 - W2">Initial C2 - W2</label>
-                </div>
-                <!-- Initial C2 - W3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C2 - W3" placeholder="" value="" onblur="">
-                    <label for="Initial C2 - W3">Initial C2 - W3</label>
-                </div>
-                <!-- Initial C2 - T1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C2 - T1" placeholder="" value="" onblur="">
-                    <label for="Initial C2 - T1">Initial C2 - T1</label>
-                </div>
-                <!-- Initial C2 - T2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C2 - T2" placeholder="" value="" onblur="">
-                    <label for="Initial C2 - T2">Initial C2 - T2</label>
-                </div>
-                <!-- Initial C2 - T3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C2 - T3" placeholder="" value="" onblur="">
-                    <label for="Initial C2 - T3">Initial C2 - T3</label>
-                </div>
-                <!-- Initial C2 - T4 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Initial C2 - T4" placeholder="" value="" onblur="">
-                    <label for="Initial C2 - T4">Initial C2 - T4</label>
+                <div class="row">
+                    <!-- Initial C2 - T3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C2 - T3" placeholder="" value="" onblur="">
+                        <label for="Initial C2 - T3">Initial C2 - T3</label>
+                    </div>
+                    <!-- Initial C2 - T4 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Initial C2 - T4" placeholder="" value="" onblur="">
+                        <label for="Initial C2 - T4">Initial C2 - T4</label>
+                    </div>
                 </div>
                 <!-- Initial C2 - T5 -->
                 <div class="form-floating mb-2">
@@ -770,56 +839,66 @@
                 </div>
             </div>
             <!-- Final C2 -->
-            <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
-                <!-- Final C2 - L1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C2 - L1" placeholder="" value="" onblur="">
-                    <label for="Final C2 - L1">Final C2 - L1</label>
+            <div class="card-body d-flex flex-column col-md-6 px-3 justify-content-evenly">
+                <div class="row">
+                    <!-- Final C2 - L1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C2 - L1" placeholder="" value="" onblur="">
+                        <label for="Final C2 - L1">Final C2 - L1</label>
+                    </div>
+                    <!-- Final C2 - L2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C2 - L2" placeholder="" value="" onblur="">
+                        <label for="Final C2 - L2">Final C2 - L2</label>
+                    </div>
                 </div>
-                <!-- Final C2 - L2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C2 - L2" placeholder="" value="" onblur="">
-                    <label for="Final C2 - L2">Final C2 - L2</label>
+                <div class="row">
+                    <!-- Final C2 - L3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C2 - L3" placeholder="" value="" onblur="">
+                        <label for="Final C2 - L3">Final C2 - L3</label>
+                    </div>
+                    <!-- Final C2 - W1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C2 - W1" placeholder="" value="" onblur="">
+                        <label for="Final C2 - W1">Final C2 - W1</label>
+                    </div>
                 </div>
-                <!-- Final C2 - L3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C2 - L3" placeholder="" value="" onblur="">
-                    <label for="Final C2 - L3">Final C2 - L3</label>
+                <div class="row">
+                    <!-- Final C2 - W2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C2 - W2" placeholder="" value="" onblur="">
+                        <label for="Final C2 - W2">Final C2 - W2</label>
+                    </div>
+                    <!-- Final C2 - W3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C2 - W3" placeholder="" value="" onblur="">
+                        <label for="Final C2 - W3">Final C2 - W3</label>
+                    </div>
                 </div>
-                <!-- Final C2 - W1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C2 - W1" placeholder="" value="" onblur="">
-                    <label for="Final C2 - W1">Final C2 - W1</label>
+                <div class="row">
+                    <!-- Final C2 - T1 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C2 - T1" placeholder="" value="" onblur="">
+                        <label for="Final C2 - T1">Final C2 - T1</label>
+                    </div>
+                    <!-- Final C2 - T2 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C2 - T2" placeholder="" value="" onblur="">
+                        <label for="Final C2 - T2">Final C2 - T2</label>
+                    </div>
                 </div>
-                <!-- Final C2 - W2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C2 - W2" placeholder="" value="" onblur="">
-                    <label for="Final C2 - W2">Final C2 - W2</label>
-                </div>
-                <!-- Final C2 - W3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C2 - W3" placeholder="" value="" onblur="">
-                    <label for="Final C2 - W3">Final C2 - W3</label>
-                </div>
-                <!-- Final C2 - T1 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C2 - T1" placeholder="" value="" onblur="">
-                    <label for="Final C2 - T1">Final C2 - T1</label>
-                </div>
-                <!-- Final C2 - T2 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C2 - T2" placeholder="" value="" onblur="">
-                    <label for="Final C2 - T2">Final C2 - T2</label>
-                </div>
-                <!-- Final C2 - T3 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C2 - T3" placeholder="" value="" onblur="">
-                    <label for="Final C2 - T3">Final C2 - T3</label>
-                </div>
-                <!-- Final C2 - T4 -->
-                <div class="form-floating mb-2">
-                    <input type="number" class="form-control" id="Final C2 - T4" placeholder="" value="" onblur="">
-                    <label for="Final C2 - T4">Final C2 - T4</label>
+                <div class="row">
+                    <!-- Final C2 - T3 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C2 - T3" placeholder="" value="" onblur="">
+                        <label for="Final C2 - T3">Final C2 - T3</label>
+                    </div>
+                    <!-- Final C2 - T4 -->
+                    <div class="form-floating mb-2 col-6">
+                        <input type="number" class="form-control" id="Final C2 - T4" placeholder="" value="" onblur="">
+                        <label for="Final C2 - T4">Final C2 - T4</label>
+                    </div>
                 </div>
                 <!-- Final C2 - T5 -->
                 <div class="form-floating mb-2">
@@ -830,7 +909,7 @@
         </div>
     </div>
     <!-- Walk-in Freezer Testing: Depths on Each Side -->
-    <div class="card card-default h-auto col-md-4">
+    <div class="card card-default h-auto col-md-2">
         <div class="card-header align-items-center">
             <h2 class="">Walk-in Freezer Testing: Depths on Each Side</h2>
         </div>
