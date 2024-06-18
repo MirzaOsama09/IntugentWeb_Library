@@ -151,6 +151,7 @@ namespace IntugentWebApp.Pages.Mfg_Group
         public string gChangeFreezerWidth { get; set; }
         public string gChangeFreezerThickness { get; set; }
         public DateTime? gTestDateTime { get; set; }
+        public string gDevType { get; set; }
 
         private readonly ObjectsService _objectsService;
         public DimensionStabilityModel(ObjectsService objectsService)
@@ -170,21 +171,21 @@ namespace IntugentWebApp.Pages.Mfg_Group
 
             //            GetDataSet();
             //            CPages.PageInProcess_1.GetDataSet();
-            //            _objectsService.MfgDimensionsStability.drIP = CPages.PageInProcess_1._objectsService.MfgDimensionsStability.dr;
+                       _objectsService.MfgDimensionsStability.drIP = _objectsService.MfgInProcess.dr;
             //           CPages.PageFinishedGoods_1.GetDataSet();
-            //            _objectsService.MfgDimensionsStability.drFG = CPages.PageFinishedGoods_1._objectsService.MfgDimensionsStability.dr;
+                        _objectsService.MfgDimensionsStability.drFG = _objectsService.MfgFinishedGoods.dr;
 
             #region gen info, edge collapse, % change
 
             gID = _objectsService.MfgDimensionsStability.dr["ID4ALL"].ToString();
             if ((_objectsService.MfgDimensionsStability.dr["DS Testing Complete"] == DBNull.Value)) gDimStabilityDoneIsChecked = false; else gDimStabilityDoneIsChecked = (bool)_objectsService.MfgDimensionsStability.dr["DS Testing Complete"];
-            //if (_objectsService.MfgDimensionsStability.drIP["Test Date"] == DBNull.Value) gProductionDate = String.Empty; else gProductionDate = ((DateTime)_objectsService.MfgDimensionsStability.drIP["Test Date"]).ToString("MM/dd/yyyy");
-            //if (_objectsService.MfgDimensionsStability.drFG["Finished Board Time Stamp FG"] == DBNull.Value) gProductionTime = String.Empty; else gProductionTime = ((DateTime)_objectsService.MfgDimensionsStability.drFG["Finished Board Time Stamp FG"]).ToString("hh:mm tt");
+            if (_objectsService.MfgDimensionsStability.drIP?["Test Date"] == DBNull.Value) gProductionDate = String.Empty; else gProductionDate = ((DateTime)_objectsService.MfgDimensionsStability.drIP["Test Date"]).ToString("yyyy-MM-ddTHH:mm");
+            if (_objectsService.MfgDimensionsStability.drFG?["Finished Board Time Stamp FG"] == DBNull.Value) gProductionTime = String.Empty; else gProductionTime = ((DateTime)_objectsService.MfgDimensionsStability.drFG["Finished Board Time Stamp FG"]).ToString("yyyy-MM-ddTHH:mm");
 
             //           if (_objectsService.MfgDimensionsStability.drIP["Test Time"] == DBNull.Value) gProductionTime.Text = String.Empty; else gProductionTime.Text = ((DateTime)_objectsService.MfgDimensionsStability.drIP["Test Time"]).ToString("hh:mm tt");
-          //  if (_objectsService.MfgDimensionsStability.drIP["Product ID"] == DBNull.Value) gProductCode = String.Empty; else gProductCode = _objectsService.MfgDimensionsStability.drIP["Product ID"].ToString();
+            if (_objectsService.MfgDimensionsStability.drIP["Product ID"] == DBNull.Value) gProductCode = String.Empty; else gProductCode = _objectsService.MfgDimensionsStability.drIP["Product ID"].ToString();
 
-            if (_objectsService.MfgDimensionsStability.dr["Edge H1"] == DBNull.Value) gEdgeH1IsChecked = false; else gEdgeH1IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge H1"];
+            //if (_objectsService.MfgDimensionsStability.dr["Edge H1"] == DBNull.Value) gEdgeH1IsChecked = false; else gEdgeH1IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge H1"];
             if (_objectsService.MfgDimensionsStability.dr["Edge H2"] == DBNull.Value) gEdgeH2IsChecked = false; else gEdgeH2IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge H2"];
             if (_objectsService.MfgDimensionsStability.dr["Edge C1"] == DBNull.Value) gEdgeC1IsChecked = false; else gEdgeC1IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge C1"];
             if (_objectsService.MfgDimensionsStability.dr["Edge C2"] == DBNull.Value) gEdgeC2IsChecked = false; else gEdgeC2IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge C2"];
@@ -204,7 +205,7 @@ namespace IntugentWebApp.Pages.Mfg_Group
             if (_objectsService.MfgDimensionsStability.dr["DateSampleIn"] == DBNull.Value) gTestDateTime = null;
             else { gTestDateTime = (DateTime)_objectsService.MfgDimensionsStability.dr["DateSampleIn"]; }
             gDeviation = _objectsService.MfgDimensionsStability.SetDoubleTextField("DevFromTable");
-            //if (_objectsService.MfgDimensionsStability.dr["DevType"] == DBNull.Value) gDevType.SelectedIndex = -1; else gDevType.Text = (string)_objectsService.MfgDimensionsStability.dr["DevType"];
+            if (_objectsService.MfgDimensionsStability.dr["DevType"] == DBNull.Value) gDevType = null; else gDevType = (string)_objectsService.MfgDimensionsStability.dr["DevType"];
 
 
 
@@ -430,11 +431,11 @@ namespace IntugentWebApp.Pages.Mfg_Group
 
             switch (sName)
             {
-                case "gEdgeH1": if (_objectsService.MfgDimensionsStability.dr["Edge H1"] == null) gEdgeH1IsChecked = false; else gEdgeH1IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge H1"] ; break;
-                case "gEdgeH2": if (_objectsService.MfgDimensionsStability.dr["Edge H2"] == null) gEdgeH2IsChecked = false; else gEdgeH2IsChecked =(bool)_objectsService.MfgDimensionsStability.dr["Edge H2"] ; break;
-                case "gEdgeC1": if (_objectsService.MfgDimensionsStability.dr["Edge C1"] == null) gEdgeC1IsChecked = false; else gEdgeC1IsChecked =(bool)_objectsService.MfgDimensionsStability.dr["Edge C1"] ; break;
-                case "gEdgeC2": if (_objectsService.MfgDimensionsStability.dr["Edge C2"] == null) gEdgeC2IsChecked = false; else gEdgeC2IsChecked =(bool)_objectsService.MfgDimensionsStability.dr["Edge C2"] ; break;
-                case "gDimStabilityDone": if (_objectsService.MfgDimensionsStability.dr["DS Testing Complete"] == null) gDimStabilityDoneIsChecked = false; else _objectsService.MfgDimensionsStability.dr["DS Testing Complete"] = value; break;
+                case "gEdgeH1": if (_objectsService.MfgDimensionsStability.dr["Edge H1"] == DBNull.Value) gEdgeH1IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge H1"] =value ; break;
+                case "gEdgeH2": if (_objectsService.MfgDimensionsStability.dr["Edge H2"] == DBNull.Value) gEdgeH2IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge H2"] =value; break;
+                case "gEdgeC1": if (_objectsService.MfgDimensionsStability.dr["Edge C1"] == DBNull.Value) gEdgeC1IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge C1"] =value; break;
+                case "gEdgeC2": if (_objectsService.MfgDimensionsStability.dr["Edge C2"] == DBNull.Value) gEdgeC2IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge C2"] =value; break;
+                case "gDimStabilityDone": if (_objectsService.MfgDimensionsStability.dr["DS Testing Complete"] == DBNull.Value) gDimStabilityDoneIsChecked = false; else _objectsService.MfgDimensionsStability.dr["DS Testing Complete"] = value; break;
             }
             _objectsService.MfgDimensionsStability.UpdateDataSet();
             return new JsonResult(new { message = Name, value });
@@ -779,7 +780,7 @@ namespace IntugentWebApp.Pages.Mfg_Group
             if (_objectsService.MfgDimensionsStability.dr["DateSampleIn"]==null)
                 gTestDateTime = null;
              else
-                gTestDateTime = (DateTime)_objectsService.MfgDimensionsStability.dr["DateSampleIn"];
+                _objectsService.MfgDimensionsStability.dr["DateSampleIn"]=value;
 
             _objectsService.MfgDimensionsStability.UpdateDataSet();
             return new JsonResult(new { message = value });
@@ -840,7 +841,7 @@ namespace IntugentWebApp.Pages.Mfg_Group
             {
                 if (!(_objectsService.MfgDimensionsStability.dr["InitialWF-W1"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["FinalWF-W1"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["InitialWF-W1"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["FinalWF-W1"]; }
                 if (!(_objectsService.MfgDimensionsStability.dr["InitialWF-W2"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["FinalWF-W2"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["InitialWF-W2"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["FinalWF-W2"]; }
-                if (!(_objectsService.MfgDimensionsStability.dr["InitialWF-W3"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["FinalWF-W3"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["InitialWF-3"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["FinalWF-W3"]; }
+                if (!(_objectsService.MfgDimensionsStability.dr["InitialWF-W3"] == DBNull.Value) && !(_objectsService.MfgDimensionsStability.dr["FinalWF-W3"] == DBNull.Value)) { nCount++; dSumInit += (double)_objectsService.MfgDimensionsStability.dr["InitialWF-W3"]; dSumFinal += (double)_objectsService.MfgDimensionsStability.dr["FinalWF-W3"]; }
 
                 if (nCount > 1)
                 {
@@ -908,16 +909,16 @@ namespace IntugentWebApp.Pages.Mfg_Group
         }
 
 
-        public IActionResult gWF_Info_LF(string Name, string value)
+        public IActionResult OnPostGWF_Info_LF(string Name, string value)
         {
             string sName = Name;
             switch (sName)
             {
                 case "gDeviation":
                     _objectsService.MfgDimensionsStability.dr["DevFromTable"]=value; break;
-                //case "gDevType":
-                //    if (_objectsService.MfgDimensionsStability.dr["DevType"] == null) _objectsService.MfgDimensionsStability.dr["DevType"] = DBNull.Value; else 
-                //        _objectsService.MfgDimensionsStability.dr["DevType"] = value; break;
+                case "gDevType":
+                    if (_objectsService.MfgDimensionsStability.dr["DevType"] == null) _objectsService.MfgDimensionsStability.dr["DevType"] = DBNull.Value; else 
+                        _objectsService.MfgDimensionsStability.dr["DevType"] = value; break;
             }
 
             _objectsService.MfgDimensionsStability.UpdateDataSet();

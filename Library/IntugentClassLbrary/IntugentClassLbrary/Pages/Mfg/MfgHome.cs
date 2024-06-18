@@ -381,11 +381,14 @@ namespace IntugentClassLibrary.Pages.Mfg
             mfgInProcess.GetDataSet();
             mfgFinishedGoods.GetDataSet();
             mfgDimensionStability.GetDataSet();
-      /*      CPages.PagePlantData_1.GetDataSet();
+            // CPages.PagePlantData_1.GetDataSet();
 
-            CPages.PageFinishedGoods_1.drIP = CPages.PageDimStability_1.drIP = CPages.PagePlantData_1.drIP = CPages.PageInProcess_1.dr;
-            CPages.PageInProcess_1.drFG = CPages.PageDimStability_1.drFG = CPages.PagePlantData_1.drFG = CPages.PageFinishedGoods_1.dr;
-*/
+            //mfgFinishedGoods.drIP = mfgDimensionStability.drIP = CPages.PagePlantData_1.drIP = mfgInProcess.dr;
+            //  mfgInProcess.drFG = mfgDimensionStability.drFG = CPages.PagePlantData_1.drFG = mfgFinishedGoods.dr;
+
+             mfgDimensionStability.drIP = mfgInProcess.dr;
+             mfgDimensionStability.drFG = mfgFinishedGoods.dr;
+
             return (mfgInProcess,mfgFinishedGoods,mfgDimensionStability);
         }
 

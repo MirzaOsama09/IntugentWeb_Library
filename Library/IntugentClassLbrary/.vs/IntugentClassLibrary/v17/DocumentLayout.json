@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\pages\\mfg\\mfgfinishedgoods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\library\\intugentclasslbrary\\intugentclasslbrary\\pages\\mfg\\mfgdimensionstability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\pages\\mfg\\mfgdimensionstability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\library\\intugentclasslbrary\\intugentclasslbrary\\pages\\mfg\\mfghome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\pages\\mfg\\mfghome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -30,13 +26,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MfgHome.cs",
               "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgHome.cs",
               "RelativeDocumentMoniker": "IntugentClassLbrary\\Pages\\Mfg\\MfgHome.cs",
               "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgHome.cs",
               "RelativeToolTip": "IntugentClassLbrary\\Pages\\Mfg\\MfgHome.cs",
-              "ViewState": "AQIAAGUBAAAAAAAAAAAiwH4BAAAsAAAA",
+              "ViewState": "AQIAAG4BAAAAAAAAAAAiwIQBAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-17T17:06:53.805Z",
               "EditorCaption": ""
@@ -49,22 +45,9 @@
               "RelativeDocumentMoniker": "IntugentClassLbrary\\Pages\\Mfg\\MfgFinishedGoods.cs",
               "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgFinishedGoods.cs",
               "RelativeToolTip": "IntugentClassLbrary\\Pages\\Mfg\\MfgFinishedGoods.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAwwBsAAAAgAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-17T14:36:51.831Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MfgDimensionStability.cs",
-              "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgDimensionStability.cs",
-              "RelativeDocumentMoniker": "IntugentClassLbrary\\Pages\\Mfg\\MfgDimensionStability.cs",
-              "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgDimensionStability.cs",
-              "RelativeToolTip": "IntugentClassLbrary\\Pages\\Mfg\\MfgDimensionStability.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAxwCkAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T14:33:44.545Z",
               "EditorCaption": ""
             }
           ]
