@@ -185,7 +185,7 @@ namespace IntugentWebApp.Pages.Mfg_Group
             //           if (_objectsService.MfgDimensionsStability.drIP["Test Time"] == DBNull.Value) gProductionTime.Text = String.Empty; else gProductionTime.Text = ((DateTime)_objectsService.MfgDimensionsStability.drIP["Test Time"]).ToString("hh:mm tt");
             if (_objectsService.MfgDimensionsStability.drIP["Product ID"] == DBNull.Value) gProductCode = String.Empty; else gProductCode = _objectsService.MfgDimensionsStability.drIP["Product ID"].ToString();
 
-            //if (_objectsService.MfgDimensionsStability.dr["Edge H1"] == DBNull.Value) gEdgeH1IsChecked = false; else gEdgeH1IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge H1"];
+            if (_objectsService.MfgDimensionsStability.dr["Edge H1"] == DBNull.Value) gEdgeH1IsChecked = false; else gEdgeH1IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge H1"];
             if (_objectsService.MfgDimensionsStability.dr["Edge H2"] == DBNull.Value) gEdgeH2IsChecked = false; else gEdgeH2IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge H2"];
             if (_objectsService.MfgDimensionsStability.dr["Edge C1"] == DBNull.Value) gEdgeC1IsChecked = false; else gEdgeC1IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge C1"];
             if (_objectsService.MfgDimensionsStability.dr["Edge C2"] == DBNull.Value) gEdgeC2IsChecked = false; else gEdgeC2IsChecked = (bool)_objectsService.MfgDimensionsStability.dr["Edge C2"];
@@ -431,14 +431,15 @@ namespace IntugentWebApp.Pages.Mfg_Group
 
             switch (sName)
             {
-                case "gEdgeH1": if (_objectsService.MfgDimensionsStability.dr["Edge H1"] == DBNull.Value) gEdgeH1IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge H1"] =value ; break;
-                case "gEdgeH2": if (_objectsService.MfgDimensionsStability.dr["Edge H2"] == DBNull.Value) gEdgeH2IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge H2"] =value; break;
-                case "gEdgeC1": if (_objectsService.MfgDimensionsStability.dr["Edge C1"] == DBNull.Value) gEdgeC1IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge C1"] =value; break;
-                case "gEdgeC2": if (_objectsService.MfgDimensionsStability.dr["Edge C2"] == DBNull.Value) gEdgeC2IsChecked = false; else _objectsService.MfgDimensionsStability.dr["Edge C2"] =value; break;
+                case "gEdgeH1":  _objectsService.MfgDimensionsStability.dr["Edge H1"] =value ; break;
+                case "gEdgeH2":  _objectsService.MfgDimensionsStability.dr["Edge H2"] =value; break;
+                case "gEdgeC1": _objectsService.MfgDimensionsStability.dr["Edge C1"] = value; break;
+                case "gEdgeC2": _objectsService.MfgDimensionsStability.dr["Edge C2"] = value; break;
                 case "gDimStabilityDone": if (_objectsService.MfgDimensionsStability.dr["DS Testing Complete"] == DBNull.Value) gDimStabilityDoneIsChecked = false; else _objectsService.MfgDimensionsStability.dr["DS Testing Complete"] = value; break;
             }
             _objectsService.MfgDimensionsStability.UpdateDataSet();
-            return new JsonResult(new { message = Name, value });
+         
+            return new JsonResult(new { message = Name, value , gEdgeH1IsChecked });
         }
 
         public IActionResult OnPostGOven1_LF(string Name, string value)

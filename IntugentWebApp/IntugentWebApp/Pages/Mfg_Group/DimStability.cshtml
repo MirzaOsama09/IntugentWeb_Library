@@ -235,9 +235,9 @@
                     <!-- Deviation (Bowing) Type -->
                     <label for="DeviationType">Deviation Type</label>
                     <div class="form-floating mb-2" onblur="GWF_Info_LF('gDevType', this.value)">
-                        <select class="form-select" id="DeviationType" onblur="GWF_Info_LF('gDevType', this.value)" value="@Model.gDevType">
-                            <option value="Up" selected="0">Up</option>
-                            <option value="Down" selected="1">Down</option>
+                        <select class="form-select" id="DeviationType" onblur="GWF_Info_LF('gDevType', this.value)" >
+                            <option value="Up" selected="@Model.gDevType" >Up</option>
+                            <option value="Down" selected="@Model.gDevType">Down</option>
                         </select>
                     </div>
                 </div>
