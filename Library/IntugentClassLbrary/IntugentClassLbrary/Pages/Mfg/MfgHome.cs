@@ -387,8 +387,10 @@ namespace IntugentClassLibrary.Pages.Mfg
             //mfgFinishedGoods.drIP = mfgDimensionStability.drIP = CPages.PagePlantData_1.drIP = mfgInProcess.dr;
             //  mfgInProcess.drFG = mfgDimensionStability.drFG = CPages.PagePlantData_1.drFG = mfgFinishedGoods.dr;
 
-            mfgPlantData.drIP=mfgDimensionStability.drIP = mfgInProcess.dr;
-            mfgPlantData.drFG=mfgDimensionStability.drFG = mfgFinishedGoods.dr;
+            mfgDimensionStability.drIP = mfgInProcess.dr;
+            mfgDimensionStability.drFG = mfgFinishedGoods.dr;
+            mfgPlantData.drIP =  mfgInProcess.dr;
+            mfgPlantData.drFG =  mfgFinishedGoods.dr;
 
             return (mfgInProcess,mfgFinishedGoods,mfgDimensionStability, mfgPlantData);
         }

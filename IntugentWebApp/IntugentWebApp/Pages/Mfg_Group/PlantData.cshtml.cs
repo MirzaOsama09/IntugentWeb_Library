@@ -41,7 +41,9 @@ namespace IntugentWebApp.Pages.Mfg_Group
         }
         public void OnGet()
         {
+
             string s, sn; double dtemp;
+            _objectsService.MfgPlantsData.GetDataSet();
 
 
             //           if (!GetDataSet()) return;
@@ -75,7 +77,8 @@ namespace IntugentWebApp.Pages.Mfg_Group
         public void SetView()
         {
             bool bTimeStampsWithin5Min = true;
-
+            _objectsService.MfgPlantsData.drIP = _objectsService.MfgInProcess.dr;
+            _objectsService.MfgPlantsData.drFG = _objectsService.MfgFinishedGoods.dr;
 
             gID = _objectsService.MfgPlantsData.dr["ID4ALL"].ToString();
             if (_objectsService.Cbfile.iIDMfgIndex == 0) gDataSetNextIsEnabled = false; else gDataSetNextIsEnabled = true;

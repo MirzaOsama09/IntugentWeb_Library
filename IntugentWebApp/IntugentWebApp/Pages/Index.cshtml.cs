@@ -46,6 +46,9 @@ namespace IntugentWebApp.Pages
                 MfgDimStability mfgDimensionsStability = new MfgDimStability(_objectsService.Cbfile);
                 _objectsService.MfgDimensionsStability = mfgDimensionsStability;
 
+                MfgPlantData mfgPlantsData = new MfgPlantData(_objectsService.Cbfile, _objectsService.CLists,_objectsService.CDefualts);
+                _objectsService.MfgPlantsData = mfgPlantsData;
+
             }
 
 
