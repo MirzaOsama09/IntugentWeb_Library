@@ -2,6 +2,8 @@ using IntugentClassLbrary.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json.Linq;
+using Google.Cloud.BigQuery.V2;
+using Google.Apis.Auth.OAuth2;
 using System.Data;
 using System.Runtime.Serialization;
 using System;
@@ -108,6 +110,98 @@ namespace IntugentWebApp.Pages.Mfg_Group
             gNewInsData = _objectsService.MfgPlantsData.dtNewInsData;
 
         }
+        public IActionResult OnPostGetPlantData_Click()
+        {
+          //  Mouse.OverrideCursor = Cursors.Wait;
+            _objectsService.MfgPlantsData.GetPlantData(_objectsService.MfgPlantsData.dtFGTime);
+           // Mouse.OverrideCursor = null;
+           // CStatusBar.SetText("Data Saved at " + DateTime.Now.ToString("hh:mm:ss tt"));
+            return new JsonResult(true);
+        }
+        public async void GetPlantDataBackground(DateTime dateTime)
+        {
+            _objectsService.Cbfile.bCanSwitchRecord = false;
+           // CStatusBar.SetText("Pulling process data for dataset " + _objectsService.Cbfile.iIDMfg.ToString());
+            string sRet = await Task.Run(() => _objectsService.MfgPlantsData.GetPlantData(dateTime));
+            _objectsService.Cbfile.bCanSwitchRecord = true;
+           // CStatusBar.SetText("Finished pulling process data for dataset " + _objectsService.Cbfile.iIDMfg.ToString());
+            return;
+        }
+        public IActionResult OnPostNavigateDataSet(string direction)
+        {
+            if (!_objectsService.Cbfile.bCanSwitchRecord)
+            {
+                //   MessageBox.Show(Cbfile.sNoRecSwitchMsg, Cbfile.sAppName);
+                return new JsonResult(new { success = false, message = "Cannot switch record" });
 
+            }
+
+            switch (direction)
+            {
+                case "prev":
+                    _objectsService.Cbfile.iIDMfgIndex += 1;
+                    break;
+                case "next":
+                    _objectsService.Cbfile.iIDMfgIndex -= 1;
+                    break;
+                default:
+                    return new JsonResult(new { success = false, message = "Invalid direction" });
+            }
+
+            if (_objectsService.Cbfile.iIDMfgIndex < 0)
+            {
+                _objectsService.Cbfile.iIDMfgIndex = 0;
+            }
+
+            if (_objectsService.Cbfile.iIDMfgIndex > _objectsService.MfgHome.dt.Rows.Count - 1)
+            {
+                _objectsService.Cbfile.iIDMfgIndex = _objectsService.MfgHome.dt.Rows.Count - 1;
+            }
+
+            UpdateDataSetView();
+            return new JsonResult(new
+            {
+                success = true,
+                newIndex = _objectsService.Cbfile.iIDMfgIndex
+            });
+        }
+        private void UpdateDataSetView()
+        {
+            _objectsService.Cbfile.iIDMfg = (int)_objectsService.MfgHome.dt.Rows[_objectsService.Cbfile.iIDMfgIndex]["ID4All"];
+            _objectsService.CLists.drEmployee["MfgIDSelected"] = _objectsService.Cbfile.iIDMfg;
+            _objectsService.CLists.UpdateEmployee();
+
+            (_objectsService.MfgInProcess, _objectsService.MfgFinishedGoods, _objectsService.MfgDimensionsStability, _objectsService.MfgPlantsData) = _objectsService.MfgHome.GetAllMfgData(_objectsService.MfgInProcess, _objectsService.MfgFinishedGoods, _objectsService.MfgDimensionsStability, _objectsService.MfgPlantsData);
+            SetView();
+
+            // Enable/disable buttons based on the index
+            gDataSetNextIsEnabled = _objectsService.Cbfile.iIDMfgIndex < (_objectsService.MfgHome.dt.Rows.Count - 1);
+            gDataSetPrevIsEnabled = _objectsService.Cbfile.iIDMfgIndex > 0;
+        }
+        /*
+                public async void LongTaskButton_Click(object sender, RoutedEventArgs e)
+                {
+                    LongTaskButton.IsEnabled = false;
+                    LongTaskTextBlock.Text = "Starting long task";
+
+                    string result = "";
+                    try
+                    {
+                        result = await Task.Run(() =>
+                        {
+                            Thread.Sleep(2000);
+                            throw new Exception("Something crashed!");
+                            return "Completed long task";
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        result = ex.Message;
+                    }
+
+                    LongTaskButton.IsEnabled = true;
+                    LongTaskTextBlock.Text = result;
+                }
+        */
     }
 }

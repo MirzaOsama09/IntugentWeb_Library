@@ -23,7 +23,7 @@
             <!-- Dataset -->
             <div class="input-group col-12 d-flex">
                 <button class="btn btn-primary m-auto" type="button" style="padding: 9px" onclick="gNavClick('prev')"><span class="mdi mdi-chevron-left"></span></button>
-                <input type="number" class="form-control text-center w-50" disabled value="">
+                <input type="number" class="form-control text-center w-50" disabled value="@Model.gID">
                 <button onclick="gNavClick('next')" name="" class="btn btn-primary m-auto" type="button" style="padding: 9px"><span class="mdi mdi-chevron-right"></span></button>
             </div>
         </div>
@@ -286,3 +286,25 @@
         </div>
     </div>
 </div>
+@section Scripts{
+    <script>
+        function gNavClick(direction) {
+
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/PlantData?handler=NavigateDataSet",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { direction: direction },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    </script>
+}
