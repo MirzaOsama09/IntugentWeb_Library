@@ -84,16 +84,16 @@ namespace IntugentWebApp.Pages.Mfg_Group
             if (_objectsService.Cbfile.iIDMfgIndex == 0) gDataSetNextIsEnabled = false; else gDataSetNextIsEnabled = true;
             if (_objectsService.Cbfile.iIDMfgIndex == _objectsService.MfgHome.dt.Rows.Count - 1) gDataSetPrevIsEnabled = false; else gDataSetPrevIsEnabled = true;
 
-            if (_objectsService.MfgPlantsData.drIP["Test Date"] == DBNull.Value) gProductionDate = String.Empty; else gProductionDate  = ((DateTime)_objectsService.MfgPlantsData.drIP["Test Date"]).ToString("MM/dd/yyyy");
+            if (_objectsService.MfgPlantsData.drIP["Test Date"] == DBNull.Value) gProductionDate = String.Empty; else gProductionDate  = ((DateTime)_objectsService.MfgPlantsData.drIP["Test Date"]).ToString("yyyy-MM-ddTHH:mm");
             if (_objectsService.MfgPlantsData.drIP["Product ID"] == DBNull.Value) gProductCode= String.Empty; else gProductCode  = _objectsService.MfgPlantsData.drIP["Product ID"].ToString();
             gDelTimeButton = "* The two Board Time Stamps must be within " + _objectsService.CDefualts.dDelTimeButton.ToString() + " minute(s) (site specific) of each other to extract process data." +
                 " The data will be averaged over a " + _objectsService.CDefualts.dDelTimeCalc.ToString() + " minute (site specific) window around the FG Board Time Stamp.";
 
 
             _objectsService.MfgPlantsData.dtFGTime = DateTime.Now; _objectsService.MfgPlantsData.dtIPTime = _objectsService.MfgPlantsData.dtFGTime.AddDays(10); _objectsService.MfgPlantsData.dtQCCheckTime = _objectsService.MfgPlantsData.dtFGTime.AddDays(-10);
-            if (_objectsService.MfgPlantsData.drIP["Test Date"] == DBNull.Value) { bTimeStampsWithin5Min = false; gProductionTime  = String.Empty; } else { _objectsService.MfgPlantsData.dtIPTime = (DateTime)_objectsService.MfgPlantsData.drIP["Test Date"]; gProductionTime  = _objectsService.MfgPlantsData.dtIPTime.ToString("MM/dd/yyyy - hh:mm tt"); }
-            if (_objectsService.MfgPlantsData.drIP["Time of Pour Table QC Check"] == DBNull.Value) { gQCCheckTime  = String.Empty; } else { _objectsService.MfgPlantsData.dtQCCheckTime = (DateTime)_objectsService.MfgPlantsData.drIP["Time of Pour Table QC Check"]; gQCCheckTime  = _objectsService.MfgPlantsData.dtQCCheckTime.ToString("hh:mm tt"); }
-            if (_objectsService.MfgPlantsData.drFG["Finished Board Time Stamp FG"] == DBNull.Value) { bTimeStampsWithin5Min = false; gFBTime  = String.Empty; } else { _objectsService.MfgPlantsData.dtFGTime = (DateTime)_objectsService.MfgPlantsData.drFG["Finished Board Time Stamp FG"]; gFBTime  = _objectsService.MfgPlantsData.dtFGTime.ToString("MM/dd/yyyy - hh:mm tt"); }
+            if (_objectsService.MfgPlantsData.drIP["Test Date"] == DBNull.Value) { bTimeStampsWithin5Min = false; gProductionTime  = String.Empty; } else { _objectsService.MfgPlantsData.dtIPTime = (DateTime)_objectsService.MfgPlantsData.drIP["Test Date"]; gProductionTime  = _objectsService.MfgPlantsData.dtIPTime.ToString("yyyy-MM-ddTHH:mm"); }
+            if (_objectsService.MfgPlantsData.drIP["Time of Pour Table QC Check"] == DBNull.Value) { gQCCheckTime  = String.Empty; } else { _objectsService.MfgPlantsData.dtQCCheckTime = (DateTime)_objectsService.MfgPlantsData.drIP["Time of Pour Table QC Check"]; gQCCheckTime  = _objectsService.MfgPlantsData.dtQCCheckTime.ToString("HH:mm:ss"); }
+            if (_objectsService.MfgPlantsData.drFG["Finished Board Time Stamp FG"] == DBNull.Value) { bTimeStampsWithin5Min = false; gFBTime  = String.Empty; } else { _objectsService.MfgPlantsData.dtFGTime = (DateTime)_objectsService.MfgPlantsData.drFG["Finished Board Time Stamp FG"]; gFBTime  = _objectsService.MfgPlantsData.dtFGTime.ToString("yyyy-MM-ddTHH:mm"); }
 
             if (bTimeStampsWithin5Min)
             {
@@ -106,11 +106,11 @@ namespace IntugentWebApp.Pages.Mfg_Group
           
 
             gChemDel = _objectsService.MfgPlantsData.dtPPChemDel;
-            gChemDel1 = _objectsService.MfgPlantsData.dtPPChemDel1;
-            gPTable = _objectsService.MfgPlantsData.dtPPPTable;
-            gDBelt = _objectsService.MfgPlantsData.dtPPDBelt;
-            gOthers = _objectsService.MfgPlantsData.dtPPOthers;
-            gNewInsData = _objectsService.MfgPlantsData.dtNewInsData;
+            gChemDel1 =  _objectsService.MfgPlantsData.dtPPChemDel1;
+            gPTable =    _objectsService.MfgPlantsData.dtPPPTable;
+            gDBelt =     _objectsService.MfgPlantsData.dtPPDBelt;
+            gOthers =    _objectsService.MfgPlantsData.dtPPOthers;
+            gNewInsData =_objectsService.MfgPlantsData.dtNewInsData;
 
         }
         public IActionResult OnPostGetPlantData_Click()

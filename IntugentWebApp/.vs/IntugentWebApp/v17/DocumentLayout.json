@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\IntugentWebApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9164A543-3BCC-4531-98CB-E0B4C439A013}|IntugentWebApp\\IntugentWebApp.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\intugentwebapp\\intugentwebapp\\pages\\mfg_group\\plantdata.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9164A543-3BCC-4531-98CB-E0B4C439A013}|IntugentWebApp\\IntugentWebApp.csproj|solutionrelative:intugentwebapp\\pages\\mfg_group\\plantdata.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9164A543-3BCC-4531-98CB-E0B4C439A013}|IntugentWebApp\\IntugentWebApp.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\intugentwebapp\\intugentwebapp\\pages\\mfg_group\\finishedboardproperties.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9164A543-3BCC-4531-98CB-E0B4C439A013}|IntugentWebApp\\IntugentWebApp.csproj|solutionrelative:intugentwebapp\\pages\\mfg_group\\finishedboardproperties.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9164A543-3BCC-4531-98CB-E0B4C439A013}|IntugentWebApp\\IntugentWebApp.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\intugentwebapp\\intugentwebapp\\pages\\mfg_group\\plantdata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9164A543-3BCC-4531-98CB-E0B4C439A013}|IntugentWebApp\\IntugentWebApp.csproj|solutionrelative:intugentwebapp\\pages\\mfg_group\\plantdata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9164A543-3BCC-4531-98CB-E0B4C439A013}|IntugentWebApp\\IntugentWebApp.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\intugentwebapp\\intugentwebapp\\pages\\mfg_group\\plantdata.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9164A543-3BCC-4531-98CB-E0B4C439A013}|IntugentWebApp\\IntugentWebApp.csproj|solutionrelative:intugentwebapp\\pages\\mfg_group\\plantdata.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,40 +27,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FinishedBoardProperties.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\IntugentWebApp\\IntugentWebApp\\Pages\\Mfg_Group\\FinishedBoardProperties.cshtml.cs",
-              "RelativeDocumentMoniker": "IntugentWebApp\\Pages\\Mfg_Group\\FinishedBoardProperties.cshtml.cs",
-              "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\IntugentWebApp\\IntugentWebApp\\Pages\\Mfg_Group\\FinishedBoardProperties.cshtml.cs",
-              "RelativeToolTip": "IntugentWebApp\\Pages\\Mfg_Group\\FinishedBoardProperties.cshtml.cs",
-              "ViewState": "AQIAAMkAAAAAAAAAAAAgwNIAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T11:08:03.167Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "PlantData.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\IntugentWebApp\\IntugentWebApp\\Pages\\Mfg_Group\\PlantData.cshtml.cs",
               "RelativeDocumentMoniker": "IntugentWebApp\\Pages\\Mfg_Group\\PlantData.cshtml.cs",
               "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\IntugentWebApp\\IntugentWebApp\\Pages\\Mfg_Group\\PlantData.cshtml.cs",
               "RelativeToolTip": "IntugentWebApp\\Pages\\Mfg_Group\\PlantData.cshtml.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAvwFAAAABRAAAA",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAvwHAAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T08:11:11.581Z",
+              "WhenOpened": "2024-06-19T11:45:23.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "PlantData.cshtml",
               "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\IntugentWebApp\\IntugentWebApp\\Pages\\Mfg_Group\\PlantData.cshtml",
               "RelativeDocumentMoniker": "IntugentWebApp\\Pages\\Mfg_Group\\PlantData.cshtml",
               "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\IntugentWebApp\\IntugentWebApp\\Pages\\Mfg_Group\\PlantData.cshtml",
               "RelativeToolTip": "IntugentWebApp\\Pages\\Mfg_Group\\PlantData.cshtml",
-              "ViewState": "AQIAAF8AAAAAAAAAAABRwA8AAAAbAAAA",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAAAF0AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T06:02:48.92Z"
+              "WhenOpened": "2024-06-19T06:02:48.92Z",
+              "EditorCaption": ""
             }
           ]
         }

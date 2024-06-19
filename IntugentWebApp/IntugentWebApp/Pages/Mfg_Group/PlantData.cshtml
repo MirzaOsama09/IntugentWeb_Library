@@ -40,31 +40,26 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <!-- mfgDate -->
                         <div class="form-floating">
-                            <input type="datetime-local" class="form-control" id="mfgDate" value="" disabled>
+                            <input type="datetime-local" class="form-control" id="mfgDate" value="@Model.gProductionDate" disabled>
                             <label for="mfgDate">Mfg. Date</label>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <!-- productCode -->
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="productCode" placeholder="" value="" disabled>
+                            <input type="text" class="form-control" id="productCode" placeholder="" value="@Model.gProductCode" disabled>
                             <label for="productCode">Product Code</label>
                         </div>
                     </div>
                     <!-- QCTime Check -->
                     <div class="form-floating col-md-4">
-                        <input type="time" class="form-control text-center" id="timePourTable" value="" disabled>
+                        <input type="time" class="form-control text-center" id="timePourTable" value="@Model.gQCCheckTime" disabled>
                         <label for="timePourTable">Pour Table QC Time Check</label>
                     </div>
                 </div>
-                <div class="row">
-
-
-                </div>
-
             </div>
         </div>
 
@@ -80,17 +75,17 @@
 
                 <!-- inProcessBoardTimeStamp -->
                 <div class="form-floating  col-6">
-                    <input type="datetime-local" class="form-control text-center" id="inProcessBoardTimeStamp" value="" disabled>
+                    <input type="datetime-local" class="form-control text-center" id="inProcessBoardTimeStamp" value="@Model.gProductionTime" disabled>
                     <label for="inProcessBoardTimeStamp">Green/Fresh Props. Board Time Stamp</label>
                 </div>
                 <!-- FinishBoardTimeStamp -->
                 <div class="form-floating col-6">
-                    <input type="datetime-local" class="form-control text-center" id="inProcessBoardTimeStamp" value="" disabled>
+                    <input type="datetime-local" class="form-control text-center" id="inProcessBoardTimeStamp" value="@Model.gFBTime" disabled>
                     <label for="inProcessBoardTimeStamp">Finished Goods Props Board Time Stamp</label>
                 </div>
                 </div>
             </div>
-            <p class="mb-1 ml-2"><small>* The two Board Time Stamps below must be within a few minutes (site specific) of each other to extract process data</small></p>
+            <p class="mb-1 ml-2"><small>@Model.gDelTimeButton</small></p>
         </div>
     </div>
 </div>
@@ -110,18 +105,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                        </tr>
-                        <tr>
-                            <td >Larry the Bird</td>
-                            <td>Harry</td>
-                        </tr>
+                        @foreach (DataRow row in Model.gChemDel.Rows)
+                        {
+
+                            <tr>
+                                    <td>@row["sName"]</td>
+                                    <td>@row["sValue"]</td>
+                            </tr>
+
+                        }
                     </tbody>
                 </table>
         </div>
@@ -142,18 +134,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                </tr>
-                                <tr>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                </tr>
-                                <tr>
-                                    <td>Larry the Bird</td>
-                                    <td>Harry</td>
-                                </tr>
+                        @foreach (DataRow row in Model.gChemDel1.Rows)
+                        {
+
+                            <tr>
+                                <td>@row["sName"]</td>
+                                <td>@row["sValue"]</td>
+                            </tr>
+
+                        }
                             </tbody>
                         </table>
                     </div>
@@ -174,18 +163,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                        </tr>
-                        <tr>
-                            <td>Larry the Bird</td>
-                            <td>Harry</td>
-                        </tr>
+                        @foreach (DataRow row in Model.gPTable.Rows)
+                        {
+
+                            <tr>
+                                <td>@row["sName"]</td>
+                                <td>@row["sValue"]</td>
+                            </tr>
+
+                        }
                     </tbody>
                 </table>
             </div>
@@ -204,18 +190,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                        </tr>
-                        <tr>
-                            <td>Larry the Bird</td>
-                            <td>Harry</td>
-                        </tr>
+                        @foreach (DataRow row in Model.gOthers.Rows)
+                        {
+
+                            <tr>
+                                <td>@row["sName"]</td>
+                                <td>@row["sValue"]</td>
+                            </tr>
+
+                        }
                     </tbody>
                 </table>
             </div>
@@ -236,25 +219,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                        </tr>
-                        <tr>
-                            <td>Larry the Bird</td>
-                            <td>Harry</td>
-                        </tr>
+                        @foreach (DataRow row in Model.gDBelt.Rows)
+                        {
+
+                            <tr>
+                                <td>@row["sName"]</td>
+                                <td>@row["sValue"]</td>
+                            </tr>
+
+                        }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
     @* New Instrument Data *@
-    <div class="col-3">
+     <div class="col-3">
         <div class="card card-default">
             <div class="card-header align-items-center">
                 <h2 class="">New Instrument Data</h2>
@@ -268,18 +248,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                        </tr>
-                        <tr>
-                            <td>Larry the Bird</td>
-                            <td>Harry</td>
-                        </tr>
+                        @foreach (DataRow row in Model.gNewInsData.Rows)
+                        {
+
+                            <tr>
+                                <td>@row["sName"]</td>
+                                <td>@row["sValue"]</td>
+                            </tr>
+
+                        }
                     </tbody>
                 </table>
             </div>
