@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\pages\\mfg\\mfgplantdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\library\\intugentclasslbrary\\intugentclasslbrary\\classes\\cdatalake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\classes\\cdatalake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\library\\intugentclasslbrary\\intugentclasslbrary\\pages\\mfg\\mfgfinishedgoods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\pages\\mfg\\mfgfinishedgoods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,11 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CDataLake.cs",
+              "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Classes\\CDataLake.cs",
+              "RelativeDocumentMoniker": "IntugentClassLbrary\\Classes\\CDataLake.cs",
+              "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Classes\\CDataLake.cs",
+              "RelativeToolTip": "IntugentClassLbrary\\Classes\\CDataLake.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T10:12:27.052Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -32,14 +49,14 @@
               "RelativeDocumentMoniker": "IntugentClassLbrary\\Pages\\Mfg\\MfgPlantData.cs",
               "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgPlantData.cs",
               "RelativeToolTip": "IntugentClassLbrary\\Pages\\Mfg\\MfgPlantData.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAxwA8AAAANAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAiwBsAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-19T08:12:59.732Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MfgFinishedGoods.cs",
               "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgFinishedGoods.cs",
               "RelativeDocumentMoniker": "IntugentClassLbrary\\Pages\\Mfg\\MfgFinishedGoods.cs",
@@ -47,7 +64,8 @@
               "RelativeToolTip": "IntugentClassLbrary\\Pages\\Mfg\\MfgFinishedGoods.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T14:36:51.831Z"
+              "WhenOpened": "2024-06-17T14:36:51.831Z",
+              "EditorCaption": ""
             }
           ]
         }
