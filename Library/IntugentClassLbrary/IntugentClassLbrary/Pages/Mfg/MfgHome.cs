@@ -375,21 +375,22 @@ namespace IntugentClassLibrary.Pages.Mfg
               return;
           }*/
 
-        public (MfgInProcess,MfgFinishedGoods,MfgDimStability) GetAllMfgData(MfgInProcess mfgInProcess,MfgFinishedGoods mfgFinishedGoods,MfgDimStability mfgDimensionStability)
+        public (MfgInProcess,MfgFinishedGoods,MfgDimStability,MfgPlantData) GetAllMfgData(MfgInProcess mfgInProcess,MfgFinishedGoods mfgFinishedGoods,MfgDimStability mfgDimensionStability, MfgPlantData mfgPlantData)
         {
             //if (CPages.PageInProcess_1 == null || CPages.PageFinishedGoods_1 == null || CPages.PageDimStability_1 == null || CPages.PagePlantData_1 == null) return;
             mfgInProcess.GetDataSet();
             mfgFinishedGoods.GetDataSet();
             mfgDimensionStability.GetDataSet();
+            mfgPlantData.GetDataSet();
             // CPages.PagePlantData_1.GetDataSet();
 
             //mfgFinishedGoods.drIP = mfgDimensionStability.drIP = CPages.PagePlantData_1.drIP = mfgInProcess.dr;
             //  mfgInProcess.drFG = mfgDimensionStability.drFG = CPages.PagePlantData_1.drFG = mfgFinishedGoods.dr;
 
-             mfgDimensionStability.drIP = mfgInProcess.dr;
-             mfgDimensionStability.drFG = mfgFinishedGoods.dr;
+            mfgPlantData.drIP=mfgDimensionStability.drIP = mfgInProcess.dr;
+            mfgPlantData.drFG=mfgDimensionStability.drFG = mfgFinishedGoods.dr;
 
-            return (mfgInProcess,mfgFinishedGoods,mfgDimensionStability);
+            return (mfgInProcess,mfgFinishedGoods,mfgDimensionStability, mfgPlantData);
         }
 
 

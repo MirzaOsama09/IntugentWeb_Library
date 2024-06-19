@@ -334,7 +334,7 @@
 
   const namespaceRegex = /[^.]*(?=\..*)\.|.*/;
   const stripNameRegex = /\..*/;
-  const stripUidRegex = /::\d+$/;
+  const stripUi_objectsService.MfgPlantsData.dregex = /::\d+$/;
   const eventRegistry = {}; // Events storage
 
   let uidEvent = 1;
@@ -538,7 +538,7 @@
 
       const storeElementEvent = events[typeEvent] || {};
       Object.keys(storeElementEvent).forEach(keyHandlers => {
-        const handlerKey = keyHandlers.replace(stripUidRegex, '');
+        const handlerKey = keyHandlers.replace(stripUi_objectsService.MfgPlantsData.dregex, '');
 
         if (!inNamespace || originalTypeEvent.includes(handlerKey)) {
           const event = storeElementEvent[keyHandlers];
@@ -1005,8 +1005,8 @@
       return Element.prototype.querySelector.call(element, selector);
     },
 
-    children(element, selector) {
-      return [].concat(...element.children).filter(child => child.matches(selector));
+    chil_objectsService.MfgPlantsData.dren(element, selector) {
+      return [].concat(...element.chil_objectsService.MfgPlantsData.dren).filter(child => child.matches(selector));
     },
 
     parents(element, selector) {
@@ -1052,7 +1052,7 @@
       return [];
     },
 
-    focusableChildren(element) {
+    focusableChil_objectsService.MfgPlantsData.dren(element) {
       const focusables = ['a', 'button', 'input', 'textarea', 'select', 'details', '[tabindex]', '[contenteditable="true"]'].map(selector => `${selector}:not([tabindex^="-"])`).join(', ');
       return this.find(focusables, element).filter(el => !isDisabled(el) && isVisible(el));
     }
@@ -1114,7 +1114,7 @@
   const EVENT_TOUCHEND = `touchend${EVENT_KEY$a}`;
   const EVENT_POINTERDOWN = `pointerdown${EVENT_KEY$a}`;
   const EVENT_POINTERUP = `pointerup${EVENT_KEY$a}`;
-  const EVENT_DRAG_START = `dragstart${EVENT_KEY$a}`;
+  const EVENT__objectsService.MfgPlantsData.drAG_START = `_objectsService.MfgPlantsData.dragstart${EVENT_KEY$a}`;
   const EVENT_LOAD_DATA_API$2 = `load${EVENT_KEY$a}${DATA_API_KEY$6}`;
   const EVENT_CLICK_DATA_API$5 = `click${EVENT_KEY$a}${DATA_API_KEY$6}`;
   const CLASS_NAME_CAROUSEL = 'carousel';
@@ -1325,7 +1325,7 @@
       };
 
       SelectorEngine.find(SELECTOR_ITEM_IMG, this._element).forEach(itemImg => {
-        EventHandler.on(itemImg, EVENT_DRAG_START, e => e.preventDefault());
+        EventHandler.on(itemImg, EVENT__objectsService.MfgPlantsData.drAG_START, e => e.preventDefault());
       });
 
       if (this._pointerEvent) {
@@ -1668,7 +1668,7 @@
         }
       }
 
-      this._initializeChildren();
+      this._initializeChil_objectsService.MfgPlantsData.dren();
 
       if (!this._config.parent) {
         this._addAriaAndCollapsedClass(this._triggerArray, this._isShown());
@@ -1706,8 +1706,8 @@
       let activesData;
 
       if (this._config.parent) {
-        const children = SelectorEngine.find(`.${CLASS_NAME_COLLAPSE} .${CLASS_NAME_COLLAPSE}`, this._config.parent);
-        actives = SelectorEngine.find(SELECTOR_ACTIVES, this._config.parent).filter(elem => !children.includes(elem)); // remove children if greater depth
+        const chil_objectsService.MfgPlantsData.dren = SelectorEngine.find(`.${CLASS_NAME_COLLAPSE} .${CLASS_NAME_COLLAPSE}`, this._config.parent);
+        actives = SelectorEngine.find(SELECTOR_ACTIVES, this._config.parent).filter(elem => !chil_objectsService.MfgPlantsData.dren.includes(elem)); // remove chil_objectsService.MfgPlantsData.dren if greater depth
       }
 
       const container = SelectorEngine.findOne(this._selector);
@@ -1839,13 +1839,13 @@
       return this._element.classList.contains(CLASS_NAME_HORIZONTAL) ? WIDTH : HEIGHT;
     }
 
-    _initializeChildren() {
+    _initializeChil_objectsService.MfgPlantsData.dren() {
       if (!this._config.parent) {
         return;
       }
 
-      const children = SelectorEngine.find(`.${CLASS_NAME_COLLAPSE} .${CLASS_NAME_COLLAPSE}`, this._config.parent);
-      SelectorEngine.find(SELECTOR_DATA_TOGGLE$4, this._config.parent).filter(elem => !children.includes(elem)).forEach(element => {
+      const chil_objectsService.MfgPlantsData.dren = SelectorEngine.find(`.${CLASS_NAME_COLLAPSE} .${CLASS_NAME_COLLAPSE}`, this._config.parent);
+      SelectorEngine.find(SELECTOR_DATA_TOGGLE$4, this._config.parent).filter(elem => !chil_objectsService.MfgPlantsData.dren.includes(elem)).forEach(element => {
         const selected = getElementFromSelector(element);
 
         if (selected) {
@@ -2610,7 +2610,7 @@
       // 0.001
       // Fallback here: "Not Safari" userAgent
 
-      if (!/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+      if (!/^((?!chrome|an_objectsService.MfgPlantsData.droid).)*safari/i.test(navigator.userAgent)) {
         x = visualViewport.offsetLeft;
         y = visualViewport.offsetTop;
       }
@@ -3700,7 +3700,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.0): dropdown.js
+   * Bootstrap (v5.1.0): _objectsService.MfgPlantsData.dropdown.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -3710,8 +3710,8 @@
    * ------------------------------------------------------------------------
    */
 
-  const NAME$9 = 'dropdown';
-  const DATA_KEY$8 = 'bs.dropdown';
+  const NAME$9 = '_objectsService.MfgPlantsData.dropdown';
+  const DATA_KEY$8 = 'bs._objectsService.MfgPlantsData.dropdown';
   const EVENT_KEY$8 = `.${DATA_KEY$8}`;
   const DATA_API_KEY$4 = '.data-api';
   const ESCAPE_KEY$2 = 'Escape';
@@ -3730,14 +3730,14 @@
   const EVENT_KEYDOWN_DATA_API = `keydown${EVENT_KEY$8}${DATA_API_KEY$4}`;
   const EVENT_KEYUP_DATA_API = `keyup${EVENT_KEY$8}${DATA_API_KEY$4}`;
   const CLASS_NAME_SHOW$6 = 'show';
-  const CLASS_NAME_DROPUP = 'dropup';
-  const CLASS_NAME_DROPEND = 'dropend';
-  const CLASS_NAME_DROPSTART = 'dropstart';
+  const CLASS_NAME__objectsService.MfgPlantsData.drOPUP = '_objectsService.MfgPlantsData.dropup';
+  const CLASS_NAME__objectsService.MfgPlantsData.drOPEND = '_objectsService.MfgPlantsData.dropend';
+  const CLASS_NAME__objectsService.MfgPlantsData.drOPSTART = '_objectsService.MfgPlantsData.dropstart';
   const CLASS_NAME_NAVBAR = 'navbar';
-  const SELECTOR_DATA_TOGGLE$3 = '[data-bs-toggle="dropdown"]';
-  const SELECTOR_MENU = '.dropdown-menu';
+  const SELECTOR_DATA_TOGGLE$3 = '[data-bs-toggle="_objectsService.MfgPlantsData.dropdown"]';
+  const SELECTOR_MENU = '._objectsService.MfgPlantsData.dropdown-menu';
   const SELECTOR_NAVBAR_NAV = '.navbar-nav';
-  const SELECTOR_VISIBLE_ITEMS = '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)';
+  const SELECTOR_VISIBLE_ITEMS = '._objectsService.MfgPlantsData.dropdown-menu ._objectsService.MfgPlantsData.dropdown-item:not(.disabled):not(:disabled)';
   const PLACEMENT_TOP = isRTL() ? 'top-end' : 'top-start';
   const PLACEMENT_TOPEND = isRTL() ? 'top-start' : 'top-end';
   const PLACEMENT_BOTTOM = isRTL() ? 'bottom-end' : 'bottom-start';
@@ -3766,7 +3766,7 @@
    * ------------------------------------------------------------------------
    */
 
-  class Dropdown extends BaseComponent {
+  class _objectsService.MfgPlantsData.dropdown extends BaseComponent {
     constructor(element, config) {
       super(element);
       this._popper = null;
@@ -3807,20 +3807,20 @@
         return;
       }
 
-      const parent = Dropdown.getParentFromElement(this._element); // Totally disable Popper for Dropdowns in Navbar
+      const parent = _objectsService.MfgPlantsData.dropdown.getParentFromElement(this._element); // Totally disable Popper for _objectsService.MfgPlantsData.dropdowns in Navbar
 
       if (this._inNavbar) {
         Manipulator.setDataAttribute(this._menu, 'popper', 'none');
       } else {
         this._createPopper(parent);
       } // If this is a touch-enabled device we add extra
-      // empty mouseover listeners to the body's immediate children;
+      // empty mouseover listeners to the body's immediate chil_objectsService.MfgPlantsData.dren;
       // only needed because of broken event delegation on iOS
       // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
 
       if ('ontouchstart' in document.documentElement && !parent.closest(SELECTOR_NAVBAR_NAV)) {
-        [].concat(...document.body.children).forEach(elem => EventHandler.on(elem, 'mouseover', noop));
+        [].concat(...document.body.chil_objectsService.MfgPlantsData.dren).forEach(elem => EventHandler.on(elem, 'mouseover', noop));
       }
 
       this._element.focus();
@@ -3873,7 +3873,7 @@
 
 
       if ('ontouchstart' in document.documentElement) {
-        [].concat(...document.body.children).forEach(elem => EventHandler.off(elem, 'mouseover', noop));
+        [].concat(...document.body.chil_objectsService.MfgPlantsData.dren).forEach(elem => EventHandler.off(elem, 'mouseover', noop));
       }
 
       if (this._popper) {
@@ -3907,7 +3907,7 @@
 
     _createPopper(parent) {
       if (typeof Popper === 'undefined') {
-        throw new TypeError('Bootstrap\'s dropdowns require Popper (https://popper.js.org)');
+        throw new TypeError('Bootstrap\'s _objectsService.MfgPlantsData.dropdowns require Popper (https://popper.js.org)');
       }
 
       let referenceElement = this._element;
@@ -3939,20 +3939,20 @@
     }
 
     _getPlacement() {
-      const parentDropdown = this._element.parentNode;
+      const parent_objectsService.MfgPlantsData.dropdown = this._element.parentNode;
 
-      if (parentDropdown.classList.contains(CLASS_NAME_DROPEND)) {
+      if (parent_objectsService.MfgPlantsData.dropdown.classList.contains(CLASS_NAME__objectsService.MfgPlantsData.drOPEND)) {
         return PLACEMENT_RIGHT;
       }
 
-      if (parentDropdown.classList.contains(CLASS_NAME_DROPSTART)) {
+      if (parent_objectsService.MfgPlantsData.dropdown.classList.contains(CLASS_NAME__objectsService.MfgPlantsData.drOPSTART)) {
         return PLACEMENT_LEFT;
       } // We need to trim the value because custom properties can also include spaces
 
 
       const isEnd = getComputedStyle(this._menu).getPropertyValue('--bs-position').trim() === 'end';
 
-      if (parentDropdown.classList.contains(CLASS_NAME_DROPUP)) {
+      if (parent_objectsService.MfgPlantsData.dropdown.classList.contains(CLASS_NAME__objectsService.MfgPlantsData.drOPUP)) {
         return isEnd ? PLACEMENT_TOPEND : PLACEMENT_TOP;
       }
 
@@ -4015,7 +4015,7 @@
 
       if (!items.length) {
         return;
-      } // if target isn't included in items (e.g. when expanding the dropdown)
+      } // if target isn't included in items (e.g. when expanding the _objectsService.MfgPlantsData.dropdown)
       // allow cycling to get the last item in case key equals ARROW_UP_KEY
 
 
@@ -4025,7 +4025,7 @@
 
     static jQueryInterface(config) {
       return this.each(function () {
-        const data = Dropdown.getOrCreateInstance(this, config);
+        const data = _objectsService.MfgPlantsData.dropdown.getOrCreateInstance(this, config);
 
         if (typeof config !== 'string') {
           return;
@@ -4047,7 +4047,7 @@
       const toggles = SelectorEngine.find(SELECTOR_DATA_TOGGLE$3);
 
       for (let i = 0, len = toggles.length; i < len; i++) {
-        const context = Dropdown.getInstance(toggles[i]);
+        const context = _objectsService.MfgPlantsData.dropdown.getInstance(toggles[i]);
 
         if (!context || context._config.autoClose === false) {
           continue;
@@ -4067,7 +4067,7 @@
 
           if (composedPath.includes(context._element) || context._config.autoClose === 'inside' && !isMenuTarget || context._config.autoClose === 'outside' && isMenuTarget) {
             continue;
-          } // Tab navigation through the dropdown menu or events from contained inputs shouldn't close the menu
+          } // Tab navigation through the _objectsService.MfgPlantsData.dropdown menu or events from contained inputs shouldn't close the menu
 
 
           if (context._menu.contains(event.target) && (event.type === 'keyup' && event.key === TAB_KEY$1 || /input|select|option|textarea|form/i.test(event.target.tagName))) {
@@ -4089,12 +4089,12 @@
 
     static dataApiKeydownHandler(event) {
       // If not input/textarea:
-      //  - And not a key in REGEXP_KEYDOWN => not a dropdown command
+      //  - And not a key in REGEXP_KEYDOWN => not a _objectsService.MfgPlantsData.dropdown command
       // If input/textarea:
-      //  - If space key => not a dropdown command
+      //  - If space key => not a _objectsService.MfgPlantsData.dropdown command
       //  - If key is other than escape
-      //    - If key is not up or down => not a dropdown command
-      //    - If trigger inside the menu => not a dropdown command
+      //    - If key is not up or down => not a _objectsService.MfgPlantsData.dropdown command
+      //    - If trigger inside the menu => not a _objectsService.MfgPlantsData.dropdown command
       if (/input|textarea/i.test(event.target.tagName) ? event.key === SPACE_KEY || event.key !== ESCAPE_KEY$2 && (event.key !== ARROW_DOWN_KEY && event.key !== ARROW_UP_KEY || event.target.closest(SELECTOR_MENU)) : !REGEXP_KEYDOWN.test(event.key)) {
         return;
       }
@@ -4113,7 +4113,7 @@
       }
 
       const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE$3) ? this : SelectorEngine.prev(this, SELECTOR_DATA_TOGGLE$3)[0];
-      const instance = Dropdown.getOrCreateInstance(getToggleButton);
+      const instance = _objectsService.MfgPlantsData.dropdown.getOrCreateInstance(getToggleButton);
 
       if (event.key === ESCAPE_KEY$2) {
         instance.hide();
@@ -4131,7 +4131,7 @@
       }
 
       if (!isActive || event.key === SPACE_KEY) {
-        Dropdown.clearMenus();
+        _objectsService.MfgPlantsData.dropdown.clearMenus();
       }
     }
 
@@ -4143,22 +4143,22 @@
    */
 
 
-  EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE$3, Dropdown.dataApiKeydownHandler);
-  EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
-  EventHandler.on(document, EVENT_CLICK_DATA_API$3, Dropdown.clearMenus);
-  EventHandler.on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
+  EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE$3, _objectsService.MfgPlantsData.dropdown.dataApiKeydownHandler);
+  EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, _objectsService.MfgPlantsData.dropdown.dataApiKeydownHandler);
+  EventHandler.on(document, EVENT_CLICK_DATA_API$3, _objectsService.MfgPlantsData.dropdown.clearMenus);
+  EventHandler.on(document, EVENT_KEYUP_DATA_API, _objectsService.MfgPlantsData.dropdown.clearMenus);
   EventHandler.on(document, EVENT_CLICK_DATA_API$3, SELECTOR_DATA_TOGGLE$3, function (event) {
     event.preventDefault();
-    Dropdown.getOrCreateInstance(this).toggle();
+    _objectsService.MfgPlantsData.dropdown.getOrCreateInstance(this).toggle();
   });
   /**
    * ------------------------------------------------------------------------
    * jQuery
    * ------------------------------------------------------------------------
-   * add .Dropdown to jQuery only if jQuery is present
+   * add ._objectsService.MfgPlantsData.dropdown to jQuery only if jQuery is present
    */
 
-  defineJQueryPlugin(Dropdown);
+  defineJQueryPlugin(_objectsService.MfgPlantsData.dropdown);
 
   /**
    * --------------------------------------------------------------------------
@@ -4266,17 +4266,17 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.0): util/backdrop.js
+   * Bootstrap (v5.1.0): util/back_objectsService.MfgPlantsData.drop.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
   const Default$7 = {
-    className: 'modal-backdrop',
+    className: 'modal-back_objectsService.MfgPlantsData.drop',
     isVisible: true,
-    // if false, we use the backdrop helper without adding any element to the dom
+    // if false, we use the back_objectsService.MfgPlantsData.drop helper without adding any element to the dom
     isAnimated: false,
     rootElement: 'body',
-    // give the choice to place backdrop under different elements
+    // give the choice to place back_objectsService.MfgPlantsData.drop under different elements
     clickCallback: null
   };
   const DefaultType$7 = {
@@ -4286,12 +4286,12 @@
     rootElement: '(element|string)',
     clickCallback: '(function|null)'
   };
-  const NAME$8 = 'backdrop';
+  const NAME$8 = 'back_objectsService.MfgPlantsData.drop';
   const CLASS_NAME_FADE$4 = 'fade';
   const CLASS_NAME_SHOW$5 = 'show';
   const EVENT_MOUSEDOWN = `mousedown.bs.${NAME$8}`;
 
-  class Backdrop {
+  class Back_objectsService.MfgPlantsData.drop {
     constructor(config) {
       this._config = this._getConfig(config);
       this._isAppended = false;
@@ -4334,14 +4334,14 @@
 
     _getElement() {
       if (!this._element) {
-        const backdrop = document.createElement('div');
-        backdrop.className = this._config.className;
+        const back_objectsService.MfgPlantsData.drop = document.createElement('div');
+        back_objectsService.MfgPlantsData.drop.className = this._config.className;
 
         if (this._config.isAnimated) {
-          backdrop.classList.add(CLASS_NAME_FADE$4);
+          back_objectsService.MfgPlantsData.drop.classList.add(CLASS_NAME_FADE$4);
         }
 
-        this._element = backdrop;
+        this._element = back_objectsService.MfgPlantsData.drop;
       }
 
       return this._element;
@@ -4462,7 +4462,7 @@
         return;
       }
 
-      const elements = SelectorEngine.focusableChildren(trapElement);
+      const elements = SelectorEngine.focusableChil_objectsService.MfgPlantsData.dren(trapElement);
 
       if (elements.length === 0) {
         trapElement.focus();
@@ -4509,12 +4509,12 @@
   const DATA_API_KEY$3 = '.data-api';
   const ESCAPE_KEY$1 = 'Escape';
   const Default$5 = {
-    backdrop: true,
+    back_objectsService.MfgPlantsData.drop: true,
     keyboard: true,
     focus: true
   };
   const DefaultType$5 = {
-    backdrop: '(boolean|string)',
+    back_objectsService.MfgPlantsData.drop: '(boolean|string)',
     keyboard: 'boolean',
     focus: 'boolean'
   };
@@ -4547,10 +4547,10 @@
       super(element);
       this._config = this._getConfig(config);
       this._dialog = SelectorEngine.findOne(SELECTOR_DIALOG, this._element);
-      this._backdrop = this._initializeBackDrop();
+      this._back_objectsService.MfgPlantsData.drop = this._initializeBack_objectsService.MfgPlantsData.drop();
       this._focustrap = this._initializeFocusTrap();
       this._isShown = false;
-      this._ignoreBackdropClick = false;
+      this._ignoreBack_objectsService.MfgPlantsData.dropClick = false;
       this._isTransitioning = false;
       this._scrollBar = new ScrollBarHelper();
     } // Getters
@@ -4601,12 +4601,12 @@
       EventHandler.on(this._dialog, EVENT_MOUSEDOWN_DISMISS, () => {
         EventHandler.one(this._element, EVENT_MOUSEUP_DISMISS, event => {
           if (event.target === this._element) {
-            this._ignoreBackdropClick = true;
+            this._ignoreBack_objectsService.MfgPlantsData.dropClick = true;
           }
         });
       });
 
-      this._showBackdrop(() => this._showElement(relatedTarget));
+      this._showBack_objectsService.MfgPlantsData.drop(() => this._showElement(relatedTarget));
     }
 
     hide() {
@@ -4645,7 +4645,7 @@
     dispose() {
       [window, this._dialog].forEach(htmlElement => EventHandler.off(htmlElement, EVENT_KEY$6));
 
-      this._backdrop.dispose();
+      this._back_objectsService.MfgPlantsData.drop.dispose();
 
       this._focustrap.deactivate();
 
@@ -4657,9 +4657,9 @@
     } // Private
 
 
-    _initializeBackDrop() {
-      return new Backdrop({
-        isVisible: Boolean(this._config.backdrop),
+    _initializeBack_objectsService.MfgPlantsData.drop() {
+      return new Back_objectsService.MfgPlantsData.drop({
+        isVisible: Boolean(this._config.back_objectsService.MfgPlantsData.drop),
         // 'static' option will be translated to true, and booleans will keep their value
         isAnimated: this._isAnimated()
       });
@@ -4731,7 +4731,7 @@
             event.preventDefault();
             this.hide();
           } else if (!this._config.keyboard && event.key === ESCAPE_KEY$1) {
-            this._triggerBackdropTransition();
+            this._triggerBack_objectsService.MfgPlantsData.dropTransition();
           }
         });
       } else {
@@ -4758,7 +4758,7 @@
 
       this._isTransitioning = false;
 
-      this._backdrop.hide(() => {
+      this._back_objectsService.MfgPlantsData.drop.hide(() => {
         document.body.classList.remove(CLASS_NAME_OPEN);
 
         this._resetAdjustments();
@@ -4769,10 +4769,10 @@
       });
     }
 
-    _showBackdrop(callback) {
+    _showBack_objectsService.MfgPlantsData.drop(callback) {
       EventHandler.on(this._element, EVENT_CLICK_DISMISS, event => {
-        if (this._ignoreBackdropClick) {
-          this._ignoreBackdropClick = false;
+        if (this._ignoreBack_objectsService.MfgPlantsData.dropClick) {
+          this._ignoreBack_objectsService.MfgPlantsData.dropClick = false;
           return;
         }
 
@@ -4780,21 +4780,21 @@
           return;
         }
 
-        if (this._config.backdrop === true) {
+        if (this._config.back_objectsService.MfgPlantsData.drop === true) {
           this.hide();
-        } else if (this._config.backdrop === 'static') {
-          this._triggerBackdropTransition();
+        } else if (this._config.back_objectsService.MfgPlantsData.drop === 'static') {
+          this._triggerBack_objectsService.MfgPlantsData.dropTransition();
         }
       });
 
-      this._backdrop.show(callback);
+      this._back_objectsService.MfgPlantsData.drop.show(callback);
     }
 
     _isAnimated() {
       return this._element.classList.contains(CLASS_NAME_FADE$3);
     }
 
-    _triggerBackdropTransition() {
+    _triggerBack_objectsService.MfgPlantsData.dropTransition() {
       const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE_PREVENTED);
 
       if (hideEvent.defaultPrevented) {
@@ -4931,17 +4931,17 @@
   const EVENT_LOAD_DATA_API$1 = `load${EVENT_KEY$5}${DATA_API_KEY$2}`;
   const ESCAPE_KEY = 'Escape';
   const Default$4 = {
-    backdrop: true,
+    back_objectsService.MfgPlantsData.drop: true,
     keyboard: true,
     scroll: false
   };
   const DefaultType$4 = {
-    backdrop: 'boolean',
+    back_objectsService.MfgPlantsData.drop: 'boolean',
     keyboard: 'boolean',
     scroll: 'boolean'
   };
   const CLASS_NAME_SHOW$3 = 'show';
-  const CLASS_NAME_BACKDROP = 'offcanvas-backdrop';
+  const CLASS_NAME_BACK_objectsService.MfgPlantsData.drOP = 'offcanvas-back_objectsService.MfgPlantsData.drop';
   const OPEN_SELECTOR = '.offcanvas.show';
   const EVENT_SHOW$2 = `show${EVENT_KEY$5}`;
   const EVENT_SHOWN$2 = `shown${EVENT_KEY$5}`;
@@ -4961,7 +4961,7 @@
       super(element);
       this._config = this._getConfig(config);
       this._isShown = false;
-      this._backdrop = this._initializeBackDrop();
+      this._back_objectsService.MfgPlantsData.drop = this._initializeBack_objectsService.MfgPlantsData.drop();
       this._focustrap = this._initializeFocusTrap();
 
       this._addEventListeners();
@@ -4997,7 +4997,7 @@
       this._isShown = true;
       this._element.style.visibility = 'visible';
 
-      this._backdrop.show();
+      this._back_objectsService.MfgPlantsData.drop.show();
 
       if (!this._config.scroll) {
         new ScrollBarHelper().hide();
@@ -5043,7 +5043,7 @@
 
       this._element.classList.remove(CLASS_NAME_SHOW$3);
 
-      this._backdrop.hide();
+      this._back_objectsService.MfgPlantsData.drop.hide();
 
       const completeCallback = () => {
         this._element.setAttribute('aria-hidden', true);
@@ -5065,7 +5065,7 @@
     }
 
     dispose() {
-      this._backdrop.dispose();
+      this._back_objectsService.MfgPlantsData.drop.dispose();
 
       this._focustrap.deactivate();
 
@@ -5082,10 +5082,10 @@
       return config;
     }
 
-    _initializeBackDrop() {
-      return new Backdrop({
-        className: CLASS_NAME_BACKDROP,
-        isVisible: this._config.backdrop,
+    _initializeBack_objectsService.MfgPlantsData.drop() {
+      return new Back_objectsService.MfgPlantsData.drop({
+        className: CLASS_NAME_BACK_objectsService.MfgPlantsData.drOP,
+        isVisible: this._config.back_objectsService.MfgPlantsData.drop,
         isAnimated: true,
         rootElement: this._element.parentNode,
         clickCallback: () => this.hide()
@@ -5520,13 +5520,13 @@
       if (customClass) {
         tip.classList.add(...customClass.split(' '));
       } // If this is a touch-enabled device we add extra
-      // empty mouseover listeners to the body's immediate children;
+      // empty mouseover listeners to the body's immediate chil_objectsService.MfgPlantsData.dren;
       // only needed because of broken event delegation on iOS
       // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
 
       if ('ontouchstart' in document.documentElement) {
-        [].concat(...document.body.children).forEach(element => {
+        [].concat(...document.body.chil_objectsService.MfgPlantsData.dren).forEach(element => {
           EventHandler.on(element, 'mouseover', noop);
         });
       }
@@ -5585,7 +5585,7 @@
       // empty mouseover listeners we added for iOS support
 
       if ('ontouchstart' in document.documentElement) {
-        [].concat(...document.body.children).forEach(element => EventHandler.off(element, 'mouseover', noop));
+        [].concat(...document.body.chil_objectsService.MfgPlantsData.dren).forEach(element => EventHandler.off(element, 'mouseover', noop));
       }
 
       this._activeTrigger[TRIGGER_CLICK] = false;
@@ -5616,7 +5616,7 @@
 
       const element = document.createElement('div');
       element.innerHTML = this._config.template;
-      const tip = element.children[0];
+      const tip = element.chil_objectsService.MfgPlantsData.dren[0];
       this.setContent(tip);
       tip.classList.remove(CLASS_NAME_FADE$2, CLASS_NAME_SHOW$2);
       this.tip = tip;
@@ -6119,16 +6119,16 @@
   const EVENT_ACTIVATE = `activate${EVENT_KEY$2}`;
   const EVENT_SCROLL = `scroll${EVENT_KEY$2}`;
   const EVENT_LOAD_DATA_API = `load${EVENT_KEY$2}${DATA_API_KEY$1}`;
-  const CLASS_NAME_DROPDOWN_ITEM = 'dropdown-item';
+  const CLASS_NAME__objectsService.MfgPlantsData.drOPDOWN_ITEM = '_objectsService.MfgPlantsData.dropdown-item';
   const CLASS_NAME_ACTIVE$1 = 'active';
   const SELECTOR_DATA_SPY = '[data-bs-spy="scroll"]';
   const SELECTOR_NAV_LIST_GROUP$1 = '.nav, .list-group';
   const SELECTOR_NAV_LINKS = '.nav-link';
   const SELECTOR_NAV_ITEMS = '.nav-item';
   const SELECTOR_LIST_ITEMS = '.list-group-item';
-  const SELECTOR_LINK_ITEMS = `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}, .${CLASS_NAME_DROPDOWN_ITEM}`;
-  const SELECTOR_DROPDOWN$1 = '.dropdown';
-  const SELECTOR_DROPDOWN_TOGGLE$1 = '.dropdown-toggle';
+  const SELECTOR_LINK_ITEMS = `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}, .${CLASS_NAME__objectsService.MfgPlantsData.drOPDOWN_ITEM}`;
+  const SELECTOR__objectsService.MfgPlantsData.drOPDOWN$1 = '._objectsService.MfgPlantsData.dropdown';
+  const SELECTOR__objectsService.MfgPlantsData.drOPDOWN_TOGGLE$1 = '._objectsService.MfgPlantsData.dropdown-toggle';
   const METHOD_OFFSET = 'offset';
   const METHOD_POSITION = 'position';
   /**
@@ -6265,8 +6265,8 @@
       const link = SelectorEngine.findOne(queries.join(','), this._config.target);
       link.classList.add(CLASS_NAME_ACTIVE$1);
 
-      if (link.classList.contains(CLASS_NAME_DROPDOWN_ITEM)) {
-        SelectorEngine.findOne(SELECTOR_DROPDOWN_TOGGLE$1, link.closest(SELECTOR_DROPDOWN$1)).classList.add(CLASS_NAME_ACTIVE$1);
+      if (link.classList.contains(CLASS_NAME__objectsService.MfgPlantsData.drOPDOWN_ITEM)) {
+        SelectorEngine.findOne(SELECTOR__objectsService.MfgPlantsData.drOPDOWN_TOGGLE$1, link.closest(SELECTOR__objectsService.MfgPlantsData.drOPDOWN$1)).classList.add(CLASS_NAME_ACTIVE$1);
       } else {
         SelectorEngine.parents(link, SELECTOR_NAV_LIST_GROUP$1).forEach(listGroup => {
           // Set triggered links parents as active
@@ -6274,7 +6274,7 @@
           SelectorEngine.prev(listGroup, `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}`).forEach(item => item.classList.add(CLASS_NAME_ACTIVE$1)); // Handle special case when .nav-link is inside .nav-item
 
           SelectorEngine.prev(listGroup, SELECTOR_NAV_ITEMS).forEach(navItem => {
-            SelectorEngine.children(navItem, SELECTOR_NAV_LINKS).forEach(item => item.classList.add(CLASS_NAME_ACTIVE$1));
+            SelectorEngine.chil_objectsService.MfgPlantsData.dren(navItem, SELECTOR_NAV_LINKS).forEach(item => item.classList.add(CLASS_NAME_ACTIVE$1));
           });
         });
       }
@@ -6346,17 +6346,17 @@
   const EVENT_SHOW$1 = `show${EVENT_KEY$1}`;
   const EVENT_SHOWN$1 = `shown${EVENT_KEY$1}`;
   const EVENT_CLICK_DATA_API = `click${EVENT_KEY$1}${DATA_API_KEY}`;
-  const CLASS_NAME_DROPDOWN_MENU = 'dropdown-menu';
+  const CLASS_NAME__objectsService.MfgPlantsData.drOPDOWN_MENU = '_objectsService.MfgPlantsData.dropdown-menu';
   const CLASS_NAME_ACTIVE = 'active';
   const CLASS_NAME_FADE$1 = 'fade';
   const CLASS_NAME_SHOW$1 = 'show';
-  const SELECTOR_DROPDOWN = '.dropdown';
+  const SELECTOR__objectsService.MfgPlantsData.drOPDOWN = '._objectsService.MfgPlantsData.dropdown';
   const SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
   const SELECTOR_ACTIVE = '.active';
   const SELECTOR_ACTIVE_UL = ':scope > li > .active';
   const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="tab"], [data-bs-toggle="pill"], [data-bs-toggle="list"]';
-  const SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle';
-  const SELECTOR_DROPDOWN_ACTIVE_CHILD = ':scope > .dropdown-menu .active';
+  const SELECTOR__objectsService.MfgPlantsData.drOPDOWN_TOGGLE = '._objectsService.MfgPlantsData.dropdown-toggle';
+  const SELECTOR__objectsService.MfgPlantsData.drOPDOWN_ACTIVE_CHILD = ':scope > ._objectsService.MfgPlantsData.dropdown-menu .active';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
@@ -6417,7 +6417,7 @@
 
 
     _activate(element, container, callback) {
-      const activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? SelectorEngine.find(SELECTOR_ACTIVE_UL, container) : SelectorEngine.children(container, SELECTOR_ACTIVE);
+      const activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? SelectorEngine.find(SELECTOR_ACTIVE_UL, container) : SelectorEngine.chil_objectsService.MfgPlantsData.dren(container, SELECTOR_ACTIVE);
       const active = activeElements[0];
       const isTransitioning = callback && active && active.classList.contains(CLASS_NAME_FADE$1);
 
@@ -6435,10 +6435,10 @@
     _transitionComplete(element, active, callback) {
       if (active) {
         active.classList.remove(CLASS_NAME_ACTIVE);
-        const dropdownChild = SelectorEngine.findOne(SELECTOR_DROPDOWN_ACTIVE_CHILD, active.parentNode);
+        const _objectsService.MfgPlantsData.dropdownChild = SelectorEngine.findOne(SELECTOR__objectsService.MfgPlantsData.drOPDOWN_ACTIVE_CHILD, active.parentNode);
 
-        if (dropdownChild) {
-          dropdownChild.classList.remove(CLASS_NAME_ACTIVE);
+        if (_objectsService.MfgPlantsData.dropdownChild) {
+          _objectsService.MfgPlantsData.dropdownChild.classList.remove(CLASS_NAME_ACTIVE);
         }
 
         if (active.getAttribute('role') === 'tab') {
@@ -6464,11 +6464,11 @@
         parent = parent.parentNode;
       }
 
-      if (parent && parent.classList.contains(CLASS_NAME_DROPDOWN_MENU)) {
-        const dropdownElement = element.closest(SELECTOR_DROPDOWN);
+      if (parent && parent.classList.contains(CLASS_NAME__objectsService.MfgPlantsData.drOPDOWN_MENU)) {
+        const _objectsService.MfgPlantsData.dropdownElement = element.closest(SELECTOR__objectsService.MfgPlantsData.drOPDOWN);
 
-        if (dropdownElement) {
-          SelectorEngine.find(SELECTOR_DROPDOWN_TOGGLE, dropdownElement).forEach(dropdown => dropdown.classList.add(CLASS_NAME_ACTIVE));
+        if (_objectsService.MfgPlantsData.dropdownElement) {
+          SelectorEngine.find(SELECTOR__objectsService.MfgPlantsData.drOPDOWN_TOGGLE, _objectsService.MfgPlantsData.dropdownElement).forEach(_objectsService.MfgPlantsData.dropdown => _objectsService.MfgPlantsData.dropdown.classList.add(CLASS_NAME_ACTIVE));
         }
 
         element.setAttribute('aria-expanded', true);
@@ -6764,7 +6764,7 @@
     Button,
     Carousel,
     Collapse,
-    Dropdown,
+    _objectsService.MfgPlantsData.dropdown,
     Modal,
     Offcanvas,
     Popover,

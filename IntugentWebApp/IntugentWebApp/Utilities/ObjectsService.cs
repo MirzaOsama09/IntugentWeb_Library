@@ -13,6 +13,7 @@ namespace IntugentWebApp.Utilities
         public MfgInProcess? MfgInProcess { get; set; }
         public MfgFinishedGoods? MfgFinishedGoods { get; set; }
         public MfgDimStability? MfgDimensionsStability { get; set; }
+        public MfgPlantData? MfgPlantsData { get; set; }
         public bool gInProcessDoneIsChecked { get; set; }
     }
 }

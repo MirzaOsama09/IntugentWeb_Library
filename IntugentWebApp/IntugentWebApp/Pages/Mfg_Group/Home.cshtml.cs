@@ -213,7 +213,7 @@ namespace IntugentWebApp.Pages.Mfg_Group
 
             _objectsService.Cbfile.iIDMfg = gMfgSelectedDatasetID;
             //EnableMfgPages(true);
-            (_objectsService.MfgInProcess,_objectsService.MfgFinishedGoods, _objectsService.MfgDimensionsStability) = _objectsService.MfgHome.GetAllMfgData(_objectsService.MfgInProcess,_objectsService.MfgFinishedGoods, _objectsService.MfgDimensionsStability);
+            (_objectsService.MfgInProcess,_objectsService.MfgFinishedGoods, _objectsService.MfgDimensionsStability, _objectsService.MfgPlantsData) = _objectsService.MfgHome.GetAllMfgData(_objectsService.MfgInProcess,_objectsService.MfgFinishedGoods, _objectsService.MfgDimensionsStability, _objectsService.MfgPlantsData);
 
             return new JsonResult(new { message = "Dataset selected: " + gMfgSearchSelectedIndex + " -- " + gMfgSelectedDatasetID });
         }

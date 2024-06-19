@@ -476,7 +476,7 @@ function () {
   }, {
     key: "isSafari",
     value: function isSafari() {
-      return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      return /^((?!chrome|an_objectsService.MfgPlantsData.droid).)*safari/i.test(navigator.userAgent);
     }
   }, {
     key: "isFirefox",
@@ -552,8 +552,8 @@ function () {
       if (w.config.states.normal.filter !== 'none') {
         this.applyFilter(el, w.config.states.normal.filter.type, w.config.states.normal.filter.value);
       } else {
-        if (w.config.chart.dropShadow.enabled) {
-          this.dropShadow(el, w.config.chart.dropShadow);
+        if (w.config.chart._objectsService.MfgPlantsData.dropShadow.enabled) {
+          this._objectsService.MfgPlantsData.dropShadow(el, w.config.chart._objectsService.MfgPlantsData.dropShadow);
         }
       }
     }
@@ -562,8 +562,8 @@ function () {
     value: function addNormalFilter(el) {
       var w = this.w;
 
-      if (w.config.chart.dropShadow.enabled) {
-        this.dropShadow(el, w.config.chart.dropShadow);
+      if (w.config.chart._objectsService.MfgPlantsData.dropShadow.enabled) {
+        this._objectsService.MfgPlantsData.dropShadow(el, w.config.chart._objectsService.MfgPlantsData.dropShadow);
       }
     }
   }, {
@@ -576,7 +576,7 @@ function () {
       var filter = new window.SVG.Filter();
       filter.size('120%', '180%', '-5%', '-40%');
       el.filter(function (add) {
-        var shadowAttr = w.config.chart.dropShadow;
+        var shadowAttr = w.config.chart._objectsService.MfgPlantsData.dropShadow;
 
         if (shadowAttr.enabled) {
           filter = _this.addShadow(add, shadowAttr);
@@ -587,7 +587,7 @@ function () {
         filter.colorMatrix('matrix', [0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 1.0, 0]).colorMatrix('saturate', 0);
       });
       el.filterer.node.setAttribute('filterUnits', 'userSpaceOnUse');
-    } // appends dropShadow to the filter object which can be chained with other filter effects
+    } // appends _objectsService.MfgPlantsData.dropShadow to the filter object which can be chained with other filter effects
 
   }, {
     key: "addLightenFilter",
@@ -605,7 +605,7 @@ function () {
       var filter = new window.SVG.Filter();
       filter.size('120%', '180%', '-5%', '-40%');
       el.filter(function (add) {
-        var shadowAttr = w.config.chart.dropShadow;
+        var shadowAttr = w.config.chart._objectsService.MfgPlantsData.dropShadow;
 
         if (shadowAttr.enabled) {
           filter = _this2.addShadow(add, shadowAttr);
@@ -622,7 +622,7 @@ function () {
         });
       });
       el.filterer.node.setAttribute('filterUnits', 'userSpaceOnUse');
-    } // appends dropShadow to the filter object which can be chained with other filter effects
+    } // appends _objectsService.MfgPlantsData.dropShadow to the filter object which can be chained with other filter effects
 
   }, {
     key: "addDarkenFilter",
@@ -640,7 +640,7 @@ function () {
       var filter = new window.SVG.Filter();
       filter.size('120%', '180%', '-5%', '-40%');
       el.filter(function (add) {
-        var shadowAttr = w.config.chart.dropShadow;
+        var shadowAttr = w.config.chart._objectsService.MfgPlantsData.dropShadow;
 
         if (shadowAttr.enabled) {
           filter = _this3.addShadow(add, shadowAttr);
@@ -695,7 +695,7 @@ function () {
           // do nothing
           break;
       }
-    } // appends dropShadow to the filter object which can be chained with other filter effects
+    } // appends _objectsService.MfgPlantsData.dropShadow to the filter object which can be chained with other filter effects
 
   }, {
     key: "addShadow",
@@ -707,12 +707,12 @@ function () {
           opacity = attrs.opacity;
       var shadowBlur = add.flood(color, opacity).composite(add.sourceAlpha, 'in').offset(left, top).gaussianBlur(blur).merge(add.source);
       return add.blend(add.source, shadowBlur);
-    } // directly adds dropShadow to the element and returns the same element.
-    // the only way it is different from the addShadow() function is that addShadow is chainable to other filters, while this function discards all filters and add dropShadow
+    } // directly adds _objectsService.MfgPlantsData.dropShadow to the element and returns the same element.
+    // the only way it is different from the addShadow() function is that addShadow is chainable to other filters, while this function discards all filters and add _objectsService.MfgPlantsData.dropShadow
 
   }, {
-    key: "dropShadow",
-    value: function dropShadow(el, attrs) {
+    key: "_objectsService.MfgPlantsData.dropShadow",
+    value: function _objectsService.MfgPlantsData.dropShadow(el, attrs) {
       var top = attrs.top,
           left = attrs.left,
           blur = attrs.blur,
@@ -987,7 +987,7 @@ function () {
 }();
 
 /**
- * ApexCharts Graphics Class for all drawing operations.
+ * ApexCharts Graphics Class for all _objectsService.MfgPlantsData.drawing operations.
  *
  * @module Graphics
  **/
@@ -1003,8 +1003,8 @@ function () {
   }
 
   _createClass(Graphics, [{
-    key: "drawLine",
-    value: function drawLine(x1, y1, x2, y2) {
+    key: "_objectsService.MfgPlantsData.drawLine",
+    value: function _objectsService.MfgPlantsData.drawLine(x1, y1, x2, y2) {
       var lineColor = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : '#a8a8a8';
       var dashArray = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
       var strokeWidth = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : null;
@@ -1021,8 +1021,8 @@ function () {
       return line;
     }
   }, {
-    key: "drawRect",
-    value: function drawRect() {
+    key: "_objectsService.MfgPlantsData.drawRect",
+    value: function _objectsService.MfgPlantsData.drawRect() {
       var x1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
       var y1 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
       var x2 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
@@ -1051,8 +1051,8 @@ function () {
       return rect;
     }
   }, {
-    key: "drawPolygon",
-    value: function drawPolygon(polygonString) {
+    key: "_objectsService.MfgPlantsData.drawPolygon",
+    value: function _objectsService.MfgPlantsData.drawPolygon(polygonString) {
       var stroke = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '#e1e1e1';
       var fill = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'none';
       var w = this.w;
@@ -1063,8 +1063,8 @@ function () {
       return polygon;
     }
   }, {
-    key: "drawCircle",
-    value: function drawCircle(radius) {
+    key: "_objectsService.MfgPlantsData.drawCircle",
+    value: function _objectsService.MfgPlantsData.drawCircle(radius) {
       var attrs = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
       var w = this.w;
       var c = w.globals.dom.Paper.circle(radius * 2);
@@ -1076,8 +1076,8 @@ function () {
       return c;
     }
   }, {
-    key: "drawPath",
-    value: function drawPath(_ref) {
+    key: "_objectsService.MfgPlantsData.drawPath",
+    value: function _objectsService.MfgPlantsData.drawPath(_ref) {
       var _ref$d = _ref.d,
           d = _ref$d === void 0 ? '' : _ref$d,
           _ref$stroke = _ref.stroke,
@@ -1158,8 +1158,8 @@ function () {
       return curve;
     }
   }, {
-    key: "quadraticCurve",
-    value: function quadraticCurve(x1, y1, x, y) {
+    key: "qua_objectsService.MfgPlantsData.draticCurve",
+    value: function qua_objectsService.MfgPlantsData.draticCurve(x1, y1, x, y) {
       var curve = ['Q', x1, y1, x, y].join(' ');
       return curve;
     }
@@ -1176,7 +1176,7 @@ function () {
      * @memberof Graphics
      * @param {object}
      *  i = series's index
-     *  realIndex = realIndex is series's actual index when it was drawn time. After several redraws, the iterating "i" may change in loops, but realIndex doesn't
+     *  realIndex = realIndex is series's actual index when it was _objectsService.MfgPlantsData.drawn time. After several re_objectsService.MfgPlantsData.draws, the iterating "i" may change in loops, but realIndex doesn't
      *  pathFrom = existing pathFrom to animateTo
      *  pathTo = new Path to which d attr will be animated from pathFrom to pathTo
      *  stroke = line Color
@@ -1233,7 +1233,7 @@ function () {
         strokeDashArray = w.config.stroke.dashArray;
       }
 
-      var el = this.drawPath({
+      var el = this._objectsService.MfgPlantsData.drawPath({
         d: d,
         stroke: stroke,
         strokeWidth: strokeWidth,
@@ -1248,7 +1248,7 @@ function () {
 
       if (shouldClipToGrid) {
         el.attr({
-          'clip-path': "url(#gridRectMask".concat(w.globals.cuid, ")")
+          'clip-path': "url(#gri_objectsService.MfgPlantsData.drectMask".concat(w.globals.cuid, ")")
         });
       } // const defaultFilter = el.filterer
 
@@ -1256,10 +1256,10 @@ function () {
       if (w.config.states.normal.filter.type !== 'none') {
         filters.getDefaultFilter(el, w.config.states.normal.filter.type, w.config.states.normal.filter.value);
       } else {
-        if (w.config.chart.dropShadow.enabled) {
-          if (!w.config.chart.dropShadow.enabledSeries || w.config.chart.dropShadow.enabledSeries && w.config.chart.dropShadow.enabledSeries.indexOf(realIndex) !== -1) {
-            var shadow = w.config.chart.dropShadow;
-            filters.dropShadow(el, shadow);
+        if (w.config.chart._objectsService.MfgPlantsData.dropShadow.enabled) {
+          if (!w.config.chart._objectsService.MfgPlantsData.dropShadow.enabledSeries || w.config.chart._objectsService.MfgPlantsData.dropShadow.enabledSeries && w.config.chart._objectsService.MfgPlantsData.dropShadow.enabledSeries.indexOf(realIndex) !== -1) {
+            var shadow = w.config.chart._objectsService.MfgPlantsData.dropShadow;
+            filters._objectsService.MfgPlantsData.dropShadow(el, shadow);
           }
         }
       }
@@ -1302,8 +1302,8 @@ function () {
       return el;
     }
   }, {
-    key: "drawPattern",
-    value: function drawPattern(style, width, height) {
+    key: "_objectsService.MfgPlantsData.drawPattern",
+    value: function _objectsService.MfgPlantsData.drawPattern(style, width, height) {
       var stroke = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '#a8a8a8';
       var strokeWidth = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
       var w = this.w;
@@ -1338,8 +1338,8 @@ function () {
       return p;
     }
   }, {
-    key: "drawGradient",
-    value: function drawGradient(style, gfrom, gto, opacityFrom, opacityTo) {
+    key: "_objectsService.MfgPlantsData.drawGradient",
+    value: function _objectsService.MfgPlantsData.drawGradient(style, gfrom, gto, opacityFrom, opacityTo) {
       var size = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
       var stops = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : null;
       var colorStops = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : null;
@@ -1416,8 +1416,8 @@ function () {
       return g;
     }
   }, {
-    key: "drawText",
-    value: function drawText(opts) {
+    key: "_objectsService.MfgPlantsData.drawText",
+    value: function _objectsService.MfgPlantsData.drawText(opts) {
       var w = this.w;
       var x = opts.x,
           y = opts.y,
@@ -1475,8 +1475,8 @@ function () {
       tspan.node.style.fontFamily = fontFamily;
     }
   }, {
-    key: "drawMarker",
-    value: function drawMarker(x, y, opts) {
+    key: "_objectsService.MfgPlantsData.drawMarker",
+    value: function _objectsService.MfgPlantsData.drawMarker(x, y, opts) {
       x = x || 0;
       var size = opts.pSize || 0;
       var elPoint = null;
@@ -1490,7 +1490,7 @@ function () {
         }
 
         var nSize = size * 1.2 + radius;
-        var p = this.drawRect(nSize, nSize, nSize, nSize, radius);
+        var p = this._objectsService.MfgPlantsData.drawRect(nSize, nSize, nSize, nSize, radius);
         p.attr({
           x: x - nSize / 2,
           y: y - nSize / 2,
@@ -1511,7 +1511,7 @@ function () {
         } // let nSize = size - opts.pRadius / 2 < 0 ? 0 : size - opts.pRadius / 2
 
 
-        elPoint = this.drawCircle(size, {
+        elPoint = this._objectsService.MfgPlantsData.drawCircle(size, {
           cx: x,
           cy: y,
           class: opts.class ? opts.class : '',
@@ -1679,7 +1679,7 @@ function () {
     value: function getTextRects(text, fontSize, fontFamily, transform) {
       var useBBox = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
       var w = this.w;
-      var virtualText = this.drawText({
+      var virtualText = this._objectsService.MfgPlantsData.drawText({
         x: -200,
         y: -200,
         text: text,
@@ -2025,7 +2025,7 @@ function () {
           background: 'transparent',
           locales: [en],
           defaultLocale: 'en',
-          dropShadow: {
+          _objectsService.MfgPlantsData.dropShadow: {
             enabled: false,
             enabledSeries: undefined,
             top: 2,
@@ -2183,7 +2183,7 @@ function () {
               imageOffsetY: 0,
               imageClipped: true,
               position: 'front',
-              dropShadow: {
+              _objectsService.MfgPlantsData.dropShadow: {
                 enabled: false,
                 top: 0,
                 left: 0,
@@ -2201,7 +2201,7 @@ function () {
               opacity: 1,
               margin: 5,
               // margin is in pixels
-              dropShadow: {
+              _objectsService.MfgPlantsData.dropShadow: {
                 enabled: false,
                 top: 0,
                 left: 0,
@@ -2317,7 +2317,7 @@ function () {
             fontFamily: undefined,
             colors: undefined
           },
-          dropShadow: {
+          _objectsService.MfgPlantsData.dropShadow: {
             enabled: false,
             top: 1,
             left: 1,
@@ -2669,7 +2669,7 @@ function () {
                 opacityTo: 0.5
               }
             },
-            dropShadow: {
+            _objectsService.MfgPlantsData.dropShadow: {
               enabled: false,
               left: 0,
               top: 0,
@@ -2707,7 +2707,7 @@ function () {
 }();
 
 /**
- * ApexCharts Annotations Class for drawing lines/rects on both xaxis and yaxis.
+ * ApexCharts Annotations Class for _objectsService.MfgPlantsData.drawing lines/rects on both xaxis and yaxis.
  *
  * @module Annotations
  **/
@@ -2730,14 +2730,14 @@ function () {
   }
 
   _createClass(Annotations, [{
-    key: "drawAnnotations",
-    value: function drawAnnotations() {
+    key: "_objectsService.MfgPlantsData.drawAnnotations",
+    value: function _objectsService.MfgPlantsData.drawAnnotations() {
       var w = this.w;
 
       if (w.globals.axisCharts) {
-        var yAnnotations = this.drawYAxisAnnotations();
-        var xAnnotations = this.drawXAxisAnnotations();
-        var pointAnnotations = this.drawPointAnnotations();
+        var yAnnotations = this._objectsService.MfgPlantsData.drawYAxisAnnotations();
+        var xAnnotations = this._objectsService.MfgPlantsData.drawXAxisAnnotations();
+        var pointAnnotations = this._objectsService.MfgPlantsData.drawPointAnnotations();
         var initialAnim = w.config.chart.animations.enabled;
         var annoArray = [yAnnotations, xAnnotations, pointAnnotations];
         var annoElArray = [xAnnotations.node, yAnnotations.node, pointAnnotations.node];
@@ -2756,7 +2756,7 @@ function () {
         } // after placing the annotations on svg, set any vertically placed annotations
 
 
-        this.setOrientations(w.config.annotations.xaxis); // background sizes needs to be calculated after text is drawn, so calling them last
+        this.setOrientations(w.config.annotations.xaxis); // background sizes needs to be calculated after text is _objectsService.MfgPlantsData.drawn, so calling them last
 
         this.annotationsBackground();
       }
@@ -2782,7 +2782,7 @@ function () {
       if (x1 < 0 || x1 > w.globals.gridWidth) return;
 
       if (anno.x2 === null) {
-        var line = this.graphics.drawLine(x1 + anno.offsetX, // x1
+        var line = this.graphics._objectsService.MfgPlantsData.drawLine(x1 + anno.offsetX, // x1
         0 + anno.offsetY, // y1
         x1 + anno.offsetX, // x2
         w.globals.gridHeight + anno.offsetY, // y2
@@ -2799,7 +2799,7 @@ function () {
           x2 = temp;
         }
 
-        var rect = this.graphics.drawRect(x1 + anno.offsetX, // x1
+        var rect = this.graphics._objectsService.MfgPlantsData.drawRect(x1 + anno.offsetX, // x1
         0 + anno.offsetY, // y1
         x2 - x1, // x2
         w.globals.gridHeight + anno.offsetY, // y2
@@ -2815,7 +2815,7 @@ function () {
 
       var textY = anno.label.position === 'top' ? -3 : w.globals.gridHeight;
       var text = anno.label.text ? anno.label.text : '';
-      var elText = this.graphics.drawText({
+      var elText = this.graphics._objectsService.MfgPlantsData.drawText({
         x: x1 + anno.label.offsetX,
         y: textY + anno.label.offsetY,
         text: text,
@@ -2831,8 +2831,8 @@ function () {
       parent.appendChild(elText.node);
     }
   }, {
-    key: "drawXAxisAnnotations",
-    value: function drawXAxisAnnotations() {
+    key: "_objectsService.MfgPlantsData.drawXAxisAnnotations",
+    value: function _objectsService.MfgPlantsData.drawXAxisAnnotations() {
       var _this = this;
 
       var w = this.w;
@@ -2870,7 +2870,7 @@ function () {
       var text = anno.label.text ? anno.label.text : '';
 
       if (anno.y2 === null) {
-        var line = this.graphics.drawLine(0 + anno.offsetX, // x1
+        var line = this.graphics._objectsService.MfgPlantsData.drawLine(0 + anno.offsetX, // x1
         y1 + anno.offsetY, // y1
         w.globals.gridWidth + anno.offsetX, // x2
         y1 + anno.offsetY, // y2
@@ -2901,7 +2901,7 @@ function () {
           y2 = temp;
         }
 
-        var rect = this.graphics.drawRect(0 + anno.offsetX, // x1
+        var rect = this.graphics._objectsService.MfgPlantsData.drawRect(0 + anno.offsetX, // x1
         y2 + anno.offsetY, // y1
         w.globals.gridWidth + anno.offsetX, // x2
         y1 - y2, // y2
@@ -2916,7 +2916,7 @@ function () {
       }
 
       var textX = anno.label.position === 'right' ? w.globals.gridWidth : 0;
-      var elText = this.graphics.drawText({
+      var elText = this.graphics._objectsService.MfgPlantsData.drawText({
         x: textX + anno.label.offsetX,
         y: (y2 || y1) + anno.label.offsetY - 3,
         text: text,
@@ -2932,8 +2932,8 @@ function () {
       parent.appendChild(elText.node);
     }
   }, {
-    key: "drawYAxisAnnotations",
-    value: function drawYAxisAnnotations() {
+    key: "_objectsService.MfgPlantsData.drawYAxisAnnotations",
+    value: function _objectsService.MfgPlantsData.drawYAxisAnnotations() {
       var _this2 = this;
 
       var w = this.w;
@@ -3007,10 +3007,10 @@ function () {
         radius: anno.marker.radius,
         class: 'apexcharts-point-annotation-marker ' + anno.marker.cssClass
       };
-      var point = this.graphics.drawMarker(x + anno.marker.offsetX, pointY + anno.marker.offsetY, optsPoints);
+      var point = this.graphics._objectsService.MfgPlantsData.drawMarker(x + anno.marker.offsetX, pointY + anno.marker.offsetY, optsPoints);
       parent.appendChild(point.node);
       var text = anno.label.text ? anno.label.text : '';
-      var elText = this.graphics.drawText({
+      var elText = this.graphics._objectsService.MfgPlantsData.drawText({
         x: x + anno.label.offsetX,
         y: y + anno.label.offsetY,
         text: text,
@@ -3037,8 +3037,8 @@ function () {
       }
     }
   }, {
-    key: "drawPointAnnotations",
-    value: function drawPointAnnotations() {
+    key: "_objectsService.MfgPlantsData.drawPointAnnotations",
+    value: function _objectsService.MfgPlantsData.drawPointAnnotations() {
       var _this3 = this;
 
       var w = this.w;
@@ -3085,7 +3085,7 @@ function () {
     key: "addBackgroundToAnno",
     value: function addBackgroundToAnno(annoEl, anno) {
       var w = this.w;
-      var elGridRect = w.globals.dom.baseEl.querySelector('.apexcharts-grid').getBoundingClientRect();
+      var elGri_objectsService.MfgPlantsData.drect = w.globals.dom.baseEl.querySelector('.apexcharts-grid').getBoundingClientRect();
       var coords = annoEl.getBoundingClientRect();
       var pleft = anno.label.style.padding.left;
       var pright = anno.label.style.padding.right;
@@ -3099,9 +3099,9 @@ function () {
         pright = anno.label.style.padding.bottom;
       }
 
-      var x1 = coords.left - elGridRect.left - pleft;
-      var y1 = coords.top - elGridRect.top - ptop;
-      var elRect = this.graphics.drawRect(x1, y1, coords.width + pleft + pright, coords.height + ptop + pbottom, 0, anno.label.style.background, 1, anno.label.borderWidth, anno.label.borderColor, 0);
+      var x1 = coords.left - elGri_objectsService.MfgPlantsData.drect.left - pleft;
+      var y1 = coords.top - elGri_objectsService.MfgPlantsData.drect.top - ptop;
+      var elRect = this.graphics._objectsService.MfgPlantsData.drawRect(x1, y1, coords.width + pleft + pright, coords.height + ptop + pbottom, 0, anno.label.style.background, 1, anno.label.borderWidth, anno.label.borderColor, 0);
       return elRect;
     }
   }, {
@@ -3162,7 +3162,7 @@ function () {
       var me = context;
       var w = me.w;
       var parentNode = w.globals.dom.baseEl.querySelector(appendTo);
-      var elText = this.graphics.drawText({
+      var elText = this.graphics._objectsService.MfgPlantsData.drawText({
         x: x,
         y: y,
         text: text,
@@ -3174,7 +3174,7 @@ function () {
       });
       parentNode.appendChild(elText.node);
       var textRect = elText.bbox();
-      var elRect = this.graphics.drawRect(textRect.x - paddingLeft, textRect.y - paddingTop, textRect.width + paddingLeft + paddingRight, textRect.height + paddingBottom + paddingTop, radius, backgroundColor, 1, borderWidth, borderColor, strokeDashArray);
+      var elRect = this.graphics._objectsService.MfgPlantsData.drawRect(textRect.x - paddingLeft, textRect.y - paddingTop, textRect.width + paddingLeft + paddingRight, textRect.height + paddingBottom + paddingTop, radius, backgroundColor, 1, borderWidth, borderColor, strokeDashArray);
       elText.before(elRect);
 
       if (pushToMemory) {
@@ -3427,7 +3427,7 @@ function () {
             fill: {
               type: 'gradient'
             },
-            dropShadow: {
+            _objectsService.MfgPlantsData.dropShadow: {
               enabled: false
             },
             stroke: {
@@ -3679,7 +3679,7 @@ function () {
           style: {
             colors: ['#fff']
           },
-          dropShadow: {
+          _objectsService.MfgPlantsData.dropShadow: {
             enabled: true
           }
         },
@@ -3724,7 +3724,7 @@ function () {
           style: {
             colors: ['#fff']
           },
-          dropShadow: {
+          _objectsService.MfgPlantsData.dropShadow: {
             enabled: true
           }
         },
@@ -4053,8 +4053,8 @@ function () {
       });
     }
   }, {
-    key: "getCalculatedRatios",
-    value: function getCalculatedRatios() {
+    key: "getCalculate_objectsService.MfgPlantsData.dratios",
+    value: function getCalculate_objectsService.MfgPlantsData.dratios() {
       var gl = this.w.globals;
       var yRatio = [];
       var invertedYRatio = 0;
@@ -4240,7 +4240,7 @@ function () {
       this.chartType = opts.chart.type;
 
       if (this.chartType === 'histogram') {
-        // technically, a histogram can be drawn by a column chart with no spaces in between
+        // technically, a histogram can be _objectsService.MfgPlantsData.drawn by a column chart with no spaces in between
         opts.chart.type = 'bar';
         opts = Utils.extend({
           plotOptions: {
@@ -4563,7 +4563,7 @@ function () {
         seriesZ: [],
         // The 3rd "Z" dimension for bubbles chart (z values)
         labels: [],
-        // store the text to draw on x axis
+        // store the text to _objectsService.MfgPlantsData.draw on x axis
         // Don't mutate the labels, many things including tooltips depends on it!
         timelineLabels: [],
         // store the timeline Labels in another variable
@@ -4636,9 +4636,9 @@ function () {
         // for storing all dom nodes in this particular property
         // elWrap: null, // the element that wraps everything
         // elGraphical: null, // this contains lines/areas/bars/pies
-        // elGridRect: null, // paths going outside this area will be clipped
-        // elGridRectMask: null, // clipping will happen with this mask
-        // elGridRectMarkerMask: null, // clipping will happen with this mask
+        // elGri_objectsService.MfgPlantsData.drect: null, // paths going outside this area will be clipped
+        // elGri_objectsService.MfgPlantsData.drectMask: null, // clipping will happen with this mask
+        // elGri_objectsService.MfgPlantsData.drectMarkerMask: null, // clipping will happen with this mask
         // elLegendWrap: null, // the whole legend area
         // elDefs: null, // [defs] element
         memory: {
@@ -4658,7 +4658,7 @@ function () {
         // bool: user has resized
         resizeTimer: null,
         // timeout function to make a small delay before
-        // drawing when user resized
+        // _objectsService.MfgPlantsData.drawing when user resized
         comboCharts: false,
         // bool: whether it's a combination of line/column
         comboChartsHasBars: false,
@@ -4687,11 +4687,11 @@ function () {
         dataPoints: 0,
         // the longest series length
         pointsArray: [],
-        // store the points positions here to draw later on hover
+        // store the points positions here to _objectsService.MfgPlantsData.draw later on hover
         // format is - [[x,y],[x,y]... [x,y]]
         dataLabelsRects: [],
         // store the positions of datalabels to prevent collision
-        lastDrawnDataLabelsIndexes: [],
+        last_objectsService.MfgPlantsData.drawnDataLabelsIndexes: [],
         hasNullValues: false,
         // bool: whether series contains null values
         easing: null,
@@ -4699,9 +4699,9 @@ function () {
         zoomed: false,
         // whether user has zoomed or not
         gridWidth: 0,
-        // drawable width of actual graphs (series paths)
+        // _objectsService.MfgPlantsData.drawable width of actual graphs (series paths)
         gridHeight: 0,
-        // drawable height of actual graphs (series paths)
+        // _objectsService.MfgPlantsData.drawable height of actual graphs (series paths)
         yAxisScale: [],
         xAxisScale: null,
         xAxisTicksPositions: [],
@@ -4990,13 +4990,13 @@ function () {
 
       if (cnf.fill.pattern.style instanceof Array) {
         if (typeof cnf.fill.pattern.style[opts.seriesNumber] !== 'undefined') {
-          var pf = graphics.drawPattern(cnf.fill.pattern.style[opts.seriesNumber], cnf.fill.pattern.width, cnf.fill.pattern.height, patternLineColor, patternStrokeWidth, fillOpacity);
+          var pf = graphics._objectsService.MfgPlantsData.drawPattern(cnf.fill.pattern.style[opts.seriesNumber], cnf.fill.pattern.width, cnf.fill.pattern.height, patternLineColor, patternStrokeWidth, fillOpacity);
           patternFill = pf;
         } else {
           patternFill = defaultColor;
         }
       } else {
-        patternFill = graphics.drawPattern(cnf.fill.pattern.style, cnf.fill.pattern.width, cnf.fill.pattern.height, patternLineColor, patternStrokeWidth, fillOpacity);
+        patternFill = graphics._objectsService.MfgPlantsData.drawPattern(cnf.fill.pattern.style, cnf.fill.pattern.width, cnf.fill.pattern.height, patternLineColor, patternStrokeWidth, fillOpacity);
       }
 
       return patternFill;
@@ -5030,7 +5030,7 @@ function () {
         gradientTo = t;
       }
 
-      gradientFill = graphics.drawGradient(type, gradientFrom, gradientTo, opacityFrom, opacityTo, opts.size, cnf.fill.gradient.stops, cnf.fill.gradient.colorStops, i);
+      gradientFill = graphics._objectsService.MfgPlantsData.drawGradient(type, gradientFrom, gradientTo, opacityFrom, opacityTo, opts.size, cnf.fill.gradient.stops, cnf.fill.gradient.colorStops, i);
       return gradientFill;
     }
   }]);
@@ -5039,7 +5039,7 @@ function () {
 }();
 
 /**
- * ApexCharts Markers Class for drawing points on y values in axes charts.
+ * ApexCharts Markers Class for _objectsService.MfgPlantsData.drawing points on y values in axes charts.
  *
  * @module Markers
  **/
@@ -5089,7 +5089,7 @@ function () {
         elPointsWrap = graphics.group({
           class: 'apexcharts-series-markers'
         });
-        elPointsWrap.attr('clip-path', "url(#gridRectMarkerMask".concat(w.globals.cuid, ")"));
+        elPointsWrap.attr('clip-path', "url(#gri_objectsService.MfgPlantsData.drectMarkerMask".concat(w.globals.cuid, ")"));
       }
 
       if (p.x instanceof Array) {
@@ -5104,9 +5104,9 @@ function () {
             PointClasses += ' no-pointer-events';
           }
 
-          var shouldMarkerDraw = Array.isArray(w.config.markers.size) ? w.globals.markers.size[seriesIndex] > 0 : w.config.markers.size > 0;
+          var shouldMarker_objectsService.MfgPlantsData.draw = Array.isArray(w.config.markers.size) ? w.globals.markers.size[seriesIndex] > 0 : w.config.markers.size > 0;
 
-          if (shouldMarkerDraw) {
+          if (shouldMarker_objectsService.MfgPlantsData.draw) {
             if (Utils.isNumber(p.y[q])) {
               PointClasses += " w".concat((Math.random() + 1).toString(36).substring(4));
             } else {
@@ -5123,7 +5123,7 @@ function () {
                 opts.pSize = marker.size;
               }
             });
-            point = graphics.drawMarker(p.x[q], p.y[q], opts);
+            point = graphics._objectsService.MfgPlantsData.drawMarker(p.x[q], p.y[q], opts);
             point.attr('rel', dataPointIndex);
             point.attr('j', dataPointIndex);
             point.attr('index', seriesIndex);
@@ -5200,7 +5200,7 @@ function () {
 
 /**
  * ApexCharts Scatter Class.
- * This Class also handles bubbles chart as currently there is no major difference in drawing them,
+ * This Class also handles bubbles chart as currently there is no major difference in _objectsService.MfgPlantsData.drawing them,
  * @module Scatter
  **/
 
@@ -5219,8 +5219,8 @@ function () {
   }
 
   _createClass(Scatter, [{
-    key: "draw",
-    value: function draw(elSeries, j, opts) {
+    key: "_objectsService.MfgPlantsData.draw",
+    value: function _objectsService.MfgPlantsData.draw(elSeries, j, opts) {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var realIndex = opts.realIndex;
@@ -5230,12 +5230,12 @@ function () {
       var elPointsWrap = graphics.group({
         class: "apexcharts-series-markers apexcharts-series-".concat(w.config.chart.type)
       });
-      elPointsWrap.attr('clip-path', "url(#gridRectMarkerMask".concat(w.globals.cuid, ")"));
+      elPointsWrap.attr('clip-path', "url(#gri_objectsService.MfgPlantsData.drectMarkerMask".concat(w.globals.cuid, ")"));
 
       if (pointsPos.x instanceof Array) {
         for (var q = 0; q < pointsPos.x.length; q++) {
           var dataPointIndex = j + 1;
-          var shouldDraw = true; // a small hack as we have 2 points for the first val to connect it
+          var should_objectsService.MfgPlantsData.draw = true; // a small hack as we have 2 points for the first val to connect it
 
           if (j === 0 && q === 0) dataPointIndex = 0;
           if (j === 0 && q === 1) dataPointIndex = 1;
@@ -5262,11 +5262,11 @@ function () {
           radius = radius || 0;
 
           if (x === 0 && y === 0 || y === null || typeof w.globals.series[realIndex][dataPointIndex] === 'undefined') {
-            shouldDraw = false;
+            should_objectsService.MfgPlantsData.draw = false;
           }
 
-          if (shouldDraw) {
-            var circle = this.drawPoint(x, y, radius, finishRadius, realIndex, dataPointIndex, j);
+          if (should_objectsService.MfgPlantsData.draw) {
+            var circle = this._objectsService.MfgPlantsData.drawPoint(x, y, radius, finishRadius, realIndex, dataPointIndex, j);
             elPointsWrap.add(circle);
           }
 
@@ -5275,8 +5275,8 @@ function () {
       }
     }
   }, {
-    key: "drawPoint",
-    value: function drawPoint(x, y, radius, finishRadius, realIndex, dataPointIndex, j) {
+    key: "_objectsService.MfgPlantsData.drawPoint",
+    value: function _objectsService.MfgPlantsData.drawPoint(x, y, radius, finishRadius, realIndex, dataPointIndex, j) {
       var w = this.w;
       var anim = new Animations(this.ctx);
       var filters = new Filters(this.ctx);
@@ -5286,20 +5286,20 @@ function () {
         seriesNumber: realIndex,
         patternUnits: 'objectBoundingBox'
       });
-      var circle = graphics.drawCircle(radius);
+      var circle = graphics._objectsService.MfgPlantsData.drawCircle(radius);
       circle.attr({
         cx: x,
         cy: y,
         fill: pathFillCircle
       });
 
-      if (w.config.chart.dropShadow.enabled) {
-        filters.dropShadow(circle, {
-          top: w.config.chart.dropShadow.top,
-          left: w.config.chart.dropShadow.left,
-          blur: w.config.chart.dropShadow.blur,
-          color: w.config.chart.dropShadow.color,
-          opacity: w.config.chart.dropShadow.opacity
+      if (w.config.chart._objectsService.MfgPlantsData.dropShadow.enabled) {
+        filters._objectsService.MfgPlantsData.dropShadow(circle, {
+          top: w.config.chart._objectsService.MfgPlantsData.dropShadow.top,
+          left: w.config.chart._objectsService.MfgPlantsData.dropShadow.left,
+          blur: w.config.chart._objectsService.MfgPlantsData.dropShadow.blur,
+          color: w.config.chart._objectsService.MfgPlantsData.dropShadow.color,
+          opacity: w.config.chart._objectsService.MfgPlantsData.dropShadow.opacity
         });
       }
 
@@ -5378,7 +5378,7 @@ function () {
 }();
 
 /**
- * ApexCharts DataLabels Class for drawing dataLabels on Axes based Charts.
+ * ApexCharts DataLabels Class for _objectsService.MfgPlantsData.drawing dataLabels on Axes based Charts.
  *
  * @module DataLabels
  **/
@@ -5392,15 +5392,15 @@ function () {
     this.ctx = ctx;
     this.w = ctx.w;
   } // When there are many datalabels to be printed, and some of them overlaps each other in the same series, this method will take care of that
-  // Also, when datalabels exceeds the drawable area and get clipped off, we need to adjust and move some pixels to make them visible again
+  // Also, when datalabels exceeds the _objectsService.MfgPlantsData.drawable area and get clipped off, we need to adjust and move some pixels to make them visible again
 
 
   _createClass(DataLabels, [{
     key: "dataLabelsCorrection",
-    value: function dataLabelsCorrection(x, y, val, i, dataPointIndex, alwaysDrawDataLabel, fontSize) {
+    value: function dataLabelsCorrection(x, y, val, i, dataPointIndex, always_objectsService.MfgPlantsData.drawDataLabel, fontSize) {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
-      var drawnextLabel = false; //
+      var _objectsService.MfgPlantsData.drawnextLabel = false; //
 
       var textRects = graphics.getTextRects(val, fontSize);
       var width = textRects.width;
@@ -5415,34 +5415,34 @@ function () {
         height: height
       });
       var len = w.globals.dataLabelsRects[i].length - 2;
-      var lastDrawnIndex = typeof w.globals.lastDrawnDataLabelsIndexes[i] !== 'undefined' ? w.globals.lastDrawnDataLabelsIndexes[i][w.globals.lastDrawnDataLabelsIndexes[i].length - 1] : 0;
+      var last_objectsService.MfgPlantsData.drawnIndex = typeof w.globals.last_objectsService.MfgPlantsData.drawnDataLabelsIndexes[i] !== 'undefined' ? w.globals.last_objectsService.MfgPlantsData.drawnDataLabelsIndexes[i][w.globals.last_objectsService.MfgPlantsData.drawnDataLabelsIndexes[i].length - 1] : 0;
 
       if (typeof w.globals.dataLabelsRects[i][len] !== 'undefined') {
-        var lastDataLabelRect = w.globals.dataLabelsRects[i][lastDrawnIndex];
+        var lastDataLabelRect = w.globals.dataLabelsRects[i][last_objectsService.MfgPlantsData.drawnIndex];
 
         if ( // next label forward and x not intersecting
-        x > lastDataLabelRect.x + lastDataLabelRect.width + 2 || y > lastDataLabelRect.y + lastDataLabelRect.height + 2 || x + width < lastDataLabelRect.x // next label is going to be drawn backwards
+        x > lastDataLabelRect.x + lastDataLabelRect.width + 2 || y > lastDataLabelRect.y + lastDataLabelRect.height + 2 || x + width < lastDataLabelRect.x // next label is going to be _objectsService.MfgPlantsData.drawn backwards
         ) {
-            // the 2 indexes don't override, so OK to draw next label
-            drawnextLabel = true;
+            // the 2 indexes don't override, so OK to _objectsService.MfgPlantsData.draw next label
+            _objectsService.MfgPlantsData.drawnextLabel = true;
           }
       }
 
-      if (dataPointIndex === 0 || alwaysDrawDataLabel) {
-        drawnextLabel = true;
+      if (dataPointIndex === 0 || always_objectsService.MfgPlantsData.drawDataLabel) {
+        _objectsService.MfgPlantsData.drawnextLabel = true;
       }
 
       return {
         x: x,
         y: y,
-        drawnextLabel: drawnextLabel
+        _objectsService.MfgPlantsData.drawnextLabel: _objectsService.MfgPlantsData.drawnextLabel
       };
     }
   }, {
-    key: "drawDataLabel",
-    value: function drawDataLabel(pos, i, j) {
+    key: "_objectsService.MfgPlantsData.drawDataLabel",
+    value: function _objectsService.MfgPlantsData.drawDataLabel(pos, i, j) {
       // this method handles line, area, bubble, scatter charts as those charts contains markers/points which have pre-defined x/y positions
-      // all other charts like bars / heatmaps will define their own drawDataLabel routine
+      // all other charts like bars / heatmaps will define their own _objectsService.MfgPlantsData.drawDataLabel routine
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var dataLabelsConfig = w.config.dataLabels;
@@ -5458,7 +5458,7 @@ function () {
       elDataLabelsWrap = graphics.group({
         class: 'apexcharts-data-labels'
       });
-      elDataLabelsWrap.attr('clip-path', "url(#gridRectMarkerMask".concat(w.globals.cuid, ")"));
+      elDataLabelsWrap.attr('clip-path', "url(#gri_objectsService.MfgPlantsData.drectMarkerMask".concat(w.globals.cuid, ")"));
 
       for (var q = 0; q < pos.x.length; q++) {
         x = pos.x[q] + dataLabelsConfig.offsetX;
@@ -5515,7 +5515,7 @@ function () {
           textAnchor = opts.textAnchor,
           parent = opts.parent,
           dataLabelsConfig = opts.dataLabelsConfig,
-          alwaysDrawDataLabel = opts.alwaysDrawDataLabel,
+          always_objectsService.MfgPlantsData.drawDataLabel = opts.always_objectsService.MfgPlantsData.drawDataLabel,
           offsetCorrection = opts.offsetCorrection;
 
       if (Array.isArray(w.config.dataLabels.enabledOnSeries)) {
@@ -5527,11 +5527,11 @@ function () {
       var correctedLabels = {
         x: x,
         y: y,
-        drawnextLabel: true
+        _objectsService.MfgPlantsData.drawnextLabel: true
       };
 
       if (offsetCorrection) {
-        correctedLabels = this.dataLabelsCorrection(x, y, text, i, j, alwaysDrawDataLabel, parseInt(dataLabelsConfig.style.fontSize));
+        correctedLabels = this.dataLabelsCorrection(x, y, text, i, j, always_objectsService.MfgPlantsData.drawDataLabel, parseInt(dataLabelsConfig.style.fontSize));
       } // when zoomed, we don't need to correct labels offsets,
       // but if normally, labels get cropped, correct them
 
@@ -5541,8 +5541,8 @@ function () {
         y = correctedLabels.y;
       }
 
-      if (correctedLabels.drawnextLabel) {
-        var dataLabelText = graphics.drawText({
+      if (correctedLabels._objectsService.MfgPlantsData.drawnextLabel) {
+        var dataLabelText = graphics._objectsService.MfgPlantsData.drawText({
           width: 100,
           height: parseInt(dataLabelsConfig.style.fontSize),
           x: x,
@@ -5559,19 +5559,19 @@ function () {
           cy: y
         });
 
-        if (dataLabelsConfig.dropShadow.enabled) {
-          var textShadow = dataLabelsConfig.dropShadow;
+        if (dataLabelsConfig._objectsService.MfgPlantsData.dropShadow.enabled) {
+          var textShadow = dataLabelsConfig._objectsService.MfgPlantsData.dropShadow;
           var filters = new Filters(this.ctx);
-          filters.dropShadow(dataLabelText, textShadow);
+          filters._objectsService.MfgPlantsData.dropShadow(dataLabelText, textShadow);
         }
 
         parent.add(dataLabelText);
 
-        if (typeof w.globals.lastDrawnDataLabelsIndexes[i] === 'undefined') {
-          w.globals.lastDrawnDataLabelsIndexes[i] = [];
+        if (typeof w.globals.last_objectsService.MfgPlantsData.drawnDataLabelsIndexes[i] === 'undefined') {
+          w.globals.last_objectsService.MfgPlantsData.drawnDataLabelsIndexes[i] = [];
         }
 
-        w.globals.lastDrawnDataLabelsIndexes[i].push(j);
+        w.globals.last_objectsService.MfgPlantsData.drawnDataLabelsIndexes[i].push(j);
       }
     }
   }]);
@@ -5580,7 +5580,7 @@ function () {
 }();
 
 /**
- * ApexCharts Bar Class responsible for drawing both Columns and Bars.
+ * ApexCharts Bar Class responsible for _objectsService.MfgPlantsData.drawing both Columns and Bars.
  *
  * @module Bar
  **/
@@ -5615,17 +5615,17 @@ function () {
     this.yaxisIndex = 0;
     this.seriesLen = 0;
   }
-  /** primary draw method which is called on bar object
+  /** primary _objectsService.MfgPlantsData.draw method which is called on bar object
    * @memberof Bar
    * @param {array} series - user supplied series values
-   * @param {int} seriesIndex - the index by which series will be drawn on the svg
-   * @return {node} element which is supplied to parent chart draw method for appending
+   * @param {int} seriesIndex - the index by which series will be _objectsService.MfgPlantsData.drawn on the svg
+   * @return {node} element which is supplied to parent chart _objectsService.MfgPlantsData.draw method for appending
    **/
 
 
   _createClass(Bar, [{
-    key: "draw",
-    value: function draw(series, seriesIndex) {
+    key: "_objectsService.MfgPlantsData.draw",
+    value: function _objectsService.MfgPlantsData.draw(series, seriesIndex) {
       var _this = this;
 
       var w = this.w;
@@ -5639,7 +5639,7 @@ function () {
       var ret = graphics.group({
         class: 'apexcharts-bar-series apexcharts-plot-series'
       });
-      ret.attr('clip-path', "url(#gridRectMask".concat(w.globals.cuid, ")"));
+      ret.attr('clip-path', "url(#gri_objectsService.MfgPlantsData.drectMask".concat(w.globals.cuid, ")"));
 
       if (w.config.dataLabels.enabled) {
         if (this.totalItems > DATA_LABELS_WARNING_THRESHOLD) {
@@ -5664,7 +5664,7 @@ function () {
 
         var xArrj = []; // hold x values of current iterating series
 
-        var realIndex = w.globals.comboCharts ? seriesIndex[i] : i; // el to which series will be drawn
+        var realIndex = w.globals.comboCharts ? seriesIndex[i] : i; // el to which series will be _objectsService.MfgPlantsData.drawn
 
         var elSeries = graphics.group({
           class: "apexcharts-series ".concat(Utils.escapeString(w.globals.seriesNames[realIndex])),
@@ -5726,7 +5726,7 @@ function () {
           var paths = null;
 
           if (_this.isHorizontal) {
-            paths = _this.drawBarPaths({
+            paths = _this._objectsService.MfgPlantsData.drawBarPaths({
               indexes: {
                 i: i,
                 j: j,
@@ -5744,7 +5744,7 @@ function () {
               elSeries: elSeries
             });
           } else {
-            paths = _this.drawColumnPaths({
+            paths = _this._objectsService.MfgPlantsData.drawColumnPaths({
               indexes: {
                 i: i,
                 j: j,
@@ -6002,8 +6002,8 @@ function () {
       };
     }
   }, {
-    key: "drawBarPaths",
-    value: function drawBarPaths(_ref2) {
+    key: "_objectsService.MfgPlantsData.drawBarPaths",
+    value: function _objectsService.MfgPlantsData.drawBarPaths(_ref2) {
       var indexes = _ref2.indexes,
           barHeight = _ref2.barHeight,
           strokeWidth = _ref2.strokeWidth,
@@ -6052,7 +6052,7 @@ function () {
         }
 
         var bcolor = this.barOptions.colors.backgroundBarColors[bc];
-        var rect = graphics.drawRect(0, barYPosition - barHeight * this.visibleI, w.globals.gridWidth, barHeight * this.seriesLen, 0, bcolor, this.barOptions.colors.backgroundBarOpacity);
+        var rect = graphics._objectsService.MfgPlantsData.drawRect(0, barYPosition - barHeight * this.visibleI, w.globals.gridWidth, barHeight * this.seriesLen, 0, bcolor, this.barOptions.colors.backgroundBarOpacity);
         elSeries.add(rect);
         rect.node.classList.add('apexcharts-backgroundBar');
       }
@@ -6066,8 +6066,8 @@ function () {
       };
     }
   }, {
-    key: "drawColumnPaths",
-    value: function drawColumnPaths(_ref3) {
+    key: "_objectsService.MfgPlantsData.drawColumnPaths",
+    value: function _objectsService.MfgPlantsData.drawColumnPaths(_ref3) {
       var indexes = _ref3.indexes,
           x = _ref3.x,
           y = _ref3.y,
@@ -6116,7 +6116,7 @@ function () {
         }
 
         var bcolor = this.barOptions.colors.backgroundBarColors[bc];
-        var rect = graphics.drawRect(barXPosition - barWidth * this.visibleI, 0, barWidth * this.seriesLen, w.globals.gridHeight, 0, bcolor, this.barOptions.colors.backgroundBarOpacity);
+        var rect = graphics._objectsService.MfgPlantsData.drawRect(barXPosition - barWidth * this.visibleI, 0, barWidth * this.seriesLen, w.globals.gridHeight, 0, bcolor, this.barOptions.colors.backgroundBarOpacity);
         elSeries.add(rect);
         rect.node.classList.add('apexcharts-backgroundBar');
       }
@@ -6155,10 +6155,10 @@ function () {
       return pathFrom;
     }
     /** calculateBarDataLabels is used to calculate the positions for the data-labels
-     * It also sets the element's data attr for bars and calls drawCalculatedBarDataLabels()
+     * It also sets the element's data attr for bars and calls _objectsService.MfgPlantsData.drawCalculatedBarDataLabels()
      * @memberof Bar
      * @param {object} {barProps} most of the bar properties used throughout the bar
-     * drawing function
+     * _objectsService.MfgPlantsData.drawing function
      * @return {object} dataLabels node-element which you can append later
      **/
 
@@ -6249,7 +6249,7 @@ function () {
         barHeight: barHeight,
         barWidth: barWidth
       });
-      dataLabels = this.drawCalculatedDataLabels({
+      dataLabels = this._objectsService.MfgPlantsData.drawCalculatedDataLabels({
         x: dataLabelsPos.dataLabelsX,
         y: dataLabelsPos.dataLabelsY,
         val: series[i][j],
@@ -6395,8 +6395,8 @@ function () {
       };
     }
   }, {
-    key: "drawCalculatedDataLabels",
-    value: function drawCalculatedDataLabels(_ref5) {
+    key: "_objectsService.MfgPlantsData.drawCalculatedDataLabels",
+    value: function _objectsService.MfgPlantsData.drawCalculatedDataLabels(_ref5) {
       var x = _ref5.x,
           y = _ref5.y,
           val = _ref5.val,
@@ -6432,7 +6432,7 @@ function () {
           j: j,
           parent: elDataLabelsWrap,
           dataLabelsConfig: dataLabelsConfig,
-          alwaysDrawDataLabel: true,
+          always_objectsService.MfgPlantsData.drawDataLabel: true,
           offsetCorrection: true
         });
       }
@@ -6445,7 +6445,7 @@ function () {
 }();
 
 /**
- * ApexCharts BarStacked Class responsible for drawing both Stacked Columns and Bars.
+ * ApexCharts BarStacked Class responsible for _objectsService.MfgPlantsData.drawing both Stacked Columns and Bars.
  *
  * @module BarStacked
  * The whole calculation for stacked bar/column is different from normal bar/column,
@@ -6464,8 +6464,8 @@ function (_Bar) {
   }
 
   _createClass(BarStacked, [{
-    key: "draw",
-    value: function draw(series, seriesIndex) {
+    key: "_objectsService.MfgPlantsData.draw",
+    value: function _objectsService.MfgPlantsData.draw(series, seriesIndex) {
       var _this = this;
 
       var w = this.w;
@@ -6518,7 +6518,7 @@ function (_Bar) {
       var ret = this.graphics.group({
         class: 'apexcharts-bar-series apexcharts-plot-series'
       });
-      ret.attr('clip-path', "url(#gridRectMask".concat(w.globals.cuid, ")"));
+      ret.attr('clip-path', "url(#gri_objectsService.MfgPlantsData.drectMask".concat(w.globals.cuid, ")"));
       var x = 0;
       var y = 0;
 
@@ -6541,7 +6541,7 @@ function (_Bar) {
           _this.yaxisIndex = realIndex;
         }
 
-        _this.isReversed = w.config.yaxis[_this.yaxisIndex] && w.config.yaxis[_this.yaxisIndex].reversed; // el to which series will be drawn
+        _this.isReversed = w.config.yaxis[_this.yaxisIndex] && w.config.yaxis[_this.yaxisIndex].reversed; // el to which series will be _objectsService.MfgPlantsData.drawn
 
         var elSeries = _this.graphics.group({
           class: "apexcharts-series ".concat(Utils.escapeString(w.globals.seriesNames[realIndex])),
@@ -6589,7 +6589,7 @@ function (_Bar) {
           var paths = null;
 
           if (_this.isHorizontal) {
-            paths = _this.drawBarPaths({
+            paths = _this._objectsService.MfgPlantsData.drawBarPaths({
               indexes: {
                 i: i,
                 j: j,
@@ -6607,7 +6607,7 @@ function (_Bar) {
               elSeries: elSeries
             });
           } else {
-            paths = _this.drawColumnPaths({
+            paths = _this._objectsService.MfgPlantsData.drawColumnPaths({
               indexes: {
                 i: i,
                 j: j,
@@ -6742,8 +6742,8 @@ function (_Bar) {
       };
     }
   }, {
-    key: "drawBarPaths",
-    value: function drawBarPaths(_ref) {
+    key: "_objectsService.MfgPlantsData.drawBarPaths",
+    value: function _objectsService.MfgPlantsData.drawBarPaths(_ref) {
       var indexes = _ref.indexes,
           barHeight = _ref.barHeight,
           strokeWidth = _ref.strokeWidth,
@@ -6815,7 +6815,7 @@ function (_Bar) {
         }
 
         var bcolor = w.config.plotOptions.bar.colors.backgroundBarColors[bc];
-        var rect = this.graphics.drawRect(0, barYPosition, w.globals.gridWidth, barHeight, 0, bcolor, w.config.plotOptions.bar.colors.backgroundBarOpacity);
+        var rect = this.graphics._objectsService.MfgPlantsData.drawRect(0, barYPosition, w.globals.gridWidth, barHeight, 0, bcolor, w.config.plotOptions.bar.colors.backgroundBarOpacity);
         elSeries.add(rect);
         rect.node.classList.add('apexcharts-backgroundBar');
       }
@@ -6829,8 +6829,8 @@ function (_Bar) {
       };
     }
   }, {
-    key: "drawColumnPaths",
-    value: function drawColumnPaths(_ref2) {
+    key: "_objectsService.MfgPlantsData.drawColumnPaths",
+    value: function _objectsService.MfgPlantsData.drawColumnPaths(_ref2) {
       var indexes = _ref2.indexes,
           x = _ref2.x,
           y = _ref2.y,
@@ -6905,7 +6905,7 @@ function (_Bar) {
         }
 
         var bcolor = w.config.plotOptions.bar.colors.backgroundBarColors[bc];
-        var rect = this.graphics.drawRect(barXPosition, 0, barWidth, w.globals.gridHeight, 0, bcolor, w.config.plotOptions.bar.colors.backgroundBarOpacity);
+        var rect = this.graphics._objectsService.MfgPlantsData.drawRect(barXPosition, 0, barWidth, w.globals.gridHeight, 0, bcolor, w.config.plotOptions.bar.colors.backgroundBarOpacity);
         elSeries.add(rect);
         rect.node.classList.add('apexcharts-backgroundBar');
       }
@@ -6924,7 +6924,7 @@ function (_Bar) {
 }(Bar);
 
 /**
- * ApexCharts CandleStick Class responsible for drawing both Stacked Columns and Bars.
+ * ApexCharts CandleStick Class responsible for _objectsService.MfgPlantsData.drawing both Stacked Columns and Bars.
  *
  * @module CandleStick
  * The whole calculation for stacked bar/column is different from normal bar/column,
@@ -6943,8 +6943,8 @@ function (_Bar) {
   }
 
   _createClass(CandleStick, [{
-    key: "draw",
-    value: function draw(series, seriesIndex) {
+    key: "_objectsService.MfgPlantsData.draw",
+    value: function _objectsService.MfgPlantsData.draw(series, seriesIndex) {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var fill = new Fill(this.ctx);
@@ -6957,7 +6957,7 @@ function (_Bar) {
       var ret = graphics.group({
         class: 'apexcharts-candlestick-series apexcharts-plot-series'
       });
-      ret.attr('clip-path', "url(#gridRectMask".concat(w.globals.cuid, ")"));
+      ret.attr('clip-path', "url(#gri_objectsService.MfgPlantsData.drectMask".concat(w.globals.cuid, ")"));
 
       for (var i = 0, bc = 0; i < series.length; i++, bc++) {
         var pathTo = void 0,
@@ -6972,7 +6972,7 @@ function (_Bar) {
 
         var xArrj = []; // hold x values of current iterating series
 
-        var realIndex = w.globals.comboCharts ? seriesIndex[i] : i; // el to which series will be drawn
+        var realIndex = w.globals.comboCharts ? seriesIndex[i] : i; // el to which series will be _objectsService.MfgPlantsData.drawn
 
         var elSeries = graphics.group({
           class: "apexcharts-series ".concat(Utils.escapeString(w.globals.seriesNames[realIndex])),
@@ -7021,7 +7021,7 @@ function (_Bar) {
           }
 
           var color = void 0;
-          var paths = this.drawCandleStickPaths({
+          var paths = this._objectsService.MfgPlantsData.drawCandleStickPaths({
             indexes: {
               i: i,
               j: j,
@@ -7084,8 +7084,8 @@ function (_Bar) {
       return ret;
     }
   }, {
-    key: "drawCandleStickPaths",
-    value: function drawCandleStickPaths(_ref) {
+    key: "_objectsService.MfgPlantsData.drawCandleStickPaths",
+    value: function _objectsService.MfgPlantsData.drawCandleStickPaths(_ref) {
       var indexes = _ref.indexes,
           x = _ref.x,
           y = _ref.y,
@@ -7178,13 +7178,13 @@ function () {
   }
 
   _createClass(Crosshairs, [{
-    key: "drawXCrosshairs",
-    value: function drawXCrosshairs() {
+    key: "_objectsService.MfgPlantsData.drawXCrosshairs",
+    value: function _objectsService.MfgPlantsData.drawXCrosshairs() {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var filters = new Filters(this.ctx);
       var crosshairGradient = w.config.xaxis.crosshairs.fill.gradient;
-      var crosshairShadow = w.config.xaxis.crosshairs.dropShadow;
+      var crosshairShadow = w.config.xaxis.crosshairs._objectsService.MfgPlantsData.dropShadow;
       var fillType = w.config.xaxis.crosshairs.fill.type;
       var gradientFrom = crosshairGradient.colorFrom;
       var gradientTo = crosshairGradient.colorTo;
@@ -7192,7 +7192,7 @@ function () {
       var opacityTo = crosshairGradient.opacityTo;
       var stops = crosshairGradient.stops;
       var shadow = 'none';
-      var dropShadow = crosshairShadow.enabled;
+      var _objectsService.MfgPlantsData.dropShadow = crosshairShadow.enabled;
       var shadowLeft = crosshairShadow.left;
       var shadowTop = crosshairShadow.top;
       var shadowBlur = crosshairShadow.blur;
@@ -7202,14 +7202,14 @@ function () {
 
       if (w.config.xaxis.crosshairs.show) {
         if (fillType === 'gradient') {
-          xcrosshairsFill = graphics.drawGradient('vertical', gradientFrom, gradientTo, opacityFrom, opacityTo, null, stops, null);
+          xcrosshairsFill = graphics._objectsService.MfgPlantsData.drawGradient('vertical', gradientFrom, gradientTo, opacityFrom, opacityTo, null, stops, null);
         }
 
-        var xcrosshairs = graphics.drawRect();
+        var xcrosshairs = graphics._objectsService.MfgPlantsData.drawRect();
 
         if (w.config.xaxis.crosshairs.width === 1) {
-          // to prevent drawing 2 lines, convert rect to line
-          xcrosshairs = graphics.drawLine();
+          // to prevent _objectsService.MfgPlantsData.drawing 2 lines, convert rect to line
+          xcrosshairs = graphics._objectsService.MfgPlantsData.drawLine();
         }
 
         xcrosshairs.attr({
@@ -7227,8 +7227,8 @@ function () {
           'stroke-dasharray': w.config.xaxis.crosshairs.stroke.dashArray
         });
 
-        if (dropShadow) {
-          xcrosshairs = filters.dropShadow(xcrosshairs, {
+        if (_objectsService.MfgPlantsData.dropShadow) {
+          xcrosshairs = filters._objectsService.MfgPlantsData.dropShadow(xcrosshairs, {
             left: shadowLeft,
             top: shadowTop,
             blur: shadowBlur,
@@ -7241,22 +7241,22 @@ function () {
       }
     }
   }, {
-    key: "drawYCrosshairs",
-    value: function drawYCrosshairs() {
+    key: "_objectsService.MfgPlantsData.drawYCrosshairs",
+    value: function _objectsService.MfgPlantsData.drawYCrosshairs() {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var crosshair = w.config.yaxis[0].crosshairs;
 
       if (w.config.yaxis[0].crosshairs.show) {
-        var ycrosshairs = graphics.drawLine(0, 0, w.globals.gridWidth, 0, crosshair.stroke.color, crosshair.stroke.dashArray, crosshair.stroke.width);
+        var ycrosshairs = graphics._objectsService.MfgPlantsData.drawLine(0, 0, w.globals.gridWidth, 0, crosshair.stroke.color, crosshair.stroke.dashArray, crosshair.stroke.width);
         ycrosshairs.attr({
           class: 'apexcharts-ycrosshairs'
         });
         w.globals.dom.elGraphical.add(ycrosshairs);
-      } // draw an invisible crosshair to help in positioning the yaxis tooltip
+      } // _objectsService.MfgPlantsData.draw an invisible crosshair to help in positioning the yaxis tooltip
 
 
-      var ycrosshairsHidden = graphics.drawLine(0, 0, w.globals.gridWidth, 0, crosshair.stroke.color, 0, 0);
+      var ycrosshairsHidden = graphics._objectsService.MfgPlantsData.drawLine(0, 0, w.globals.gridWidth, 0, crosshair.stroke.color, 0, 0);
       ycrosshairsHidden.attr({
         class: 'apexcharts-ycrosshairs-hidden'
       });
@@ -7526,14 +7526,14 @@ function () {
   }
 
   _createClass(HeatMap, [{
-    key: "draw",
-    value: function draw(series) {
+    key: "_objectsService.MfgPlantsData.draw",
+    value: function _objectsService.MfgPlantsData.draw(series) {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var ret = graphics.group({
         class: 'apexcharts-heatmap'
       });
-      ret.attr('clip-path', "url(#gridRectMask".concat(w.globals.cuid, ")")); // width divided into equal parts
+      ret.attr('clip-path', "url(#gri_objectsService.MfgPlantsData.drectMask".concat(w.globals.cuid, ")")); // width divided into equal parts
 
       var xDivision = w.globals.gridWidth / w.globals.dataPoints;
       var yDivision = w.globals.gridHeight / w.globals.series.length;
@@ -7547,17 +7547,17 @@ function () {
       }
 
       for (var i = rev ? 0 : heatSeries.length - 1; rev ? i < heatSeries.length : i >= 0; rev ? i++ : i--) {
-        // el to which series will be drawn
+        // el to which series will be _objectsService.MfgPlantsData.drawn
         var elSeries = graphics.group({
           class: "apexcharts-series apexcharts-heatmap-series ".concat(Utils.escapeString(w.globals.seriesNames[i])),
           rel: i + 1,
           'data:realIndex': i
         });
 
-        if (w.config.chart.dropShadow.enabled) {
-          var shadow = w.config.chart.dropShadow;
+        if (w.config.chart._objectsService.MfgPlantsData.dropShadow.enabled) {
+          var shadow = w.config.chart._objectsService.MfgPlantsData.dropShadow;
           var filters = new Filters(this.ctx);
-          filters.dropShadow(elSeries, shadow);
+          filters._objectsService.MfgPlantsData.dropShadow(elSeries, shadow);
         }
 
         var x1 = 0;
@@ -7586,7 +7586,7 @@ function () {
           }
 
           var radius = this.rectRadius;
-          var rect = graphics.drawRect(x1, y1, xDivision, yDivision, radius);
+          var rect = graphics._objectsService.MfgPlantsData.drawRect(x1, y1, xDivision, yDivision, radius);
           rect.attr({
             cx: x1,
             cy: y1
@@ -7784,7 +7784,7 @@ function () {
 }();
 
 /**
- * ApexCharts Pie Class for drawing Pie / Donut Charts.
+ * ApexCharts Pie Class for _objectsService.MfgPlantsData.drawing Pie / Donut Charts.
  * @module Pie
  **/
 
@@ -7815,8 +7815,8 @@ function () {
   }
 
   _createClass(Pie, [{
-    key: "draw",
-    value: function draw(series) {
+    key: "_objectsService.MfgPlantsData.draw",
+    value: function _objectsService.MfgPlantsData.draw(series) {
       var self = this;
       var w = this.w;
       var graphics = new Graphics(this.ctx);
@@ -7830,7 +7830,7 @@ function () {
         total += Utils.negToZero(series[k]);
       }
 
-      var sectorAngleArr = []; // el to which series will be drawn
+      var sectorAngleArr = []; // el to which series will be _objectsService.MfgPlantsData.drawn
 
       var elSeries = graphics.group(); // prevent division by zero error if there is no data
 
@@ -7861,7 +7861,7 @@ function () {
         }
       }
 
-      this.size = this.defaultSize / 2.05 - w.config.stroke.width - w.config.chart.dropShadow.blur;
+      this.size = this.defaultSize / 2.05 - w.config.stroke.width - w.config.chart._objectsService.MfgPlantsData.dropShadow.blur;
 
       if (w.config.plotOptions.pie.size !== undefined) {
         this.size = w.config.plotOptions.pie.size;
@@ -7887,8 +7887,8 @@ function () {
       }
 
       if (w.config.chart.type === 'donut') {
-        // draw the inner circle and add some text to it
-        var circle = graphics.drawCircle(this.donutSize);
+        // _objectsService.MfgPlantsData.draw the inner circle and add some text to it
+        var circle = graphics._objectsService.MfgPlantsData.drawCircle(this.donutSize);
         circle.attr({
           cx: this.centerX,
           cy: this.centerY,
@@ -7897,7 +7897,7 @@ function () {
         elSeries.add(circle);
       }
 
-      var elG = self.drawArcs(sectorAngleArr, series); // add slice dataLabels at the end
+      var elG = self._objectsService.MfgPlantsData.drawArcs(sectorAngleArr, series); // add slice dataLabels at the end
 
       this.sliceLabels.forEach(function (s) {
         elG.add(s);
@@ -7912,11 +7912,11 @@ function () {
       elSeries.add(elG);
       ret.add(elSeries);
       return ret;
-    } // core function for drawing pie arcs
+    } // core function for _objectsService.MfgPlantsData.drawing pie arcs
 
   }, {
-    key: "drawArcs",
-    value: function drawArcs(sectorAngleArr, series) {
+    key: "_objectsService.MfgPlantsData.drawArcs",
+    value: function _objectsService.MfgPlantsData.drawArcs(sectorAngleArr, series) {
       var w = this.w;
       var filters = new Filters(this.ctx);
       var graphics = new Graphics(this.ctx);
@@ -7944,10 +7944,10 @@ function () {
         var pathFill = fill.fillPath({
           seriesNumber: i,
           size: this.size
-        }); // additionaly, pass size for gradient drawing in the fillPath function
+        }); // additionaly, pass size for gradient _objectsService.MfgPlantsData.drawing in the fillPath function
 
         var path = this.getChangedPath(prevStartAngle, prevEndAngle);
-        var elPath = graphics.drawPath({
+        var elPath = graphics._objectsService.MfgPlantsData.drawPath({
           d: path,
           stroke: this.lineColorArr instanceof Array ? this.lineColorArr[i] : this.lineColorArr,
           strokeWidth: this.strokeWidth,
@@ -7961,9 +7961,9 @@ function () {
           j: i
         });
 
-        if (w.config.chart.dropShadow.enabled) {
-          var shadow = w.config.chart.dropShadow;
-          filters.dropShadow(elPath, shadow);
+        if (w.config.chart._objectsService.MfgPlantsData.dropShadow.enabled) {
+          var shadow = w.config.chart._objectsService.MfgPlantsData.dropShadow;
+          filters._objectsService.MfgPlantsData.dropShadow(elPath, shadow);
         }
 
         this.addListeners(elPath, this.donutDataLabels);
@@ -8039,7 +8039,7 @@ function () {
             }
 
             var foreColor = w.globals.dataLabels.style.colors[i];
-            var elPieLabel = graphics.drawText({
+            var elPieLabel = graphics._objectsService.MfgPlantsData.drawText({
               x: xPos,
               y: yPos,
               text: text,
@@ -8049,12 +8049,12 @@ function () {
               foreColor: foreColor
             });
 
-            if (w.config.dataLabels.dropShadow.enabled) {
-              var textShadow = w.config.dataLabels.dropShadow;
+            if (w.config.dataLabels._objectsService.MfgPlantsData.dropShadow.enabled) {
+              var textShadow = w.config.dataLabels._objectsService.MfgPlantsData.dropShadow;
 
               var _filters = new Filters(this.ctx);
 
-              _filters.dropShadow(elPieLabel, textShadow);
+              _filters._objectsService.MfgPlantsData.dropShadow(elPieLabel, textShadow);
             }
 
             elPieLabel.node.classList.add('apexcharts-pie-label');
@@ -8264,11 +8264,11 @@ function () {
       var startRadians = Math.PI * (startDeg - 90) / 180;
       var endDeg = angle + startAngle;
       if (Math.ceil(endDeg) >= 360) endDeg = 359.99;
-      var endRadians = Math.PI * (endDeg - 90) / 180;
+      var en_objectsService.MfgPlantsData.dradians = Math.PI * (endDeg - 90) / 180;
       var x1 = me.centerX + size * Math.cos(startRadians);
       var y1 = me.centerY + size * Math.sin(startRadians);
-      var x2 = me.centerX + size * Math.cos(endRadians);
-      var y2 = me.centerY + size * Math.sin(endRadians);
+      var x2 = me.centerX + size * Math.cos(en_objectsService.MfgPlantsData.dradians);
+      var y2 = me.centerY + size * Math.sin(en_objectsService.MfgPlantsData.dradians);
       var startInner = Utils.polarToCartesian(me.centerX, me.centerY, me.donutSize, endDeg);
       var endInner = Utils.polarToCartesian(me.centerX, me.centerY, me.donutSize, startDeg);
       var largeArc = angle > 180 ? 1 : 0;
@@ -8326,7 +8326,7 @@ function () {
       }
 
       if (dataLabelsConfig.name.show) {
-        var elLabel = graphics.drawText({
+        var elLabel = graphics._objectsService.MfgPlantsData.drawText({
           x: x,
           y: y + parseInt(dataLabelsConfig.name.offsetY),
           text: name,
@@ -8341,7 +8341,7 @@ function () {
 
       if (dataLabelsConfig.value.show) {
         var valOffset = dataLabelsConfig.name.show ? parseInt(dataLabelsConfig.value.offsetY) + 16 : dataLabelsConfig.value.offsetY;
-        var elValue = graphics.drawText({
+        var elValue = graphics._objectsService.MfgPlantsData.drawText({
           x: x,
           y: y + valOffset,
           text: val,
@@ -8480,7 +8480,7 @@ function () {
       return b.length - a.length;
     })[0];
     var labelWidth = this.graphics.getTextRects(longestLabel, w.config.dataLabels.style.fontSize);
-    this.size = this.defaultSize / 2.1 - w.config.stroke.width - w.config.chart.dropShadow.blur - labelWidth.width / 1.75;
+    this.size = this.defaultSize / 2.1 - w.config.stroke.width - w.config.chart._objectsService.MfgPlantsData.dropShadow.blur - labelWidth.width / 1.75;
 
     if (w.config.plotOptions.radar.size !== undefined) {
       this.size = w.config.plotOptions.radar.size;
@@ -8493,8 +8493,8 @@ function () {
   }
 
   _createClass(Radar, [{
-    key: "draw",
-    value: function draw(series) {
+    key: "_objectsService.MfgPlantsData.draw",
+    value: function _objectsService.MfgPlantsData.draw(series) {
       var _this = this;
 
       var w = this.w;
@@ -8518,7 +8518,7 @@ function () {
         class: 'apexcharts-yaxis'
       });
       series.forEach(function (s, i) {
-        // el to which series will be drawn
+        // el to which series will be _objectsService.MfgPlantsData.drawn
         var elSeries = _this.graphics.group().attr({
           class: "apexcharts-series ".concat(Utils.escapeString(w.globals.seriesNames[i])),
           rel: i + 1,
@@ -8587,10 +8587,10 @@ function () {
             fill: pathFill
           }));
 
-          if (w.config.chart.dropShadow.enabled) {
+          if (w.config.chart._objectsService.MfgPlantsData.dropShadow.enabled) {
             var filters = new Filters(_this.ctx);
-            var shadow = w.config.chart.dropShadow;
-            filters.dropShadow(renderedAreaPath, _objectSpread({}, shadow, {
+            var shadow = w.config.chart._objectsService.MfgPlantsData.dropShadow;
+            filters._objectsService.MfgPlantsData.dropShadow(renderedAreaPath, _objectSpread({}, shadow, {
               noUserSpaceOnUse: true
             }));
           }
@@ -8602,7 +8602,7 @@ function () {
           var markers = new Markers(_this.ctx);
           var opts = markers.getMarkerConfig('apexcharts-marker', i);
 
-          var point = _this.graphics.drawMarker(dataPointsPos[j].x, dataPointsPos[j].y, opts);
+          var point = _this.graphics._objectsService.MfgPlantsData.drawMarker(dataPointsPos[j].x, dataPointsPos[j].y, opts);
 
           point.attr('rel', j);
           point.attr('j', j);
@@ -8622,12 +8622,12 @@ function () {
         });
         allSeries.push(elSeries);
       });
-      this.drawPolygons({
+      this._objectsService.MfgPlantsData.drawPolygons({
         parent: ret
       });
 
       if (w.config.dataLabels.enabled) {
-        var dataLabels = this.drawLabels();
+        var dataLabels = this._objectsService.MfgPlantsData.drawLabels();
         ret.add(dataLabels);
       }
 
@@ -8638,8 +8638,8 @@ function () {
       return ret;
     }
   }, {
-    key: "drawPolygons",
-    value: function drawPolygons(opts) {
+    key: "_objectsService.MfgPlantsData.drawPolygons",
+    value: function _objectsService.MfgPlantsData.drawPolygons(opts) {
       var _this2 = this;
 
       var w = this.w;
@@ -8662,7 +8662,7 @@ function () {
         var string = '';
         polygon.forEach(function (p, i) {
           if (r === 0) {
-            var line = _this2.graphics.drawLine(p.x, p.y, 0, 0, Array.isArray(_this2.polygons.connectorColors) ? _this2.polygons.connectorColors[i] : _this2.polygons.connectorColors);
+            var line = _this2.graphics._objectsService.MfgPlantsData.drawLine(p.x, p.y, 0, 0, Array.isArray(_this2.polygons.connectorColors) ? _this2.polygons.connectorColors[i] : _this2.polygons.connectorColors);
 
             lines.push(line);
           }
@@ -8681,7 +8681,7 @@ function () {
       polygonStrings.forEach(function (p, i) {
         var strokeColors = _this2.polygons.strokeColors;
 
-        var polygon = _this2.graphics.drawPolygon(p, Array.isArray(strokeColors) ? strokeColors[i] : strokeColors, w.globals.radarPolygons.fill.colors[i]);
+        var polygon = _this2.graphics._objectsService.MfgPlantsData.drawPolygon(p, Array.isArray(strokeColors) ? strokeColors[i] : strokeColors, w.globals.radarPolygons.fill.colors[i]);
 
         parent.add(polygon);
       });
@@ -8691,19 +8691,19 @@ function () {
 
       if (w.config.yaxis[0].show) {
         this.yaxisLabelsTextsPos.forEach(function (p, i) {
-          var yText = _this2.drawYAxisText(p.x, p.y, i, yaxisTexts[i]);
+          var yText = _this2._objectsService.MfgPlantsData.drawYAxisText(p.x, p.y, i, yaxisTexts[i]);
 
           _this2.yaxisLabels.add(yText);
         });
       }
     }
   }, {
-    key: "drawYAxisText",
-    value: function drawYAxisText(x, y, i, text) {
+    key: "_objectsService.MfgPlantsData.drawYAxisText",
+    value: function _objectsService.MfgPlantsData.drawYAxisText(x, y, i, text) {
       var w = this.w;
       var yaxisConfig = w.config.yaxis[0];
       var formatter = w.globals.yLabelFormatters[0];
-      var yaxisLabel = this.graphics.drawText({
+      var yaxisLabel = this.graphics._objectsService.MfgPlantsData.drawText({
         x: x + yaxisConfig.labels.offsetX,
         y: y + yaxisConfig.labels.offsetY,
         text: formatter(text, i),
@@ -8715,8 +8715,8 @@ function () {
       return yaxisLabel;
     }
   }, {
-    key: "drawLabels",
-    value: function drawLabels() {
+    key: "_objectsService.MfgPlantsData.drawLabels",
+    value: function _objectsService.MfgPlantsData.drawLabels() {
       var _this3 = this;
 
       var w = this.w;
@@ -8868,7 +8868,7 @@ function () {
 }();
 
 /**
- * ApexCharts Radial Class for drawing Circle / Semi Circle Charts.
+ * ApexCharts Radial Class for _objectsService.MfgPlantsData.drawing Circle / Semi Circle Charts.
  * @module Radial
  **/
 
@@ -8902,8 +8902,8 @@ function (_Pie) {
   }
 
   _createClass(Radial, [{
-    key: "draw",
-    value: function draw(series) {
+    key: "_objectsService.MfgPlantsData.draw",
+    value: function _objectsService.MfgPlantsData.draw(series) {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var ret = graphics.group({
@@ -8912,7 +8912,7 @@ function (_Pie) {
       var elSeries = graphics.group();
       var centerY = this.defaultSize / 2;
       var centerX = w.globals.gridWidth / 2;
-      var size = this.defaultSize / 2.05 - w.config.stroke.width - w.config.chart.dropShadow.blur;
+      var size = this.defaultSize / 2.05 - w.config.stroke.width - w.config.chart._objectsService.MfgPlantsData.dropShadow.blur;
 
       if (w.config.plotOptions.radialBar.size !== undefined) {
         size = w.config.plotOptions.radialBar.size;
@@ -8921,7 +8921,7 @@ function (_Pie) {
       var colorArr = w.globals.fill.colors;
 
       if (w.config.plotOptions.radialBar.track.show) {
-        var elTracks = this.drawTracks({
+        var elTracks = this._objectsService.MfgPlantsData.drawTracks({
           size: size,
           centerX: centerX,
           centerY: centerY,
@@ -8931,7 +8931,7 @@ function (_Pie) {
         elSeries.add(elTracks);
       }
 
-      var elG = this.drawArcs({
+      var elG = this._objectsService.MfgPlantsData.drawArcs({
         size: size,
         centerX: centerX,
         centerY: centerY,
@@ -8952,8 +8952,8 @@ function (_Pie) {
       return ret;
     }
   }, {
-    key: "drawTracks",
-    value: function drawTracks(opts) {
+    key: "_objectsService.MfgPlantsData.drawTracks",
+    value: function _objectsService.MfgPlantsData.drawTracks(opts) {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var g = graphics.group();
@@ -8982,7 +8982,7 @@ function (_Pie) {
         var startAngle = this.trackStartAngle;
         var endAngle = this.trackEndAngle;
         if (Math.abs(endAngle) + Math.abs(startAngle) >= 360) endAngle = 360 - Math.abs(this.startAngle) - 0.1;
-        var elPath = graphics.drawPath({
+        var elPath = graphics._objectsService.MfgPlantsData.drawPath({
           d: '',
           stroke: pathFill,
           strokeWidth: strokeWidth * parseInt(trackConfig.strokeWidth) / 100,
@@ -8991,9 +8991,9 @@ function (_Pie) {
           classes: 'apexcharts-radialbar-area'
         });
 
-        if (trackConfig.dropShadow.enabled) {
-          var shadow = trackConfig.dropShadow;
-          filters.dropShadow(elPath, shadow);
+        if (trackConfig._objectsService.MfgPlantsData.dropShadow.enabled) {
+          var shadow = trackConfig._objectsService.MfgPlantsData.dropShadow;
+          filters._objectsService.MfgPlantsData.dropShadow(elPath, shadow);
         }
 
         elRadialBarTrack.add(elPath);
@@ -9017,8 +9017,8 @@ function (_Pie) {
       return g;
     }
   }, {
-    key: "drawArcs",
-    value: function drawArcs(opts) {
+    key: "_objectsService.MfgPlantsData.drawArcs",
+    value: function _objectsService.MfgPlantsData.drawArcs(opts) {
       var w = this.w; // size, donutSize, centerX, centerY, colorArr, lineColorArr, sectorAngleArr, series
 
       var graphics = new Graphics(this.ctx);
@@ -9032,19 +9032,19 @@ function (_Pie) {
       var hollowRadius = hollowSize - w.config.plotOptions.radialBar.hollow.margin;
 
       if (w.config.plotOptions.radialBar.hollow.image !== undefined) {
-        hollowFillID = this.drawHollowImage(opts, g, hollowSize, hollowFillID);
+        hollowFillID = this._objectsService.MfgPlantsData.drawHollowImage(opts, g, hollowSize, hollowFillID);
       }
 
-      var elHollow = this.drawHollow({
+      var elHollow = this._objectsService.MfgPlantsData.drawHollow({
         size: hollowRadius,
         centerX: opts.centerX,
         centerY: opts.centerY,
         fill: hollowFillID
       });
 
-      if (w.config.plotOptions.radialBar.hollow.dropShadow.enabled) {
-        var shadow = w.config.plotOptions.radialBar.hollow.dropShadow;
-        filters.dropShadow(elHollow, shadow);
+      if (w.config.plotOptions.radialBar.hollow._objectsService.MfgPlantsData.dropShadow.enabled) {
+        var shadow = w.config.plotOptions.radialBar.hollow._objectsService.MfgPlantsData.dropShadow;
+        filters._objectsService.MfgPlantsData.dropShadow(elHollow, shadow);
       }
 
       var shown = 1;
@@ -9121,7 +9121,7 @@ function (_Pie) {
 
         var angle = endAngle - startAngle;
         var dashArray = Array.isArray(w.config.stroke.dashArray) ? w.config.stroke.dashArray[i] : w.config.stroke.dashArray;
-        var elPath = graphics.drawPath({
+        var elPath = graphics._objectsService.MfgPlantsData.drawPath({
           d: '',
           stroke: pathFill,
           strokeWidth: strokeWidth,
@@ -9135,9 +9135,9 @@ function (_Pie) {
           'data:value': opts.series[i]
         });
 
-        if (w.config.chart.dropShadow.enabled) {
-          var _shadow = w.config.chart.dropShadow;
-          filters.dropShadow(elPath, _shadow);
+        if (w.config.chart._objectsService.MfgPlantsData.dropShadow.enabled) {
+          var _shadow = w.config.chart._objectsService.MfgPlantsData.dropShadow;
+          filters._objectsService.MfgPlantsData.dropShadow(elPath, _shadow);
         }
 
         this.addListeners(elPath, this.radialDataLabels);
@@ -9188,10 +9188,10 @@ function (_Pie) {
       };
     }
   }, {
-    key: "drawHollow",
-    value: function drawHollow(opts) {
+    key: "_objectsService.MfgPlantsData.drawHollow",
+    value: function _objectsService.MfgPlantsData.drawHollow(opts) {
       var graphics = new Graphics(this.ctx);
-      var circle = graphics.drawCircle(opts.size * 2);
+      var circle = graphics._objectsService.MfgPlantsData.drawCircle(opts.size * 2);
       circle.attr({
         class: 'apexcharts-radialbar-hollow',
         cx: opts.centerX,
@@ -9202,8 +9202,8 @@ function (_Pie) {
       return circle;
     }
   }, {
-    key: "drawHollowImage",
-    value: function drawHollowImage(opts, g, hollowSize, hollowFillID) {
+    key: "_objectsService.MfgPlantsData.drawHollowImage",
+    value: function _objectsService.MfgPlantsData.drawHollowImage(opts, g, hollowSize, hollowFillID) {
       var w = this.w;
       var fill = new Fill(this.ctx);
       var randID = (Math.random() + 1).toString(36).substring(4);
@@ -9250,7 +9250,7 @@ function (_Pie) {
 }(Pie);
 
 /**
- * ApexCharts Line Class responsible for drawing Line / Area Charts.
+ * ApexCharts Line Class responsible for _objectsService.MfgPlantsData.drawing Line / Area Charts.
  * This class is also responsible for generating values for Bubble/Scatter charts, so need to rename it to Axis Charts to avoid confusions
  * @module Line
  **/
@@ -9271,8 +9271,8 @@ function () {
   }
 
   _createClass(Line, [{
-    key: "draw",
-    value: function draw(series, ptype, seriesIndex) {
+    key: "_objectsService.MfgPlantsData.draw",
+    value: function _objectsService.MfgPlantsData.draw(series, ptype, seriesIndex) {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var fill = new Fill(this.ctx);
@@ -9286,7 +9286,7 @@ function () {
       yRatio = coreUtils.getLogYRatios(yRatio);
       var zRatio = this.xyRatios.zRatio;
       var xRatio = this.xyRatios.xRatio;
-      var baseLineY = this.xyRatios.baseLineY; // push all series in an array, so we can draw in reverse order (for stacked charts)
+      var baseLineY = this.xyRatios.baseLineY; // push all series in an array, so we can _objectsService.MfgPlantsData.draw in reverse order (for stacked charts)
 
       var allSeries = [];
       var prevSeriesY = [];
@@ -9295,7 +9295,7 @@ function () {
       for (var i = 0; i < series.length; i++) {
         // width divided into equal parts
         if (type === 'line' && (w.config.fill.type === 'gradient' || w.config.fill.type[i] === 'gradient')) {
-          // a small adjustment to allow gradient line to draw correctly for all same values
+          // a small adjustment to allow gradient line to _objectsService.MfgPlantsData.draw correctly for all same values
 
           /* #fix https://github.com/apexcharts/apexcharts.js/issues/358 */
           if (coreUtils.seriesHaveSameValues(i)) {
@@ -9339,7 +9339,7 @@ function () {
             pathFromLine = void 0,
             pathFromArea = void 0;
         var linePaths = [];
-        var areaPaths = []; // el to which series will be drawn
+        var areaPaths = []; // el to which series will be _objectsService.MfgPlantsData.drawn
 
         var elSeries = graphics.group({
           class: "apexcharts-series ".concat(Utils.escapeString(w.globals.seriesNames[realIndex]))
@@ -9505,7 +9505,7 @@ function () {
             }
           } else {
             // scatter / bubble chart points creation
-            this.scatter.draw(elSeries, j, {
+            this.scatter._objectsService.MfgPlantsData.draw(elSeries, j, {
               realIndex: realIndex,
               pointsPos: pointsPos,
               zRatio: zRatio,
@@ -9514,10 +9514,10 @@ function () {
           }
 
           var dataLabels = new DataLabels(this.ctx);
-          var drawnLabels = dataLabels.drawDataLabel(pointsPos, realIndex, j + 1);
+          var _objectsService.MfgPlantsData.drawnLabels = dataLabels._objectsService.MfgPlantsData.drawDataLabel(pointsPos, realIndex, j + 1);
 
-          if (drawnLabels !== null) {
-            elDataLabelsWrap.add(drawnLabels);
+          if (_objectsService.MfgPlantsData.drawnLabels !== null) {
+            elDataLabelsWrap.add(_objectsService.MfgPlantsData.drawnLabels);
           }
         } // push all current y values array to main PrevY Array
 
@@ -9814,7 +9814,7 @@ function () {
 }();
 
 /**
- * ApexCharts YAxis Class for drawing Y-Axis.
+ * ApexCharts YAxis Class for _objectsService.MfgPlantsData.drawing Y-Axis.
  *
  * @module YAxis
  **/
@@ -9839,8 +9839,8 @@ function () {
   }
 
   _createClass(YAxis, [{
-    key: "drawYaxis",
-    value: function drawYaxis(realIndex) {
+    key: "_objectsService.MfgPlantsData.drawYaxis",
+    value: function _objectsService.MfgPlantsData.drawYaxis(realIndex) {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var yaxisFontSize = w.config.yaxis[realIndex].labels.style.fontSize;
@@ -9881,7 +9881,7 @@ function () {
             xPad = xPad * -1;
           }
 
-          var label = graphics.drawText({
+          var label = graphics._objectsService.MfgPlantsData.drawText({
             x: xPad,
             y: l + tickAmount / 10 + w.config.yaxis[realIndex].labels.offsetY + 1,
             text: val,
@@ -9912,7 +9912,7 @@ function () {
           x = w.globals.translateYAxisX[realIndex];
         }
 
-        var elYAxisTitleText = graphics.drawText({
+        var elYAxisTitleText = graphics._objectsService.MfgPlantsData.drawText({
           x: x,
           y: w.globals.gridHeight / 2 + w.globals.translateY,
           text: w.config.yaxis[realIndex].title.text,
@@ -9935,17 +9935,17 @@ function () {
           _x = -31 - axisBorder.offsetX;
         }
 
-        var elVerticalLine = graphics.drawLine(_x, w.globals.translateY + axisBorder.offsetY - 2, _x, w.globals.gridHeight + w.globals.translateY + axisBorder.offsetY + 2, axisBorder.color);
+        var elVerticalLine = graphics._objectsService.MfgPlantsData.drawLine(_x, w.globals.translateY + axisBorder.offsetY - 2, _x, w.globals.gridHeight + w.globals.translateY + axisBorder.offsetY + 2, axisBorder.color);
         elYaxis.add(elVerticalLine);
-        this.drawAxisTicks(_x, tickAmount, axisBorder, w.config.yaxis[realIndex].axisTicks, realIndex, labelsDivider, elYaxis);
+        this._objectsService.MfgPlantsData.drawAxisTicks(_x, tickAmount, axisBorder, w.config.yaxis[realIndex].axisTicks, realIndex, labelsDivider, elYaxis);
       }
 
       return elYaxis;
     } // This actually becomes horizonal axis (for bar charts)
 
   }, {
-    key: "drawYaxisInversed",
-    value: function drawYaxisInversed(realIndex) {
+    key: "_objectsService.MfgPlantsData.drawYaxisInversed",
+    value: function _objectsService.MfgPlantsData.drawYaxisInversed(realIndex) {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var elXaxis = graphics.group({
@@ -9972,7 +9972,7 @@ function () {
         for (var i = tickAmount; i >= 0; i--) {
           var val = labels[i];
           val = lbFormatter(val, i);
-          var elTick = graphics.drawText({
+          var elTick = graphics._objectsService.MfgPlantsData.drawText({
             x: w.globals.gridWidth + w.globals.padHorizontal - (l - labelsDivider + w.config.xaxis.labels.offsetX),
             y: this.xAxisoffX + w.config.xaxis.labels.offsetY + 30,
             text: '',
@@ -9995,7 +9995,7 @@ function () {
         var elYaxisTitle = graphics.group({
           class: 'apexcharts-xaxis-title apexcharts-yaxis-title-inversed'
         });
-        var elYAxisTitleText = graphics.drawText({
+        var elYAxisTitleText = graphics._objectsService.MfgPlantsData.drawText({
           x: w.globals.gridWidth / 2,
           y: this.xAxisoffX + parseInt(this.xaxisFontSize) + parseInt(w.config.xaxis.title.style.fontSize) + 20,
           text: w.config.xaxis.title.text,
@@ -10011,15 +10011,15 @@ function () {
       var axisBorder = w.config.yaxis[realIndex].axisBorder;
 
       if (axisBorder.show) {
-        var elVerticalLine = graphics.drawLine(w.globals.padHorizontal + axisBorder.offsetX, 1 + axisBorder.offsetY, w.globals.padHorizontal + axisBorder.offsetX, w.globals.gridHeight + axisBorder.offsetY, axisBorder.color);
+        var elVerticalLine = graphics._objectsService.MfgPlantsData.drawLine(w.globals.padHorizontal + axisBorder.offsetX, 1 + axisBorder.offsetY, w.globals.padHorizontal + axisBorder.offsetX, w.globals.gridHeight + axisBorder.offsetY, axisBorder.color);
         elXaxis.add(elVerticalLine);
       }
 
       return elXaxis;
     }
   }, {
-    key: "drawAxisTicks",
-    value: function drawAxisTicks(x, tickAmount, axisBorder, axisTicks, realIndex, labelsDivider, elYaxis) {
+    key: "_objectsService.MfgPlantsData.drawAxisTicks",
+    value: function _objectsService.MfgPlantsData.drawAxisTicks(x, tickAmount, axisBorder, axisTicks, realIndex, labelsDivider, elYaxis) {
       var w = this.w;
       var graphics = new Graphics(this.ctx); // initial label position = 0;
 
@@ -10035,7 +10035,7 @@ function () {
             tY = labelsDivider * i;
           }
 
-          var elTick = graphics.drawLine(x + axisBorder.offsetX - axisTicks.width + axisTicks.offsetX, tY + axisTicks.offsetY, x + axisBorder.offsetX + axisTicks.offsetX, tY + axisTicks.offsetY, axisBorder.color);
+          var elTick = graphics._objectsService.MfgPlantsData.drawLine(x + axisBorder.offsetX - axisTicks.width + axisTicks.offsetX, tY + axisTicks.offsetY, x + axisBorder.offsetX + axisTicks.offsetX, tY + axisTicks.offsetY, axisBorder.color);
           elYaxis.add(elTick);
           t = t + labelsDivider;
         }
@@ -10134,13 +10134,13 @@ function () {
       }
 
       w.config.yaxis.map(function (yaxe, index) {
-        var shouldNotDrawAxis = w.globals.ignoreYAxisIndexes.indexOf(index) > -1 || !yaxe.show || yaxe.floating || yaxisLabelCoords[index].width === 0;
+        var shouldNot_objectsService.MfgPlantsData.drawAxis = w.globals.ignoreYAxisIndexes.indexOf(index) > -1 || !yaxe.show || yaxe.floating || yaxisLabelCoords[index].width === 0;
         var axisWidth = yaxisLabelCoords[index].width + yTitleCoords[index].width;
 
         if (!yaxe.opposite) {
           xLeft = w.globals.translateX - leftOffsetX;
 
-          if (!shouldNotDrawAxis) {
+          if (!shouldNot_objectsService.MfgPlantsData.drawAxis) {
             leftOffsetX = leftOffsetX + axisWidth + 20;
           }
 
@@ -10152,7 +10152,7 @@ function () {
           } else {
             xRight = w.globals.gridWidth + w.globals.translateX + rightOffsetX;
 
-            if (!shouldNotDrawAxis) {
+            if (!shouldNot_objectsService.MfgPlantsData.drawAxis) {
               rightOffsetX = rightOffsetX + axisWidth + 20;
             }
 
@@ -10307,7 +10307,7 @@ function () {
 }();
 
 /**
- * ApexCharts XAxis Class for drawing X-Axis.
+ * ApexCharts XAxis Class for _objectsService.MfgPlantsData.drawing X-Axis.
  *
  * @module XAxis
  **/
@@ -10328,7 +10328,7 @@ function () {
       this.xaxisLabels = w.globals.timelineLabels.slice();
     }
 
-    this.drawnLabels = [];
+    this._objectsService.MfgPlantsData.drawnLabels = [];
 
     if (w.config.xaxis.position === 'top') {
       this.offY = 0;
@@ -10355,8 +10355,8 @@ function () {
   }
 
   _createClass(XAxis, [{
-    key: "drawXaxis",
-    value: function drawXaxis() {
+    key: "_objectsService.MfgPlantsData.drawXaxis",
+    value: function _objectsService.MfgPlantsData.drawXaxis() {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var elXaxis = graphics.group({
@@ -10414,18 +10414,18 @@ function () {
           if (typeof label === 'undefined') label = '';
           label = label.toString();
 
-          if (label.indexOf('NaN') === 0 || label.toLowerCase().indexOf('invalid') === 0 || label.toLowerCase().indexOf('infinity') >= 0 || this.drawnLabels.indexOf(label) >= 0 && !w.config.xaxis.labels.showDuplicates) {
+          if (label.indexOf('NaN') === 0 || label.toLowerCase().indexOf('invalid') === 0 || label.toLowerCase().indexOf('infinity') >= 0 || this._objectsService.MfgPlantsData.drawnLabels.indexOf(label) >= 0 && !w.config.xaxis.labels.showDuplicates) {
             label = '';
           }
 
-          this.drawnLabels.push(label);
+          this._objectsService.MfgPlantsData.drawnLabels.push(label);
           var offsetYCorrection = 28;
 
           if (w.globals.rotateXLabels) {
             offsetYCorrection = 22;
           }
 
-          var elTick = graphics.drawText({
+          var elTick = graphics._objectsService.MfgPlantsData.drawText({
             x: x,
             y: this.offY + w.config.xaxis.labels.offsetY + offsetYCorrection,
             text: '',
@@ -10448,7 +10448,7 @@ function () {
         var elXaxisTitle = graphics.group({
           class: 'apexcharts-xaxis-title'
         });
-        var elXAxisTitleText = graphics.drawText({
+        var elXAxisTitleText = graphics._objectsService.MfgPlantsData.drawText({
           x: w.globals.gridWidth / 2 + w.config.xaxis.title.offsetX,
           y: this.offY - parseInt(this.xaxisFontSize) + w.globals.xAxisLabelsHeight + w.config.xaxis.title.offsetY,
           text: w.config.xaxis.title.text,
@@ -10469,7 +10469,7 @@ function () {
           lineCorrection = lineCorrection - 15;
         }
 
-        var elHorzLine = graphics.drawLine(w.globals.padHorizontal + lineCorrection + w.config.xaxis.axisBorder.offsetX, this.offY, this.xaxisBorderWidth, this.offY, w.config.xaxis.axisBorder.color, 0, this.xaxisBorderHeight);
+        var elHorzLine = graphics._objectsService.MfgPlantsData.drawLine(w.globals.padHorizontal + lineCorrection + w.config.xaxis.axisBorder.offsetX, this.offY, this.xaxisBorderWidth, this.offY, w.config.xaxis.axisBorder.color, 0, this.xaxisBorderHeight);
         elXaxis.add(elHorzLine);
       }
 
@@ -10477,8 +10477,8 @@ function () {
     } // this actually becomes the vertical axis (for bar charts)
 
   }, {
-    key: "drawXaxisInversed",
-    value: function drawXaxisInversed(realIndex) {
+    key: "_objectsService.MfgPlantsData.drawXaxisInversed",
+    value: function _objectsService.MfgPlantsData.drawXaxisInversed(realIndex) {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var translateYAxisX = w.config.yaxis[0].opposite ? w.globals.translateYAxisX[realIndex] : 0;
@@ -10509,7 +10509,7 @@ function () {
         for (var _i2 = 0; _i2 <= labels.length - 1; _i2++) {
           var label = typeof labels[_i2] === 'undefined' ? '' : labels[_i2];
           label = lbFormatter(label);
-          var elLabel = graphics.drawText({
+          var elLabel = graphics._objectsService.MfgPlantsData.drawText({
             x: ylabels.offsetX - 15,
             y: yPos + colHeight + ylabels.offsetY,
             text: label,
@@ -10536,7 +10536,7 @@ function () {
           class: 'apexcharts-yaxis-title apexcharts-xaxis-title-inversed',
           transform: 'translate(' + translateYAxisX + ', 0)'
         });
-        var elXAxisTitleText = graphics.drawText({
+        var elXAxisTitleText = graphics._objectsService.MfgPlantsData.drawText({
           x: 0,
           y: w.globals.gridHeight / 2,
           text: w.config.yaxis[0].title.text,
@@ -10551,21 +10551,21 @@ function () {
       }
 
       if (w.config.xaxis.axisBorder.show) {
-        var elHorzLine = graphics.drawLine(w.globals.padHorizontal + w.config.xaxis.axisBorder.offsetX, this.offY, this.xaxisBorderWidth, this.offY, this.yaxis.axisBorder.color, 0, this.xaxisBorderHeight);
+        var elHorzLine = graphics._objectsService.MfgPlantsData.drawLine(w.globals.padHorizontal + w.config.xaxis.axisBorder.offsetX, this.offY, this.xaxisBorderWidth, this.offY, this.yaxis.axisBorder.color, 0, this.xaxisBorderHeight);
         elYaxis.add(elHorzLine); // let x = w.globals.yAxisWidths[0] / 2
         // if (w.config.yaxis[0].opposite) {
         //   x = -w.globals.yAxisWidths[0] / 2
         // }
 
         var yaxis = new YAxis(this.ctx);
-        yaxis.drawAxisTicks(0, labels.length, w.config.yaxis[0].axisBorder, w.config.yaxis[0].axisTicks, 0, colHeight, elYaxis);
+        yaxis._objectsService.MfgPlantsData.drawAxisTicks(0, labels.length, w.config.yaxis[0].axisBorder, w.config.yaxis[0].axisTicks, 0, colHeight, elYaxis);
       }
 
       return elYaxis;
     }
   }, {
-    key: "drawXaxisTicks",
-    value: function drawXaxisTicks(x1, appendToElement) {
+    key: "_objectsService.MfgPlantsData.drawXaxisTicks",
+    value: function _objectsService.MfgPlantsData.drawXaxisTicks(x1, appendToElement) {
       var w = this.w;
       var x2 = x1;
       if (x1 < 0 || x1 > w.globals.gridWidth) return;
@@ -10574,7 +10574,7 @@ function () {
 
       if (w.config.xaxis.axisTicks.show) {
         var graphics = new Graphics(this.ctx);
-        var line = graphics.drawLine(x1 + w.config.xaxis.axisTicks.offsetX, y1 + w.config.xaxis.offsetY, x2 + w.config.xaxis.axisTicks.offsetX, y2 + w.config.xaxis.offsetY, w.config.xaxis.axisTicks.color); // we are not returning anything, but appending directly to the element pased in param
+        var line = graphics._objectsService.MfgPlantsData.drawLine(x1 + w.config.xaxis.axisTicks.offsetX, y1 + w.config.xaxis.offsetY, x2 + w.config.xaxis.axisTicks.offsetX, y2 + w.config.xaxis.offsetY, w.config.xaxis.axisTicks.color); // we are not returning anything, but appending directly to the element pased in param
 
         appendToElement.add(line);
         line.node.classList.add('apexcharts-xaxis-tick');
@@ -11355,7 +11355,7 @@ function () {
             gl.xAxisScale = this.scales.linearScale(1, gl.labels.length, ticks - 1);
             gl.seriesX = gl.labels.slice();
           }
-        } // we will still store these labels as the count for this will be different (to draw grid and labels placement)
+        } // we will still store these labels as the count for this will be different (to _objectsService.MfgPlantsData.draw grid and labels placement)
 
 
         if (isXNumeric) {
@@ -11724,7 +11724,7 @@ function () {
       y = y + parseInt(noDataOpts.style.fontSize) + 2;
 
       if (noDataOpts.text !== undefined && noDataOpts.text !== '') {
-        var titleText = graphics.drawText({
+        var titleText = graphics._objectsService.MfgPlantsData.drawText({
           x: x,
           y: y,
           text: noDataOpts.text,
@@ -11792,7 +11792,7 @@ function () {
 }();
 
 /**
- * ApexCharts Dimensions Class for calculating rects of all elements that are drawn and will be drawn.
+ * ApexCharts Dimensions Class for calculating rects of all elements that are _objectsService.MfgPlantsData.drawn and will be _objectsService.MfgPlantsData.drawn.
  *
  * @module Dimensions
  **/
@@ -11809,7 +11809,7 @@ function () {
     this.yAxisWidth = 0;
     this.xAxisHeight = 0;
     this.isSparkline = this.w.config.chart.sparkline.enabled;
-    this.xPadRight = 0;
+    this.xPa_objectsService.MfgPlantsData.dright = 0;
     this.xPadLeft = 0;
     this.isBarHorizontal = !!(this.w.config.chart.type === 'bar' && this.w.config.plotOptions.bar.horizontal);
   }
@@ -11837,7 +11837,7 @@ function () {
       this.titleSubtitleOffset(); // after calculating everything, apply padding set by user
 
       gl.gridHeight = gl.gridHeight - w.config.grid.padding.top - w.config.grid.padding.bottom;
-      gl.gridWidth = gl.gridWidth - w.config.grid.padding.left - w.config.grid.padding.right - this.xPadRight - this.xPadLeft;
+      gl.gridWidth = gl.gridWidth - w.config.grid.padding.left - w.config.grid.padding.right - this.xPa_objectsService.MfgPlantsData.dright - this.xPadLeft;
       gl.translateX = gl.translateX + w.config.grid.padding.left + this.xPadLeft;
       gl.translateY = gl.translateY + w.config.grid.padding.top;
     }
@@ -11965,7 +11965,7 @@ function () {
           throw new Error('Legend position not supported');
       }
 
-      this.setGridXPosForDualYAxis(yTitleCoords, yaxisLabelCoords); // after drawing everything, set the Y axis positions
+      this.setGridXPosForDualYAxis(yTitleCoords, yaxisLabelCoords); // after _objectsService.MfgPlantsData.drawing everything, set the Y axis positions
 
       var objyAxis = new YAxis(this.ctx);
       objyAxis.setYAxisXPosition(yaxisLabelCoords, yTitleCoords);
@@ -12058,7 +12058,7 @@ function () {
       if (w.config.xaxis.type === 'category' && this.isBarHorizontal || w.config.xaxis.type === 'numeric') {
         var rightPad = function rightPad(labels) {
           if (w.config.grid.padding.right < labels.width) {
-            _this.xPadRight = labels.width / 2 + 1;
+            _this.xPa_objectsService.MfgPlantsData.dright = labels.width / 2 + 1;
           }
         };
 
@@ -12762,7 +12762,7 @@ function () {
       }
 
       var year = firstTickValue;
-      var pos = firstTickPosition; // keep drawing rest of the ticks
+      var pos = firstTickPosition; // keep _objectsService.MfgPlantsData.drawing rest of the ticks
 
       for (var i = 0; i < numberOfYears; i++) {
         year++;
@@ -12831,7 +12831,7 @@ function () {
       }
 
       var month = firstTickValue + 1;
-      var pos = firstTickPosition; // keep drawing rest of the ticks
+      var pos = firstTickPosition; // keep _objectsService.MfgPlantsData.drawing rest of the ticks
 
       for (var i = 0, j = 1; i < numberOfMonths; i++, j++) {
         month = Utils.monthMod(month);
@@ -12899,7 +12899,7 @@ function () {
         month: Utils.monthMod(month),
         day: date
       });
-      var pos = firstTickPosition; // keep drawing rest of the ticks
+      var pos = firstTickPosition; // keep _objectsService.MfgPlantsData.drawing rest of the ticks
 
       for (var i = 0; i < numberOfDays; i++) {
         date += 1;
@@ -12981,7 +12981,7 @@ function () {
         year: currentYear,
         month: Utils.monthMod(month)
       });
-      var pos = firstTickPosition; // keep drawing rest of the ticks
+      var pos = firstTickPosition; // keep _objectsService.MfgPlantsData.drawing rest of the ticks
 
       for (var i = 0; i < numberOfHours; i++) {
         unit = 'hour';
@@ -13042,7 +13042,7 @@ function () {
         year: year,
         month: Utils.monthMod(month)
       });
-      var pos = firstTickPosition; // keep drawing rest of the ticks
+      var pos = firstTickPosition; // keep _objectsService.MfgPlantsData.drawing rest of the ticks
 
       for (var i = 0; i < numberOfMinutes; i++) {
         if (minute >= 60) {
@@ -13139,15 +13139,15 @@ function () {
       var _this3 = this;
 
       var graphics = new Graphics(this.ctx);
-      var lastDrawnIndex = 0;
+      var last_objectsService.MfgPlantsData.drawnIndex = 0;
       var filteredArray = arr.map(function (item, index) {
         if (index > 0 && _this3.w.config.xaxis.labels.hideOverlappingLabels) {
-          var prevLabelWidth = graphics.getTextRects(arr[lastDrawnIndex].value).width;
-          var prevPos = arr[lastDrawnIndex].position;
+          var prevLabelWidth = graphics.getTextRects(arr[last_objectsService.MfgPlantsData.drawnIndex].value).width;
+          var prevPos = arr[last_objectsService.MfgPlantsData.drawnIndex].position;
           var pos = item.position;
 
           if (pos > prevPos + prevLabelWidth + 10) {
-            lastDrawnIndex = index;
+            last_objectsService.MfgPlantsData.drawnIndex = index;
             return item;
           } else {
             return null;
@@ -13292,86 +13292,86 @@ function () {
 
       if (gl.comboCharts) {
         if (areaSeries.series.length > 0) {
-          elGraph.push(line.draw(areaSeries.series, 'area', areaSeries.i));
+          elGraph.push(line._objectsService.MfgPlantsData.draw(areaSeries.series, 'area', areaSeries.i));
         }
 
         if (columnSeries.series.length > 0) {
           if (w.config.chart.stacked) {
             var barStacked = new BarStacked(this.ctx, xyRatios);
-            elGraph.push(barStacked.draw(columnSeries.series, columnSeries.i));
+            elGraph.push(barStacked._objectsService.MfgPlantsData.draw(columnSeries.series, columnSeries.i));
           } else {
             var bar = new Bar(this.ctx, xyRatios);
-            elGraph.push(bar.draw(columnSeries.series, columnSeries.i));
+            elGraph.push(bar._objectsService.MfgPlantsData.draw(columnSeries.series, columnSeries.i));
           }
         }
 
         if (lineSeries.series.length > 0) {
-          elGraph.push(line.draw(lineSeries.series, 'line', lineSeries.i));
+          elGraph.push(line._objectsService.MfgPlantsData.draw(lineSeries.series, 'line', lineSeries.i));
         }
 
         if (candlestickSeries.series.length > 0) {
-          elGraph.push(candlestick.draw(candlestickSeries.series, candlestickSeries.i));
+          elGraph.push(candlestick._objectsService.MfgPlantsData.draw(candlestickSeries.series, candlestickSeries.i));
         }
 
         if (scatterSeries.series.length > 0) {
           var scatterLine = new Line(this.ctx, xyRatios, true);
-          elGraph.push(scatterLine.draw(scatterSeries.series, 'scatter', scatterSeries.i));
+          elGraph.push(scatterLine._objectsService.MfgPlantsData.draw(scatterSeries.series, 'scatter', scatterSeries.i));
         } // TODO: allow bubble series in a combo chart
         // if (bubbleSeries.series.length > 0) {
         //   const bubbleLine = new Line(this.ctx, xyRatios, true)
         //   elGraph.push(
-        //     bubbleLine.draw(bubbleSeries.series, 'bubble', bubbleSeries.i)
+        //     bubbleLine._objectsService.MfgPlantsData.draw(bubbleSeries.series, 'bubble', bubbleSeries.i)
         //   )
         // }
 
       } else {
         switch (cnf.chart.type) {
           case 'line':
-            elGraph = line.draw(gl.series, 'line');
+            elGraph = line._objectsService.MfgPlantsData.draw(gl.series, 'line');
             break;
 
           case 'area':
-            elGraph = line.draw(gl.series, 'area');
+            elGraph = line._objectsService.MfgPlantsData.draw(gl.series, 'area');
             break;
 
           case 'bar':
             if (cnf.chart.stacked) {
               var _barStacked = new BarStacked(this.ctx, xyRatios);
 
-              elGraph = _barStacked.draw(gl.series);
+              elGraph = _barStacked._objectsService.MfgPlantsData.draw(gl.series);
             } else {
               var _bar = new Bar(this.ctx, xyRatios);
 
-              elGraph = _bar.draw(gl.series);
+              elGraph = _bar._objectsService.MfgPlantsData.draw(gl.series);
             }
 
             break;
 
           case 'candlestick':
             var candleStick = new CandleStick(this.ctx, xyRatios);
-            elGraph = candleStick.draw(gl.series);
+            elGraph = candleStick._objectsService.MfgPlantsData.draw(gl.series);
             break;
 
           case 'heatmap':
             var heatmap = new HeatMap(this.ctx, xyRatios);
-            elGraph = heatmap.draw(gl.series);
+            elGraph = heatmap._objectsService.MfgPlantsData.draw(gl.series);
             break;
 
           case 'pie':
           case 'donut':
-            elGraph = pie.draw(gl.series);
+            elGraph = pie._objectsService.MfgPlantsData.draw(gl.series);
             break;
 
           case 'radialBar':
-            elGraph = radialBar.draw(gl.series);
+            elGraph = radialBar._objectsService.MfgPlantsData.draw(gl.series);
             break;
 
           case 'radar':
-            elGraph = radar.draw(gl.series);
+            elGraph = radar._objectsService.MfgPlantsData.draw(gl.series);
             break;
 
           default:
-            elGraph = line.draw(gl.series);
+            elGraph = line._objectsService.MfgPlantsData.draw(gl.series);
         }
       }
 
@@ -13903,16 +13903,16 @@ function () {
       if (w.globals.axisCharts) {
         if (w.config.xaxis.crosshairs.position === 'back') {
           var crosshairs = new Crosshairs(this.ctx);
-          crosshairs.drawXCrosshairs();
+          crosshairs._objectsService.MfgPlantsData.drawXCrosshairs();
         }
 
         if (w.config.yaxis[0].crosshairs.position === 'back') {
           var _crosshairs = new Crosshairs(this.ctx);
 
-          _crosshairs.drawYCrosshairs();
+          _crosshairs._objectsService.MfgPlantsData.drawYCrosshairs();
         }
 
-        xyRatios = this.coreUtils.getCalculatedRatios();
+        xyRatios = this.coreUtils.getCalculate_objectsService.MfgPlantsData.dratios();
 
         if (w.config.xaxis.type === 'datetime' && w.config.xaxis.labels.formatter === undefined && isFinite(w.globals.minX) && isFinite(w.globals.maxX)) {
           var ts = new TimeScale(this.ctx);
@@ -13924,8 +13924,8 @@ function () {
       return xyRatios;
     }
   }, {
-    key: "drawAxis",
-    value: function drawAxis(type, xyRatios) {
+    key: "_objectsService.MfgPlantsData.drawAxis",
+    value: function _objectsService.MfgPlantsData.drawAxis(type, xyRatios) {
       var gl = this.w.globals;
       var cnf = this.w.config;
       var xAxis = new XAxis(this.ctx);
@@ -13935,16 +13935,16 @@ function () {
         var elXaxis, elYaxis;
 
         if (type === 'bar' && cnf.plotOptions.bar.horizontal) {
-          elYaxis = yAxis.drawYaxisInversed(0);
-          elXaxis = xAxis.drawXaxisInversed(0);
+          elYaxis = yAxis._objectsService.MfgPlantsData.drawYaxisInversed(0);
+          elXaxis = xAxis._objectsService.MfgPlantsData.drawXaxisInversed(0);
           gl.dom.elGraphical.add(elXaxis);
           gl.dom.elGraphical.add(elYaxis);
         } else {
-          elXaxis = xAxis.drawXaxis();
+          elXaxis = xAxis._objectsService.MfgPlantsData.drawXaxis();
           gl.dom.elGraphical.add(elXaxis);
           cnf.yaxis.map(function (yaxe, index) {
             if (gl.ignoreYAxisIndexes.indexOf(index) === -1) {
-              elYaxis = yAxis.drawYaxis(index);
+              elYaxis = yAxis._objectsService.MfgPlantsData.drawYaxis(index);
               gl.dom.Paper.add(elYaxis);
             }
           });
@@ -14142,7 +14142,7 @@ function finale(self) {
   if (self._state === 2 && self._deferreds.length === 0) {
     Promise$1._immediateFn(function() {
       if (!self._handled) {
-        Promise$1._unhandledRejectionFn(self._value);
+        Promise$1._unhandle_objectsService.MfgPlantsData.drejectionFn(self._value);
       }
     });
   }
@@ -14276,7 +14276,7 @@ Promise$1._immediateFn =
     setTimeoutFunc(fn, 0);
   };
 
-Promise$1._unhandledRejectionFn = function _unhandledRejectionFn(err) {
+Promise$1._unhandle_objectsService.MfgPlantsData.drejectionFn = function _unhandle_objectsService.MfgPlantsData.drejectionFn(err) {
   if (typeof console !== 'undefined' && console) {
     console.warn('Possible Unhandled Promise Rejection:', err); // eslint-disable-line no-console
   }
@@ -14350,7 +14350,7 @@ function () {
         var svgUrl = 'data:image/svg+xml,' + encodeURIComponent(svgData);
 
         img.onload = function () {
-          ctx.drawImage(img, 0, 0);
+          ctx._objectsService.MfgPlantsData.drawImage(img, 0, 0);
           DOMURL.revokeObjectURL(svgUrl);
           var imgURI = canvas.toDataURL('image/png');
           resolve(imgURI);
@@ -14389,7 +14389,7 @@ function () {
 }();
 
 /**
- * ApexCharts Grid Class for drawing Cartesian Grid.
+ * ApexCharts Grid Class for _objectsService.MfgPlantsData.drawing Cartesian Grid.
  *
  * @module Grid
  **/
@@ -14416,8 +14416,8 @@ function () {
 
 
   _createClass(Grid, [{
-    key: "drawGridArea",
-    value: function drawGridArea() {
+    key: "_objectsService.MfgPlantsData.drawGridArea",
+    value: function _objectsService.MfgPlantsData.drawGridArea() {
       var elGrid = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
       var w = this.w;
       var graphics = new Graphics(this.ctx);
@@ -14428,15 +14428,15 @@ function () {
         });
       }
 
-      var elVerticalLine = graphics.drawLine(w.globals.padHorizontal, 1, w.globals.padHorizontal, w.globals.gridHeight, 'transparent');
-      var elHorzLine = graphics.drawLine(w.globals.padHorizontal, w.globals.gridHeight, w.globals.gridWidth, w.globals.gridHeight, 'transparent');
+      var elVerticalLine = graphics._objectsService.MfgPlantsData.drawLine(w.globals.padHorizontal, 1, w.globals.padHorizontal, w.globals.gridHeight, 'transparent');
+      var elHorzLine = graphics._objectsService.MfgPlantsData.drawLine(w.globals.padHorizontal, w.globals.gridHeight, w.globals.gridWidth, w.globals.gridHeight, 'transparent');
       elGrid.add(elHorzLine);
       elGrid.add(elVerticalLine);
       return elGrid;
     }
   }, {
-    key: "drawGrid",
-    value: function drawGrid() {
+    key: "_objectsService.MfgPlantsData.drawGrid",
+    value: function _objectsService.MfgPlantsData.drawGrid() {
       var w = this.w;
       var xAxis = new XAxis(this.ctx);
       var gl = this.w.globals;
@@ -14444,12 +14444,12 @@ function () {
 
       if (gl.axisCharts) {
         if (w.config.grid.show) {
-          // grid is drawn after xaxis and yaxis are drawn
+          // grid is _objectsService.MfgPlantsData.drawn after xaxis and yaxis are _objectsService.MfgPlantsData.drawn
           elgrid = this.renderGrid();
           gl.dom.elGraphical.add(elgrid.el);
-          this.drawGridArea(elgrid.el);
+          this._objectsService.MfgPlantsData.drawGridArea(elgrid.el);
         } else {
-          var elgridArea = this.drawGridArea();
+          var elgridArea = this._objectsService.MfgPlantsData.drawGridArea();
           gl.dom.elGraphical.add(elgridArea);
         }
 
@@ -14457,7 +14457,7 @@ function () {
           xAxis.xAxisLabelCorrections(elgrid.xAxisTickWidth);
         }
       }
-    } // This mask will clip off overflowing graphics from the drawable area
+    } // This mask will clip off overflowing graphics from the _objectsService.MfgPlantsData.drawable area
 
   }, {
     key: "createGridMask",
@@ -14475,20 +14475,20 @@ function () {
         strokeSize = strokeMaxSize;
       }
 
-      gl.dom.elGridRectMask = document.createElementNS(gl.SVGNS, 'clipPath');
-      gl.dom.elGridRectMask.setAttribute('id', "gridRectMask".concat(gl.cuid));
-      gl.dom.elGridRectMarkerMask = document.createElementNS(gl.SVGNS, 'clipPath');
-      gl.dom.elGridRectMarkerMask.setAttribute('id', "gridRectMarkerMask".concat(gl.cuid));
-      gl.dom.elGridRect = graphics.drawRect(-strokeSize / 2, -strokeSize / 2, gl.gridWidth + strokeSize, gl.gridHeight + strokeSize, 0, '#fff');
+      gl.dom.elGri_objectsService.MfgPlantsData.drectMask = document.createElementNS(gl.SVGNS, 'clipPath');
+      gl.dom.elGri_objectsService.MfgPlantsData.drectMask.setAttribute('id', "gri_objectsService.MfgPlantsData.drectMask".concat(gl.cuid));
+      gl.dom.elGri_objectsService.MfgPlantsData.drectMarkerMask = document.createElementNS(gl.SVGNS, 'clipPath');
+      gl.dom.elGri_objectsService.MfgPlantsData.drectMarkerMask.setAttribute('id', "gri_objectsService.MfgPlantsData.drectMarkerMask".concat(gl.cuid));
+      gl.dom.elGri_objectsService.MfgPlantsData.drect = graphics._objectsService.MfgPlantsData.drawRect(-strokeSize / 2, -strokeSize / 2, gl.gridWidth + strokeSize, gl.gridHeight + strokeSize, 0, '#fff');
       var coreUtils = new CoreUtils(this);
       coreUtils.getLargestMarkerSize();
       var markerSize = w.globals.markers.largestSize + w.config.markers.hover.sizeOffset + 1;
-      gl.dom.elGridRectMarker = graphics.drawRect(-markerSize, -markerSize, gl.gridWidth + markerSize * 2, gl.gridHeight + markerSize * 2, 0, '#fff');
-      gl.dom.elGridRectMask.appendChild(gl.dom.elGridRect.node);
-      gl.dom.elGridRectMarkerMask.appendChild(gl.dom.elGridRectMarker.node);
+      gl.dom.elGri_objectsService.MfgPlantsData.drectMarker = graphics._objectsService.MfgPlantsData.drawRect(-markerSize, -markerSize, gl.gridWidth + markerSize * 2, gl.gridHeight + markerSize * 2, 0, '#fff');
+      gl.dom.elGri_objectsService.MfgPlantsData.drectMask.appendChild(gl.dom.elGri_objectsService.MfgPlantsData.drect.node);
+      gl.dom.elGri_objectsService.MfgPlantsData.drectMarkerMask.appendChild(gl.dom.elGri_objectsService.MfgPlantsData.drectMarker.node);
       var defs = gl.dom.baseEl.querySelector('defs');
-      defs.appendChild(gl.dom.elGridRectMask);
-      defs.appendChild(gl.dom.elGridRectMarkerMask);
+      defs.appendChild(gl.dom.elGri_objectsService.MfgPlantsData.drectMask);
+      defs.appendChild(gl.dom.elGri_objectsService.MfgPlantsData.drectMarkerMask);
     } // actual grid rendering
 
   }, {
@@ -14514,7 +14514,7 @@ function () {
       var inversedGrid = !!(w.config.plotOptions.bar.horizontal && w.config.chart.type === 'bar');
 
       if (!inversedGrid) {
-        xCount = this.xaxisLabels.length; // draw vertical lines
+        xCount = this.xaxisLabels.length; // _objectsService.MfgPlantsData.draw vertical lines
 
         if (w.config.grid.xaxis.lines.show || w.config.xaxis.axisTicks.show) {
           var x1 = w.globals.padHorizontal;
@@ -14528,7 +14528,7 @@ function () {
               x2 = this.xaxisLabels[_i].position;
 
               if (w.config.grid.xaxis.lines.show && x1 > 0 && x1 < w.globals.gridWidth) {
-                var line = graphics.drawLine(x1, y1, x2, y2, w.config.grid.borderColor, strokeDashArray);
+                var line = graphics._objectsService.MfgPlantsData.drawLine(x1, y1, x2, y2, w.config.grid.borderColor, strokeDashArray);
                 line.node.classList.add('apexcharts-gridline');
                 elg.add(line);
 
@@ -14544,7 +14544,7 @@ function () {
               }
 
               var xAxis = new XAxis(this.ctx);
-              xAxis.drawXaxisTicks(x1, elg);
+              xAxis._objectsService.MfgPlantsData.drawXaxisTicks(x1, elg);
             }
           } else {
             var xCountForCategoryCharts = xCount;
@@ -14562,7 +14562,7 @@ function () {
               if (_i2 === x1Count - 1) break;
 
               if (w.config.grid.xaxis.lines.show) {
-                var _line = graphics.drawLine(x1, y1, x2, y2, w.config.grid.borderColor, strokeDashArray);
+                var _line = graphics._objectsService.MfgPlantsData.drawLine(x1, y1, x2, y2, w.config.grid.borderColor, strokeDashArray);
 
                 _line.node.classList.add('apexcharts-gridline');
 
@@ -14581,10 +14581,10 @@ function () {
 
               var _xAxis = new XAxis(this.ctx);
 
-              _xAxis.drawXaxisTicks(x1, elg);
+              _xAxis._objectsService.MfgPlantsData.drawXaxisTicks(x1, elg);
             }
           }
-        } // draw horizontal lines
+        } // _objectsService.MfgPlantsData.draw horizontal lines
 
 
         if (w.config.grid.yaxis.lines.show) {
@@ -14594,7 +14594,7 @@ function () {
           var _x2 = w.globals.gridWidth;
 
           for (var _i3 = 0; _i3 < tickAmount + 1; _i3++) {
-            var _line2 = graphics.drawLine(_x, _y, _x2, _y2, w.config.grid.borderColor, strokeDashArray);
+            var _line2 = graphics._objectsService.MfgPlantsData.drawLine(_x, _y, _x2, _y2, w.config.grid.borderColor, strokeDashArray);
 
             elg.add(_line2);
 
@@ -14615,7 +14615,7 @@ function () {
           }
         }
       } else {
-        xCount = tickAmount; // draw vertical lines
+        xCount = tickAmount; // _objectsService.MfgPlantsData.draw vertical lines
 
         if (w.config.grid.xaxis.lines.show || w.config.xaxis.axisTicks.show) {
           var _x3 = w.globals.padHorizontal;
@@ -14632,7 +14632,7 @@ function () {
             if (_i4 === xCount - 1) break;
 
             if (w.config.grid.xaxis.lines.show) {
-              var _line3 = graphics.drawLine(_x3, _y3, _x4, _y4, w.config.grid.borderColor, strokeDashArray);
+              var _line3 = graphics._objectsService.MfgPlantsData.drawLine(_x3, _y3, _x4, _y4, w.config.grid.borderColor, strokeDashArray);
 
               _line3.node.classList.add('apexcharts-gridline');
 
@@ -14652,9 +14652,9 @@ function () {
 
             var _xAxis2 = new XAxis(this.ctx);
 
-            _xAxis2.drawXaxisTicks(_x3, elg);
+            _xAxis2._objectsService.MfgPlantsData.drawXaxisTicks(_x3, elg);
           }
-        } // draw horizontal lines
+        } // _objectsService.MfgPlantsData.draw horizontal lines
 
 
         if (w.config.grid.yaxis.lines.show) {
@@ -14664,7 +14664,7 @@ function () {
           var _x6 = w.globals.gridWidth;
 
           for (var _i5 = 0; _i5 < w.globals.dataPoints + 1; _i5++) {
-            var _line4 = graphics.drawLine(_x5, _y5, _x6, _y6, w.config.grid.borderColor, strokeDashArray);
+            var _line4 = graphics._objectsService.MfgPlantsData.drawLine(_x5, _y5, _x6, _y6, w.config.grid.borderColor, strokeDashArray);
 
             elg.add(_line4);
 
@@ -14686,15 +14686,15 @@ function () {
         }
       }
 
-      this.drawGridBands(elg, xCount, tickAmount);
+      this._objectsService.MfgPlantsData.drawGridBands(elg, xCount, tickAmount);
       return {
         el: elg,
         xAxisTickWidth: w.globals.gridWidth / xCount
       };
     }
   }, {
-    key: "drawGridBands",
-    value: function drawGridBands(elg, xCount, tickAmount) {
+    key: "_objectsService.MfgPlantsData.drawGridBands",
+    value: function _objectsService.MfgPlantsData.drawGridBands(elg, xCount, tickAmount) {
       var w = this.w;
       var graphics = new Graphics(this.ctx); // rows background bands
 
@@ -14710,9 +14710,9 @@ function () {
           }
 
           var color = w.config.grid.row.colors[c];
-          var rect = graphics.drawRect(x1, y1, x2, y2, 0, color, w.config.grid.row.opacity);
+          var rect = graphics._objectsService.MfgPlantsData.drawRect(x1, y1, x2, y2, 0, color, w.config.grid.row.opacity);
           elg.add(rect);
-          rect.node.classList.add('apexcharts-gridRow');
+          rect.node.classList.add('apexcharts-gri_objectsService.MfgPlantsData.drow');
           y1 = y1 + w.globals.gridHeight / tickAmount;
         }
       } // columns background bands
@@ -14733,7 +14733,7 @@ function () {
 
           var _color = w.config.grid.column.colors[_c];
 
-          var _rect = graphics.drawRect(_x7, _y7, _x8, _y8, 0, _color, w.config.grid.column.opacity);
+          var _rect = graphics._objectsService.MfgPlantsData.drawRect(_x7, _y7, _x8, _y8, 0, _color, w.config.grid.column.opacity);
 
           _rect.node.classList.add('apexcharts-gridColumn');
 
@@ -14759,7 +14759,7 @@ function () {
 }();
 
 /**
- * ApexCharts Legend Class to draw legend.
+ * ApexCharts Legend Class to _objectsService.MfgPlantsData.draw legend.
  *
  * @module Legend
  **/
@@ -14789,7 +14789,7 @@ function () {
           gl.dom.elLegendWrap.removeChild(gl.dom.elLegendWrap.firstChild);
         }
 
-        this.drawLegends();
+        this._objectsService.MfgPlantsData.drawLegends();
 
         if (!Utils.isIE11()) {
           this.appendToForeignObject();
@@ -14820,8 +14820,8 @@ function () {
       gl.dom.Paper.node.insertBefore(elForeign, gl.dom.elGraphical.node);
     }
   }, {
-    key: "drawLegends",
-    value: function drawLegends() {
+    key: "_objectsService.MfgPlantsData.drawLegends",
+    value: function _objectsService.MfgPlantsData.drawLegends() {
       var self = this;
       var w = this.w;
       var fontFamily = w.config.legend.fontFamily;
@@ -14988,12 +14988,12 @@ function () {
     value: function setLegendWrapXY(offsetX, offsetY) {
       var w = this.w;
       var elLegendWrap = w.globals.dom.baseEl.querySelector('.apexcharts-legend');
-      var legendRect = elLegendWrap.getBoundingClientRect();
+      var legen_objectsService.MfgPlantsData.drect = elLegendWrap.getBoundingClientRect();
       var x = 0;
       var y = 0;
 
       if (w.config.legend.position === 'bottom') {
-        y = y + (w.globals.svgHeight - legendRect.height / 2);
+        y = y + (w.globals.svgHeight - legen_objectsService.MfgPlantsData.drect.height / 2);
       } else if (w.config.legend.position === 'top') {
         var dim = new Dimensions(this.ctx);
         var titleH = dim.getTitleSubtitleCoords('title').height;
@@ -15230,14 +15230,14 @@ function () {
             w.config.series[realIndex] = 0;
           }
 
-          var seriesChildren = seriesEl.childNodes;
+          var seriesChil_objectsService.MfgPlantsData.dren = seriesEl.childNodes;
 
-          for (var sc = 0; sc < seriesChildren.length; sc++) {
-            if (seriesChildren[sc].classList.contains('apexcharts-series-markers-wrap')) {
-              if (seriesChildren[sc].classList.contains('apexcharts-hide')) {
-                seriesChildren[sc].classList.remove('apexcharts-hide');
+          for (var sc = 0; sc < seriesChil_objectsService.MfgPlantsData.dren.length; sc++) {
+            if (seriesChil_objectsService.MfgPlantsData.dren[sc].classList.contains('apexcharts-series-markers-wrap')) {
+              if (seriesChil_objectsService.MfgPlantsData.dren[sc].classList.contains('apexcharts-hide')) {
+                seriesChil_objectsService.MfgPlantsData.dren[sc].classList.remove('apexcharts-hide');
               } else {
-                seriesChildren[sc].classList.add('apexcharts-hide');
+                seriesChil_objectsService.MfgPlantsData.dren[sc].classList.add('apexcharts-hide');
               }
             }
           }
@@ -15827,7 +15827,7 @@ function () {
 }();
 
 /**
- * ApexCharts Tooltip.Labels Class to draw texts on the tooltip.
+ * ApexCharts Tooltip.Labels Class to _objectsService.MfgPlantsData.draw texts on the tooltip.
  *
  * @module Tooltip.Labels
  **/
@@ -15845,8 +15845,8 @@ function () {
   }
 
   _createClass(Labels, [{
-    key: "drawSeriesTexts",
-    value: function drawSeriesTexts(_ref) {
+    key: "_objectsService.MfgPlantsData.drawSeriesTexts",
+    value: function _objectsService.MfgPlantsData.drawSeriesTexts(_ref) {
       var _ref$shared = _ref.shared,
           shared = _ref$shared === void 0 ? true : _ref$shared,
           ttItems = _ref.ttItems,
@@ -15875,7 +15875,7 @@ function () {
         values: values,
         ttItems: ttItems,
         shared: shared
-      }); // Re-calculate tooltip dimensions now that we have drawn the text
+      }); // Re-calculate tooltip dimensions now that we have _objectsService.MfgPlantsData.drawn the text
 
       var tooltipEl = this.ttCtx.getElTooltip();
       this.ttCtx.tooltipRect.ttWidth = tooltipEl.getBoundingClientRect().width;
@@ -16033,13 +16033,13 @@ function () {
           xVal = values.xVal,
           xAxisTTVal = values.xAxisTTVal,
           zVal = values.zVal;
-      var ttItemsChildren = null;
-      ttItemsChildren = ttItems[t].children;
+      var ttItemsChil_objectsService.MfgPlantsData.dren = null;
+      ttItemsChil_objectsService.MfgPlantsData.dren = ttItems[t].chil_objectsService.MfgPlantsData.dren;
 
       if (w.config.tooltip.fillSeriesColor) {
         //  elTooltip.style.backgroundColor = pColor
         ttItems[t].style.backgroundColor = pColor;
-        ttItemsChildren[0].style.display = 'none';
+        ttItemsChil_objectsService.MfgPlantsData.dren[0].style.display = 'none';
       }
 
       if (ttCtx.showTooltipTitle) {
@@ -16068,12 +16068,12 @@ function () {
         ttYVal.innerHTML = val;
       }
 
-      if (ttItemsChildren[0] && ttItemsChildren[0].classList.contains('apexcharts-tooltip-marker')) {
-        ttItemsChildren[0].style.backgroundColor = pColor;
+      if (ttItemsChil_objectsService.MfgPlantsData.dren[0] && ttItemsChil_objectsService.MfgPlantsData.dren[0].classList.contains('apexcharts-tooltip-marker')) {
+        ttItemsChil_objectsService.MfgPlantsData.dren[0].style.backgroundColor = pColor;
       }
 
       if (!w.config.tooltip.marker.show) {
-        ttItemsChildren[0].style.display = 'none';
+        ttItemsChil_objectsService.MfgPlantsData.dren[0].style.display = 'none';
       }
 
       if (zVal !== null) {
@@ -16083,12 +16083,12 @@ function () {
         ttZVal.innerHTML = zVal;
       }
 
-      if (shared && ttItemsChildren[0]) {
+      if (shared && ttItemsChil_objectsService.MfgPlantsData.dren[0]) {
         // hide when no Val or series collapsed
         if (typeof val === 'undefined' || val === null || w.globals.collapsedSeriesIndices.indexOf(t) > -1) {
-          ttItemsChildren[0].parentNode.style.display = 'none';
+          ttItemsChil_objectsService.MfgPlantsData.dren[0].parentNode.style.display = 'none';
         } else {
-          ttItemsChildren[0].parentNode.style.display = w.config.tooltip.items.display;
+          ttItemsChil_objectsService.MfgPlantsData.dren[0].parentNode.style.display = w.config.tooltip.items.display;
         }
       }
     }
@@ -16566,7 +16566,7 @@ function () {
 }();
 
 /**
- * ApexCharts Tooltip.Marker Class to draw texts on the tooltip.
+ * ApexCharts Tooltip.Marker Class to _objectsService.MfgPlantsData.draw texts on the tooltip.
  *
  * @module Tooltip.Marker
  **/
@@ -16584,8 +16584,8 @@ function () {
   }
 
   _createClass(Marker, [{
-    key: "drawDynamicPoints",
-    value: function drawDynamicPoints() {
+    key: "_objectsService.MfgPlantsData.drawDynamicPoints",
+    value: function _objectsService.MfgPlantsData.drawDynamicPoints() {
       var w = this.w;
       var graphics = new Graphics(this.ctx);
       var marker = new Markers(this.ctx);
@@ -16605,7 +16605,7 @@ function () {
           }
 
           var elPointOptions = marker.getMarkerConfig(PointClasses, seriesIndex);
-          point = graphics.drawMarker(0, 0, elPointOptions);
+          point = graphics._objectsService.MfgPlantsData.drawMarker(0, 0, elPointOptions);
           point.node.setAttribute('default-marker-size', 0);
           var elPointsG = document.createElementNS(w.globals.SVGNS, 'g');
           elPointsG.classList.add('apexcharts-series-markers');
@@ -16755,7 +16755,7 @@ function () {
         var cy = this.getAttr(e, 'cy');
         var width = this.getAttr(e, 'width');
         var height = this.getAttr(e, 'height');
-        ttCtx.tooltipLabels.drawSeriesTexts({
+        ttCtx.tooltipLabels._objectsService.MfgPlantsData.drawSeriesTexts({
           ttItems: opt.ttItems,
           i: i,
           j: j,
@@ -16809,7 +16809,7 @@ function () {
           }
         }
 
-        ttCtx.tooltipLabels.drawSeriesTexts({
+        ttCtx.tooltipLabels._objectsService.MfgPlantsData.drawSeriesTexts({
           ttItems: opt.ttItems,
           i: i,
           j: j,
@@ -16961,7 +16961,7 @@ function () {
         // }
 
 
-        ttCtx.tooltipLabels.drawSeriesTexts({
+        ttCtx.tooltipLabels._objectsService.MfgPlantsData.drawSeriesTexts({
           ttItems: opt.ttItems,
           i: i,
           j: j,
@@ -17038,8 +17038,8 @@ function () {
 
 
   _createClass(AxesTooltip, [{
-    key: "drawXaxisTooltip",
-    value: function drawXaxisTooltip() {
+    key: "_objectsService.MfgPlantsData.drawXaxisTooltip",
+    value: function _objectsService.MfgPlantsData.drawXaxisTooltip() {
       var w = this.w;
       var ttCtx = this.ttCtx;
       var isBottom = w.config.xaxis.position === 'bottom';
@@ -17068,8 +17068,8 @@ function () {
      **/
 
   }, {
-    key: "drawYaxisTooltip",
-    value: function drawYaxisTooltip() {
+    key: "_objectsService.MfgPlantsData.drawYaxisTooltip",
+    value: function _objectsService.MfgPlantsData.drawYaxisTooltip() {
       var w = this.w;
       var ttCtx = this.ttCtx;
 
@@ -17154,8 +17154,8 @@ function () {
       ttCtx.ycrosshairsHidden = w.globals.dom.baseEl.querySelector('.apexcharts-ycrosshairs-hidden');
     }
   }, {
-    key: "drawYaxisTooltipText",
-    value: function drawYaxisTooltipText(index, clientY, xyRatios) {
+    key: "_objectsService.MfgPlantsData.drawYaxisTooltipText",
+    value: function _objectsService.MfgPlantsData.drawYaxisTooltipText(index, clientY, xyRatios) {
       var ttCtx = this.ttCtx;
       var w = this.w;
       var lbFormatter = w.globals.yLabelFormatters[index];
@@ -17223,8 +17223,8 @@ function () {
       return this.w.globals.dom.baseEl.querySelector('.apexcharts-grid');
     }
   }, {
-    key: "drawTooltip",
-    value: function drawTooltip(xyRatios) {
+    key: "_objectsService.MfgPlantsData.drawTooltip",
+    value: function _objectsService.MfgPlantsData.drawTooltip(xyRatios) {
       var w = this.w;
       this.xyRatios = xyRatios;
       this.blxaxisTooltip = w.config.xaxis.tooltip.enabled && w.globals.axisCharts;
@@ -17241,8 +17241,8 @@ function () {
       w.globals.dom.elWrap.appendChild(tooltipEl);
 
       if (w.globals.axisCharts) {
-        this.axesTooltip.drawXaxisTooltip();
-        this.axesTooltip.drawYaxisTooltip();
+        this.axesTooltip._objectsService.MfgPlantsData.drawXaxisTooltip();
+        this.axesTooltip._objectsService.MfgPlantsData.drawYaxisTooltip();
         this.axesTooltip.setXCrosshairWidth();
         this.axesTooltip.handleYCrosshair();
         var xAxis = new XAxis(this.ctx);
@@ -17256,7 +17256,7 @@ function () {
 
       if (w.config.markers.size === 0 || w.globals.markers.largestSize === 0) {
         // when user don't want to show points all the time, but only on when hovering on series
-        this.marker.drawDynamicPoints(this);
+        this.marker._objectsService.MfgPlantsData.drawDynamicPoints(this);
       } // no visible series, exit
 
 
@@ -17410,8 +17410,8 @@ function () {
       }
     }
   }, {
-    key: "drawFixedTooltipRect",
-    value: function drawFixedTooltipRect() {
+    key: "_objectsService.MfgPlantsData.drawFixedTooltipRect",
+    value: function _objectsService.MfgPlantsData.drawFixedTooltipRect() {
       var w = this.w;
       var tooltipEl = this.getElTooltip();
       var tooltipRect = tooltipEl.getBoundingClientRect();
@@ -17561,7 +17561,7 @@ function () {
       }
 
       if (ttCtx.fixedTooltip) {
-        ttCtx.drawFixedTooltipRect();
+        ttCtx._objectsService.MfgPlantsData.drawFixedTooltipRect();
       }
 
       if (w.globals.axisCharts) {
@@ -17655,7 +17655,7 @@ function () {
             }
           } else {
             // couldn't capture any series. check if shared X is same,
-            // if yes, draw a grouped tooltip
+            // if yes, _objectsService.MfgPlantsData.draw a grouped tooltip
             if (this.tooltipUtil.isXoverlap(j)) {
               self.create(self, 0, j, opt.ttItems);
             }
@@ -17694,7 +17694,7 @@ function () {
 
         if (this.blyaxisTooltip) {
           for (var yt = 0; yt < w.config.yaxis.length; yt++) {
-            self.axesTooltip.drawYaxisTooltipText(yt, clientY, self.xyRatios);
+            self.axesTooltip._objectsService.MfgPlantsData.drawYaxisTooltipText(yt, clientY, self.xyRatios);
           }
         }
 
@@ -17730,7 +17730,7 @@ function () {
 
       if (e.type === 'mousemove' || e.type === 'touchmove') {
         tooltipEl.classList.add('active');
-        this.tooltipLabels.drawSeriesTexts({
+        this.tooltipLabels._objectsService.MfgPlantsData.drawSeriesTexts({
           ttItems: opt.ttItems,
           i: parseInt(rel) - 1,
           shared: false
@@ -17834,7 +17834,7 @@ function () {
       var bars = this.getElBars();
 
       if (shared) {
-        self.tooltipLabels.drawSeriesTexts({
+        self.tooltipLabels._objectsService.MfgPlantsData.drawSeriesTexts({
           ttItems: ttItems,
           i: capturedSeries,
           j: j,
@@ -17866,7 +17866,7 @@ function () {
           }
         }
       } else {
-        self.tooltipLabels.drawSeriesTexts({
+        self.tooltipLabels._objectsService.MfgPlantsData.drawSeriesTexts({
           shared: false,
           ttItems: ttItems,
           i: capturedSeries,
@@ -18359,17 +18359,17 @@ function (_Toolbar) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ZoomPanSelection).call(this, ctx));
     _this.ctx = ctx;
     _this.w = ctx.w;
-    _this.dragged = false;
+    _this._objectsService.MfgPlantsData.dragged = false;
     _this.graphics = new Graphics(_this.ctx);
     _this.eventList = ['mousedown', 'mousemove', 'touchstart', 'touchmove', 'mouseup', 'touchend'];
     _this.clientX = 0;
     _this.clientY = 0;
     _this.startX = 0;
     _this.endX = 0;
-    _this.dragX = 0;
+    _this._objectsService.MfgPlantsData.dragX = 0;
     _this.startY = 0;
     _this.endY = 0;
-    _this.dragY = 0;
+    _this._objectsService.MfgPlantsData.dragY = 0;
     return _this;
   }
 
@@ -18382,28 +18382,28 @@ function (_Toolbar) {
       var w = this.w;
       var me = this;
       this.xyRatios = xyRatios;
-      this.zoomRect = this.graphics.drawRect(0, 0, 0, 0);
-      this.selectionRect = this.graphics.drawRect(0, 0, 0, 0);
-      this.gridRect = w.globals.dom.baseEl.querySelector('.apexcharts-grid');
+      this.zoomRect = this.graphics._objectsService.MfgPlantsData.drawRect(0, 0, 0, 0);
+      this.selectionRect = this.graphics._objectsService.MfgPlantsData.drawRect(0, 0, 0, 0);
+      this.gri_objectsService.MfgPlantsData.drect = w.globals.dom.baseEl.querySelector('.apexcharts-grid');
       this.zoomRect.node.classList.add('apexcharts-zoom-rect');
       this.selectionRect.node.classList.add('apexcharts-selection-rect');
       w.globals.dom.elGraphical.add(this.zoomRect);
       w.globals.dom.elGraphical.add(this.selectionRect);
 
       if (w.config.chart.selection.type === 'x') {
-        this.slDraggableRect = this.selectionRect.draggable({
+        this.sl_objectsService.MfgPlantsData.draggableRect = this.selectionRect._objectsService.MfgPlantsData.draggable({
           minX: 0,
           minY: 0,
           maxX: w.globals.gridWidth,
           maxY: w.globals.gridHeight
-        }).on('dragmove', this.selectionDragging.bind(this, 'dragging'));
+        }).on('_objectsService.MfgPlantsData.dragmove', this.selection_objectsService.MfgPlantsData.dragging.bind(this, '_objectsService.MfgPlantsData.dragging'));
       } else if (w.config.chart.selection.type === 'y') {
-        this.slDraggableRect = this.selectionRect.draggable({
+        this.sl_objectsService.MfgPlantsData.draggableRect = this.selectionRect._objectsService.MfgPlantsData.draggable({
           minX: 0,
           maxX: w.globals.gridWidth
-        }).on('dragmove', this.selectionDragging.bind(this, 'dragging'));
+        }).on('_objectsService.MfgPlantsData.dragmove', this.selection_objectsService.MfgPlantsData.dragging.bind(this, '_objectsService.MfgPlantsData.dragging'));
       } else {
-        this.slDraggableRect = this.selectionRect.draggable().on('dragmove', this.selectionDragging.bind(this, 'dragging'));
+        this.sl_objectsService.MfgPlantsData.draggableRect = this.selectionRect._objectsService.MfgPlantsData.draggable().on('_objectsService.MfgPlantsData.dragmove', this.selection_objectsService.MfgPlantsData.dragging.bind(this, '_objectsService.MfgPlantsData.dragging'));
       }
 
       this.preselectedSelection();
@@ -18432,15 +18432,15 @@ function (_Toolbar) {
         }
       });
 
-      if (this.slDraggableRect) {
-        this.slDraggableRect.draggable(false);
-        this.slDraggableRect.off();
+      if (this.sl_objectsService.MfgPlantsData.draggableRect) {
+        this.sl_objectsService.MfgPlantsData.draggableRect._objectsService.MfgPlantsData.draggable(false);
+        this.sl_objectsService.MfgPlantsData.draggableRect.off();
         this.selectionRect.off();
       }
 
       this.selectionRect = null;
       this.zoomRect = null;
-      this.gridRect = null;
+      this.gri_objectsService.MfgPlantsData.drect = null;
     }
   }, {
     key: "svgMouseEvents",
@@ -18466,21 +18466,21 @@ function (_Toolbar) {
       me.clientY = e.type === 'touchmove' || e.type === 'touchstart' ? e.touches[0].clientY : e.type === 'touchend' ? e.changedTouches[0].clientY : e.clientY;
 
       if (e.type === 'mousedown' && e.which === 1) {
-        var gridRectDim = me.gridRect.getBoundingClientRect();
-        me.startX = me.clientX - gridRectDim.left;
-        me.startY = me.clientY - gridRectDim.top;
-        me.dragged = false;
+        var gri_objectsService.MfgPlantsData.drectDim = me.gri_objectsService.MfgPlantsData.drect.getBoundingClientRect();
+        me.startX = me.clientX - gri_objectsService.MfgPlantsData.drectDim.left;
+        me.startY = me.clientY - gri_objectsService.MfgPlantsData.drectDim.top;
+        me._objectsService.MfgPlantsData.dragged = false;
         me.w.globals.mousedown = true;
       }
 
       if (e.type === 'mousemove' && e.which === 1 || e.type === 'touchmove') {
-        me.dragged = true;
+        me._objectsService.MfgPlantsData.dragged = true;
 
         if (w.globals.panEnabled) {
           w.globals.selection = null;
 
           if (me.w.globals.mousedown) {
-            me.panDragging({
+            me.pan_objectsService.MfgPlantsData.dragging({
               context: me,
               zoomtype: zoomtype,
               xyRatios: xyRatios
@@ -18488,7 +18488,7 @@ function (_Toolbar) {
           }
         } else {
           if (me.w.globals.mousedown && w.globals.zoomEnabled || me.w.globals.mousedown && w.globals.selectionEnabled) {
-            me.selection = me.selectionDrawing({
+            me.selection = me.selection_objectsService.MfgPlantsData.drawing({
               context: me,
               zoomtype: zoomtype
             });
@@ -18498,17 +18498,17 @@ function (_Toolbar) {
 
       if (e.type === 'mouseup' || e.type === 'touchend') {
         // we will be calling getBoundingClientRect on each mousedown/mousemove/mouseup
-        var _gridRectDim = me.gridRect.getBoundingClientRect();
+        var _gri_objectsService.MfgPlantsData.drectDim = me.gri_objectsService.MfgPlantsData.drect.getBoundingClientRect();
 
         if (me.w.globals.mousedown) {
-          // user released the drag, now do all the calculations
-          me.endX = me.clientX - _gridRectDim.left;
-          me.endY = me.clientY - _gridRectDim.top;
-          me.dragX = Math.abs(me.endX - me.startX);
-          me.dragY = Math.abs(me.endY - me.startY);
+          // user released the _objectsService.MfgPlantsData.drag, now do all the calculations
+          me.endX = me.clientX - _gri_objectsService.MfgPlantsData.drectDim.left;
+          me.endY = me.clientY - _gri_objectsService.MfgPlantsData.drectDim.top;
+          me._objectsService.MfgPlantsData.dragX = Math.abs(me.endX - me.startX);
+          me._objectsService.MfgPlantsData.dragY = Math.abs(me.endY - me.startY);
 
           if (w.globals.zoomEnabled || w.globals.selectionEnabled) {
-            me.selectionDrawn({
+            me.selection_objectsService.MfgPlantsData.drawn({
               context: me,
               zoomtype: zoomtype
             });
@@ -18519,28 +18519,28 @@ function (_Toolbar) {
           me.hideSelectionRect(this.selectionRect);
         }
 
-        me.dragged = false;
+        me._objectsService.MfgPlantsData.dragged = false;
         me.w.globals.mousedown = false;
       }
 
-      this.makeSelectionRectDraggable();
+      this.makeSelectionRect_objectsService.MfgPlantsData.draggable();
     }
   }, {
-    key: "makeSelectionRectDraggable",
-    value: function makeSelectionRectDraggable() {
+    key: "makeSelectionRect_objectsService.MfgPlantsData.draggable",
+    value: function makeSelectionRect_objectsService.MfgPlantsData.draggable() {
       var w = this.w;
       if (!this.selectionRect) return;
       var rectDim = this.selectionRect.node.getBoundingClientRect();
 
       if (rectDim.width > 0 && rectDim.height > 0) {
-        this.slDraggableRect.selectize().resize({
+        this.sl_objectsService.MfgPlantsData.draggableRect.selectize().resize({
           constraint: {
             minX: 0,
             minY: 0,
             maxX: w.globals.gridWidth,
             maxY: w.globals.gridHeight
           }
-        }).on('resizing', this.selectionDragging.bind(this, 'resizing'));
+        }).on('resizing', this.selection_objectsService.MfgPlantsData.dragging.bind(this, 'resizing'));
       }
     }
   }, {
@@ -18551,7 +18551,7 @@ function (_Toolbar) {
 
       if (!w.globals.zoomEnabled) {
         if (typeof w.globals.selection !== 'undefined' && w.globals.selection !== null) {
-          this.drawSelectionRect(w.globals.selection);
+          this._objectsService.MfgPlantsData.drawSelectionRect(w.globals.selection);
         } else {
           if (w.config.chart.selection.xaxis.min !== undefined && w.config.chart.selection.xaxis.max !== undefined) {
             var x = (w.config.chart.selection.xaxis.min - w.globals.minX) / xyRatios.xRatio;
@@ -18565,8 +18565,8 @@ function (_Toolbar) {
               translateY: 0,
               selectionEnabled: true
             };
-            this.drawSelectionRect(selectionRect);
-            this.makeSelectionRectDraggable();
+            this._objectsService.MfgPlantsData.drawSelectionRect(selectionRect);
+            this.makeSelectionRect_objectsService.MfgPlantsData.draggable();
 
             if (typeof w.config.chart.events.selection === 'function') {
               w.config.chart.events.selection(this.ctx, {
@@ -18582,8 +18582,8 @@ function (_Toolbar) {
       }
     }
   }, {
-    key: "drawSelectionRect",
-    value: function drawSelectionRect(_ref2) {
+    key: "_objectsService.MfgPlantsData.drawSelectionRect",
+    value: function _objectsService.MfgPlantsData.drawSelectionRect(_ref2) {
       var x = _ref2.x,
           y = _ref2.y,
           width = _ref2.width,
@@ -18594,14 +18594,14 @@ function (_Toolbar) {
       var zoomRect = this.zoomRect;
       var selectionRect = this.selectionRect;
 
-      if (this.dragged || w.globals.selection !== null) {
+      if (this._objectsService.MfgPlantsData.dragged || w.globals.selection !== null) {
         var scalingAttrs = {
           transform: 'translate(' + translateX + ', ' + translateY + ')' // change styles based on zoom or selection
-          // zoom is Enabled and user has dragged, so draw blue rect
+          // zoom is Enabled and user has _objectsService.MfgPlantsData.dragged, so _objectsService.MfgPlantsData.draw blue rect
 
         };
 
-        if (w.globals.zoomEnabled && this.dragged) {
+        if (w.globals.zoomEnabled && this._objectsService.MfgPlantsData.dragged) {
           zoomRect.attr({
             x: x,
             y: y,
@@ -18647,37 +18647,37 @@ function (_Toolbar) {
       }
     }
   }, {
-    key: "selectionDrawing",
-    value: function selectionDrawing(_ref3) {
+    key: "selection_objectsService.MfgPlantsData.drawing",
+    value: function selection_objectsService.MfgPlantsData.drawing(_ref3) {
       var context = _ref3.context,
           zoomtype = _ref3.zoomtype;
       var w = this.w;
       var me = context;
-      var gridRectDim = this.gridRect.getBoundingClientRect();
+      var gri_objectsService.MfgPlantsData.drectDim = this.gri_objectsService.MfgPlantsData.drect.getBoundingClientRect();
       var startX = me.startX - 1;
       var startY = me.startY;
-      var selectionWidth = me.clientX - gridRectDim.left - startX;
-      var selectionHeight = me.clientY - gridRectDim.top - startY;
+      var selectionWidth = me.clientX - gri_objectsService.MfgPlantsData.drectDim.left - startX;
+      var selectionHeight = me.clientY - gri_objectsService.MfgPlantsData.drectDim.top - startY;
       var translateX = 0;
       var translateY = 0;
       var selectionRect = {};
 
-      if (Math.abs(selectionWidth + startX) > w.globals.gridWidth || me.clientX - gridRectDim.left < 0) {
-        // user dragged the mouse outside drawing area
-        // TODO: test the selectionRect and make sure it doesn't crosses drawing area
+      if (Math.abs(selectionWidth + startX) > w.globals.gridWidth || me.clientX - gri_objectsService.MfgPlantsData.drectDim.left < 0) {
+        // user _objectsService.MfgPlantsData.dragged the mouse outside _objectsService.MfgPlantsData.drawing area
+        // TODO: test the selectionRect and make sure it doesn't crosses _objectsService.MfgPlantsData.drawing area
         me.hideSelectionRect(this.zoomRect);
-        me.dragged = false;
+        me._objectsService.MfgPlantsData.dragged = false;
         me.w.globals.mousedown = false;
       } // inverse selection X
 
 
-      if (startX > me.clientX - gridRectDim.left) {
+      if (startX > me.clientX - gri_objectsService.MfgPlantsData.drectDim.left) {
         selectionWidth = Math.abs(selectionWidth);
         translateX = -selectionWidth;
       } // inverse selection Y
 
 
-      if (startY > me.clientY - gridRectDim.top) {
+      if (startY > me.clientY - gri_objectsService.MfgPlantsData.drectDim.top) {
         selectionHeight = Math.abs(selectionHeight);
         translateY = -selectionHeight;
       }
@@ -18711,12 +18711,12 @@ function (_Toolbar) {
         };
       }
 
-      me.drawSelectionRect(selectionRect);
+      me._objectsService.MfgPlantsData.drawSelectionRect(selectionRect);
       return selectionRect;
     }
   }, {
-    key: "selectionDragging",
-    value: function selectionDragging(type, e) {
+    key: "selection_objectsService.MfgPlantsData.dragging",
+    value: function selection_objectsService.MfgPlantsData.dragging(type, e) {
       var _this4 = this;
 
       var w = this.w;
@@ -18732,13 +18732,13 @@ function (_Toolbar) {
         // a small debouncer is required when resizing to avoid freezing the chart
         clearTimeout(this.w.globals.selectionResizeTimer);
         this.w.globals.selectionResizeTimer = window.setTimeout(function () {
-          var gridRectDim = _this4.gridRect.getBoundingClientRect();
+          var gri_objectsService.MfgPlantsData.drectDim = _this4.gri_objectsService.MfgPlantsData.drect.getBoundingClientRect();
 
           var selectionRect = selRect.node.getBoundingClientRect();
-          var minX = w.globals.xAxisScale.niceMin + (selectionRect.left - gridRectDim.left) * xyRatios.xRatio;
-          var maxX = w.globals.xAxisScale.niceMin + (selectionRect.right - gridRectDim.left) * xyRatios.xRatio;
-          var minY = w.globals.yAxisScale[0].niceMin + (gridRectDim.bottom - selectionRect.bottom) * xyRatios.yRatio[0];
-          var maxY = w.globals.yAxisScale[0].niceMax - (selectionRect.top - gridRectDim.top) * xyRatios.yRatio[0];
+          var minX = w.globals.xAxisScale.niceMin + (selectionRect.left - gri_objectsService.MfgPlantsData.drectDim.left) * xyRatios.xRatio;
+          var maxX = w.globals.xAxisScale.niceMin + (selectionRect.right - gri_objectsService.MfgPlantsData.drectDim.left) * xyRatios.xRatio;
+          var minY = w.globals.yAxisScale[0].niceMin + (gri_objectsService.MfgPlantsData.drectDim.bottom - selectionRect.bottom) * xyRatios.yRatio[0];
+          var maxY = w.globals.yAxisScale[0].niceMax - (selectionRect.top - gri_objectsService.MfgPlantsData.drectDim.top) * xyRatios.yRatio[0];
           w.config.chart.events.selection(_this4.ctx, {
             xaxis: {
               min: minX,
@@ -18753,8 +18753,8 @@ function (_Toolbar) {
       }
     }
   }, {
-    key: "selectionDrawn",
-    value: function selectionDrawn(_ref4) {
+    key: "selection_objectsService.MfgPlantsData.drawn",
+    value: function selection_objectsService.MfgPlantsData.drawn(_ref4) {
       var context = _ref4.context,
           zoomtype = _ref4.zoomtype;
       var w = this.w;
@@ -18784,7 +18784,7 @@ function (_Toolbar) {
         yLowestValue.push(Math.floor(w.globals.yAxisScale[index].niceMax - xyRatios.yRatio[index] * me.endY));
       });
 
-      if (me.dragged && (me.dragX > 10 || me.dragY > 10) && xLowestValue !== xHighestValue) {
+      if (me._objectsService.MfgPlantsData.dragged && (me._objectsService.MfgPlantsData.dragX > 10 || me._objectsService.MfgPlantsData.dragY > 10) && xLowestValue !== xHighestValue) {
         if (w.globals.zoomEnabled) {
           var yaxis = Utils.clone(w.config.yaxis); // before zooming in/out, store the last yaxis and xaxis range, so that when user hits the RESET button, we get the original range
           // also - make sure user is not already zoomed in/out - otherwise we will store zoomed values in lastAxis
@@ -18871,8 +18871,8 @@ function (_Toolbar) {
       }
     }
   }, {
-    key: "panDragging",
-    value: function panDragging(_ref5) {
+    key: "pan_objectsService.MfgPlantsData.dragging",
+    value: function pan_objectsService.MfgPlantsData.dragging(_ref5) {
       var context = _ref5.context,
           zoomtype = _ref5.zoomtype;
       var w = this.w;
@@ -18893,7 +18893,7 @@ function (_Toolbar) {
         } else if (Math.abs(deltaY) > Math.abs(deltaX) && deltaY < 0) {
           moveDirection = 'down';
         }
-      } // set the new last position to the current for next time (to get the position of drag)
+      } // set the new last position to the current for next time (to get the position of _objectsService.MfgPlantsData.drag)
 
 
       w.globals.lastClientPosition = {
@@ -18969,14 +18969,14 @@ function () {
   }
 
   _createClass(TitleSubtitle, [{
-    key: "draw",
-    value: function draw() {
-      this.drawTitleSubtitle('title');
-      this.drawTitleSubtitle('subtitle');
+    key: "_objectsService.MfgPlantsData.draw",
+    value: function _objectsService.MfgPlantsData.draw() {
+      this._objectsService.MfgPlantsData.drawTitleSubtitle('title');
+      this._objectsService.MfgPlantsData.drawTitleSubtitle('subtitle');
     }
   }, {
-    key: "drawTitleSubtitle",
-    value: function drawTitleSubtitle(type) {
+    key: "_objectsService.MfgPlantsData.drawTitleSubtitle",
+    value: function _objectsService.MfgPlantsData.drawTitleSubtitle(type) {
       var w = this.w;
       var tsConfig = type === 'title' ? w.config.title : w.config.subtitle;
       var x = w.globals.svgWidth / 2;
@@ -18996,7 +18996,7 @@ function () {
 
       if (tsConfig.text !== undefined) {
         var graphics = new Graphics(this.ctx);
-        var titleText = graphics.drawText({
+        var titleText = graphics._objectsService.MfgPlantsData.drawText({
           x: x,
           y: y,
           text: tsConfig.text,
@@ -19037,7 +19037,7 @@ function () {
     if (SVG.supported) {
       element = new SVG.Doc(element);
 
-      if (!SVG.parser.draw) {
+      if (!SVG.parser._objectsService.MfgPlantsData.draw) {
         SVG.prepare();
       }
 
@@ -19159,13 +19159,13 @@ function () {
   SVG.prepare = function () {
     // Select document body and create invisible svg element
     var body = document.getElementsByTagName('body')[0],
-        draw = (body ? new SVG.Doc(body) : SVG.adopt(document.documentElement).nested()).size(2, 0); // Create parser object
+        _objectsService.MfgPlantsData.draw = (body ? new SVG.Doc(body) : SVG.adopt(document.documentElement).nested()).size(2, 0); // Create parser object
 
     SVG.parser = {
       body: body || document.documentElement,
-      draw: draw.style('opacity:0;position:absolute;left:-100%;top:-100%;overflow:hidden').node,
-      poly: draw.polyline().node,
-      path: draw.path().node,
+      _objectsService.MfgPlantsData.draw: _objectsService.MfgPlantsData.draw.style('opacity:0;position:absolute;left:-100%;top:-100%;overflow:hidden').node,
+      poly: _objectsService.MfgPlantsData.draw.polyline().node,
+      path: _objectsService.MfgPlantsData.draw.path().node,
       native: SVG.create('svg')
     };
   };
@@ -19174,7 +19174,7 @@ function () {
     native: SVG.create('svg')
   };
   document.addEventListener('DOMContentLoaded', function () {
-    if (!SVG.parser.draw) {
+    if (!SVG.parser._objectsService.MfgPlantsData.draw) {
       SVG.prepare();
     }
   }, false); // Storage for regular expressions
@@ -19526,8 +19526,8 @@ function () {
         // Else, it is considered as a string
         // parse points
         array = array.trim().split(SVG.regex.delimiter).map(parseFloat);
-      } // validate points - https://svgwg.org/svg2-draft/shapes.html#DataTypePoints
-      // Odd number of coordinates is an error. In such cases, drop the last odd coordinate.
+      } // validate points - https://svgwg.org/svg2-_objectsService.MfgPlantsData.draft/shapes.html#DataTypePoints
+      // Odd number of coordinates is an error. In such cases, _objectsService.MfgPlantsData.drop the last odd coordinate.
 
 
       if (array.length % 2 !== 0) array.pop(); // wrap points in two-tuples and parse points as floats
@@ -19567,7 +19567,7 @@ function () {
     },
     // Get bounding box of points
     bbox: function bbox() {
-      if (!SVG.parser.draw) {
+      if (!SVG.parser._objectsService.MfgPlantsData.draw) {
         SVG.prepare();
       }
 
@@ -19850,7 +19850,7 @@ function () {
     },
     // Get bounding box of path
     bbox: function bbox() {
-      if (!SVG.parser.draw) {
+      if (!SVG.parser._objectsService.MfgPlantsData.draw) {
         SVG.prepare();
       }
 
@@ -21121,12 +21121,12 @@ function () {
           box = element.node.getBBox();
         } catch (e) {
           if (element instanceof SVG.Shape) {
-            if (!SVG.parser.draw) {
+            if (!SVG.parser._objectsService.MfgPlantsData.draw) {
               // fixes apexcharts/vue-apexcharts #14
               SVG.prepare();
             }
 
-            var clone = element.clone(SVG.parser.draw.instance).show();
+            var clone = element.clone(SVG.parser._objectsService.MfgPlantsData.draw.instance).show();
             box = clone.node.getBBox();
             clone.remove();
           } else {
@@ -21840,7 +21840,7 @@ function () {
     // Add class methods
     extend: {
       // Returns all child elements
-      children: function children() {
+      chil_objectsService.MfgPlantsData.dren: function chil_objectsService.MfgPlantsData.dren() {
         return SVG.utils.map(SVG.utils.filterSVGElements(this.node.childNodes), function (node) {
           return SVG.adopt(node);
         });
@@ -21880,19 +21880,19 @@ function () {
       last: function last() {
         return this.get(this.node.childNodes.length - 1);
       },
-      // Iterates over all children and invokes a given block
+      // Iterates over all chil_objectsService.MfgPlantsData.dren and invokes a given block
       each: function each(block, deep) {
         var i,
             il,
-            children = this.children();
+            chil_objectsService.MfgPlantsData.dren = this.chil_objectsService.MfgPlantsData.dren();
 
-        for (i = 0, il = children.length; i < il; i++) {
-          if (children[i] instanceof SVG.Element) {
-            block.apply(children[i], [i, children]);
+        for (i = 0, il = chil_objectsService.MfgPlantsData.dren.length; i < il; i++) {
+          if (chil_objectsService.MfgPlantsData.dren[i] instanceof SVG.Element) {
+            block.apply(chil_objectsService.MfgPlantsData.dren[i], [i, chil_objectsService.MfgPlantsData.dren]);
           }
 
-          if (deep && children[i] instanceof SVG.Container) {
-            children[i].each(block, deep);
+          if (deep && chil_objectsService.MfgPlantsData.dren[i] instanceof SVG.Container) {
+            chil_objectsService.MfgPlantsData.dren[i].each(block, deep);
           }
         }
 
@@ -21905,7 +21905,7 @@ function () {
       },
       // Remove all elements in this container
       clear: function clear() {
-        // remove children
+        // remove chil_objectsService.MfgPlantsData.dren
         while (this.node.hasChildNodes()) {
           this.node.removeChild(this.node.lastChild);
         } // remove defs reference
@@ -21922,7 +21922,7 @@ function () {
   });
   SVG.extend(SVG.Parent, {
     ungroup: function ungroup(parent, depth) {
-      if (depth === 0 || this instanceof SVG.Defs || this.node == SVG.parser.draw) return this;
+      if (depth === 0 || this instanceof SVG.Defs || this.node == SVG.parser._objectsService.MfgPlantsData.draw) return this;
       parent = parent || (this instanceof SVG.Doc ? this : this.parent(SVG.Parent));
       depth = depth || Infinity;
       this.each(function () {
@@ -22293,7 +22293,7 @@ function () {
         return this;
       },
       clear: function clear() {
-        // remove children
+        // remove chil_objectsService.MfgPlantsData.dren
         while (this.node.hasChildNodes()) {
           this.node.removeChild(this.node.lastChild);
         } // remove defs reference
@@ -22301,8 +22301,8 @@ function () {
 
         delete this._defs; // add back parser
 
-        if (SVG.parser.draw && !SVG.parser.draw.parentNode) {
-          this.node.appendChild(SVG.parser.draw);
+        if (SVG.parser._objectsService.MfgPlantsData.draw && !SVG.parser._objectsService.MfgPlantsData.draw.parentNode) {
+          this.node.appendChild(SVG.parser._objectsService.MfgPlantsData.draw);
         }
 
         return this;
@@ -22330,7 +22330,7 @@ function () {
   SVG.extend(SVG.Element, {
     // Get all siblings, including myself
     siblings: function siblings() {
-      return this.parent().children();
+      return this.parent().chil_objectsService.MfgPlantsData.dren();
     },
     // Get the curent position siblings
     position: function position() {
@@ -23122,16 +23122,16 @@ function () {
         // act as getter
         if (typeof _text === 'undefined') {
           var _text = '';
-          var children = this.node.childNodes;
+          var chil_objectsService.MfgPlantsData.dren = this.node.childNodes;
 
-          for (var i = 0, len = children.length; i < len; ++i) {
+          for (var i = 0, len = chil_objectsService.MfgPlantsData.dren.length; i < len; ++i) {
             // add newline if its not the first child and newLined is set to true
-            if (i != 0 && children[i].nodeType != 3 && SVG.adopt(children[i]).dom.newLined == true) {
+            if (i != 0 && chil_objectsService.MfgPlantsData.dren[i].nodeType != 3 && SVG.adopt(chil_objectsService.MfgPlantsData.dren[i]).dom.newLined == true) {
               _text += '\n';
             } // add content of this node
 
 
-            _text += children[i].textContent;
+            _text += chil_objectsService.MfgPlantsData.dren[i].textContent;
           }
 
           return _text;
@@ -24437,7 +24437,7 @@ function () {
   // Create all parent effects
   var parentEffects = {
     merge: function(){
-      var children;
+      var chil_objectsService.MfgPlantsData.dren;
 
       //test to see if we have a set
       if(arguments[0] instanceof SVG.Set){
@@ -24452,15 +24452,15 @@ function () {
       else{
         //if the first argument is an array use it
         if(Array.isArray(arguments[0]))
-          children = arguments[0];
+          chil_objectsService.MfgPlantsData.dren = arguments[0];
         else
-          children = arguments;
+          chil_objectsService.MfgPlantsData.dren = arguments;
 
-        for(var i = 0; i < children.length; i++){
-          if(children[i] instanceof SVG.MergeNode){
-            this.put(children[i]);
+        for(var i = 0; i < chil_objectsService.MfgPlantsData.dren.length; i++){
+          if(chil_objectsService.MfgPlantsData.dren[i] instanceof SVG.MergeNode){
+            this.put(chil_objectsService.MfgPlantsData.dren[i]);
           }
-          else this.put(new SVG.MergeNode(children[i]));
+          else this.put(new SVG.MergeNode(chil_objectsService.MfgPlantsData.dren[i]));
         }
       }
     },
@@ -24799,8 +24799,8 @@ function handleBlock(startArr, startOffsetM, startOffsetNextM, destArr, destOffs
     } else {
 
       // only update positions otherwise
-      startArrTemp[i] = setPosAndReflection.call(posStart, startArrTemp[i]);
-       destArrTemp[i] = setPosAndReflection.call(posDest ,  destArrTemp[i]);
+      startArrTemp[i] = setPosAn_objectsService.MfgPlantsData.dreflection.call(posStart, startArrTemp[i]);
+       destArrTemp[i] = setPosAn_objectsService.MfgPlantsData.dreflection.call(posDest ,  destArrTemp[i]);
 
     }
 
@@ -24859,7 +24859,7 @@ function simplyfy(val){
       val[2] = val[1];
       val[1] = this.pos[0];
       break
-    case 'T': // shorthand quadratic beziere
+    case 'T': // shorthand qua_objectsService.MfgPlantsData.dratic beziere
       val[0] = 'Q';
       val[3] = val[1];
       val[4] = val[2];
@@ -24882,7 +24882,7 @@ function simplyfy(val){
 }
 
 // updates reflection point and current position
-function setPosAndReflection(val){
+function setPosAn_objectsService.MfgPlantsData.dreflection(val){
 
   var len = val.length;
 
@@ -25036,12 +25036,12 @@ function arcToBeziere(pos, val) {
       tetaEnd *= -1;
     }
 
-    // If sweep-flag is '1', then the arc will be drawn in a "positive-angle" direction,
+    // If sweep-flag is '1', then the arc will be _objectsService.MfgPlantsData.drawn in a "positive-angle" direction,
     // make sure that the end angle is above the start angle
     if (sweepFlag && tetaStart > tetaEnd) {
       tetaEnd += 2*Math.PI;
     }
-    // If sweep-flag is '0', then the arc will be drawn in a "negative-angle" direction,
+    // If sweep-flag is '0', then the arc will be _objectsService.MfgPlantsData.drawn in a "negative-angle" direction,
     // make sure that the end angle is below the start angle
     if (!sweepFlag && tetaStart < tetaEnd) {
       tetaEnd -= 2*Math.PI;
@@ -25102,29 +25102,29 @@ function arcToBeziere(pos, val) {
 }
 }());
 
-/*! svg.draggable.js - v2.2.1 - 2016-08-25
-* https://github.com/wout/svg.draggable.js
+/*! svg._objectsService.MfgPlantsData.draggable.js - v2.2.1 - 2016-08-25
+* https://github.com/wout/svg._objectsService.MfgPlantsData.draggable.js
 * Copyright (c) 2016 Wout Fierens; Licensed MIT */
 (function() {
 
   // creates handler, saves it
-  function DragHandler(el){
-    el.remember('_draggable', this);
+  function _objectsService.MfgPlantsData.dragHandler(el){
+    el.remember('__objectsService.MfgPlantsData.draggable', this);
     this.el = el;
   }
 
 
-  // Sets new parameter, starts dragging
-  DragHandler.prototype.init = function(constraint, val){
+  // Sets new parameter, starts _objectsService.MfgPlantsData.dragging
+  _objectsService.MfgPlantsData.dragHandler.prototype.init = function(constraint, val){
     var _this = this;
     this.constraint = constraint;
     this.value = val;
-    this.el.on('mousedown.drag', function(e){ _this.start(e); });
-    this.el.on('touchstart.drag', function(e){ _this.start(e); });
+    this.el.on('mousedown._objectsService.MfgPlantsData.drag', function(e){ _this.start(e); });
+    this.el.on('touchstart._objectsService.MfgPlantsData.drag', function(e){ _this.start(e); });
   };
 
   // transforms one point from screen to user coords
-  DragHandler.prototype.transformPoint = function(event, offset){
+  _objectsService.MfgPlantsData.dragHandler.prototype.transformPoint = function(event, offset){
       event = event || window.event;
       var touches = event.changedTouches && event.changedTouches[0] || event;
       this.p.x = touches.pageX - (offset || 0);
@@ -25133,7 +25133,7 @@ function arcToBeziere(pos, val) {
   };
   
   // gets elements bounding box with special handling of groups, nested and use
-  DragHandler.prototype.getBBox = function(){
+  _objectsService.MfgPlantsData.dragHandler.prototype.getBBox = function(){
 
     var box = this.el.bbox();
 
@@ -25147,8 +25147,8 @@ function arcToBeziere(pos, val) {
     return box
   };
 
-  // start dragging
-  DragHandler.prototype.start = function(e){
+  // start _objectsService.MfgPlantsData.dragging
+  _objectsService.MfgPlantsData.dragHandler.prototype.start = function(e){
 
     // check for left button
     if(e.type == 'click'|| e.type == 'mousedown' || e.type == 'mousemove'){
@@ -25159,11 +25159,11 @@ function arcToBeziere(pos, val) {
   
     var _this = this;
 
-    // fire beforedrag event
-    this.el.fire('beforedrag', { event: e, handler: this });
+    // fire before_objectsService.MfgPlantsData.drag event
+    this.el.fire('before_objectsService.MfgPlantsData.drag', { event: e, handler: this });
 
     // search for parent on the fly to make sure we can call
-    // draggable() even when element is not in the dom currently
+    // _objectsService.MfgPlantsData.draggable() even when element is not in the dom currently
     this.parent = this.parent || this.el.parent(SVG.Nested) || this.el.parent(SVG.Doc);
     this.p = this.parent.node.createSVGPoint();
 
@@ -25195,24 +25195,24 @@ function arcToBeziere(pos, val) {
       transform: this.el.transform()
     };
     
-    // add drag and end events to window
-    SVG.on(window, 'mousemove.drag', function(e){ _this.drag(e); });
-    SVG.on(window, 'touchmove.drag', function(e){ _this.drag(e); });
-    SVG.on(window, 'mouseup.drag', function(e){ _this.end(e); });
-    SVG.on(window, 'touchend.drag', function(e){ _this.end(e); });
+    // add _objectsService.MfgPlantsData.drag and end events to window
+    SVG.on(window, 'mousemove._objectsService.MfgPlantsData.drag', function(e){ _this._objectsService.MfgPlantsData.drag(e); });
+    SVG.on(window, 'touchmove._objectsService.MfgPlantsData.drag', function(e){ _this._objectsService.MfgPlantsData.drag(e); });
+    SVG.on(window, 'mouseup._objectsService.MfgPlantsData.drag', function(e){ _this.end(e); });
+    SVG.on(window, 'touchend._objectsService.MfgPlantsData.drag', function(e){ _this.end(e); });
 
-    // fire dragstart event
-    this.el.fire('dragstart', {event: e, p: this.startPoints.point, m: this.m, handler: this});
+    // fire _objectsService.MfgPlantsData.dragstart event
+    this.el.fire('_objectsService.MfgPlantsData.dragstart', {event: e, p: this.startPoints.point, m: this.m, handler: this});
 
-    // prevent browser drag behavior
+    // prevent browser _objectsService.MfgPlantsData.drag behavior
     e.preventDefault();
 
-    // prevent propagation to a parent that might also have dragging enabled
+    // prevent propagation to a parent that might also have _objectsService.MfgPlantsData.dragging enabled
     e.stopPropagation();
   };
 
-  // while dragging
-  DragHandler.prototype.drag = function(e){
+  // while _objectsService.MfgPlantsData.dragging
+  _objectsService.MfgPlantsData.dragHandler.prototype._objectsService.MfgPlantsData.drag = function(e){
 
     var box = this.getBBox()
       , p   = this.transformPoint(e)
@@ -25222,7 +25222,7 @@ function arcToBeziere(pos, val) {
       , gx  = p.x - this.startPoints.point.x
       , gy  = p.y - this.startPoints.point.y;
       
-    var event = new CustomEvent('dragmove', {
+    var event = new CustomEvent('_objectsService.MfgPlantsData.dragmove', {
         detail: {
             event: e
           , p: p
@@ -25284,27 +25284,27 @@ function arcToBeziere(pos, val) {
     return p
   };
 
-  DragHandler.prototype.end = function(e){
+  _objectsService.MfgPlantsData.dragHandler.prototype.end = function(e){
 
-    // final drag
-    var p = this.drag(e);
+    // final _objectsService.MfgPlantsData.drag
+    var p = this._objectsService.MfgPlantsData.drag(e);
 
-    // fire dragend event
-    this.el.fire('dragend', { event: e, p: p, m: this.m, handler: this });
+    // fire _objectsService.MfgPlantsData.dragend event
+    this.el.fire('_objectsService.MfgPlantsData.dragend', { event: e, p: p, m: this.m, handler: this });
 
     // unbind events
-    SVG.off(window, 'mousemove.drag');
-    SVG.off(window, 'touchmove.drag');
-    SVG.off(window, 'mouseup.drag');
-    SVG.off(window, 'touchend.drag');
+    SVG.off(window, 'mousemove._objectsService.MfgPlantsData.drag');
+    SVG.off(window, 'touchmove._objectsService.MfgPlantsData.drag');
+    SVG.off(window, 'mouseup._objectsService.MfgPlantsData.drag');
+    SVG.off(window, 'touchend._objectsService.MfgPlantsData.drag');
 
   };
 
   SVG.extend(SVG.Element, {
-    // Make element draggable
+    // Make element _objectsService.MfgPlantsData.draggable
     // Constraint might be an object (as described in readme.md) or a function in the form "function (x, y)" that gets called before every move.
     // The function can return a boolean or an object of the form {x, y}, to which the element will be moved. "False" skips moving, true moves to raw x, y.
-    draggable: function(value, constraint) {
+    _objectsService.MfgPlantsData.draggable: function(value, constraint) {
 
       // Check the parameters and reassign if needed
       if (typeof value == 'function' || typeof value == 'object') {
@@ -25312,15 +25312,15 @@ function arcToBeziere(pos, val) {
         value = true;
       }
 
-      var dragHandler = this.remember('_draggable') || new DragHandler(this);
+      var _objectsService.MfgPlantsData.dragHandler = this.remember('__objectsService.MfgPlantsData.draggable') || new _objectsService.MfgPlantsData.dragHandler(this);
 
       // When no parameter is given, value is true
       value = typeof value === 'undefined' ? true : value;
 
-      if(value) dragHandler.init(constraint || {}, value);
+      if(value) _objectsService.MfgPlantsData.dragHandler.init(constraint || {}, value);
       else {
-        this.off('mousedown.drag');
-        this.off('touchstart.drag');
+        this.off('mousedown._objectsService.MfgPlantsData.drag');
+        this.off('touchstart._objectsService.MfgPlantsData.drag');
       }
 
       return this
@@ -25358,7 +25358,7 @@ SelectHandler.prototype.init = function (value, options) {
     this.nested = (this.nested || this.parent.group());
     this.nested.matrix(new SVG.Matrix(this.el).translate(bbox.x, bbox.y));
 
-    // When deepSelect is enabled and the element is a line/polyline/polygon, draw only points for moving
+    // When deepSelect is enabled and the element is a line/polyline/polygon, _objectsService.MfgPlantsData.draw only points for moving
     if (this.options.deepSelect && ['line', 'polyline', 'polygon'].indexOf(this.el.type) !== -1) {
         this.selectPoints(value);
     } else {
@@ -25381,8 +25381,8 @@ SelectHandler.prototype.selectPoints = function (value) {
 
     // Create our set of elements
     this.pointSelection.set = this.parent.set();
-    // draw the circles and mark the element as selected
-    this.drawCircles();
+    // _objectsService.MfgPlantsData.draw the circles and mark the element as selected
+    this._objectsService.MfgPlantsData.drawCircles();
 
     return this;
 
@@ -25397,8 +25397,8 @@ SelectHandler.prototype.getPointArray = function () {
     });
 };
 
-// The function to draw the circles
-SelectHandler.prototype.drawCircles = function () {
+// The function to _objectsService.MfgPlantsData.draw the circles
+SelectHandler.prototype._objectsService.MfgPlantsData.drawCircles = function () {
 
     var _this = this, array = this.getPointArray();
 
@@ -25499,7 +25499,7 @@ SelectHandler.prototype.selectRect = function (value) {
         this.rectSelection.set.add(this.nested.rect(bbox.width, bbox.height).addClass(this.options.classRect));
     }
 
-    // Draw Points at the edges, if enabled
+    // _objectsService.MfgPlantsData.draw Points at the edges, if enabled
     if (this.options.points && !this.rectSelection.set.get(1)) {
         var ename ="touchstart", mname = "mousedown";
         this.rectSelection.set.add(this.nested.circle(this.options.radius).center(0, 0).attr('class', this.options.classPoints + '_lt').on(mname, getMoseDownFunc('lt')).on(ename, getMoseDownFunc('lt')));
@@ -25517,7 +25517,7 @@ SelectHandler.prototype.selectRect = function (value) {
         });
     }
 
-    // draw rotationPint, if enabled
+    // _objectsService.MfgPlantsData.draw rotationPint, if enabled
     if (this.options.rotationPoint && ((this.options.points && !this.rectSelection.set.get(9)) || (!this.options.points && !this.rectSelection.set.get(1)))) {
 
         var curriedEvent = function (ev) {
@@ -25630,11 +25630,11 @@ SVG.extend(SVG.Element, {
 });
 
 SVG.Element.prototype.selectize.defaults = {
-    points: true,                            // If true, points at the edges are drawn. Needed for resize!
+    points: true,                            // If true, points at the edges are _objectsService.MfgPlantsData.drawn. Needed for resize!
     classRect: 'svg_select_boundingRect',    // Css-class added to the rect
     classPoints: 'svg_select_points',        // Css-class added to the points
     radius: 7,                               // radius of the points
-    rotationPoint: true,                     // If true, rotation point is drawn. Needed for rotation!
+    rotationPoint: true,                     // If true, rotation point is _objectsService.MfgPlantsData.drawn. Needed for rotation!
     deepSelect: false                        // If true, moving of single points is possible (only line, polyline, polyon)
 };
 }());
@@ -25973,7 +25973,7 @@ SVG.Element.prototype.selectize.defaults = {
 
     };
 
-    // The update-function redraws the element every time the mouse is moving
+    // The update-function re_objectsService.MfgPlantsData.draws the element every time the mouse is moving
     ResizeHandler.prototype.update = function (event) {
 
         if (!event) {
@@ -26502,7 +26502,7 @@ if ("document" in self) {
   var animationKeyframes = '@' + keyframeprefix + 'keyframes ' + animationName + ' { from { opacity: 0; } to { opacity: 0; } } ';
   var animationStyle = keyframeprefix + 'animation: 1ms ' + animationName + '; ';
 
-  window.addResizeListener = function (element, fn) {
+  window.ad_objectsService.MfgPlantsData.dresizeListener = function (element, fn) {
     if (!element.__resizeTriggers__) {
       if (getComputedStyle(element).position == 'static') element.style.position = 'relative';
       createStyles();
@@ -26572,7 +26572,7 @@ function () {
 
       // main method
       return new Promise$1(function (resolve, reject) {
-        // only draw chart, if element found
+        // only _objectsService.MfgPlantsData.draw chart, if element found
         if (_this.el !== null) {
           if (typeof Apex._chartInstances === 'undefined') {
             Apex._chartInstances = [];
@@ -26598,7 +26598,7 @@ function () {
           _this.fireEvent('beforeMount', [_this, _this.w]);
 
           window.addEventListener('resize', _this.windowResizeHandler);
-          window.addResizeListener(_this.el.parentNode, _this.parentResizeCallback.bind(_this));
+          window.ad_objectsService.MfgPlantsData.dresizeListener(_this.el.parentNode, _this.parentResizeCallback.bind(_this));
 
           var graphData = _this.create(_this.w.config.series, {});
 
@@ -26706,7 +26706,7 @@ function () {
       this.core.setupElements();
 
       if (gl.svgWidth === 0) {
-        // if the element is hidden, skip drawing
+        // if the element is hidden, skip _objectsService.MfgPlantsData.drawing
         gl.animationEnded = true;
         return null;
       }
@@ -26728,7 +26728,7 @@ function () {
       var markers = new Markers(this);
       markers.setGlobalMarkerSize();
       this.formatters.setLabelFormatters();
-      this.titleSubtitle.draw(); // legend is calculated here before coreCalculations because it affects the plottable area
+      this.titleSubtitle._objectsService.MfgPlantsData.draw(); // legend is calculated here before coreCalculations because it affects the plottable area
 
       this.legend.init(); // check whether in multiple series, all series share the same X
 
@@ -26750,7 +26750,7 @@ function () {
       this.dimensions.plotCoords();
       var xyRatios = this.core.xySettings();
       this.grid.createGridMask();
-      var elGraph = this.core.plotChartType(ser, xyRatios); // after all the drawing calculations, shift the graphical area (actual charts/bars) excluding legends
+      var elGraph = this.core.plotChartType(ser, xyRatios); // after all the _objectsService.MfgPlantsData.drawing calculations, shift the graphical area (actual charts/bars) excluding legends
 
       this.core.shiftGraphPosition();
       var dim = {
@@ -26782,15 +26782,15 @@ function () {
           me.series.handleNoData();
         }
 
-        me.core.drawAxis(w.config.chart.type, graphData.xyRatios);
+        me.core._objectsService.MfgPlantsData.drawAxis(w.config.chart.type, graphData.xyRatios);
         me.grid = new Grid(me);
 
         if (w.config.grid.position === 'back') {
-          me.grid.drawGrid();
+          me.grid._objectsService.MfgPlantsData.drawGrid();
         }
 
         if (w.config.annotations.position === 'back') {
-          me.annotations.drawAnnotations();
+          me.annotations._objectsService.MfgPlantsData.drawAnnotations();
         }
 
         if (graphData.elGraph instanceof Array) {
@@ -26802,25 +26802,25 @@ function () {
         }
 
         if (w.config.grid.position === 'front') {
-          me.grid.drawGrid();
+          me.grid._objectsService.MfgPlantsData.drawGrid();
         }
 
         if (w.config.xaxis.crosshairs.position === 'front') {
-          me.crosshairs.drawXCrosshairs();
+          me.crosshairs._objectsService.MfgPlantsData.drawXCrosshairs();
         }
 
         if (w.config.yaxis[0].crosshairs.position === 'front') {
-          me.crosshairs.drawYCrosshairs();
+          me.crosshairs._objectsService.MfgPlantsData.drawYCrosshairs();
         }
 
         if (w.config.annotations.position === 'front') {
-          me.annotations.drawAnnotations();
+          me.annotations._objectsService.MfgPlantsData.drawAnnotations();
         }
 
         if (!w.globals.noData) {
-          // draw tooltips at the end
+          // _objectsService.MfgPlantsData.draw tooltips at the end
           if (w.config.tooltip.enabled && !w.globals.noData) {
-            me.w.globals.tooltip.drawTooltip(graphData.xyRatios);
+            me.w.globals.tooltip._objectsService.MfgPlantsData.drawTooltip(graphData.xyRatios);
           }
 
           if (w.globals.axisCharts && w.globals.isXNumeric) {
@@ -26866,14 +26866,14 @@ function () {
      * Allows users to update Options after the chart has rendered.
      *
      * @param {object} options - A new config object can be passed which will be merged with the existing config object
-     * @param {boolean} redraw - should redraw from beginning or should use existing paths and redraw from there
+     * @param {boolean} re_objectsService.MfgPlantsData.draw - should re_objectsService.MfgPlantsData.draw from beginning or should use existing paths and re_objectsService.MfgPlantsData.draw from there
      * @param {boolean} animate - should animate or not on updating Options
      */
 
   }, {
     key: "updateOptions",
     value: function updateOptions(options$$1) {
-      var redraw = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var re_objectsService.MfgPlantsData.draw = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
       var animate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       var overwriteInitialConfig = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
       var w = this.w;
@@ -26911,13 +26911,13 @@ function () {
         this.clearPreviousPaths();
       }
 
-      return this._updateOptions(options$$1, redraw, animate, overwriteInitialConfig);
+      return this._updateOptions(options$$1, re_objectsService.MfgPlantsData.draw, animate, overwriteInitialConfig);
     }
     /**
      * private method to update Options.
      *
      * @param {object} options - A new config object can be passed which will be merged with the existing config object
-     * @param {boolean} redraw - should redraw from beginning or should use existing paths and redraw from there
+     * @param {boolean} re_objectsService.MfgPlantsData.draw - should re_objectsService.MfgPlantsData.draw from beginning or should use existing paths and re_objectsService.MfgPlantsData.draw from there
      * @param {boolean} animate - should animate or not on updating Options
      * @param {boolean} overwriteInitialConfig - should update the initial config or not
      */
@@ -26925,7 +26925,7 @@ function () {
   }, {
     key: "_updateOptions",
     value: function _updateOptions(options$$1) {
-      var redraw = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var re_objectsService.MfgPlantsData.draw = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
       var animate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
       var overwriteInitialConfig = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
       var charts = this.getSyncedCharts();
@@ -26933,7 +26933,7 @@ function () {
         var w = ch.w;
         w.globals.shouldAnimate = animate;
 
-        if (!redraw) {
+        if (!re_objectsService.MfgPlantsData.draw) {
           w.globals.resized = true;
           w.globals.dataChanged = true;
 
@@ -27197,15 +27197,15 @@ function () {
     }
   }, {
     key: "killSVG",
-    value: function killSVG(draw) {
+    value: function killSVG(_objectsService.MfgPlantsData.draw) {
       return new Promise$1(function (resolve, reject) {
-        draw.each(function (i, children) {
+        _objectsService.MfgPlantsData.draw.each(function (i, chil_objectsService.MfgPlantsData.dren) {
           this.removeClass('*');
           this.off();
           this.stop();
         }, true);
-        draw.ungroup();
-        draw.clear();
+        _objectsService.MfgPlantsData.draw.ungroup();
+        _objectsService.MfgPlantsData.draw.clear();
         resolve('done');
       });
     }
@@ -27227,9 +27227,9 @@ function () {
       domEls.elGraphical = null;
       domEls.elLegendWrap = null;
       domEls.baseEl = null;
-      domEls.elGridRect = null;
-      domEls.elGridRectMask = null;
-      domEls.elGridRectMarkerMask = null;
+      domEls.elGri_objectsService.MfgPlantsData.drect = null;
+      domEls.elGri_objectsService.MfgPlantsData.drectMask = null;
+      domEls.elGri_objectsService.MfgPlantsData.drectMarkerMask = null;
       domEls.elDefs = null;
     }
     /**
@@ -27345,7 +27345,7 @@ function () {
 
       me.annotations.clearAnnotations(me);
     } // This method is never used internally and will be only called externally on the chart instance.
-    // Hence, we need to keep all these elements in memory when the chart gets updated and redraw again
+    // Hence, we need to keep all these elements in memory when the chart gets updated and re_objectsService.MfgPlantsData.draw again
 
   }, {
     key: "addText",
@@ -27446,7 +27446,7 @@ function () {
       }
     }
     /**
-     * Handle window resize and re-draw the whole chart.
+     * Handle window resize and re-_objectsService.MfgPlantsData.draw the whole chart.
      */
 
   }, {
@@ -27457,7 +27457,7 @@ function () {
       clearTimeout(this.w.globals.resizeTimer);
       this.w.globals.resizeTimer = window.setTimeout(function () {
         _this4.w.globals.resized = true;
-        _this4.w.globals.dataChanged = false; // we need to redraw the whole chart on window resize (with a small delay).
+        _this4.w.globals.dataChanged = false; // we need to re_objectsService.MfgPlantsData.draw the whole chart on window resize (with a small delay).
 
         _this4.update();
       }, 150);
