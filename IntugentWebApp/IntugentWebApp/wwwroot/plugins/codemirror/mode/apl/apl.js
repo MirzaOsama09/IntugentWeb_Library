@@ -60,7 +60,7 @@ CodeMirror.defineMode("apl", function() {
     "⊖": ["axis1Reverse", "axis1Rotate"],
     "⍉": ["transpose", null],
     "↑": ["first", "take"],
-    "↓": [null, "_objectsService.MfgPlantsData.drop"],
+    "↓": [null, "drop"],
     "⊂": ["enclose", "partitionWithAxis"],
     "⊃": ["diclose", "pick"],
     "⌷": [null, "index"],

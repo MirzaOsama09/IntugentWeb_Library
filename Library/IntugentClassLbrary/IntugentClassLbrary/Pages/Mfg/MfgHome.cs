@@ -375,13 +375,14 @@ namespace IntugentClassLibrary.Pages.Mfg
               return;
           }*/
 
-        public (MfgInProcess,MfgFinishedGoods,MfgDimStability,MfgPlantData) GetAllMfgData(MfgInProcess mfgInProcess,MfgFinishedGoods mfgFinishedGoods,MfgDimStability mfgDimensionStability, MfgPlantData mfgPlantData)
+        public (MfgInProcess,MfgFinishedGoods,MfgDimStability,MfgPlantData,MfgJetMixing) GetAllMfgData(MfgInProcess mfgInProcess,MfgFinishedGoods mfgFinishedGoods,MfgDimStability mfgDimensionStability, MfgPlantData mfgPlantData, MfgJetMixing mfgJetMixing)
         {
             //if (CPages.PageInProcess_1 == null || CPages.PageFinishedGoods_1 == null || CPages.PageDimStability_1 == null || CPages.PagePlantData_1 == null) return;
             mfgInProcess.GetDataSet();
             mfgFinishedGoods.GetDataSet();
             mfgDimensionStability.GetDataSet();
             mfgPlantData.GetDataSet();
+            mfgJetMixing.SetDefaultValues();
             // CPages.PagePlantData_1.GetDataSet();
 
             //mfgFinishedGoods.drIP = mfgDimensionStability.drIP = CPages.PagePlantData_1.drIP = mfgInProcess.dr;
@@ -392,7 +393,7 @@ namespace IntugentClassLibrary.Pages.Mfg
             mfgPlantData.drIP =  mfgInProcess.dr;
             mfgPlantData.drFG =  mfgFinishedGoods.dr;
 
-            return (mfgInProcess,mfgFinishedGoods,mfgDimensionStability, mfgPlantData);
+            return (mfgInProcess,mfgFinishedGoods,mfgDimensionStability, mfgPlantData, mfgJetMixing);
         }
 
 

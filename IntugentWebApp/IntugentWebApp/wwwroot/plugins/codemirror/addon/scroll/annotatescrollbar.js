@@ -23,28 +23,28 @@
     this.options = options;
     this.buttonHeight = options.scrollButtonHeight || cm.getOption("scrollButtonHeight");
     this.annotations = [];
-    this.doRe_objectsService.MfgPlantsData.draw = this.doUpdate = null;
+    this.doRedraw = this.doUpdate = null;
     this.div = cm.getWrapperElement().appendChild(document.createElement("div"));
     this.div.style.cssText = "position: absolute; right: 0; top: 0; z-index: 7; pointer-events: none";
     this.computeScale();
 
-    function scheduleRe_objectsService.MfgPlantsData.draw(delay) {
-      clearTimeout(self.doRe_objectsService.MfgPlantsData.draw);
-      self.doRe_objectsService.MfgPlantsData.draw = setTimeout(function() { self.re_objectsService.MfgPlantsData.draw(); }, delay);
+    function scheduleRedraw(delay) {
+      clearTimeout(self.doRedraw);
+      self.doRedraw = setTimeout(function() { self.redraw(); }, delay);
     }
 
     var self = this;
     cm.on("refresh", this.resizeHandler = function() {
       clearTimeout(self.doUpdate);
       self.doUpdate = setTimeout(function() {
-        if (self.computeScale()) scheduleRe_objectsService.MfgPlantsData.draw(20);
+        if (self.computeScale()) scheduleRedraw(20);
       }, 100);
     });
     cm.on("markerAdded", this.resizeHandler);
     cm.on("markerCleared", this.resizeHandler);
     if (options.listenForChanges !== false)
       cm.on("change", this.changeHandler = function() {
-        scheduleRe_objectsService.MfgPlantsData.draw(250);
+        scheduleRedraw(250);
       });
   }
 
@@ -60,10 +60,10 @@
 
   Annotation.prototype.update = function(annotations) {
     this.annotations = annotations;
-    this.re_objectsService.MfgPlantsData.draw();
+    this.redraw();
   };
 
-  Annotation.prototype.re_objectsService.MfgPlantsData.draw = function(compute) {
+  Annotation.prototype.redraw = function(compute) {
     if (compute !== false) this.computeScale();
     var cm = this.cm, hScale = this.hScale;
 

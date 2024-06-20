@@ -186,8 +186,8 @@
     " UNIVERSAL"),
     storage: words("BOOLEAN INTEGER OBJECT IDENTIFIER BIT OCTET STRING" +
     " UTCTime InterfaceIndex IANAifType CMIP-Attribute" +
-    " REAL PACKAGE PACKAGES IpAd_objectsService.MfgPlantsData.dress PhysAd_objectsService.MfgPlantsData.dress" +
-    " NetworkAd_objectsService.MfgPlantsData.dress BITS BMPString TimeStamp TimeTicks" +
+    " REAL PACKAGE PACKAGES IpAddress PhysAddress" +
+    " NetworkAddress BITS BMPString TimeStamp TimeTicks" +
     " TruthValue RowStatus DisplayString GeneralString" +
     " GraphicString IA5String NumericString" +
     " PrintableString SnmpAdminAtring TeletexString" +

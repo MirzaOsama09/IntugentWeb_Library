@@ -404,7 +404,7 @@ namespace IntugentWebApp.Pages.Mfg_Group
             _objectsService.Cbfile.iIDMfg = (int)_objectsService.MfgHome.dt.Rows[_objectsService.Cbfile.iIDMfgIndex]["ID4ALL"];
             _objectsService.CLists.drEmployee["MfgIDSelected"] = _objectsService.Cbfile.iIDMfg; CLists_UpdateEmployee.UpdateEmployee(_objectsService.CLists);
 
-           (_objectsService.MfgInProcess,_objectsService.MfgFinishedGoods,_objectsService.MfgDimensionsStability, _objectsService.MfgPlantsData) = _objectsService.MfgHome.GetAllMfgData(_objectsService.MfgInProcess,_objectsService.MfgFinishedGoods, _objectsService.MfgDimensionsStability, _objectsService.MfgPlantsData);
+           (_objectsService.MfgInProcess,_objectsService.MfgFinishedGoods,_objectsService.MfgDimensionsStability, _objectsService.MfgPlantsData, _objectsService.MfgJetMixing) = _objectsService.MfgHome.GetAllMfgData(_objectsService.MfgInProcess,_objectsService.MfgFinishedGoods, _objectsService.MfgDimensionsStability, _objectsService.MfgPlantsData, _objectsService.MfgJetMixing);
 
             //SetView();
             return new JsonResult(new { message = "Dataset selected: " + caller });

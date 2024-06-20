@@ -838,7 +838,7 @@
         if (this._indicatorsElement) {
           $$$1(this._indicatorsElement).find(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
 
-          var nextIndicator = this._indicatorsElement.chil_objectsService.MfgPlantsData.dren[this._getItemIndex(element)];
+          var nextIndicator = this._indicatorsElement.children[this._getItemIndex(element)];
 
           if (nextIndicator) {
             $$$1(nextIndicator).addClass(ClassName.ACTIVE);
@@ -1892,14 +1892,14 @@
     return getClientRect(result);
   }
 
-  function getOffsetRectRelativeToArbitraryNode(chil_objectsService.MfgPlantsData.dren, parent) {
+  function getOffsetRectRelativeToArbitraryNode(children, parent) {
     var fixedPosition = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
     var isIE10 = isIE(10);
     var isHTML = parent.nodeName === 'HTML';
-    var chil_objectsService.MfgPlantsData.drenRect = getBoundingClientRect(chil_objectsService.MfgPlantsData.dren);
+    var childrenRect = getBoundingClientRect(children);
     var parentRect = getBoundingClientRect(parent);
-    var scrollParent = getScrollParent(chil_objectsService.MfgPlantsData.dren);
+    var scrollParent = getScrollParent(children);
 
     var styles = getStyleComputedProperty(parent);
     var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
@@ -1911,10 +1911,10 @@
       parentRect.left = Math.max(parentRect.left, 0);
     }
     var offsets = getClientRect({
-      top: chil_objectsService.MfgPlantsData.drenRect.top - parentRect.top - borderTopWidth,
-      left: chil_objectsService.MfgPlantsData.drenRect.left - parentRect.left - borderLeftWidth,
-      width: chil_objectsService.MfgPlantsData.drenRect.width,
-      height: chil_objectsService.MfgPlantsData.drenRect.height
+      top: childrenRect.top - parentRect.top - borderTopWidth,
+      left: childrenRect.left - parentRect.left - borderLeftWidth,
+      width: childrenRect.width,
+      height: childrenRect.height
     });
     offsets.marginTop = 0;
     offsets.marginLeft = 0;
@@ -3082,7 +3082,7 @@
     var useHeight = ['right', 'left'].indexOf(basePlacement) !== -1;
 
     // Split the offset string to obtain a list of values and operands
-    // The regex ad_objectsService.MfgPlantsData.dresses values with the plus or minus sign in front (+10, -20, etc)
+    // The regex addresses values with the plus or minus sign in front (+10, -20, etc)
     var fragments = offset.split(/(\+|\-)/).map(function (frag) {
       return frag.trim();
     });
@@ -3909,20 +3909,20 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.0): _objectsService.MfgPlantsData.dropdown.js
+   * Bootstrap (v4.1.0): dropdown.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
 
-  var _objectsService.MfgPlantsData.dropdown = function ($$$1) {
+  var Dropdown = function ($$$1) {
     /**
      * ------------------------------------------------------------------------
      * Constants
      * ------------------------------------------------------------------------
      */
-    var NAME = '_objectsService.MfgPlantsData.dropdown';
+    var NAME = 'dropdown';
     var VERSION = '4.1.0';
-    var DATA_KEY = 'bs._objectsService.MfgPlantsData.dropdown';
+    var DATA_KEY = 'bs.dropdown';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
@@ -3952,19 +3952,19 @@
     var ClassName = {
       DISABLED: 'disabled',
       SHOW: 'show',
-      _objectsService.MfgPlantsData.drOPUP: '_objectsService.MfgPlantsData.dropup',
-      _objectsService.MfgPlantsData.drOPRIGHT: '_objectsService.MfgPlantsData.dropright',
-      _objectsService.MfgPlantsData.drOPLEFT: '_objectsService.MfgPlantsData.dropleft',
-      MENURIGHT: '_objectsService.MfgPlantsData.dropdown-menu-right',
-      MENULEFT: '_objectsService.MfgPlantsData.dropdown-menu-left',
+      DROPUP: 'dropup',
+      DROPRIGHT: 'dropright',
+      DROPLEFT: 'dropleft',
+      MENURIGHT: 'dropdown-menu-right',
+      MENULEFT: 'dropdown-menu-left',
       POSITION_STATIC: 'position-static'
     };
     var Selector = {
-      DATA_TOGGLE: '[data-toggle="_objectsService.MfgPlantsData.dropdown"]',
-      FORM_CHILD: '._objectsService.MfgPlantsData.dropdown form',
-      MENU: '._objectsService.MfgPlantsData.dropdown-menu',
+      DATA_TOGGLE: '[data-toggle="dropdown"]',
+      FORM_CHILD: '.dropdown form',
+      MENU: '.dropdown-menu',
       NAVBAR_NAV: '.navbar-nav',
-      VISIBLE_ITEMS: '._objectsService.MfgPlantsData.dropdown-menu ._objectsService.MfgPlantsData.dropdown-item:not(.disabled):not(:disabled)'
+      VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
     };
     var AttachmentMap = {
       TOP: 'top-start',
@@ -3997,10 +3997,10 @@
 
     };
 
-    var _objectsService.MfgPlantsData.dropdown =
+    var Dropdown =
     /*#__PURE__*/
     function () {
-      function _objectsService.MfgPlantsData.dropdown(element, config) {
+      function Dropdown(element, config) {
         this._element = element;
         this._popper = null;
         this._config = this._getConfig(config);
@@ -4011,7 +4011,7 @@
       } // Getters
 
 
-      var _proto = _objectsService.MfgPlantsData.dropdown.prototype;
+      var _proto = Dropdown.prototype;
 
       // Public
       _proto.toggle = function toggle() {
@@ -4019,11 +4019,11 @@
           return;
         }
 
-        var parent = _objectsService.MfgPlantsData.dropdown._getParentFromElement(this._element);
+        var parent = Dropdown._getParentFromElement(this._element);
 
         var isActive = $$$1(this._menu).hasClass(ClassName.SHOW);
 
-        _objectsService.MfgPlantsData.dropdown._clearMenus();
+        Dropdown._clearMenus();
 
         if (isActive) {
           return;
@@ -4037,7 +4037,7 @@
 
         if (showEvent.isDefaultPrevented()) {
           return;
-        } // Disable totally Popper.js for _objectsService.MfgPlantsData.dropdown in Navbar
+        } // Disable totally Popper.js for Dropdown in Navbar
 
 
         if (!this._inNavbar) {
@@ -4046,7 +4046,7 @@
            * Popper - https://popper.js.org
            */
           if (typeof Popper === 'undefined') {
-            throw new TypeError('Bootstrap _objectsService.MfgPlantsData.dropdown require Popper.js (https://popper.js.org)');
+            throw new TypeError('Bootstrap dropdown require Popper.js (https://popper.js.org)');
           }
 
           var referenceElement = this._element;
@@ -4070,13 +4070,13 @@
 
           this._popper = new Popper(referenceElement, this._menu, this._getPopperConfig());
         } // If this is a touch-enabled device we add extra
-        // empty mouseover listeners to the body's immediate chil_objectsService.MfgPlantsData.dren;
+        // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
         // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
 
         if ('ontouchstart' in document.documentElement && $$$1(parent).closest(Selector.NAVBAR_NAV).length === 0) {
-          $$$1(document.body).chil_objectsService.MfgPlantsData.dren().on('mouseover', null, $$$1.noop);
+          $$$1(document.body).children().on('mouseover', null, $$$1.noop);
         }
 
         this._element.focus();
@@ -4128,7 +4128,7 @@
 
       _proto._getMenuElement = function _getMenuElement() {
         if (!this._menu) {
-          var parent = _objectsService.MfgPlantsData.dropdown._getParentFromElement(this._element);
+          var parent = Dropdown._getParentFromElement(this._element);
 
           this._menu = $$$1(parent).find(Selector.MENU)[0];
         }
@@ -4137,18 +4137,18 @@
       };
 
       _proto._getPlacement = function _getPlacement() {
-        var $parent_objectsService.MfgPlantsData.dropdown = $$$1(this._element).parent();
-        var placement = AttachmentMap.BOTTOM; // Handle _objectsService.MfgPlantsData.dropup
+        var $parentDropdown = $$$1(this._element).parent();
+        var placement = AttachmentMap.BOTTOM; // Handle dropup
 
-        if ($parent_objectsService.MfgPlantsData.dropdown.hasClass(ClassName._objectsService.MfgPlantsData.drOPUP)) {
+        if ($parentDropdown.hasClass(ClassName.DROPUP)) {
           placement = AttachmentMap.TOP;
 
           if ($$$1(this._menu).hasClass(ClassName.MENURIGHT)) {
             placement = AttachmentMap.TOPEND;
           }
-        } else if ($parent_objectsService.MfgPlantsData.dropdown.hasClass(ClassName._objectsService.MfgPlantsData.drOPRIGHT)) {
+        } else if ($parentDropdown.hasClass(ClassName.DROPRIGHT)) {
           placement = AttachmentMap.RIGHT;
-        } else if ($parent_objectsService.MfgPlantsData.dropdown.hasClass(ClassName._objectsService.MfgPlantsData.drOPLEFT)) {
+        } else if ($parentDropdown.hasClass(ClassName.DROPLEFT)) {
           placement = AttachmentMap.LEFT;
         } else if ($$$1(this._menu).hasClass(ClassName.MENURIGHT)) {
           placement = AttachmentMap.BOTTOMEND;
@@ -4199,14 +4199,14 @@
       }; // Static
 
 
-      _objectsService.MfgPlantsData.dropdown._jQueryInterface = function _jQueryInterface(config) {
+      Dropdown._jQueryInterface = function _jQueryInterface(config) {
         return this.each(function () {
           var data = $$$1(this).data(DATA_KEY);
 
           var _config = typeof config === 'object' ? config : null;
 
           if (!data) {
-            data = new _objectsService.MfgPlantsData.dropdown(this, _config);
+            data = new Dropdown(this, _config);
             $$$1(this).data(DATA_KEY, data);
           }
 
@@ -4220,7 +4220,7 @@
         });
       };
 
-      _objectsService.MfgPlantsData.dropdown._clearMenus = function _clearMenus(event) {
+      Dropdown._clearMenus = function _clearMenus(event) {
         if (event && (event.which === RIGHT_MOUSE_BUTTON_WHICH || event.type === 'keyup' && event.which !== TAB_KEYCODE)) {
           return;
         }
@@ -4228,7 +4228,7 @@
         var toggles = $$$1.makeArray($$$1(Selector.DATA_TOGGLE));
 
         for (var i = 0; i < toggles.length; i++) {
-          var parent = _objectsService.MfgPlantsData.dropdown._getParentFromElement(toggles[i]);
+          var parent = Dropdown._getParentFromElement(toggles[i]);
 
           var context = $$$1(toggles[i]).data(DATA_KEY);
           var relatedTarget = {
@@ -4239,7 +4239,7 @@
             continue;
           }
 
-          var _objectsService.MfgPlantsData.dropdownMenu = context._menu;
+          var dropdownMenu = context._menu;
 
           if (!$$$1(parent).hasClass(ClassName.SHOW)) {
             continue;
@@ -4259,16 +4259,16 @@
 
 
           if ('ontouchstart' in document.documentElement) {
-            $$$1(document.body).chil_objectsService.MfgPlantsData.dren().off('mouseover', null, $$$1.noop);
+            $$$1(document.body).children().off('mouseover', null, $$$1.noop);
           }
 
           toggles[i].setAttribute('aria-expanded', 'false');
-          $$$1(_objectsService.MfgPlantsData.dropdownMenu).removeClass(ClassName.SHOW);
+          $$$1(dropdownMenu).removeClass(ClassName.SHOW);
           $$$1(parent).removeClass(ClassName.SHOW).trigger($$$1.Event(Event.HIDDEN, relatedTarget));
         }
       };
 
-      _objectsService.MfgPlantsData.dropdown._getParentFromElement = function _getParentFromElement(element) {
+      Dropdown._getParentFromElement = function _getParentFromElement(element) {
         var parent;
         var selector = Util.getSelectorFromElement(element);
 
@@ -4280,14 +4280,14 @@
       }; // eslint-disable-next-line complexity
 
 
-      _objectsService.MfgPlantsData.dropdown._dataApiKeydownHandler = function _dataApiKeydownHandler(event) {
+      Dropdown._dataApiKeydownHandler = function _dataApiKeydownHandler(event) {
         // If not input/textarea:
-        //  - And not a key in REGEXP_KEYDOWN => not a _objectsService.MfgPlantsData.dropdown command
+        //  - And not a key in REGEXP_KEYDOWN => not a dropdown command
         // If input/textarea:
-        //  - If space key => not a _objectsService.MfgPlantsData.dropdown command
+        //  - If space key => not a dropdown command
         //  - If key is other than escape
-        //    - If key is not up or down => not a _objectsService.MfgPlantsData.dropdown command
-        //    - If trigger inside the menu => not a _objectsService.MfgPlantsData.dropdown command
+        //    - If key is not up or down => not a dropdown command
+        //    - If trigger inside the menu => not a dropdown command
         if (/input|textarea/i.test(event.target.tagName) ? event.which === SPACE_KEYCODE || event.which !== ESCAPE_KEYCODE && (event.which !== ARROW_DOWN_KEYCODE && event.which !== ARROW_UP_KEYCODE || $$$1(event.target).closest(Selector.MENU).length) : !REGEXP_KEYDOWN.test(event.which)) {
           return;
         }
@@ -4299,7 +4299,7 @@
           return;
         }
 
-        var parent = _objectsService.MfgPlantsData.dropdown._getParentFromElement(this);
+        var parent = Dropdown._getParentFromElement(this);
 
         var isActive = $$$1(parent).hasClass(ClassName.SHOW);
 
@@ -4338,7 +4338,7 @@
         items[index].focus();
       };
 
-      _createClass(_objectsService.MfgPlantsData.dropdown, null, [{
+      _createClass(Dropdown, null, [{
         key: "VERSION",
         get: function get() {
           return VERSION;
@@ -4355,7 +4355,7 @@
         }
       }]);
 
-      return _objectsService.MfgPlantsData.dropdown;
+      return Dropdown;
     }();
     /**
      * ------------------------------------------------------------------------
@@ -4364,11 +4364,11 @@
      */
 
 
-    $$$1(document).on(Event.KEYDOWN_DATA_API, Selector.DATA_TOGGLE, _objectsService.MfgPlantsData.dropdown._dataApiKeydownHandler).on(Event.KEYDOWN_DATA_API, Selector.MENU, _objectsService.MfgPlantsData.dropdown._dataApiKeydownHandler).on(Event.CLICK_DATA_API + " " + Event.KEYUP_DATA_API, _objectsService.MfgPlantsData.dropdown._clearMenus).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+    $$$1(document).on(Event.KEYDOWN_DATA_API, Selector.DATA_TOGGLE, Dropdown._dataApiKeydownHandler).on(Event.KEYDOWN_DATA_API, Selector.MENU, Dropdown._dataApiKeydownHandler).on(Event.CLICK_DATA_API + " " + Event.KEYUP_DATA_API, Dropdown._clearMenus).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
       event.preventDefault();
       event.stopPropagation();
 
-      _objectsService.MfgPlantsData.dropdown._jQueryInterface.call($$$1(this), 'toggle');
+      Dropdown._jQueryInterface.call($$$1(this), 'toggle');
     }).on(Event.CLICK_DATA_API, Selector.FORM_CHILD, function (e) {
       e.stopPropagation();
     });
@@ -4378,15 +4378,15 @@
      * ------------------------------------------------------------------------
      */
 
-    $$$1.fn[NAME] = _objectsService.MfgPlantsData.dropdown._jQueryInterface;
-    $$$1.fn[NAME].Constructor = _objectsService.MfgPlantsData.dropdown;
+    $$$1.fn[NAME] = Dropdown._jQueryInterface;
+    $$$1.fn[NAME].Constructor = Dropdown;
 
     $$$1.fn[NAME].noConflict = function () {
       $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
-      return _objectsService.MfgPlantsData.dropdown._jQueryInterface;
+      return Dropdown._jQueryInterface;
     };
 
-    return _objectsService.MfgPlantsData.dropdown;
+    return Dropdown;
   }($, Popper);
 
   /**
@@ -4411,13 +4411,13 @@
     var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
 
     var Default = {
-      back_objectsService.MfgPlantsData.drop: true,
+      backdrop: true,
       keyboard: true,
       focus: true,
       show: true
     };
     var DefaultType = {
-      back_objectsService.MfgPlantsData.drop: '(boolean|string)',
+      backdrop: '(boolean|string)',
       keyboard: 'boolean',
       focus: 'boolean',
       show: 'boolean'
@@ -4437,7 +4437,7 @@
     };
     var ClassName = {
       SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
-      BACK_objectsService.MfgPlantsData.drOP: 'modal-back_objectsService.MfgPlantsData.drop',
+      BACKDROP: 'modal-backdrop',
       OPEN: 'modal-open',
       FADE: 'fade',
       SHOW: 'show'
@@ -4464,10 +4464,10 @@
         this._config = this._getConfig(config);
         this._element = element;
         this._dialog = $$$1(element).find(Selector.DIALOG)[0];
-        this._back_objectsService.MfgPlantsData.drop = null;
+        this._backdrop = null;
         this._isShown = false;
         this._isBodyOverflowing = false;
-        this._ignoreBack_objectsService.MfgPlantsData.dropClick = false;
+        this._ignoreBackdropClick = false;
         this._scrollbarWidth = 0;
       } // Getters
 
@@ -4519,12 +4519,12 @@
         $$$1(this._dialog).on(Event.MOUSEDOWN_DISMISS, function () {
           $$$1(_this._element).one(Event.MOUSEUP_DISMISS, function (event) {
             if ($$$1(event.target).is(_this._element)) {
-              _this._ignoreBack_objectsService.MfgPlantsData.dropClick = true;
+              _this._ignoreBackdropClick = true;
             }
           });
         });
 
-        this._showBack_objectsService.MfgPlantsData.drop(function () {
+        this._showBackdrop(function () {
           return _this._showElement(relatedTarget);
         });
       };
@@ -4575,14 +4575,14 @@
 
       _proto.dispose = function dispose() {
         $$$1.removeData(this._element, DATA_KEY);
-        $$$1(window, document, this._element, this._back_objectsService.MfgPlantsData.drop).off(EVENT_KEY);
+        $$$1(window, document, this._element, this._backdrop).off(EVENT_KEY);
         this._config = null;
         this._element = null;
         this._dialog = null;
-        this._back_objectsService.MfgPlantsData.drop = null;
+        this._backdrop = null;
         this._isShown = null;
         this._isBodyOverflowing = null;
-        this._ignoreBack_objectsService.MfgPlantsData.dropClick = null;
+        this._ignoreBackdropClick = null;
         this._scrollbarWidth = null;
       };
 
@@ -4692,7 +4692,7 @@
 
         this._isTransitioning = false;
 
-        this._showBack_objectsService.MfgPlantsData.drop(function () {
+        this._showBackdrop(function () {
           $$$1(document.body).removeClass(ClassName.OPEN);
 
           _this7._resetAdjustments();
@@ -4703,30 +4703,30 @@
         });
       };
 
-      _proto._removeBack_objectsService.MfgPlantsData.drop = function _removeBack_objectsService.MfgPlantsData.drop() {
-        if (this._back_objectsService.MfgPlantsData.drop) {
-          $$$1(this._back_objectsService.MfgPlantsData.drop).remove();
-          this._back_objectsService.MfgPlantsData.drop = null;
+      _proto._removeBackdrop = function _removeBackdrop() {
+        if (this._backdrop) {
+          $$$1(this._backdrop).remove();
+          this._backdrop = null;
         }
       };
 
-      _proto._showBack_objectsService.MfgPlantsData.drop = function _showBack_objectsService.MfgPlantsData.drop(callback) {
+      _proto._showBackdrop = function _showBackdrop(callback) {
         var _this8 = this;
 
         var animate = $$$1(this._element).hasClass(ClassName.FADE) ? ClassName.FADE : '';
 
-        if (this._isShown && this._config.back_objectsService.MfgPlantsData.drop) {
-          this._back_objectsService.MfgPlantsData.drop = document.createElement('div');
-          this._back_objectsService.MfgPlantsData.drop.className = ClassName.BACK_objectsService.MfgPlantsData.drOP;
+        if (this._isShown && this._config.backdrop) {
+          this._backdrop = document.createElement('div');
+          this._backdrop.className = ClassName.BACKDROP;
 
           if (animate) {
-            $$$1(this._back_objectsService.MfgPlantsData.drop).addClass(animate);
+            $$$1(this._backdrop).addClass(animate);
           }
 
-          $$$1(this._back_objectsService.MfgPlantsData.drop).appendTo(document.body);
+          $$$1(this._backdrop).appendTo(document.body);
           $$$1(this._element).on(Event.CLICK_DISMISS, function (event) {
-            if (_this8._ignoreBack_objectsService.MfgPlantsData.dropClick) {
-              _this8._ignoreBack_objectsService.MfgPlantsData.dropClick = false;
+            if (_this8._ignoreBackdropClick) {
+              _this8._ignoreBackdropClick = false;
               return;
             }
 
@@ -4734,7 +4734,7 @@
               return;
             }
 
-            if (_this8._config.back_objectsService.MfgPlantsData.drop === 'static') {
+            if (_this8._config.backdrop === 'static') {
               _this8._element.focus();
             } else {
               _this8.hide();
@@ -4742,10 +4742,10 @@
           });
 
           if (animate) {
-            Util.reflow(this._back_objectsService.MfgPlantsData.drop);
+            Util.reflow(this._backdrop);
           }
 
-          $$$1(this._back_objectsService.MfgPlantsData.drop).addClass(ClassName.SHOW);
+          $$$1(this._backdrop).addClass(ClassName.SHOW);
 
           if (!callback) {
             return;
@@ -4756,13 +4756,13 @@
             return;
           }
 
-          var back_objectsService.MfgPlantsData.dropTransitionDuration = Util.getTransitionDurationFromElement(this._back_objectsService.MfgPlantsData.drop);
-          $$$1(this._back_objectsService.MfgPlantsData.drop).one(Util.TRANSITION_END, callback).emulateTransitionEnd(back_objectsService.MfgPlantsData.dropTransitionDuration);
-        } else if (!this._isShown && this._back_objectsService.MfgPlantsData.drop) {
-          $$$1(this._back_objectsService.MfgPlantsData.drop).removeClass(ClassName.SHOW);
+          var backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
+          $$$1(this._backdrop).one(Util.TRANSITION_END, callback).emulateTransitionEnd(backdropTransitionDuration);
+        } else if (!this._isShown && this._backdrop) {
+          $$$1(this._backdrop).removeClass(ClassName.SHOW);
 
           var callbackRemove = function callbackRemove() {
-            _this8._removeBack_objectsService.MfgPlantsData.drop();
+            _this8._removeBackdrop();
 
             if (callback) {
               callback();
@@ -4770,9 +4770,9 @@
           };
 
           if ($$$1(this._element).hasClass(ClassName.FADE)) {
-            var _back_objectsService.MfgPlantsData.dropTransitionDuration = Util.getTransitionDurationFromElement(this._back_objectsService.MfgPlantsData.drop);
+            var _backdropTransitionDuration = Util.getTransitionDurationFromElement(this._backdrop);
 
-            $$$1(this._back_objectsService.MfgPlantsData.drop).one(Util.TRANSITION_END, callbackRemove).emulateTransitionEnd(_back_objectsService.MfgPlantsData.dropTransitionDuration);
+            $$$1(this._backdrop).one(Util.TRANSITION_END, callbackRemove).emulateTransitionEnd(_backdropTransitionDuration);
           } else {
             callbackRemove();
           }
@@ -5225,12 +5225,12 @@
             }
           });
           $$$1(tip).addClass(ClassName.SHOW); // If this is a touch-enabled device we add extra
-          // empty mouseover listeners to the body's immediate chil_objectsService.MfgPlantsData.dren;
+          // empty mouseover listeners to the body's immediate children;
           // only needed because of broken event delegation on iOS
           // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
           if ('ontouchstart' in document.documentElement) {
-            $$$1(document.body).chil_objectsService.MfgPlantsData.dren().on('mouseover', null, $$$1.noop);
+            $$$1(document.body).children().on('mouseover', null, $$$1.noop);
           }
 
           var complete = function complete() {
@@ -5292,7 +5292,7 @@
         // empty mouseover listeners we added for iOS support
 
         if ('ontouchstart' in document.documentElement) {
-          $$$1(document.body).chil_objectsService.MfgPlantsData.dren().off('mouseover', null, $$$1.noop);
+          $$$1(document.body).children().off('mouseover', null, $$$1.noop);
         }
 
         this._activeTrigger[Trigger.CLICK] = false;
@@ -5866,8 +5866,8 @@
       LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY
     };
     var ClassName = {
-      _objectsService.MfgPlantsData.drOPDOWN_ITEM: '_objectsService.MfgPlantsData.dropdown-item',
-      _objectsService.MfgPlantsData.drOPDOWN_MENU: '_objectsService.MfgPlantsData.dropdown-menu',
+      DROPDOWN_ITEM: 'dropdown-item',
+      DROPDOWN_MENU: 'dropdown-menu',
       ACTIVE: 'active'
     };
     var Selector = {
@@ -5877,9 +5877,9 @@
       NAV_LINKS: '.nav-link',
       NAV_ITEMS: '.nav-item',
       LIST_ITEMS: '.list-group-item',
-      _objectsService.MfgPlantsData.drOPDOWN: '._objectsService.MfgPlantsData.dropdown',
-      _objectsService.MfgPlantsData.drOPDOWN_ITEMS: '._objectsService.MfgPlantsData.dropdown-item',
-      _objectsService.MfgPlantsData.drOPDOWN_TOGGLE: '._objectsService.MfgPlantsData.dropdown-toggle'
+      DROPDOWN: '.dropdown',
+      DROPDOWN_ITEMS: '.dropdown-item',
+      DROPDOWN_TOGGLE: '.dropdown-toggle'
     };
     var OffsetMethod = {
       OFFSET: 'offset',
@@ -5901,7 +5901,7 @@
         this._element = element;
         this._scrollElement = element.tagName === 'BODY' ? window : element;
         this._config = this._getConfig(config);
-        this._selector = this._config.target + " " + Selector.NAV_LINKS + "," + (this._config.target + " " + Selector.LIST_ITEMS + ",") + (this._config.target + " " + Selector._objectsService.MfgPlantsData.drOPDOWN_ITEMS);
+        this._selector = this._config.target + " " + Selector.NAV_LINKS + "," + (this._config.target + " " + Selector.LIST_ITEMS + ",") + (this._config.target + " " + Selector.DROPDOWN_ITEMS);
         this._offsets = [];
         this._targets = [];
         this._activeTarget = null;
@@ -6052,8 +6052,8 @@
         });
         var $link = $$$1(queries.join(','));
 
-        if ($link.hasClass(ClassName._objectsService.MfgPlantsData.drOPDOWN_ITEM)) {
-          $link.closest(Selector._objectsService.MfgPlantsData.drOPDOWN).find(Selector._objectsService.MfgPlantsData.drOPDOWN_TOGGLE).addClass(ClassName.ACTIVE);
+        if ($link.hasClass(ClassName.DROPDOWN_ITEM)) {
+          $link.closest(Selector.DROPDOWN).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.ACTIVE);
           $link.addClass(ClassName.ACTIVE);
         } else {
           // Set triggered link as active
@@ -6062,7 +6062,7 @@
 
           $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_LINKS + ", " + Selector.LIST_ITEMS).addClass(ClassName.ACTIVE); // Handle special case when .nav-link is inside .nav-item
 
-          $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_ITEMS).chil_objectsService.MfgPlantsData.dren(Selector.NAV_LINKS).addClass(ClassName.ACTIVE);
+          $link.parents(Selector.NAV_LIST_GROUP).prev(Selector.NAV_ITEMS).children(Selector.NAV_LINKS).addClass(ClassName.ACTIVE);
         }
 
         $$$1(this._scrollElement).trigger(Event.ACTIVATE, {
@@ -6170,20 +6170,20 @@
       CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
     };
     var ClassName = {
-      _objectsService.MfgPlantsData.drOPDOWN_MENU: '_objectsService.MfgPlantsData.dropdown-menu',
+      DROPDOWN_MENU: 'dropdown-menu',
       ACTIVE: 'active',
       DISABLED: 'disabled',
       FADE: 'fade',
       SHOW: 'show'
     };
     var Selector = {
-      _objectsService.MfgPlantsData.drOPDOWN: '._objectsService.MfgPlantsData.dropdown',
+      DROPDOWN: '.dropdown',
       NAV_LIST_GROUP: '.nav, .list-group',
       ACTIVE: '.active',
       ACTIVE_UL: '> li > .active',
       DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
-      _objectsService.MfgPlantsData.drOPDOWN_TOGGLE: '._objectsService.MfgPlantsData.dropdown-toggle',
-      _objectsService.MfgPlantsData.drOPDOWN_ACTIVE_CHILD: '> ._objectsService.MfgPlantsData.dropdown-menu .active'
+      DROPDOWN_TOGGLE: '.dropdown-toggle',
+      DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
       /**
        * ------------------------------------------------------------------------
        * Class Definition
@@ -6276,7 +6276,7 @@
         if (container.nodeName === 'UL') {
           activeElements = $$$1(container).find(Selector.ACTIVE_UL);
         } else {
-          activeElements = $$$1(container).chil_objectsService.MfgPlantsData.dren(Selector.ACTIVE);
+          activeElements = $$$1(container).children(Selector.ACTIVE);
         }
 
         var active = activeElements[0];
@@ -6297,10 +6297,10 @@
       _proto._transitionComplete = function _transitionComplete(element, active, callback) {
         if (active) {
           $$$1(active).removeClass(ClassName.SHOW + " " + ClassName.ACTIVE);
-          var _objectsService.MfgPlantsData.dropdownChild = $$$1(active.parentNode).find(Selector._objectsService.MfgPlantsData.drOPDOWN_ACTIVE_CHILD)[0];
+          var dropdownChild = $$$1(active.parentNode).find(Selector.DROPDOWN_ACTIVE_CHILD)[0];
 
-          if (_objectsService.MfgPlantsData.dropdownChild) {
-            $$$1(_objectsService.MfgPlantsData.dropdownChild).removeClass(ClassName.ACTIVE);
+          if (dropdownChild) {
+            $$$1(dropdownChild).removeClass(ClassName.ACTIVE);
           }
 
           if (active.getAttribute('role') === 'tab') {
@@ -6317,11 +6317,11 @@
         Util.reflow(element);
         $$$1(element).addClass(ClassName.SHOW);
 
-        if (element.parentNode && $$$1(element.parentNode).hasClass(ClassName._objectsService.MfgPlantsData.drOPDOWN_MENU)) {
-          var _objectsService.MfgPlantsData.dropdownElement = $$$1(element).closest(Selector._objectsService.MfgPlantsData.drOPDOWN)[0];
+        if (element.parentNode && $$$1(element.parentNode).hasClass(ClassName.DROPDOWN_MENU)) {
+          var dropdownElement = $$$1(element).closest(Selector.DROPDOWN)[0];
 
-          if (_objectsService.MfgPlantsData.dropdownElement) {
-            $$$1(_objectsService.MfgPlantsData.dropdownElement).find(Selector._objectsService.MfgPlantsData.drOPDOWN_TOGGLE).addClass(ClassName.ACTIVE);
+          if (dropdownElement) {
+            $$$1(dropdownElement).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.ACTIVE);
           }
 
           element.setAttribute('aria-expanded', true);
@@ -6420,7 +6420,7 @@
   exports.Button = Button;
   exports.Carousel = Carousel;
   exports.Collapse = Collapse;
-  exports._objectsService.MfgPlantsData.dropdown = _objectsService.MfgPlantsData.dropdown;
+  exports.Dropdown = Dropdown;
   exports.Modal = Modal;
   exports.Popover = Popover;
   exports.Scrollspy = ScrollSpy;

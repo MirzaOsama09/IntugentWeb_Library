@@ -9,10 +9,10 @@
 {
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         Error: @TempData["ErrorOnServer"]
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button type="button" class="btn-close"  data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 }
-<div class="row align-items-center">
+<div class="row align-items-center"> 
     <div class="row col-2">
           @* DataSet Card *@
      <div class="card card-default">
@@ -30,7 +30,7 @@
      </div>
     </div>
     <div class="row col-2 mx-2 px-3">
-        <button type="button" class="btn btn-primary btn-sm">Extract Relevant Process Data</button>
+        <button type="button" onclick=gGetData() class="btn btn-primary btn-sm">Extract Relevant Process Data</button>
     </div>
     <div class="row col-4 mr-1">
         <!-- General Info Card -->
@@ -274,6 +274,24 @@
                 url: "/Mfg_Group/PlantData?handler=NavigateDataSet",
                 headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
                 data: { direction: direction },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function gGetData() {
+
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/PlantData?handler=GetPlantData_Click",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                // data: { direction: direction },
                 success: function (response) {
                     // console.log('Server response:', response);
                     location.reload();

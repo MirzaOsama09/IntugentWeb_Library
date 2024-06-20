@@ -49,6 +49,8 @@ namespace IntugentWebApp.Pages
                 MfgPlantData mfgPlantsData = new MfgPlantData(_objectsService.Cbfile, _objectsService.CLists,_objectsService.CDefualts);
                 _objectsService.MfgPlantsData = mfgPlantsData;
 
+                MfgJetMixing mfgJetMixing = new MfgJetMixing(_objectsService.CLists);
+                _objectsService.MfgJetMixing = mfgJetMixing;
             }
 
 

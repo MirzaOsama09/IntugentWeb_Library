@@ -1,0 +1,336 @@
+﻿@page
+@using System.Data;
+@model IntugentWebApp.Pages.Mfg_Group.MfgJetMixingModel
+@{
+    ViewData["ActivePage"] = "Jet Mixing";
+}
+            @* Error Message *@
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<h1 class="text-center">Intugent Software for Simulating Confined Impingement Jet Mixing of Fluids with Dissimilar Viscosity</h1>
+<div class="row items-center mt-5">
+
+    <!-- Fluid Process Parameters -->
+    <div class="card card-default  col-4">
+        <div class="card-header align-items-center">
+            <h2 class="">Fluid Process Parameters</h2>
+        </div>
+        <div class="card-body row ">
+            <div class="col-md-6">
+                <div class="text-center">A Side</div>
+                <div class="text-center mb-2">Iso Mix</div>
+                <!-- Flow Rate [lb/min] -->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="length" onblur="LostFocus_Fields('gFRate_A',this.value)" placeholder="" value="@Model.gFRate_A" onblur="">
+                    <label for="length">Flow Rate [lb/min]</label>
+                </div>
+                <!-- Inlet Temperature [° F] -->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="width" placeholder="" value="@Model.gTemp_A" onblur="LostFocus_Fields('gTemp_A',this.value)">
+                    <label for="width">Inlet Temperature [° F]</label>
+                </div>
+                <!-- Inlet Pressure [psi] -->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="bundleHeightIP" placeholder="" value="@Model.gPres_A" onblur="LostFocus_Fields('gPres_A',this.value)">
+                    <label for="bundleHeightIP">Inlet Pressure [psi]</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="text-center">B Side</div>
+                <div class="text-center mb-2">Polyol Mix</div>
+                <!-- Flow Rate [lb/min] -->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="diagonal1" value="@Model.gFRate_B" placeholder="" onblur="LostFocus_Fields('gFRate_B',this.value)">
+                    <label for="diagonal1">Flow Rate [lb/min]</label>
+                </div>
+                <!-- Inlet Temperature [° F] -->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="diagonal2" placeholder="" value="@Model.gTemp_B" onblur="LostFocus_Fields('gTemp_B',this.value)">
+                    <label for="diagonal2">Inlet Temperature [° F]</label>
+                </div>
+                <!-- Inlet Pressure [psi] -->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="absDifference" placeholder="" value="@Model.gPres_B" onblur="LostFocus_Fields('gPres_B',this.value)">
+                    <label for="absDifference">Inlet Pressure [psi]</label>
+                </div>
+            </div>
+        </div>
+    </div>
+            @* Graph *@
+    <div class="col-8" >
+        <canvas id="line-chart" style="max-height:300px; width:100%;"></canvas>
+    </div>
+</div>
+<div class="row mt-5">
+    <!-- Fluid Properties -->
+    <div class="card card-default col-4">
+        <div class="card-header align-items-center">
+            <h2 class="">Fluid Properties</h2>
+        </div>
+        <div class="card-body row ">
+            <div class="col-md-6">
+                <div class="text-center">A Side</div>
+                <div class="text-center mb-2">Iso Mix</div>
+                <!-- Fluid Density [lb/ft3] -->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="length" value="@Model.gDens_A" placeholder="" onblur="LostFocus_Fields('gDens_A',this.value)">
+                    <label for="length">Fluid Density [lb/ft3]</label>
+                </div>
+                <!-- Viscosity  77 °F & high shear rate; [cp]-->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="width" placeholder="" value="@Model.gVisO_A" onblur="LostFocus_Fields('gVisO_A',this.value)">
+                    <label for="width">Viscosity at 77 °F & high shear rate; [cp]</label>
+                </div>
+                <!-- Act. Energy (E/R) [R] -->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="bundleHeightIP" value="@Model.gVisE_A" placeholder="" onblur="LostFocus_Fields('gVisE_A',this.value)">
+                    <label for="bundleHeightIP">Act. Energy (E/R) [R]</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="text-center">B Side</div>
+                <div class="text-center mb-2">Polyol Mix</div>
+                <!-- Fluid Density [lb/ft3] -->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="diagonal1" value="@Model.gDens_B" placeholder="" onblur="LostFocus_Fields('gDens_B',this.value)">
+                    <label for="diagonal1">Fluid Density [lb/ft3]</label>
+                </div>
+                <!-- Viscosity 77 °F & high shear rate; [cp] -->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="diagonal2" placeholder="" value="@Model.gVisO_B" onblur="LostFocus_Fields('gVisO_B',this.value)">
+                    <label for="diagonal2">Viscosity at 77 °F & high shear rate; [cp]</label>
+                </div>
+                <!-- Act. Energy (E/R) [R] -->
+                <div class="form-floating mb-1">
+                    <input type="number" class="form-control" id="absDifference" value="@Model.gVisE_B" placeholder="" onblur="LostFocus_Fields('gVisE_B',this.value)">
+                    <label for="absDifference">Act. Energy (E/R) [R]</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+    <!-- Jet Mixer Configurations -->
+    <div class="card card-default mx-5">
+        <div class="card-header align-items-center">
+            <h2 class="">Jet Mixer Configurations</h2>
+        </div>
+        <div class="card-body row">
+            <div class="row mb-4">
+
+            <div class="col-8 align-items-center">
+                        <img src="~/images/JetMixer.png" width="300" height="200" alt="Alternate Text" />
+            </div>
+            <div class="col-md-4 pl-4">
+                    <!-- D [mm] -->
+                <div class="form-floating mb-1">
+                            <input type="number" class="form-control" id="length" placeholder="" value="@Model.gDiaMixChamb" onblur="LostFocus_Fields('gDiaMixChamb',this.value)">
+                        <label for="length">D [mm]</label>
+                </div>
+                    <!-- dA [mm] -->
+                <div class="form-floating mb-1">
+                            <input type="number" class="form-control" id="width" placeholder="" value="@Model.gDiaNoz_A" onblur="LostFocus_Fields('gDiaNoz_A',this.value)">
+                        <label for="width">dA [mm]</label>
+                </div>
+                    <!-- dB [mm] -->
+                <div class="form-floating mb-1">
+                            <input type="number" class="form-control" id="bundleHeightIP" placeholder="" value="@Model.gDiaNoz_B" onblur="LostFocus_Fields('gDiaNoz_B',this.value)">
+                        <label for="bundleHeightIP">dB [mm]</label>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                <!-- Max. Jet Pressure [psi] -->
+              <div class="form-floating mb-1 col-4">
+                        <input type="number" class="form-control" id="diagonal1" placeholder="" value="@Model.gPres_Max" onblur="LostFocus_Fields('gPres_Max',this.value)">
+                    <label for="diagonal1">
+                        Max. Jet Pressure [psi]
+                    </label>
+                </div>
+                <!-- Min.  Jet Pressure [psi] -->
+                <div class="form-floating mb-1 col-4">
+                        <input type="number" class="form-control" id="diagonal2" placeholder="" value="@Model.gPres_Min" onblur="LostFocus_Fields('gPres_Min',this.value)">
+                    <label for="diagonal2">Min.  Jet Pressure [psi]</label>
+                </div>
+                <!-- Min. Reynold # of a Jet -->
+                <div class="form-floating mb-1 col-4">
+                        <input type="number" class="form-control" id="absDifference" placeholder="" value="@Model.gReNo_Min" onblur="LostFocus_Fields('gReNo_Min',this.value)">
+                    <label for="absDifference">Min. Reynold # of a Jet</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    @* Key Fluid Dynamics Parameters*@
+    <div class="col-4">
+             <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Key Fluid Dynamics Parameters</th>
+                            <th scope="col">Jet A</th>
+                            <th scope="col">Jet B</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(DataRowView dt in Model.gDetails){
+                            <tr>
+                             <td>@dt["Description"]</td>
+                             <td>@dt["Jet_A"]</td>
+                             <td>@dt["Jet_B"]</td>
+                            </tr>
+                        }
+                    </tbody>
+             </table>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-4 align-items-center items-center">
+        <div class="row my-1">
+            <button type="button" onclick=gImportData('gImport1') class="btn btn-primary btn-sm">Use Pour Head 1 Data</button>
+        </div>
+        <div class="row my-1">
+            <button type="button" onclick=gImportData('gImport2') class="btn btn-primary btn-sm">Use Pour Head 2 Data</button>
+        </div>
+        <div class="row my-1">
+            <button type="button" onclick=gImportData('gImport3') class="btn btn-primary btn-sm">Use Pour Head 3 Data</button>
+        </div>
+    </div>
+    <div class="col-4">@Model.gMsg</div>
+    <div class="col-4">
+        <div class="row my-1">
+            <button type="button" onclick=gResetData() class="btn btn-primary btn-sm">Reset All Fields</button>
+        </div>
+        <div class="row my-1">
+            <button type="button" onclick=gOptimize() class="btn btn-primary btn-sm">Optimize Pressures</button>
+        </div>
+    </div>
+</div> 
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctx = document.getElementById('line-chart').getContext('2d');
+
+            // Data for Jet A
+            const jetAData = {
+                label: 'Jet A',
+                data: @Html.Raw(Json.Serialize(Model.XA.Zip(Model.YA, (x, y) => new { x, y }))),
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2,
+                fill: false
+            };
+
+            // Data for Jet B
+            const jetBData = {
+                label: 'Jet B',
+                data: @Html.Raw(Json.Serialize(Model.XB.Zip(Model.YB, (x, y) => new { x, y }))),
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                fill: false
+            };
+
+            // Chart configuration
+            const config = {
+                type: 'line',
+                data: {
+                    datasets: [jetAData, jetBData]
+                },
+                options: {
+                    pointRadius:0,
+                    responsive: true,
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom'
+                        }
+                    }
+                }
+            };
+
+            // Create the chart
+            new Chart(ctx, config);
+        });
+
+        function gResetData() {
+
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgJetMixing?handler=Click_gReset",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                // data: { direction: direction },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function gOptimize() {
+
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgJetMixing?handler=Click_gOptimize",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                // data: { direction: direction },
+                success: function (response) {
+                  //  console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+       
+        function gImportData(Name) {
+
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgJetMixing?handler=Click_gImportPourHeadData",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                 data: { Name: Name },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+       
+        function LostFocus_Fields(Name,value) {
+
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgJetMixing?handler=LostFocus_Fields",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name ,value: value},
+                success: function (response) {
+                    //console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    </script>
+}
