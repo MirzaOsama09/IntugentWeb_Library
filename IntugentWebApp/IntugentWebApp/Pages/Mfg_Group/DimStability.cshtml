@@ -235,10 +235,11 @@
                     <!-- Deviation (Bowing) Type -->
                     <label for="DeviationType">Deviation Type</label>
                     <div class="form-floating mb-2" onblur="GWF_Info_LF('gDevType', this.value)">
-                        <select class="form-select" id="DeviationType" onblur="GWF_Info_LF('gDevType', this.value)" >
-                            <option value="Up" selected="@Model.gDevType" >Up</option>
-                            <option value="Down" selected="@Model.gDevType">Down</option>
+                        <select class="form-select" id="DeviationType" asp-for="gDevType" onblur="GWF_Info_LF('gDevType', this.value)">
+                            <option value="Up">Up</option>
+                            <option value="Down">Down</option>
                         </select>
+
                     </div>
                 </div>
             </div>
@@ -1167,7 +1168,7 @@
                 headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
                 data: { name: name, value: value },
                 success: function (response) {
-                    //console.log('Server response:', response);
+                   // console.log('Server response:', response);
                     location.reload();
                 },
                 error: function (xhr, status, error) {
