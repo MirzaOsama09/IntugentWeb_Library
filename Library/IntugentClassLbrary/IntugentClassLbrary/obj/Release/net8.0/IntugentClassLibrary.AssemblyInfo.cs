@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IntugentClassLibrary")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a98b7bed04273da31ca9de1279a9dc5ca61f03c5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2e8778ed268d75d07cf97b92646a7f12eb0ca17")]
 [assembly: System.Reflection.AssemblyProductAttribute("IntugentClassLibrary")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IntugentClassLibrary")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -39,7 +39,7 @@ namespace IntugentClassLibrary.Pages.Mfg
                 else
                 {
                     string js1 = (string)cLists.drEmployee["sJetMix"];
-                    CJetMix jetMix1 = (CJetMix)System.Text.Json.JsonSerializer.Deserialize(js1, typeof(CJetMix));
+                    JetMix1 = (CJetMix)System.Text.Json.JsonSerializer.Deserialize(js1, typeof(CJetMix));
                 }
             }
             catch { SetDefaultValues(); }
