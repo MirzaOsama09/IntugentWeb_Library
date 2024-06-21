@@ -42,7 +42,7 @@ namespace IntugentClassLibrary.Classes
         public bool bPlantSim = true;
         public CJetMix()
         {
-            JetMixingSim();
+      
         }
 
         public void JetMixingSim()
