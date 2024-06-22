@@ -86,6 +86,12 @@
                                 <span class="nav-text">Jet Mixing</span>
                             </a>
                         </li>
+                        <li class="@(ViewData["ActivePage"]?.ToString() == "Process Check" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/Mfg_Group/MfgProcessCheck">
+                                <i class="mdi mdi-clipboard-check"></i>
+                                <span class="nav-text">In Process Check</span>
+                            </a>
+                        </li>
                         <li class="section-title">
                             Shared Mfg. Pages
                         </li>

@@ -22,6 +22,7 @@ namespace IntugentWebApp.Utilities
         public MfgDimStability? MfgDimensionsStability { get; set; }
         public MfgPlantData? MfgPlantsData { get; set; }
         public MfgJetMixing?  MfgJetMixing { get; set; }
+        public MfgProcessCheck MfgProcesscheck { get; set; }
 
         //              local variables
         public bool gInProcessDoneIsChecked { get; set; }

@@ -1,0 +1,539 @@
+﻿@page
+@model IntugentWebApp.Pages.Mfg_Group.MfgProcessCheckModel
+@{
+    ViewData["ActivePage"] = "Process Check";
+}
+@* Error Message *@
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="row">
+    <div class="row col-12">
+        @* DataSet Card *@
+        <div class="card card-default col-2">
+            <div class="card-header align-items-center">
+                <h2 class="">Navigation</h2>
+            </div>
+            <div class="card-body">
+                <!-- Dataset -->
+                    <label>Check Sheet</label>
+                <div class="input-group col-12 d-flex">
+                    <button class="btn btn-primary m-auto" type="button" style="padding: 9px" onclick="gNavClick('prev')"><span class="mdi mdi-chevron-left"></span></button>
+                    <input type="number" class="form-control text-center w-50" disabled value="">
+                    <button onclick="gNavClick('next')" name="" class="btn btn-primary m-auto" type="button" style="padding: 9px"><span class="mdi mdi-chevron-right"></span></button>
+                    </div>
+                </div>
+            </div>
+    <!-- General Info Card -->
+    <div class="card card-default col-10">
+        <div class="card-header align-items-center">
+            <h2 class="">General Info</h2>
+        </div>
+        <div class="card-body">
+                <div class="row align-items-center">
+                <div class="col-3">
+                    <!-- Production Code -->
+                    <div class="form-floating mb-2" onblur="">
+                        <select class="form-select" id="DeviationType" onblur="">
+                            <option value="Up">Up</option>
+                            <option value="Down">Down</option>
+                        </select>
+                    <label for="DeviationType">Production Code</label>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <!-- Date -->
+                    <div class="form-floating mb-2">
+                        <input type="datetime-local" class="form-control" id="Mfg Time Stamp" value="" onblur="" >
+                        <label for="Mfg Time Stamp">Date</label>
+                    </div>
+                </div>
+                    <div class="col-2">
+                        <!-- Time Code -->
+                        <div class="form-floating mb-2">
+                            <input type="datetime-local" class="form-control" id="Mfg Time Stamp" value="" onblur="">
+                            <label for="Mfg Time Stamp">Time Code</label>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <!-- Operator -->
+                        <div class="form-floating mb-2" onblur="">
+                            <select class="form-select" id="DeviationType" onblur="">
+                                <option value="Up">Up</option>
+                                <option value="Down">Down</option>
+                            </select>
+                            <label for="DeviationType">Operator</label>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <!-- Type -->
+                        <div class="form-floating mb-2" onblur="">
+                            <select class="form-select" id="DeviationType" onblur="">
+                                <option value="Up">Up</option>
+                                <option value="Down">Down</option>
+                            </select>
+                            <label for="DeviationType">Type</label>
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="row">
+ <div class="col-3">
+    <div class="row col-12 my-3">
+        <button type="button" onclick=gGetData() class="btn btn-primary btn-sm">Extract Relevant Process Data</button>
+    </div>
+    <!-- Print / Perferation / Flipper -->
+    <div class="card card-default col-12">
+        <div class="card-header align-items-center">
+            <h2 class="">Print / Perferation / Flipper</h2>
+        </div>
+        <div class="card-body">
+            <div class="row align-items-center">
+                    <!-- Production Code -->
+                    <div class="form-floating mb-2 col-6" onblur="">
+                        <select class="form-select" id="DeviationType" onblur="">
+                            <option value="Up">Up</option>
+                            <option value="Down">Down</option>
+                        </select>
+                        <label for="DeviationType">Production Code</label>
+                    </div>
+                <!-- Production Code -->
+                <div class="form-floating mb-2 col-6" onblur="">
+                    <select class="form-select" id="DeviationType" onblur="">
+                        <option value="Up">Up</option>
+                        <option value="Down">Down</option>
+                    </select>
+                    <label for="DeviationType">Production Code</label>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <!-- Production Code -->
+                <div class="form-floating mb-2 col-6" onblur="">
+                    <select class="form-select" id="DeviationType" onblur="">
+                        <option value="Up">Up</option>
+                        <option value="Down">Down</option>
+                    </select>
+                    <label for="DeviationType">Production Code</label>
+                </div>
+                <!-- Production Code -->
+                <div class="form-floating mb-2 col-6" onblur="">
+                    <select class="form-select" id="DeviationType" onblur="">
+                        <option value="Up">Up</option>
+                        <option value="Down">Down</option>
+                    </select>
+                    <label for="DeviationType">Production Code</label>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+    <!-- Facer, Foam, and Hooder -->
+    <div class="card card-default col-4">
+        <div class="card-header align-items-center">
+            <h2 class="">Facer, Foam, and Hooder</h2>
+        </div>
+        <div class="card-body">
+            <div class="row align-items-center">
+                <!-- Production Code -->
+                <div class="form-floating mb-2 col-6" onblur="">
+                    <select class="form-select" id="DeviationType" onblur="">
+                        <option value="Up">Up</option>
+                        <option value="Down">Down</option>
+                    </select>
+                    <label for="DeviationType">Production Code</label>
+                </div>
+                <!-- Production Code -->
+                <div class="form-floating mb-2 col-6" onblur="">
+                    <select class="form-select" id="DeviationType" onblur="">
+                        <option value="Up">Up</option>
+                        <option value="Down">Down</option>
+                    </select>
+                    <label for="DeviationType">Production Code</label>
+                </div>
+            </div>
+               <!-- Exposed Form -->
+                <div class="form-floating my-2 col-12">
+                    <input type="number" class="form-control text-center" id="ExposedForm" placeholder="" value="" onblur="GFacerPeel_LF('gFacerPeel3', this.value)">
+                    <label for="ExposedForm">Exposed Form</label>
+                </div>
+            <div class="row align-items-center">
+                <!-- Production Code -->
+                <div class="form-floating mb-2 col-6" onblur="">
+                    <select class="form-select" id="DeviationType" onblur="">
+                        <option value="Up">Up</option>
+                        <option value="Down">Down</option>
+                    </select>
+                    <label for="DeviationType">Production Code</label>
+                </div>
+                <!-- Production Code -->
+                <div class="form-floating mb-2 col-6" onblur="">
+                    <select class="form-select" id="DeviationType" onblur="">
+                        <option value="Up">Up</option>
+                        <option value="Down">Down</option>
+                    </select>
+                    <label for="DeviationType">Production Code</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Dim Stability % Change in dims -->
+    <div class="card card-default col-md-3">
+        <div class="card-header align-items-center">
+            <h2 class="">Dimensions Stability % Change in dimensions</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- % Change Length Oven -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Change Length Oven" placeholder="" value="" disabled>
+                        <label for="Change Length Oven">% Change Length Oven</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- % Change Width Oven -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="ChangeWidthOven" placeholder="" value="" disabled>
+                        <label for="ChangeWidthOven">% Change Width Oven</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- % Change Thickness Oven -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Change Thickness Oven" placeholder="" value="" disabled>
+                        <label for="Change Thickness Oven">% Change Thickness Oven</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- % Change Length Freezer -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Change Length Freezer" placeholder="" value="" disabled>
+                        <label for="Change Length Freezer">% Change Length Freezer</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- % Change Width Freezer -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Change Width Freezer" placeholder="" value="" disabled>
+                        <label for="Change Width Freezer">% Change Width Freezer</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- % Change Thickness Freezer -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Change Thickness Freezer" placeholder="" value="" disabled>
+                        <label for="Change Thickness Freezer">% Change Thickness Freezer</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2 h-50">
+        <!-- Comments -->
+        <div class="form-floating ">
+            <textarea class="form-control" placeholder="Address" id="compStrengthComments" style="height: 240px;" onblur="GCompStrFG2_LFClick('gNotes',this)"></textarea>
+            <label for="compStrengthComments">Comments</label>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class=" col-md-3">
+        <!-- First Bundle -->
+        <div class="card card-default h-auto">
+            <div class="card-header align-items-center">
+                <h2 class="">First Bundle</h2>
+            </div>
+            <div class="row px-4">
+                <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
+                    <!-- Bundle Quantity -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="BundleQuantity" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L1', this.value)">
+                        <label for="BundleQuantity">Bundle Quantity</label>
+                    </div>
+
+                    <!-- Top Board Length -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L3', this.value)">
+                        <label for="TopBoardLength">Top Board Length</label>
+                    </div>
+                    <!-- Bottom Board Length -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L3', this.value)">
+                        <label for="TopBoardLength">Bottom Board Length</label>
+                    </div>
+                </div>
+                <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
+                    <!-- Board/Bundle Width -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="Board/BundleWidth" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L2', this.value)">
+                        <label for="Board/BundleWidth">Board/Bundle Width</label>
+                    </div>
+                    <!-- Middle Board Length -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="MiddleBoardLength" placeholder="" value="" onblur="GWFDim_LF('gFinal_WF_L2', this.value)">
+                        <label for="MiddleBoardLength">Middle Board Length</label>
+                    </div>
+                    <!-- Diagonal 1 -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="Diagonal1" placeholder="" value="" onblur="GWFDim_LF('gFinal_WF_L3', this.value)">
+                        <label for="Diagonal1">Diagonal 1</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row px-4 mb-2">
+                <!-- Diagonal 2 -->
+                <div class="form-floating">
+                    <input type="number" class="form-control" id="Diagonal2" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L1', this.value)">
+                    <label for="Diagonal2">Diagonal 2</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" col-md-3">
+        <!-- Second Bundle -->
+        <div class="card card-default h-auto">
+            <div class="card-header align-items-center">
+                <h2 class="">Second Bundle</h2>
+            </div>
+            <div class="row px-4">
+                <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
+                    <!-- Bundle Quantity -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="BundleQuantity" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L1', this.value)">
+                        <label for="BundleQuantity">Bundle Quantity</label>
+                    </div>
+
+                    <!-- Top Board Length -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L3', this.value)">
+                        <label for="TopBoardLength">Top Board Length</label>
+                    </div>
+                    <!-- Bottom Board Length -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L3', this.value)">
+                        <label for="TopBoardLength">Bottom Board Length</label>
+                    </div>
+                </div>
+                <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
+                    <!-- Board/Bundle Width -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="Board/BundleWidth" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L2', this.value)">
+                        <label for="Board/BundleWidth">Board/Bundle Width</label>
+                    </div>
+                    <!-- Middle Board Length -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="MiddleBoardLength" placeholder="" value="" onblur="GWFDim_LF('gFinal_WF_L2', this.value)">
+                        <label for="MiddleBoardLength">Middle Board Length</label>
+                    </div>
+                    <!-- Diagonal 1 -->
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="Diagonal1" placeholder="" value="" onblur="GWFDim_LF('gFinal_WF_L3', this.value)">
+                        <label for="Diagonal1">Diagonal 1</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row px-4 mb-2">
+                <!-- Diagonal 2 -->
+                <div class="form-floating">
+                    <input type="number" class="form-control" id="Diagonal2" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L1', this.value)">
+                    <label for="Diagonal2">Diagonal 2</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" col-md-3">
+        <div class="card card-default h-auto px-4">
+            <div class="card-header align-items-center">
+                <h2 class="">Board Deviation</h2>
+            </div>
+           <div class="card-body d-flex flex-column col-md-12 justify-content-evenly">
+           <div class="col-md-12">
+            <!-- Deviation from Table -->
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="DeviationfromTable" placeholder="" value="" onblur="GWF_Info_LF('gDeviation', this.value)">
+            <label for="DeviationfromTable">Deviation from Table</label>
+            </div>
+        </div>
+
+               <div class="col-md-12">
+            <!-- Deviation (Bowing) Type -->
+            <div class="form-floating mb-2" onblur="GWF_Info_LF('gDevType', this.value)">
+                <select class="form-select" id="DeviationType"  onblur="GWF_Info_LF('gDevType', this.value)">
+                    <option value="Up">Up</option>
+                    <option value="Down">Down</option>
+                </select>
+            <label for="DeviationType">Deviation Type</label>
+
+            </div>
+        </div>
+            <div class="col-md-12">
+                <!-- Deviation Directed -->
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" id="Deviation" placeholder="" value="" disabled>
+                    <label for="Deviation">Deviation (Directed)</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="col-3 align-items-center mt-5">
+        <div class="col-12 row align-items-center px-5 my-3">
+            <button type="button" onclick=gGetData() class="btn btn-primary btn-sm">Copy Data To ClipBoard</button>
+            </div>
+            <div class="px-3">
+            <!-- Deviation (Bowing) Type -->
+            <div class="form-floating mb-2" onblur="GWF_Info_LF('gDevType', this.value)">
+                <select class="form-select" id="DeviationType"  onblur="GWF_Info_LF('gDevType', this.value)">
+                    <option value="Up">Up</option>
+                    <option value="Down">Down</option>
+                </select>
+            <label for="DeviationType">Deviation Type</label>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <!-- Board Thickness -->
+    <div class="card card-default col-md-2">
+        <div class="card-header align-items-center">
+            <h2 class="">Board Thickness</h2>
+        </div>
+        <div class="card-body">
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <!-- Loc1 -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="LengthAverage" placeholder="" value="" >
+                        <label for="LengthAverage">Loc1</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Loc2 -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="LengthAverage" placeholder="" value="" >
+                        <label for="LengthAverage">Loc2</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Loc3 -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Width" placeholder="" value="">
+                        <label for="Width">Loc3</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Average -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Average" placeholder="" value="" disabled>
+                        <label for="Average">Average</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Taper -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Taper" placeholder="" value="" disabled>
+                        <label for="Taper">Taper</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bundle Averages -->
+    <div class="card card-default col-md-2">
+        <div class="card-header align-items-center">
+            <h2 class="">Bundle Averages</h2>
+        </div>
+        <div class="card-body">
+            <div class="row text-center mb-2">
+                <div class="col-md-6">
+                        <p>Bundle 1</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Bundle 2</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Length Average -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="LengthAverage" placeholder="" value="" disabled>
+                        <label for="LengthAverage">Length Average</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Length Average -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="LengthAverage" placeholder="" value="" disabled>
+                        <label for="LengthAverage">Length Average</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Width -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Width" placeholder="" value="" disabled>
+                        <label for="Width">Width</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Width -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Width" placeholder="" value="" disabled>
+                        <label for="Width">Width</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Squareness -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Squareness" placeholder="" value="" disabled>
+                        <label for="Squareness">Squareness</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Squareness -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Squareness" placeholder="" value="" disabled>
+                        <label for="Squareness">Squareness</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SPC Chart -->
+    <div class="col-8 px-2">
+    <div class="form-floating ">
+        <textarea class="form-control" placeholder="Address" id="compStrengthComments" style="height: 240px;" onblur="GCompStrFG2_LFClick('gNotes',this)"></textarea>
+        <label for="compStrengthComments" class="">
+            <h1>
+                    Place Holder for SPC Chart
+                </h1>
+            </label>
+    </div>
+    </div>
+</div>
+
