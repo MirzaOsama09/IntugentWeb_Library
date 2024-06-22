@@ -1,4 +1,5 @@
 ﻿@page
+@using System.Data;
 @model IntugentWebApp.Pages.Mfg_Group.MfgProcessCheckModel
 @{
     ViewData["ActivePage"] = "Process Check";
@@ -20,10 +21,10 @@
             </div>
             <div class="card-body">
                 <!-- Dataset -->
-                    <label>Check Sheet</label>
+                <label>Check Sheet</label>
                 <div class="input-group col-12 d-flex">
                     <button class="btn btn-primary m-auto" type="button" style="padding: 9px" onclick="gNavClick('prev')"><span class="mdi mdi-chevron-left"></span></button>
-                    <input type="number" class="form-control text-center w-50" disabled value="">
+                    <input type="number" class="form-control text-center w-50" disabled value="@Model.gID">
                     <button onclick="gNavClick('next')" name="" class="btn btn-primary m-auto" type="button" style="padding: 9px"><span class="mdi mdi-chevron-right"></span></button>
                     </div>
                 </div>
@@ -38,9 +39,11 @@
                 <div class="col-3">
                     <!-- Production Code -->
                     <div class="form-floating mb-2" onblur="">
-                        <select class="form-select" id="DeviationType" onblur="">
-                            <option value="Up">Up</option>
-                            <option value="Down">Down</option>
+                            <select class="form-select" id="DeviationType" onblur="GComboBox_LF('gProdID', this.value)">
+                                @foreach (DataRowView row in Model.gProdID)
+                                {
+                                    <option value="@row["Product Code"]" selected="@(Model.gProdIDSelected == row["Product Code"].ToString())">@row["Product"]</option>
+                                }
                         </select>
                     <label for="DeviationType">Production Code</label>
                     </div>
@@ -48,33 +51,37 @@
                 <div class="col-2">
                     <!-- Date -->
                     <div class="form-floating mb-2">
-                        <input type="datetime-local" class="form-control" id="Mfg Time Stamp" value="" onblur="" >
+                            <input type="datetime-local" class="form-control" id="Mfg Time Stamp" value="@Model.gTestDate?.ToString("yyyy-MM-ddThh:mm")" onblur="GMisc_LF('gTestDate',this.value)">
                         <label for="Mfg Time Stamp">Date</label>
                     </div>
                 </div>
                     <div class="col-2">
                         <!-- Time Code -->
                         <div class="form-floating mb-2">
-                            <input type="datetime-local" class="form-control" id="Mfg Time Stamp" value="" onblur="">
+                            <input type="time" class="form-control" id="Mfg Time Stamp" value="@Model.gTestTime?.ToString("HH:mm:ss")" onblur="GTestTime_LF('gTestTime',this.value)">
                             <label for="Mfg Time Stamp">Time Code</label>
                         </div>
                     </div>
                     <div class="col-3">
                         <!-- Operator -->
                         <div class="form-floating mb-2" onblur="">
-                            <select class="form-select" id="DeviationType" onblur="">
-                                <option value="Up">Up</option>
-                                <option value="Down">Down</option>
+                            <select class="form-select" id="DeviationType" onblur="GComboBox_LF('gOperator', this.value)">
+                                @foreach (DataRowView row in Model.gOperator)
+                                {
+                                    <option value="@row["ID"]" selected="@(Model.gOperatorSelectedItem == (int)row["ID"])">@row["Employees"]</option>
+                                }
                             </select>
                             <label for="DeviationType">Operator</label>
                         </div>
                     </div>
                     <div class="col-2">
                         <!-- Type -->
-                        <div class="form-floating mb-2" onblur="">
-                            <select class="form-select" id="DeviationType" onblur="">
-                                <option value="Up">Up</option>
-                                <option value="Down">Down</option>
+                        <div class="form-floating mb-2" >
+                            <select class="form-select" id="DeviationType" onblur="GComboBox_LF('gType', this.value)">
+                                @foreach (DataRowView row in Model.gType)
+                                            {
+                                        <option value="@row["ID"]" selected="@(Model.gTypeSelectedValue == (int)row["ID"])">@row["sName"]</option>
+                                            }
                             </select>
                             <label for="DeviationType">Type</label>
                         </div>
@@ -89,8 +96,13 @@
 <div class="row">
  <div class="col-3">
     <div class="row col-12 my-3">
-        <button type="button" onclick=gGetData() class="btn btn-primary btn-sm">Extract Relevant Process Data</button>
-    </div>
+            <button type="button" onclick=gNewCheckSheet_Click() class="btn btn-primary btn-sm">New In Process Check</button>
+            <!-- Exclude -->
+            <div class="custom-control custom-checkbox align-items-center">
+                <input type="checkbox" class="custom-control-input" id="Edge H2" checked="@Model.gExcludeIsChecked" onchange=" GMisc_LFs('gExclude', this)">
+                <label class="custom-control-label" for="Edge H2">Do not Include in SPC Analyses</label>
+            </div>
+        </div>
     <!-- Print / Perferation / Flipper -->
     <div class="card card-default col-12">
         <div class="card-header align-items-center">
@@ -98,39 +110,47 @@
         </div>
         <div class="card-body">
             <div class="row align-items-center">
-                    <!-- Production Code -->
+                    <!-- Top board print -->
                     <div class="form-floating mb-2 col-6" onblur="">
-                        <select class="form-select" id="DeviationType" onblur="">
-                            <option value="Up">Up</option>
-                            <option value="Down">Down</option>
+                        <select class="form-select" id="DeviationType" onblur="GComboBox_LF('gTopBoardPrint', this.value)">
+                            @foreach (DataRowView row in Model.gTopBoardPrintCollection)
+                            {
+                     <option value="@row["ID"]" selected="@(Model.gTopBoardPrint == (int)row["ID"])">@row["sName"]</option>
+                            }
                         </select>
-                        <label for="DeviationType">Production Code</label>
+                        <label for="DeviationType">Top board print</label>
                     </div>
-                <!-- Production Code -->
+                    <!-- Bottom board print -->
                 <div class="form-floating mb-2 col-6" onblur="">
-                    <select class="form-select" id="DeviationType" onblur="">
-                        <option value="Up">Up</option>
-                        <option value="Down">Down</option>
+                        <select class="form-select" id="DeviationType" onblur="GComboBox_LF('gBottomBoardPrint', this.value)">
+                            @foreach (DataRowView row in Model.gBottomBoardPrintCol)
+                            {
+                                <option value="@row["ID"]" selected="@(Model.gBottomBoardPrint == (int)row["ID"])">@row["sName"]</option>
+                            }
                     </select>
-                    <label for="DeviationType">Production Code</label>
+                        <label for="DeviationType">Bottom board print</label>
                 </div>
             </div>
             <div class="row align-items-center">
-                <!-- Production Code -->
+                    <!-- Perferation -->
                 <div class="form-floating mb-2 col-6" onblur="">
-                    <select class="form-select" id="DeviationType" onblur="">
-                        <option value="Up">Up</option>
-                        <option value="Down">Down</option>
+                        <select class="form-select" id="DeviationType" onblur="GComboBox_LF('gPerferation', this.value)">
+                            @foreach (DataRowView row in Model.gPerferationCol)
+                            {
+                                <option value="@row["ID"]" selected="@(Model.gPerferation == (int)row["ID"])">@row["sName"]</option>
+                            }
                     </select>
-                    <label for="DeviationType">Production Code</label>
+                        <label for="DeviationType">Perferation</label>
                 </div>
-                <!-- Production Code -->
+                    <!-- Flipper Operating-->
                 <div class="form-floating mb-2 col-6" onblur="">
-                    <select class="form-select" id="DeviationType" onblur="">
-                        <option value="Up">Up</option>
-                        <option value="Down">Down</option>
+                        <select class="form-select" id="DeviationType" onblur="GComboBox_LF('gFlipper', this.value)">
+                            @foreach (DataRowView row in Model.gFlipperCol)
+                            {
+                                <option value="@row["ID"]" selected="@(Model.gFlipper == (int)row["ID"])">@row["sName"]</option>
+                            }
                     </select>
-                    <label for="DeviationType">Production Code</label>
+                        <label for="DeviationType">Flipper Operating</label>
                 </div>
             </div>
         </div>
@@ -143,99 +163,107 @@
         </div>
         <div class="card-body">
             <div class="row align-items-center">
-                <!-- Production Code -->
+                <!-- gAdhesion -->
                 <div class="form-floating mb-2 col-6" onblur="">
-                    <select class="form-select" id="DeviationType" onblur="">
-                        <option value="Up">Up</option>
-                        <option value="Down">Down</option>
+                    <select class="form-select" id="DeviationType" onblur="GComboBox_LF('gAdhesion', this.value)">
+                        @foreach (DataRowView row in Model.gAdhesionCol)
+                        {
+                            <option value="@row["ID"]" selected="@(Model.gAdhesionSelected == (int)row["ID"])">@row["sName"]</option>
+                        }
                     </select>
-                    <label for="DeviationType">Production Code</label>
+                    <label for="DeviationType">Facer Adhesion</label>
                 </div>
-                <!-- Production Code -->
+                <!-- Edge Cut -->
                 <div class="form-floating mb-2 col-6" onblur="">
-                    <select class="form-select" id="DeviationType" onblur="">
-                        <option value="Up">Up</option>
-                        <option value="Down">Down</option>
+                    <select class="form-select" id="DeviationType" onblur="GComboBox_LF('gEdgeCut', this.value)">
+                        @foreach (DataRowView row in Model.gEdgeCutCol)
+                        {
+                            <option value="@row["ID"]" selected="@(Model.gEdgeCutSelected == (int)row["ID"])">@row["sName"]</option>
+                        }
                     </select>
-                    <label for="DeviationType">Production Code</label>
+                    <label for="DeviationType">Edge Cut</label>
                 </div>
             </div>
-               <!-- Exposed Form -->
+               <!-- Exposed Foam -->
                 <div class="form-floating my-2 col-12">
-                    <input type="number" class="form-control text-center" id="ExposedForm" placeholder="" value="" onblur="GFacerPeel_LF('gFacerPeel3', this.value)">
-                    <label for="ExposedForm">Exposed Form</label>
+                <input type="number" class="form-control text-center" id="ExposedForm" placeholder="" value="@Model.gExposedFoam" onblur="GMisc_LF('gExposedFoam',this.value)">
+                    <label for="ExposedForm">Exposed Foam</label>
                 </div>
             <div class="row align-items-center">
-                <!-- Production Code -->
+                <!-- Hooder Quality -->
                 <div class="form-floating mb-2 col-6" onblur="">
-                    <select class="form-select" id="DeviationType" onblur="">
-                        <option value="Up">Up</option>
-                        <option value="Down">Down</option>
+                    <select class="form-select" id="DeviationType" onblur="GComboBox_LF('gHooder', this.value)">
+                        @foreach (DataRowView row in Model.gHooderCol)
+                        {
+                            <option value="@row["ID"]" selected="@(Model.gHooderSelected == (int)row["ID"])">@row["sName"]</option>
+                        }
                     </select>
-                    <label for="DeviationType">Production Code</label>
+                    <label for="DeviationType">Hooder Quality</label>
                 </div>
-                <!-- Production Code -->
+                <!-- Board Quality -->
                 <div class="form-floating mb-2 col-6" onblur="">
-                    <select class="form-select" id="DeviationType" onblur="">
-                        <option value="Up">Up</option>
-                        <option value="Down">Down</option>
+                    <select class="form-select" id="DeviationType" onblur="GComboBox_LF('gBoardQuality', this.value)">
+                        @foreach (DataRowView row in Model.gBoardQualityCol)
+                        {
+                            <option value="@row["ID"]" selected="@(Model.gBoardQualitySelected == (int)row["ID"])">@row["sName"]</option>
+                        }
                     </select>
-                    <label for="DeviationType">Production Code</label>
+                    <label for="DeviationType">Board Quality</label>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Dim Stability % Change in dims -->
+    <!-- Cup Shot (Reactivity Data) -->
     <div class="card card-default col-md-3">
         <div class="card-header align-items-center">
-            <h2 class="">Dimensions Stability % Change in dimensions</h2>
+            <h2 class="">Cup Shot (Reactivity Data)</h2>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <!-- % Change Length Oven -->
+                    <!-- Empty cup mass (g) -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Length Oven" placeholder="" value="" disabled>
-                        <label for="Change Length Oven">% Change Length Oven</label>
+                        <input type="number" class="form-control" id="Change Length Oven" placeholder="" value="@Model.gEmptyCupMassG" onblur="GCupReactivity_LF('gEmptyCupMassG',this.value)">
+                        <label for="Change Length Oven">Empty cup mass (g)</label>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <!-- % Change Width Oven -->
+                    <!-- Cream Time (s) -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="ChangeWidthOven" placeholder="" value="" disabled>
-                        <label for="ChangeWidthOven">% Change Width Oven</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- % Change Thickness Oven -->
-                    <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Thickness Oven" placeholder="" value="" disabled>
-                        <label for="Change Thickness Oven">% Change Thickness Oven</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <!-- % Change Length Freezer -->
-                    <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Length Freezer" placeholder="" value="" disabled>
-                        <label for="Change Length Freezer">% Change Length Freezer</label>
+                        <input type="text" class="form-control" id="ChangeWidthOven" placeholder="" value="@Model.gCreamTimeS" onblur="GCupReactivity_LF('gCreamTimeS',this.value)">
+                        <label for="ChangeWidthOven">Cream Time (s)</label>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <!-- % Change Width Freezer -->
+                    <!-- Gel Time (s) -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Width Freezer" placeholder="" value="" disabled>
-                        <label for="Change Width Freezer">% Change Width Freezer</label>
+                        <input type="text" class="form-control" id="Change Thickness Oven" placeholder="" value="@Model.gGelTimeS" onblur="GCupReactivity_LF('gGelTimeS',this.value)">
+                        <label for="Change Thickness Oven">Gel Time (s)</label>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <!-- % Change Thickness Freezer -->
+                    <!-- Tack-free Time (s) -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Change Thickness Freezer" placeholder="" value="" disabled>
-                        <label for="Change Thickness Freezer">% Change Thickness Freezer</label>
+                        <input type="text" class="form-control" id="Change Length Freezer" placeholder="" value="@Model.gTackFreeTimeS" onblur="GCupReactivity_LF('gTackFreeTimeS',this.value)">
+                        <label for="Change Length Freezer">Tack-free Time (s)</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Full cup mass (g) -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Change Width Freezer" placeholder="" value="@Model.gFullCupMassG" onblur="GCupReactivity_LF('gFullCupMassG',this.value)">
+                        <label for="Change Width Freezer">Full cup mass (g)r</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Foam Density (lb/ft3) -->
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="Change Thickness Freezer" placeholder="" value="@Model.gFoamDensityPCF" disabled>
+                        <label for="Change Thickness Freezer">Foam Density (lb/ft3)</label>
                     </div>
                 </div>
             </div>
@@ -244,7 +272,7 @@
     <div class="col-2 h-50">
         <!-- Comments -->
         <div class="form-floating ">
-            <textarea class="form-control" placeholder="Address" id="compStrengthComments" style="height: 240px;" onblur="GCompStrFG2_LFClick('gNotes',this)"></textarea>
+            <textarea class="form-control" placeholder="Address" id="compStrengthComments" style="height: 240px;" onblur="GMisc_LF('gComment',this.value)">@Model.gComment</textarea>
             <label for="compStrengthComments">Comments</label>
         </div>
     </div>
@@ -262,35 +290,35 @@
                 <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
                     <!-- Bundle Quantity -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="BundleQuantity" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L1', this.value)">
+                        <input type="number" class="form-control" id="BundleQuantity" placeholder="" value="@Model.gQuantity" onblur="FirstBundle_LF('gQuantity', this.value)">
                         <label for="BundleQuantity">Bundle Quantity</label>
                     </div>
 
                     <!-- Top Board Length -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L3', this.value)">
+                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="@Model.gTopLength" onblur="FirstBundle_LF('gTopLength', this.value)">
                         <label for="TopBoardLength">Top Board Length</label>
                     </div>
                     <!-- Bottom Board Length -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L3', this.value)">
+                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="@Model.gBottomLength" onblur="FirstBundle_LF('gBottomLength', this.value)">
                         <label for="TopBoardLength">Bottom Board Length</label>
                     </div>
                 </div>
                 <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
                     <!-- Board/Bundle Width -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Board/BundleWidth" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L2', this.value)">
+                        <input type="number" class="form-control" id="Board/BundleWidth" placeholder="" value="@Model.gWidth" onblur="FirstBundle_LF('gWidth', this.value)">
                         <label for="Board/BundleWidth">Board/Bundle Width</label>
                     </div>
                     <!-- Middle Board Length -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="MiddleBoardLength" placeholder="" value="" onblur="GWFDim_LF('gFinal_WF_L2', this.value)">
+                        <input type="number" class="form-control" id="MiddleBoardLength" placeholder="" value="@Model.gMiddleLength" onblur="FirstBundle_LF('gMiddleLength', this.value)">
                         <label for="MiddleBoardLength">Middle Board Length</label>
                     </div>
                     <!-- Diagonal 1 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Diagonal1" placeholder="" value="" onblur="GWFDim_LF('gFinal_WF_L3', this.value)">
+                        <input type="number" class="form-control" id="Diagonal1" placeholder="" value="@Model.gDiagonal1" onblur="FirstBundle_LF('gDiagonal1', this.value)">
                         <label for="Diagonal1">Diagonal 1</label>
                     </div>
                 </div>
@@ -298,7 +326,7 @@
             <div class="row px-4 mb-2">
                 <!-- Diagonal 2 -->
                 <div class="form-floating">
-                    <input type="number" class="form-control" id="Diagonal2" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L1', this.value)">
+                    <input type="number" class="form-control" id="Diagonal2" placeholder="" value="@Model.gDiagonal2" onblur="FirstBundle_LF('gDiagonal2', this.value)">
                     <label for="Diagonal2">Diagonal 2</label>
                 </div>
             </div>
@@ -314,35 +342,35 @@
                 <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
                     <!-- Bundle Quantity -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="BundleQuantity" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L1', this.value)">
+                        <input type="number" class="form-control" id="BundleQuantity" placeholder="" value="@Model.gQuantity_2" onblur="SecondBundle_LF('gQuantity_2', this.value)">
                         <label for="BundleQuantity">Bundle Quantity</label>
                     </div>
 
                     <!-- Top Board Length -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L3', this.value)">
+                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="@Model.gTopLength_2" onblur="SecondBundle_LF('gTopLength_2', this.value)">
                         <label for="TopBoardLength">Top Board Length</label>
                     </div>
                     <!-- Bottom Board Length -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L3', this.value)">
+                        <input type="number" class="form-control" id="TopBoardLength" placeholder="" value="@Model.gBottomLength_2" onblur="SecondBundle_LF('gBottomLength_2', this.value)">
                         <label for="TopBoardLength">Bottom Board Length</label>
                     </div>
                 </div>
                 <div class="card-body d-flex flex-column col-md-6 justify-content-evenly">
                     <!-- Board/Bundle Width -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Board/BundleWidth" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L2', this.value)">
+                        <input type="number" class="form-control" id="Board/BundleWidth" placeholder="" value="@Model.gWidth_2" onblur="SecondBundle_LF('gWidth_2', this.value)">
                         <label for="Board/BundleWidth">Board/Bundle Width</label>
                     </div>
                     <!-- Middle Board Length -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="MiddleBoardLength" placeholder="" value="" onblur="GWFDim_LF('gFinal_WF_L2', this.value)">
+                        <input type="number" class="form-control" id="MiddleBoardLength" placeholder="" value="@Model.gMiddleLength_2" onblur="SecondBundle_LF('gMiddleLength_2', this.value)">
                         <label for="MiddleBoardLength">Middle Board Length</label>
                     </div>
                     <!-- Diagonal 1 -->
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control" id="Diagonal1" placeholder="" value="" onblur="GWFDim_LF('gFinal_WF_L3', this.value)">
+                        <input type="number" class="form-control" id="Diagonal1" placeholder="" value="@Model.gDiagonal1_2" onblur="SecondBundle_LF('gDiagonal1_2', this.value)">
                         <label for="Diagonal1">Diagonal 1</label>
                     </div>
                 </div>
@@ -350,7 +378,7 @@
             <div class="row px-4 mb-2">
                 <!-- Diagonal 2 -->
                 <div class="form-floating">
-                    <input type="number" class="form-control" id="Diagonal2" placeholder="" value="" onblur="GWFDim_LF('gInit_WF_L1', this.value)">
+                    <input type="number" class="form-control" id="Diagonal2" placeholder="" value="@Model.gDiagonal2_2" onblur="SecondBundle_LF('gDiagonal2_2', this.value)">
                     <label for="Diagonal2">Diagonal 2</label>
                 </div>
             </div>
@@ -365,7 +393,7 @@
            <div class="col-md-12">
             <!-- Deviation from Table -->
             <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="DeviationfromTable" placeholder="" value="" onblur="GWF_Info_LF('gDeviation', this.value)">
+                        <input type="text" class="form-control" id="DeviationfromTable" placeholder="" value="@Model.gDeviationAbs" onblur="Deviation_LF('gDeviationAbs', this.value)">
             <label for="DeviationfromTable">Deviation from Table</label>
             </div>
         </div>
@@ -373,7 +401,7 @@
                <div class="col-md-12">
             <!-- Deviation (Bowing) Type -->
             <div class="form-floating mb-2" onblur="GWF_Info_LF('gDevType', this.value)">
-                <select class="form-select" id="DeviationType"  onblur="GWF_Info_LF('gDevType', this.value)">
+                        <select class="form-select" id="DeviationType" asp-for="gDeviationType" onblur="Deviation_LF('gDeviationType', this.value)">
                     <option value="Up">Up</option>
                     <option value="Down">Down</option>
                 </select>
@@ -384,7 +412,7 @@
             <div class="col-md-12">
                 <!-- Deviation Directed -->
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="Deviation" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Deviation" placeholder="" value="@Model.gBoardDeviationRel" disabled>
                     <label for="Deviation">Deviation (Directed)</label>
                 </div>
             </div>
@@ -394,16 +422,21 @@
     </div>
     <div class="col-3 align-items-center mt-5">
         <div class="col-12 row align-items-center px-5 my-3">
-            <button type="button" onclick=gGetData() class="btn btn-primary btn-sm">Copy Data To ClipBoard</button>
+            <button type="button" onclick=GCopyDataSet() class="btn btn-primary btn-sm">Copy Data To ClipBoard</button>
             </div>
             <div class="px-3">
-            <!-- Deviation (Bowing) Type -->
-            <div class="form-floating mb-2" onblur="GWF_Info_LF('gDevType', this.value)">
-                <select class="form-select" id="DeviationType"  onblur="GWF_Info_LF('gDevType', this.value)">
-                    <option value="Up">Up</option>
-                    <option value="Down">Down</option>
+            <!-- gCopyData -->
+            <div class="form-floating mb-2" onblur="">
+                <select class="form-select" id="DeviationType" onblur="@Model.gCopyData==this.selectedIndex" >
+                    <option value="today">Today's Data</option>
+                    <option value="24hours">Past 24 hours</option>
+                    <option value="1week">Past 1 week</option>
+                    <option value="1month">Past 1 month</option>
+                    <option value="6months">Past 6 months</option>
+                    <option value="1year">Past 1 year</option>
+                    <option value="all">All Data</option>
                 </select>
-            <label for="DeviationType">Deviation Type</label>
+                <label for="DeviationType">Copy Data</label>
             </div>
         </div>
 
@@ -420,15 +453,15 @@
                 <div class="col-md-6">
                     <!-- Loc1 -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="LengthAverage" placeholder="" value="" >
-                        <label for="LengthAverage">Loc1</label>
+                        <input type="text" class="form-control" id="LengthAverage" placeholder="" onblur="GBoardthickness_LF('gThickness1', this.value)" value="@Model.gThickness1">
+                        <label for="LengthAverage">@Model.gLoc1</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <!-- Loc2 -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="LengthAverage" placeholder="" value="" >
-                        <label for="LengthAverage">Loc2</label>
+                        <input type="text" class="form-control" id="LengthAverage" placeholder="" value="@Model.gThickness2" onblur="GBoardthickness_LF('gThickness2', this.value)">
+                        <label for="LengthAverage">@Model.gLoc2</label>
                     </div>
                 </div>
             </div>
@@ -436,8 +469,8 @@
                 <div class="col-md-12">
                     <!-- Loc3 -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Width" placeholder="" value="">
-                        <label for="Width">Loc3</label>
+                        <input type="text" class="form-control" id="Width" placeholder="" value="@Model.gThickness3" onblur="GBoardthickness_LF('gThickness3', this.value)">
+                        <label for="Width">@Model.gLoc3</label>
                     </div>
                 </div>
             </div>
@@ -445,14 +478,14 @@
                 <div class="col-md-6">
                     <!-- Average -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Average" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Average" placeholder="" value="@Model.gThicknessAvg" disabled>
                         <label for="Average">Average</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <!-- Taper -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Taper" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Taper" placeholder="" value="@Model.gTaper" disabled>
                         <label for="Taper">Taper</label>
                     </div>
                 </div>
@@ -478,14 +511,14 @@
                 <div class="col-md-6">
                     <!-- Length Average -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="LengthAverage" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="LengthAverage" placeholder="" value="@Model.gLengthAvg_1" disabled>
                         <label for="LengthAverage">Length Average</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <!-- Length Average -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="LengthAverage" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="LengthAverage" placeholder="" value="@Model.gLengthAvg_2" disabled>
                         <label for="LengthAverage">Length Average</label>
                     </div>
                 </div>
@@ -494,14 +527,14 @@
                 <div class="col-md-6">
                     <!-- Width -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Width" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Width" placeholder="" value="@Model.gWidthAvg_1" disabled>
                         <label for="Width">Width</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <!-- Width -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Width" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Width" placeholder="" value="@Model.gWidthAvg_2" disabled>
                         <label for="Width">Width</label>
                     </div>
                 </div>
@@ -510,14 +543,14 @@
                 <div class="col-md-6">
                     <!-- Squareness -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Squareness" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Squareness" placeholder="" value="@Model.gSquareness_1" disabled>
                         <label for="Squareness">Squareness</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <!-- Squareness -->
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="Squareness" placeholder="" value="" disabled>
+                        <input type="text" class="form-control" id="Squareness" placeholder="" value="@Model.gSquareness_2" disabled>
                         <label for="Squareness">Squareness</label>
                     </div>
                 </div>
@@ -527,7 +560,7 @@
     <!-- SPC Chart -->
     <div class="col-8 px-2">
     <div class="form-floating ">
-        <textarea class="form-control" placeholder="Address" id="compStrengthComments" style="height: 240px;" onblur="GCompStrFG2_LFClick('gNotes',this)"></textarea>
+        <textarea class="form-control" placeholder="Address" id="compStrengthComments" style="height: 240px;" onblur="" disabled></textarea>
         <label for="compStrengthComments" class="">
             <h1>
                     Place Holder for SPC Chart
@@ -536,4 +569,194 @@
     </div>
     </div>
 </div>
+@section Scripts{
+ 
+   <script>
+        function gNavClick(direction) {
 
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgProcessCheck?handler=DataSetNavi_Click",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { direction: direction },
+                success: function (response) {
+                     console.log('Server response:', response);
+                  //  location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function gNewCheckSheet_Click() {
+
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgProcessCheck?handler=GNewCheckSheet_Click",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+             //   data: { direction: direction },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function FirstBundle_LF(Name, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgProcessCheck?handler=GFirstBundle_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name:Name, value: value },
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function SecondBundle_LF(Name, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgProcessCheck?handler=GSecondBundle_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, value: value },
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function GBoardthickness_LF(Name, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgProcessCheck?handler=Boardthickness_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, value: value },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function GMisc_LFs(Name, element) {
+            let value;
+
+            if (element.type === "checkbox") {
+                value = element.checked ? "true" : "false";
+            } else {
+                value = element.value;
+            }
+            GMisc_LF(Name, value);
+        }
+        function GMisc_LF(Name, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgProcessCheck?handler=GMisc_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, value: value },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function GTestTime_LF(Name, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgProcessCheck?handler=GTestTime_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, value: value },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function GCupReactivity_LF(Name, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgProcessCheck?handler=GCupReactivity_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, value: value },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function Deviation_LF(Name, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgProcessCheck?handler=Deviation_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, value: value },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function GComboBox_LF(Name, value) {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgProcessCheck?handler=GComboBox_LF",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { Name: Name, value: value },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function GCopyDataSet() {
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgProcessCheck?handler=GCopyDataSet",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                success: function (response) {
+                    // console.log('Server response:', response);
+                    navigator.clipboard.writeText(response.data)
+                        .then(function () {
+                            console.log('Text copied to clipboard');
+                            // Optionally reload the page
+                            location.reload();
+                        })
+                        .catch(function (error) {
+                            console.error('Error copying text to clipboard:', error);
+                        });
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+   </script>
+}

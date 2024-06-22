@@ -51,6 +51,9 @@ namespace IntugentWebApp.Pages
 
                 MfgJetMixing mfgJetMixing = new MfgJetMixing(_objectsService.CLists);
                 _objectsService.MfgJetMixing = mfgJetMixing;
+
+                MfgProcessCheck mfgProcessCheck =new MfgProcessCheck(_objectsService.Cbfile,_objectsService.CDefualts);
+                _objectsService.MfgProcesscheck = mfgProcessCheck;
             }
 
 

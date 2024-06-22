@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\library\\intugentclasslbrary\\intugentclasslbrary\\pages\\mfg\\mfgjetmixing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\pages\\mfg\\mfgjetmixing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\library\\intugentclasslbrary\\intugentclasslbrary\\pages\\mfg\\mfgprocesscheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\pages\\mfg\\mfgprocesscheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\library\\intugentclasslbrary\\intugentclasslbrary\\classes\\cjetmix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\classes\\cjetmix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\library\\intugentclasslbrary\\intugentclasslbrary\\pages\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\pages\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\library\\intugentclasslbrary\\intugentclasslbrary\\pages\\mfg\\mfghome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\pages\\mfg\\mfghome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|c:\\users\\xd gaming\\desktop\\intugent\\intugentweb_library\\library\\intugentclasslbrary\\intugentclasslbrary\\classes\\cdefaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B846FCC-A353-4DAC-BDE0-C9DA9C4DFC58}|IntugentClassLbrary\\IntugentClassLibrary.csproj|solutionrelative:intugentclasslbrary\\classes\\cdefaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -27,26 +35,52 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CJetMix.cs",
-              "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Classes\\CJetMix.cs",
-              "RelativeDocumentMoniker": "IntugentClassLbrary\\Classes\\CJetMix.cs",
-              "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Classes\\CJetMix.cs",
-              "RelativeToolTip": "IntugentClassLbrary\\Classes\\CJetMix.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAA7wCwAAAAGAAAA",
+              "Title": "MainWindow.cs",
+              "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\MainWindow.cs",
+              "RelativeDocumentMoniker": "IntugentClassLbrary\\Pages\\MainWindow.cs",
+              "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\MainWindow.cs",
+              "RelativeToolTip": "IntugentClassLbrary\\Pages\\MainWindow.cs",
+              "ViewState": "AQIAADMCAAAAAAAAAAAIwEoCAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-20T21:47:07.585Z"
+              "WhenOpened": "2024-06-22T19:14:36.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MfgHome.cs",
+              "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgHome.cs",
+              "RelativeDocumentMoniker": "IntugentClassLbrary\\Pages\\Mfg\\MfgHome.cs",
+              "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgHome.cs",
+              "RelativeToolTip": "IntugentClassLbrary\\Pages\\Mfg\\MfgHome.cs",
+              "ViewState": "AQIAAFsBAAAAAAAAAAAIwIABAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T14:12:46.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CDefaults.cs",
+              "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Classes\\CDefaults.cs",
+              "RelativeDocumentMoniker": "IntugentClassLbrary\\Classes\\CDefaults.cs",
+              "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Classes\\CDefaults.cs",
+              "RelativeToolTip": "IntugentClassLbrary\\Classes\\CDefaults.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T11:02:17.106Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MfgJetMixing.cs",
-              "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgJetMixing.cs",
-              "RelativeDocumentMoniker": "IntugentClassLbrary\\Pages\\Mfg\\MfgJetMixing.cs",
-              "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgJetMixing.cs",
-              "RelativeToolTip": "IntugentClassLbrary\\Pages\\Mfg\\MfgJetMixing.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAQwCkAAABpAAAA",
+              "Title": "MfgProcessCheck.cs",
+              "DocumentMoniker": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgProcessCheck.cs",
+              "RelativeDocumentMoniker": "IntugentClassLbrary\\Pages\\Mfg\\MfgProcessCheck.cs",
+              "ToolTip": "C:\\Users\\XD GAMING\\Desktop\\Intugent\\IntugentWeb_Library\\Library\\IntugentClassLbrary\\IntugentClassLbrary\\Pages\\Mfg\\MfgProcessCheck.cs",
+              "RelativeToolTip": "IntugentClassLbrary\\Pages\\Mfg\\MfgProcessCheck.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAYwBkAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-20T21:40:39.855Z",
+              "WhenOpened": "2024-06-22T08:12:51.623Z",
               "EditorCaption": ""
             }
           ]
