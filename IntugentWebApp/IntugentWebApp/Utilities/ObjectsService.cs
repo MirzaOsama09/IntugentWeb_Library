@@ -23,6 +23,8 @@ namespace IntugentWebApp.Utilities
         public MfgPlantData? MfgPlantsData { get; set; }
         public MfgJetMixing?  MfgJetMixing { get; set; }
         public MfgProcessCheck MfgProcesscheck { get; set; }
+        public MfgReports MfgReport { get; set; }
+
 
         //              local variables
         public bool gInProcessDoneIsChecked { get; set; }

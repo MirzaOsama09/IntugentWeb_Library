@@ -712,6 +712,7 @@ namespace IntugentWebApp.Pages.Mfg_Group
                 _objectsService.MfgProcesscheck.drIndex = _objectsService.MfgProcesscheck.dt.Rows.Count - 1;
 
             _objectsService.MfgProcesscheck.dr = _objectsService.MfgProcesscheck.dt.Rows[_objectsService.MfgProcesscheck.drIndex];
+            
             _objectsService.MfgProcesscheck.UpdateDataSet();
             SetView();
             return new JsonResult(new { message = direction,gID = _objectsService.MfgProcesscheck.dr["ID"] });

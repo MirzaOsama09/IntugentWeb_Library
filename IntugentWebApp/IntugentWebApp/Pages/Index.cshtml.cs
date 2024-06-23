@@ -54,6 +54,10 @@ namespace IntugentWebApp.Pages
 
                 MfgProcessCheck mfgProcessCheck =new MfgProcessCheck(_objectsService.Cbfile,_objectsService.CDefualts);
                 _objectsService.MfgProcesscheck = mfgProcessCheck;
+
+                MfgReports mfgReports = new MfgReports(_objectsService.Cbfile, _objectsService.CDefualts);
+                _objectsService.MfgReport = mfgReports;
+
             }
 
 

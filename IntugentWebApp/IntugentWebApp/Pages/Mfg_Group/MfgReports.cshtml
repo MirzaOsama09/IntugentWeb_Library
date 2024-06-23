@@ -1,0 +1,122 @@
+﻿@page
+@using System.Data;
+@model IntugentWebApp.Pages.Mfg_Group.MfgReportsModel
+@{
+    ViewData["ActivePage"] = "Mfg Report";
+}
+@* Error Message *@
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="row my-2">
+    <div class="form-check align-items-center">
+        <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled>
+        <label class="form-check-label" for="flexRadioDisabled">
+            Generate Daily Mfg. Report
+        </label>
+    </div>
+</div>
+<div class="row my-3">
+    <!-- Date -->
+    <div class="form-floating mb-2 col-3 my-1">
+        <input type="date" class="form-control" id="Mfg Time Stamp" value="@Model.gReportDate.ToString("yyyy-MM-dd")" onchange=ReportDate(this.value)>
+        <label for="Mfg Time Stamp">Date</label>
+    </div>
+    <div class="col-12">*** A product is considered Pass if the user checked 'QC Test Passed' checkbox in the Finished Goods page</div>
+</div>
+       @* Data Table *@
+<div class="row">
+            <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                <thead class="thead-light">
+                    <tr>
+                <th>ID</th>
+                <th>Mfg. Date/Time</th>
+                <th>QC Test Date/Time</th>
+                <th>Product Type</th>
+                <th>Product</th>
+                <th>Pass/Fail</th>
+                <th>Note</th>
+                <th>Thickness</th>
+                <th></th>
+                <th>R Value</th>
+                <th></th>
+                <th>Comp. Str.</th>
+                <th></th>
+                <th>Core Density</th>
+                <th></th>
+                <th>Squareness</th>
+                <th></th>
+                <th>Length</th>
+                <th></th>
+                <th>Width</th>
+                <th></th>
+                    </tr>
+                </thead>
+        <tbody>
+            @if (Model.gReport != null && Model.gReport.Count > 0)
+            {
+                foreach (DataRowView row in Model.gReport)
+                {
+                    <tr>
+                        <td style="width: 40px; color: Maroon;">@row["ID"]</td>
+                        <td style="width: 170px; color: Maroon;">@row["Mfg_Time"]</td>
+                        <td style="width: 170px;">@row["QC_Test_Date"]</td>
+                        <td style="width: 180px;">@row["Product_Type"]</td>
+                        <td style="width: 260px;">@row["Product"]</td>
+                        <td style="width: 80px; background-color: @(row["PassFail"].ToString() == "Fail" ? "HotPink" : "transparent");">@row["PassFail"]</td>
+                        <td style="width: 200px;">@row["Note"]</td>
+                        <td style="width: 80px;">@string.Format("{0:0.###}", row["Thickness"])</td>
+                        <td style="width: 10px; background-color: @(row["Thickness_P"].ToString() == "F" ? "#FFFF00" : "transparent");">@row["Thickness_P"]</td>
+                        <td style="width: 80px;">@string.Format("{0:0.###}", row["R_Value"])</td>
+                        <td style="width: 10px; background-color: @(row["R_Value_P"].ToString() == "F" ? "#FFFF00" : "transparent");">@row["R_Value_P"]</td>
+                        <td style="width: 80px;">@string.Format("{0:0.###}", row["Comp_Strength"])</td>
+                        <td style="width: 10px; background-color: @(row["CS_P"].ToString() == "F" ? "#FFFF00" : "transparent");">@row["CS_P"]</td>
+                        <td style="width: 80px;">@string.Format("{0:0.###}", row["Core_Dens"])</td>
+                        <td style="width: 10px; background-color: @(row["Core_Dens_P"].ToString() == "F" ? "#FFFF00" : "transparent");">@row["Core_Dens_P"]</td>
+                        <td style="width: 80px;">@string.Format("{0:0.###}", row["Squareness"])</td>
+                        <td style="width: 10px; background-color: @(row["Squareness_P"].ToString() == "F" ? "#FFFF00" : "transparent");">@row["Squareness_P"]</td>
+                        <td style="width: 80px;">@string.Format("{0:0.###}", row["Length"])</td>
+                        <td style="width: 10px; background-color: @(row["Length_P"].ToString() == "F" ? "#FFFF00" : "transparent");">@row["Length_P"]</td>
+                        <td style="width: 80px;">@string.Format("{0:0.###}", row["Width"])</td>
+                        <td style="width: 10px; background-color: @(row["Width_P"].ToString() == "F" ? "#FFFF00" : "transparent");">@row["Width_P"]</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="21">No data available</td>
+                </tr>
+            }
+        </tbody>
+
+            </table>
+</div>
+@section Scripts{
+        <script>
+
+        function ReportDate(value) {
+            //console.log('Input values - Name:', Name, Model.gRValueKnitPresent3.ToString());
+            // var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Mfg_Group/MfgReports?handler=ReportDate_Changed",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                data: { value: value },
+                success: function (response) {
+                   console.log('Server response:', response);
+                   // location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        </script>
+}

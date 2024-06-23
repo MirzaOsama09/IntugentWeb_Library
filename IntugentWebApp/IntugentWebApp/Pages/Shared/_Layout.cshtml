@@ -92,6 +92,13 @@
                                 <span class="nav-text">In Process Check</span>
                             </a>
                         </li>
+                        <li class="@(ViewData["ActivePage"]?.ToString() == "Mfg Report" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/Mfg_Group/MfgReports">
+                                <i class="mdi mdi-book-open-page-variant"></i>
+                                <span class="nav-text">Mfg Reports</span>
+                            </a>
+                        </li>
+                       
                         <li class="section-title">
                             Shared Mfg. Pages
                         </li>
