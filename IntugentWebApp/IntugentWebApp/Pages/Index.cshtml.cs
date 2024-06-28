@@ -1,5 +1,6 @@
 using IntugentClassLbrary.Classes;
 using IntugentClassLbrary.Pages;
+using IntugentClassLibrary.Classes;
 using IntugentClassLibrary.Pages.Mfg;
 using IntugentClassLibrary.Utilities;
 using IntugentWebApp.Utilities;
@@ -58,6 +59,8 @@ namespace IntugentWebApp.Pages
                 MfgReports mfgReports = new MfgReports(_objectsService.Cbfile, _objectsService.CDefualts);
                 _objectsService.MfgReport = mfgReports;
 
+                CAnalysisData cAnalysis = new CAnalysisData(_objectsService.Cbfile, _objectsService.CDefualts);
+                _objectsService.CAnalysisData1 = cAnalysis;
             }
 
 

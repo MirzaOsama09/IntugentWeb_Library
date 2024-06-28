@@ -1,0 +1,218 @@
+﻿@page
+@using System.Data;
+@model IntugentWebApp.Pages.Analysis.Analysis1Model
+@{
+    ViewData["ActivePage"] = "Mfg Analysis-1 Page";
+}
+@* Error Message *@
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="card card-default col-12">
+    <div class="card-header align-items-center">
+        <h2 class="">General Info</h2>
+    </div>
+    <div class="card-body">
+        <div class="row align-items-center">
+            <div class="row col-2 mx-2 px-3">
+                <button type="button" onclick=gSearchDB() class="btn btn-primary btn-sm">Extract Data</button>
+            </div>
+            <div class="col-2">
+                <!-- Mfg Site -->
+                <div class="form-floating mb-2" onblur="">
+                    <select class="form-select" id="MfgSite" onblur="GComboBox_LF('gProdID', this.value)">
+                         @foreach (DataRowView row in Model.gMfgSite)
+                        {
+                            <option value="@row["sLocation"]" selected="@(Model.gMfgSiteSelectedValue == row["sLocation"].ToString())">@row["sLocation"]</option>
+                        } 
+                    </select>
+                    <label for="MfgSite">Mfg Site</label>
+                </div>
+            </div>
+            <div class="col-2">
+                <!-- Production Code -->
+                <div class="form-floating mb-2" onblur="">
+                    <select class="form-select" id="ProdID" onblur="">
+                           @foreach (DataRowView row in Model.gProd1)
+                        {
+                            <option value="@row["Product Code Global"]" selected="@(Model.gProd1SelectedValue == row["Product Code Global"].ToString())">@row["Product Code Global"]</option>
+                        } 
+                    </select>
+                    <label for="ProdID">Production Code</label>
+                </div>
+            </div>
+            <div class="col-1 mx-5">
+                <p>Manufactured</p>
+            </div>
+            <div class="col-2">
+                <!-- AfterDate -->
+                <div class="form-floating mb-2">
+                    <input type="datetime-local" class="form-control" id="AfterorAt" value="@Model.gMfgDate1?.ToString("yyyy-MM-ddThh:mm")" onblur="">
+                    <label for="AfterorAt">After or At</label>
+                </div>
+            </div>
+            <div class="col-2">
+                <!-- BeforeDate -->
+                <div class="form-floating mb-2">
+                    <input type="datetime-local" class="form-control" id="BeforeorAt" value="@Model.gMfgDate2?.ToString("yyyy-MM-ddThh:mm")" onblur="">
+                    <label for="BeforeorAt">Before or At</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-8">
+        @* gProp1 *@
+        <div class="form-floating mb-2 mx-2" onblur="">
+            <select class="form-select" id="gProp1" onblur="gProp1()">
+                @foreach (DataRowView row in Model.gProp1)
+                {
+                    <option value="@row["PropName"]" selected="@(Model.gProp1SelectedValue == row["PropName"].ToString())">@row["PropName"]</option>
+                }
+            </select>
+            <label for="gProp1">Choose the Field to Display</label>
+        </div>
+    <canvas id="line-chart"></canvas>
+    </div>
+    <div class="col-4">
+        @* Property/Correllation *@
+        <div class="col-12">
+                    <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Property</th>
+                                <th scope="col">Correllation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (DataRowView row in Model.gCorr)
+                            {
+
+                                <tr>
+                            <td>@row["PropName"]</td>
+                            <td>@row["CorrValue"]</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctx = document.getElementById('line-chart').getContext('2d');
+
+            // Data for G Line A
+            const gLineA = {
+                label: 'G Line A',
+                data: @Html.Raw(Json.Serialize(Model.XA.Zip(Model.YA, (x, y) => new { x, y }))),
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2,
+                fill: false
+            };
+
+            // Data for gPts1
+            const gPts1 = {
+                label: 'gPts1',
+                data: @Html.Raw(Json.Serialize(Model.XA.Zip(Model.YA, (x, y) => new { x, y }))),
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                fill: false
+            };
+               // Data for gAvg
+            const gAvg = {
+                label: 'gPts1',
+                data: @Html.Raw(Json.Serialize(Model.XAvg1.Zip(Model.YAvg1, (x, y) => new { x, y }))),
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                fill: false
+            };
+            // Data for gUCL
+            const gUCL = {
+                label: 'gUCL',
+                data: @Html.Raw(Json.Serialize(Model.XAvg1.Zip(Model.YUCL1, (x, y) => new { x, y }))),
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                fill: false
+            };
+            // Data for gLCL
+            const gLCL = {
+                label: 'gLCL',
+                data: @Html.Raw(Json.Serialize(Model.XAvg1.Zip(Model.YLCL1, (x, y) => new { x, y }))),
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                fill: false
+            };
+
+            // Chart configuration
+            const config = {
+                type: 'line',
+                data: {
+                    datasets: [gLineA,gPts1,gAvg,gUCL,gLCL]
+                },
+                options: {
+                    pointRadius: 0,
+                    responsive: true,
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom'
+                        }
+                    }
+                }
+            };
+
+            // Create the chart
+            new Chart(ctx, config);
+        });
+         function gSearchDB() {
+
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Analysis/Analysis1?handler=GSearchDB_Click",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                // data: { direction: direction },
+                success: function (response) {
+                    console.log('Server response:', response);
+                   // location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+        function gProp1() {
+
+            var form = $('#SearchParamsForm');
+
+            $.ajax({
+                type: "POST",
+                url: "/Analysis/Analysis1?handler=GProp1_Changed",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                // data: { direction: direction },
+                success: function (response) {
+                    console.log('Server response:', response);
+                    // location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    </script>
+}

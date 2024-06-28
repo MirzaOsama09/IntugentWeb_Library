@@ -14,6 +14,7 @@ namespace IntugentWebApp.Utilities
         public CAppParam? CAppParam { get; set; }
         public CUConv? CUconv { get; set; }
         public CJetMix? CJetMix { get; set; }
+        public CAnalysisData CAnalysisData1 { get; set; }
 
         //              Mfg Variables
         public MfgHome MfgHome { get; set; }
