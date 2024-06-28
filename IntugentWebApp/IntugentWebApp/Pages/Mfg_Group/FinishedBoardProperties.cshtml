@@ -25,9 +25,9 @@
                     <!-- Dataset -->
                     <label class="col-4 col-form-label text-end">Dataset</label>
                     <div class="input-group col-8 d-flex">
-                        <button class="btn btn-primary m-auto" type="button" style="padding: 9px" name="" onclick="gNavClick('prev')"><span class="mdi mdi-chevron-left"></span></button>
+                        <button class="btn btn-primary m-auto" type="button" style="padding: 9px" name="" onclick="gNavClick('prev')" @(Model.gDataSetPrev ? "" : "disabled")><span class="mdi mdi-chevron-left"></span></button>
                         <input type="number" class="form-control text-center w-50" disabled value="@Model.gID">
-                        <button onclick="gNavClick('next')" class="btn btn-primary m-auto" type="button" style="padding: 9px"><span class="mdi mdi-chevron-right"></span></button>
+                        <button onclick="gNavClick('next')" @(Model.gDataSetNext ? "" : "disabled") class="btn btn-primary m-auto" type="button" style="padding: 9px"><span class="mdi mdi-chevron-right"></span></button>
                     </div>
                 </div>
 

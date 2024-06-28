@@ -26,18 +26,18 @@
                 <div class="text-center mb-2">Iso Mix</div>
                 <!-- Flow Rate [lb/min] -->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="length" onblur="LostFocus_Fields('gFRate_A',this.value)" placeholder="" value="@Model.gFRate_A" onblur="">
-                    <label for="length">Flow Rate [lb/min]</label>
+                    <input type="number" class="form-control" id="lengthA" onblur="LostFocus_Fields('gFRate_A',this.value)" placeholder="" value="@Model.gFRate_A" onblur="">
+                    <label for="lengthA">Flow Rate [lb/min]</label>
                 </div>
                 <!-- Inlet Temperature [° F] -->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="width" placeholder="" value="@Model.gTemp_A" onblur="LostFocus_Fields('gTemp_A',this.value)">
-                    <label for="width">Inlet Temperature [° F]</label>
+                    <input type="number" class="form-control" id="widthA" placeholder="" value="@Model.gTemp_A" onblur="LostFocus_Fields('gTemp_A',this.value)">
+                    <label for="widthA">Inlet Temperature [° F]</label>
                 </div>
                 <!-- Inlet Pressure [psi] -->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="bundleHeightIP" placeholder="" value="@Model.gPres_A" onblur="LostFocus_Fields('gPres_A',this.value)">
-                    <label for="bundleHeightIP">Inlet Pressure [psi]</label>
+                    <input type="number" class="form-control" id="bundleHeightIPA" placeholder="" value="@Model.gPres_A" onblur="LostFocus_Fields('gPres_A',this.value)">
+                    <label for="bundleHeightIPA">Inlet Pressure [psi]</label>
                 </div>
             </div>
             <div class="col-md-6">
@@ -45,18 +45,18 @@
                 <div class="text-center mb-2">Polyol Mix</div>
                 <!-- Flow Rate [lb/min] -->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="diagonal1" value="@Model.gFRate_B" placeholder="" onblur="LostFocus_Fields('gFRate_B',this.value)">
-                    <label for="diagonal1">Flow Rate [lb/min]</label>
+                    <input type="number" class="form-control" id="diagonal1A" value="@Model.gFRate_B" placeholder="" onblur="LostFocus_Fields('gFRate_B',this.value)">
+                    <label for="diagonal1A">Flow Rate [lb/min]</label>
                 </div>
                 <!-- Inlet Temperature [° F] -->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="diagonal2" placeholder="" value="@Model.gTemp_B" onblur="LostFocus_Fields('gTemp_B',this.value)">
-                    <label for="diagonal2">Inlet Temperature [° F]</label>
+                    <input type="number" class="form-control" id="diagonal2A" placeholder="" value="@Model.gTemp_B" onblur="LostFocus_Fields('gTemp_B',this.value)">
+                    <label for="diagonal2A">Inlet Temperature [° F]</label>
                 </div>
                 <!-- Inlet Pressure [psi] -->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="absDifference" placeholder="" value="@Model.gPres_B" onblur="LostFocus_Fields('gPres_B',this.value)">
-                    <label for="absDifference">Inlet Pressure [psi]</label>
+                    <input type="number" class="form-control" id="absDifferenceA" placeholder="" value="@Model.gPres_B" onblur="LostFocus_Fields('gPres_B',this.value)">
+                    <label for="absDifferenceA">Inlet Pressure [psi]</label>
                 </div>
             </div>
         </div>
@@ -78,18 +78,18 @@
                 <div class="text-center mb-2">Iso Mix</div>
                 <!-- Fluid Density [lb/ft3] -->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="length" value="@Model.gDens_A" placeholder="" onblur="LostFocus_Fields('gDens_A',this.value)">
-                    <label for="length">Fluid Density [lb/ft3]</label>
+                    <input type="number" class="form-control" id="lengthB" value="@Model.gDens_A" placeholder="" onblur="LostFocus_Fields('gDens_A',this.value)">
+                    <label for="lengthB">Fluid Density [lb/ft3]</label>
                 </div>
                 <!-- Viscosity  77 °F & high shear rate; [cp]-->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="width" placeholder="" value="@Model.gVisO_A" onblur="LostFocus_Fields('gVisO_A',this.value)">
-                    <label for="width">Viscosity at 77 °F & high shear rate; [cp]</label>
+                    <input type="number" class="form-control" id="widthB" placeholder="" value="@Model.gVisO_A" onblur="LostFocus_Fields('gVisO_A',this.value)">
+                    <label for="widthB">Viscosity at 77 °F & high shear rate; [cp]</label>
                 </div>
                 <!-- Act. Energy (E/R) [R] -->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="bundleHeightIP" value="@Model.gVisE_A" placeholder="" onblur="LostFocus_Fields('gVisE_A',this.value)">
-                    <label for="bundleHeightIP">Act. Energy (E/R) [R]</label>
+                    <input type="number" class="form-control" id="bundleHeightIPB" value="@Model.gVisE_A" placeholder="" onblur="LostFocus_Fields('gVisE_A',this.value)">
+                    <label for="bundleHeightIPB">Act. Energy (E/R) [R]</label>
                 </div>
             </div>
             <div class="col-md-6">
@@ -97,18 +97,18 @@
                 <div class="text-center mb-2">Polyol Mix</div>
                 <!-- Fluid Density [lb/ft3] -->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="diagonal1" value="@Model.gDens_B" placeholder="" onblur="LostFocus_Fields('gDens_B',this.value)">
-                    <label for="diagonal1">Fluid Density [lb/ft3]</label>
+                    <input type="number" class="form-control" id="diagonal1B" value="@Model.gDens_B" placeholder="" onblur="LostFocus_Fields('gDens_B',this.value)">
+                    <label for="diagonal1B">Fluid Density [lb/ft3]</label>
                 </div>
                 <!-- Viscosity 77 °F & high shear rate; [cp] -->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="diagonal2" placeholder="" value="@Model.gVisO_B" onblur="LostFocus_Fields('gVisO_B',this.value)">
-                    <label for="diagonal2">Viscosity at 77 °F & high shear rate; [cp]</label>
+                    <input type="number" class="form-control" id="diagonal2B" placeholder="" value="@Model.gVisO_B" onblur="LostFocus_Fields('gVisO_B',this.value)">
+                    <label for="diagonal2B">Viscosity at 77 °F & high shear rate; [cp]</label>
                 </div>
                 <!-- Act. Energy (E/R) [R] -->
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="absDifference" value="@Model.gVisE_B" placeholder="" onblur="LostFocus_Fields('gVisE_B',this.value)">
-                    <label for="absDifference">Act. Energy (E/R) [R]</label>
+                    <input type="number" class="form-control" id="absDifferenceB" value="@Model.gVisE_B" placeholder="" onblur="LostFocus_Fields('gVisE_B',this.value)">
+                    <label for="absDifferenceB">Act. Energy (E/R) [R]</label>
                 </div>
             </div>
         </div>
@@ -128,38 +128,38 @@
             <div class="col-md-4 pl-4">
                     <!-- D [mm] -->
                 <div class="form-floating mb-1">
-                            <input type="number" class="form-control" id="length" placeholder="" value="@Model.gDiaMixChamb" onblur="LostFocus_Fields('gDiaMixChamb',this.value)">
-                        <label for="length">D [mm]</label>
+                            <input type="number" class="form-control" id="lengthC" placeholder="" value="@Model.gDiaMixChamb" onblur="LostFocus_Fields('gDiaMixChamb',this.value)">
+                        <label for="lengthC">D [mm]</label>
                 </div>
                     <!-- dA [mm] -->
                 <div class="form-floating mb-1">
-                            <input type="number" class="form-control" id="width" placeholder="" value="@Model.gDiaNoz_A" onblur="LostFocus_Fields('gDiaNoz_A',this.value)">
-                        <label for="width">dA [mm]</label>
+                            <input type="number" class="form-control" id="widthC" placeholder="" value="@Model.gDiaNoz_A" onblur="LostFocus_Fields('gDiaNoz_A',this.value)">
+                        <label for="widthC">dA [mm]</label>
                 </div>
                     <!-- dB [mm] -->
                 <div class="form-floating mb-1">
-                            <input type="number" class="form-control" id="bundleHeightIP" placeholder="" value="@Model.gDiaNoz_B" onblur="LostFocus_Fields('gDiaNoz_B',this.value)">
-                        <label for="bundleHeightIP">dB [mm]</label>
+                            <input type="number" class="form-control" id="bundleHeightIPC" placeholder="" value="@Model.gDiaNoz_B" onblur="LostFocus_Fields('gDiaNoz_B',this.value)">
+                        <label for="bundleHeightIPC">dB [mm]</label>
                 </div>
             </div>
             </div>
             <div class="row">
                 <!-- Max. Jet Pressure [psi] -->
               <div class="form-floating mb-1 col-4">
-                        <input type="number" class="form-control" id="diagonal1" placeholder="" value="@Model.gPres_Max" onblur="LostFocus_Fields('gPres_Max',this.value)">
-                    <label for="diagonal1">
+                        <input type="number" class="form-control" id="diagonal1C" placeholder="" value="@Model.gPres_Max" onblur="LostFocus_Fields('gPres_Max',this.value)">
+                    <label for="diagonal1C">
                         Max. Jet Pressure [psi]
                     </label>
                 </div>
                 <!-- Min.  Jet Pressure [psi] -->
                 <div class="form-floating mb-1 col-4">
-                        <input type="number" class="form-control" id="diagonal2" placeholder="" value="@Model.gPres_Min" onblur="LostFocus_Fields('gPres_Min',this.value)">
-                    <label for="diagonal2">Min.  Jet Pressure [psi]</label>
+                        <input type="number" class="form-control" id="diagonal2C" placeholder="" value="@Model.gPres_Min" onblur="LostFocus_Fields('gPres_Min',this.value)">
+                    <label for="diagonal2C">Min.  Jet Pressure [psi]</label>
                 </div>
                 <!-- Min. Reynold # of a Jet -->
                 <div class="form-floating mb-1 col-4">
-                        <input type="number" class="form-control" id="absDifference" placeholder="" value="@Model.gReNo_Min" onblur="LostFocus_Fields('gReNo_Min',this.value)">
-                    <label for="absDifference">Min. Reynold # of a Jet</label>
+                        <input type="number" class="form-control" id="absDifferenceC" placeholder="" value="@Model.gReNo_Min" onblur="LostFocus_Fields('gReNo_Min',this.value)">
+                    <label for="absDifferenceC">Min. Reynold # of a Jet</label>
                 </div>
             </div>
         </div>
