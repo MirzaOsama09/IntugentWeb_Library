@@ -1,0 +1,269 @@
+﻿@page
+@using System.Data;
+@model IntugentWebApp.Pages.RnD_Users.RNDRValuesModel
+@{
+    ViewData["ActivePage"] = "R&D R Values Tool";
+}
+
+<!-- Error message -->
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="row">
+    <div class="col-4">
+        <!-- Key Calculation Parameter Card -->
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class="">Key Calculation Parameter</h2>
+            </div>
+            <div class="card-body">
+                <!-- gMeasureTemp -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="gMeasureTemp" placeholder="" value="" onblur="">
+                    <label for="gMeasureTemp">Measuring Temperature (°F)</label>
+                </div>
+                <!-- Average Cell Size (microns) -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="gCellSize" placeholder="" value="" onblur="">
+                    <label for="gCellSize">Average Cell Size (microns)</label>
+                </div>
+                <!-- gCellPress -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="gCellPress" placeholder="" value="" onblur="">
+                    <label for="gCellPress">Initial Cell Pressure (atm)</label>
+                </div>
+                <!-- Polymer Density (lb/ft3³) -->
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control text-center" id="gPolDen" placeholder="" value="" onblur="GFacerPeel_LF('gFacerPeel1', this.value)">
+                    <label for="gPolDen">Polymer Density (lb/ft3³)</label>
+                </div>
+                <div class="form-floating col-12 ">
+                <button type="button" onclick="" class="btn btn-primary btn-sm">Set Default Values</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <!-- R  Values and Cell Gas Composition -->
+        <div class="card card-default" style="height:300px;">
+            <div class="card-header align-items-center">
+                <h2 class="">R  Values and Cell Gas Composition</h2>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Bind Gas Name Here</th>
+                            <th scope="col">#1</th>
+                            <th scope="col">#2</th>
+                            <th scope="col">#3</th>
+                            <th scope="col">#4</th>
+                            <th scope="col">#5</th>
+                            <th scope="col">#6</th>
+                            <th scope="col">#7</th>
+                            <th scope="col">#8</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                   @*      @foreach (DataRow row in Model.gChemDel.Rows)
+                        {
+
+                            <tr>
+                                <td>@row["sName"]</td>
+                                <td>@row["sValue"]</td>
+                            </tr>
+
+                        } *@
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        @* Initial R Value Analyses *@
+        <div class="card card-default">
+            <div class="card-header align-items-center">
+                <h2 class=""> Initial R Value Analyses</h2>
+            </div>
+            <div class="card-body">
+                <!-- X Axis -->
+                <div class="form-floating mb-2">
+                    <select class="form-select" id="XAxis">
+                        @*       @foreach (DataRowView row in Model.gProd1)
+                        {
+                        <option value="@row["Product"]" selected="@(Model.gProd1SelectedValue == (row["Product Code"].ToString()))">@row["Product"]</option>
+                        }   *@
+                    </select>
+                    <label for="XAxis">X Axis</label>
+                </div>
+                <!-- Y Axis -->
+                <div class="form-floating mb-2">
+                    <select class="form-select" id="YAxis">
+                        @*       @foreach (DataRowView row in Model.gProd1)
+                        {
+                        <option value="@row["Product"]" selected="@(Model.gProd1SelectedValue == (row["Product Code"].ToString()))">@row["Product"]</option>
+                        }   *@
+                    </select>
+                    <label for="YAxis">Y Axis</label>
+                </div>
+               </div>
+           </div>
+                @* Chart Navigation *@
+          <div class="mt-5">
+              <h2 class="my-2">Chart Navigation</h2>
+              <p class="my-1">- left-click-drag to pan</p>
+              <p class="my-1">- left-click-drag on an axis to pan just that axis</p>
+              <p class="my-1">- Scroll-wheel to zoom</p>
+              <p class="my-1">- double-click to fit axis limits to data (may be a few times)</p>
+          </div>
+    </div>
+   <div class="col-8">
+       <canvas id="charts" ></canvas>
+   </div>
+</div>
+@section Scripts{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctx = document.getElementById('charts').getContext('2d');
+            // Data and options for the first chart
+            const data1 = {
+                datasets: [{
+                    label: 'Dataset 1',
+                    // data:,
+                    backgroundColor: 'rgba(255, 0, 0, 0.6)',
+                    borderColor: 'rgba(255, 0, 0, 1)',
+                    borderWidth: 1,
+                    pointRadius: 5
+                }]
+            };
+
+            // Data and options for the second chart
+            const data2 = {
+                datasets: [{
+                    label: 'Dataset 2',
+                    // data:,
+                    backgroundColor: 'rgba(0, 0, 255, 0.6)',
+                    borderColor: 'rgba(0, 0, 255, 1)',
+                    borderWidth: 1,
+                    pointRadius: 5
+                }]
+            };
+
+            const data3 = {
+                datasets: [{
+                    label: 'Dataset 3',
+                    // data:,
+                    backgroundColor: 'rgba(0, 255, 0, 0.6)',
+                    borderColor: 'rgba(0, 255, 0, 1)',
+                    borderWidth: 1,
+                    pointRadius: 5
+                }]
+            };
+
+            const data4 = {
+                datasets: [{
+                    label: 'Dataset 3',
+                    // data:,
+                    backgroundColor: 'rgba(255, 255, 0, 0.6)',
+                    borderColor: 'rgba(255, 255, 0, 1)',
+                    borderWidth: 1,
+                    pointRadius: 5
+                }]
+            };
+            const data5 = {
+                datasets: [{
+                    label: 'Dataset 1',
+                    // data:,
+                    backgroundColor: 'rgba(255, 0, 0, 0.6)',
+                    borderColor: 'rgba(255, 0, 0, 1)',
+                    borderWidth: 1,
+                    pointRadius: 5
+                }]
+            };
+
+            // Data and options for the second chart
+            const data6 = {
+                datasets: [{
+                    label: 'Dataset 2',
+                    // data:,
+                    backgroundColor: 'rgba(0, 0, 255, 0.6)',
+                    borderColor: 'rgba(0, 0, 255, 1)',
+                    borderWidth: 1,
+                    pointRadius: 5
+                }]
+            };
+
+            const data7 = {
+                datasets: [{
+                    label: 'Dataset 3',
+                    // data:,
+                    backgroundColor: 'rgba(0, 255, 0, 0.6)',
+                    borderColor: 'rgba(0, 255, 0, 1)',
+                    borderWidth: 1,
+                    pointRadius: 5
+                }]
+            };
+
+            const data8 = {
+                datasets: [{
+                    label: 'Dataset 3',
+                    // data:,
+                    backgroundColor: 'rgba(255, 255, 0, 0.6)',
+                    borderColor: 'rgba(255, 255, 0, 1)',
+                    borderWidth: 1,
+                    pointRadius: 5
+                }]
+            };
+            // Common options for both charts
+            const options = {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                        title: {
+                            display: true,
+                            text: `Temperature (F)`,
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: `R / n value`,
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                }
+            };
+           
+            // Create the first chart
+            // Chart configuration
+            const config = {
+                type: 'line',
+                data: {
+                    datasets: [data1, data2, data3, data4, data5, data6, data7, data8]
+                },
+                options: {
+                    pointRadius: 0,
+                    responsive: true,
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom'
+                        }
+                    }
+                }
+            };
+            new Chart(ctx, config);
+        });
+    </script>
+}

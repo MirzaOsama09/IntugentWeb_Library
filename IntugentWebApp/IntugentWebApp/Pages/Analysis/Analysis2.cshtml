@@ -1,0 +1,269 @@
+﻿@page
+@using System.Data;
+@model IntugentWebApp.Pages.Analysis.Analysis2Model
+@{
+    ViewData["ActivePage"] = "Mfg Analysis-2 Page";
+}
+@* Error Message *@
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="row my-5">
+    <div class="row col-3">
+        <div class="card card-default col-12 mt-8 h-auto">
+            <div class="card-header align-items-center">
+                <h2 class="">Choose Y1 and Y2 Axes</h2>
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div>
+                        <!-- Choose X1 -->
+                        <div class="form-floating mb-4" onblur="">
+                            <select class="form-select" id="X1" onblur="">
+                            @foreach (DataRowView row in Model.gX1)
+                                {
+                                    <option value="@row["PropName"]" selected="@(Model.gX1SelectedValue == row["PropName"].ToString())">@row["PropName"]</option>
+                                } 
+                            </select>
+                            <label for="X1">Choose X1</label>
+                        </div>
+                        <!-- Choose X2 -->
+                        <div class="form-floating mb-4" onblur="">
+                            <select class="form-select" id="X2" onblur="">
+                                @foreach (DataRowView row in Model.gX2)
+                                {
+                                    <option value="@row["PropName"]" selected="@(Model.gX2SelectedValue == row["PropName"].ToString())">@row["PropName"]</option>
+                                }
+                            </select>
+                            <label for="X2">Choose X2</label>
+                        </div>
+                        <!-- Choose Y1 -->
+                        <div class="form-floating mb-4" onblur="">
+                            <select class="form-select" id="Y1" onblur="">
+                                @foreach (DataRowView row in Model.gY1)
+                                {
+                                    <option value="@row["PropName"]" selected="@(Model.gY1SelectedValue == row["PropName"].ToString())">@row["PropName"]</option>
+                                }
+                            </select>
+                            <label for="Y1">Choose Y1</label>
+                        </div>
+                        <!-- Choose Y2 -->
+                        <div class="form-floating mb-4" onblur="">
+                            <select class="form-select" id="Y2" onblur="">
+                                @foreach (DataRowView row in Model.gY2)
+                                {
+                                    <option value="@row["PropName"]" selected="@(Model.gY2SelectedValue == row["PropName"].ToString())">@row["PropName"]</option>
+                                }
+                            </select>
+                            <label for="Y2">Choose Y2</label>
+                        </div>
+                    </div>                   
+                </div>
+
+            </div>
+        </div>
+    <div class="mt-5">
+        <h2 class="my-2">Chart Navigation</h2>
+            <p class="my-1">- left-click-drag to pan</p>
+            <p class="my-1">- left-click-drag on an axis to pan just that axis</p>
+            <p class="my-1">- Scroll-wheel to zoom</p>
+            <p class="my-1">- double-click to fit axis limits to data (may be a few times)</p>
+    </div>    
+    </div>
+    <div class="row col-9 px-5">
+        <div class="row col-6">
+            <canvas id="gCircles12" height="400" width="650"></canvas>
+            <canvas id="gCircles11" height="400" width="650"></canvas>
+        </div>
+        <div class="row col-6">
+            <canvas id="gCircles22" height="400" width="650"></canvas>
+            <canvas id="gCircles21" height="400" width="650"></canvas>
+
+        </div>
+
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log('gX1Y1_X:', @Html.Raw(Json.Serialize(Model.gX1Y1_X)));
+        console.log('gX1Y1_Y:', @Html.Raw(Json.Serialize(Model.gX1Y1_Y)));
+        console.log('gX2Y2_X:', @Html.Raw(Json.Serialize(Model.gX2Y2_X)));
+        console.log('gX2Y2_Y:', @Html.Raw(Json.Serialize(Model.gX2Y2_Y)));
+        // Data and options for the first chart
+        const data1 = {
+            datasets: [{
+                label: 'Dataset 1',
+                data: @Html.Raw(Json.Serialize(Model.gX1Y1_X.Zip(Model.gX1Y1_Y, (x, y) => new { x, y }))),
+                backgroundColor: 'rgba(255, 0, 0, 0.6)',
+                borderColor: 'rgba(255, 0, 0, 1)',
+                borderWidth: 1,
+                pointRadius: 5
+            }]
+        };
+
+        // Data and options for the second chart
+        const data2 = {
+            datasets: [{
+                label: 'Dataset 2',
+                data: @Html.Raw(Json.Serialize(Model.gX2Y2_X.Zip(Model.gX2Y2_Y, (x, y) => new { x, y }))),
+                backgroundColor: 'rgba(0, 0, 255, 0.6)',
+                borderColor: 'rgba(0, 0, 255, 1)',
+                borderWidth: 1,
+                pointRadius: 5
+            }]
+        };
+
+        const data3 = {
+            datasets: [{
+                label: 'Dataset 3',
+                data: @Html.Raw(Json.Serialize(Model.gX1Y2_X.Zip(Model.gX1Y2_Y, (x, y) => new { x, y }))),
+                backgroundColor: 'rgba(0, 255, 0, 0.6)',
+                borderColor: 'rgba(0, 255, 0, 1)',
+                borderWidth: 1,
+                pointRadius: 5
+            }]
+        };
+
+        const data4 = {
+            datasets: [{
+                label: 'Dataset 3',
+                data: @Html.Raw(Json.Serialize(Model.gX2Y1_X.Zip(Model.gX2Y1_Y, (x, y) => new { x, y }))),
+                backgroundColor: 'rgba(255, 255, 0, 0.6)',
+                borderColor: 'rgba(255, 255, 0, 1)',
+                borderWidth: 1,
+                pointRadius: 5
+            }]
+        };
+
+        // Common options for both charts
+        const options = {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: `X1:- @Model.scnX1`,
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: `Y1:- @Model.scnY1`,
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        };
+        const options1 = {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: `X2:- @Model.scnX2`,
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: `Y2:- @Model.scnY2`,
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        };
+        const options2 = {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: `X1:- @Model.scnX1`,
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: `Y2:- @Model.scnY2`,
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        };
+        const options3 = {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: `X2:- @Model.scnX2`,
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: `Y1:- @Model.scnY1`,
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        };
+
+        // Create the first chart
+        const ctx1 = document.getElementById('gCircles11').getContext('2d');
+        const myScatterChart1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: data1,
+            options: options
+        });
+
+        // Create the second chart
+        const ctx2 = document.getElementById('gCircles22').getContext('2d');
+        const myScatterChart2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: data2,
+            options: options1
+        });
+
+        // Create the second chart
+        const ctx3 = document.getElementById('gCircles12').getContext('2d');
+        const myScatterChart3 = new Chart(ctx3, {
+            type: 'scatter',
+            data: data3,
+            options: options2
+        });
+
+        // Create the second chart
+        const ctx4 = document.getElementById('gCircles21').getContext('2d');
+        const myScatterChart4 = new Chart(ctx4, {
+            type: 'scatter',
+            data: data4,
+            options: options3
+        });
+
+    });
+</script>

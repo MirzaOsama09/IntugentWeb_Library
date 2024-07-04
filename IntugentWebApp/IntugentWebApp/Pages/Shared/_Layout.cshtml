@@ -45,7 +45,7 @@
                           sidebar - MFG GROUP
                         ===================================== -->
 
-                        <li class="section-title">
+                     @*    <li class="section-title">
                             MFG Pages
                         </li>
                         <li class="@(activePage == "Mfg. Home" ? "active" : "")">
@@ -97,30 +97,12 @@
                                 <i class="mdi mdi-book-open-page-variant"></i>
                                 <span class="nav-text">Mfg Reports</span>
                             </a>
-                        </li>
-                       
-                        <li class="section-title">
-                            Shared Mfg. Pages
-                        </li>
-
-                        <li class="@(activePage == "Mfg Analysis-1 Page" ? "active" : "")">
-                            <a class="sidenav-item-link" href="/Analysis/Analysis1">
-                                <i class="mdi mdi-chart-line"></i>
-                                <span class="nav-text">Mfg. Analysis - 1</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="sidenav-item-link" href="analytics.html">
-                                <i class="mdi mdi-chart-bell-curve"></i>
-                                <span class="nav-text">Mfg. Analysis - 2</span>
-                            </a>
-                        </li>
+                        </li> *@
                         <!-- ====================================
                           sidebar - MFG GROUP - END
                         ===================================== -->
-
-                        @* <!-- ====================================
-                          sidebar - USERS GROUP
+                        <!-- ====================================
+                          sidebar - RND GROUP
                         ===================================== -->
 
                         <li class="section-title">
@@ -140,25 +122,63 @@
                             </a>
                         </li>
 
+                        <li class="@(activePage == "R&D R Values Tool" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/RnD_Users/RNDRValues">
+                                <i class="mdi mdi-wrench-outline"></i>
+                                <span class="nav-text">R Values Tool</span>
+                            </a>
+                        </li>
+
+                        <li class="@(activePage == "Raw Prop. Data" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/RnD_Users/RNDRawPropDatas">
+                                <i class="mdi mdi-chip"></i>
+                                <span class="nav-text">Raw Prop. Data</span>
+                            </a>
+                        </li>
+
+                        <li class="@(activePage == "Properties & Data Files" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/RnD_Users/RNDPropertiesDatafile">
+                                <i class="mdi mdi-file-document-box"></i>
+                                <span class="nav-text">Properties & Data Files</span>
+                            </a>
+                        </li>
+
+                        <li class="@(activePage == "TDRV" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/RnD_Users/RNDTDRV">
+                                <i class="mdi mdi-camera-timer"></i>
+                                <span class="nav-text">TDRV</span>
+                            </a>
+                        </li>
+
+                        <!-- ====================================
+                          sidebar - RND Users GROUP - END
+                        ===================================== -->
+
                         <li class="section-title">
-                            MFG Pages
+                            Shared Mfg. Pages
                         </li>
 
                         <li class="@(activePage == "Mfg Analysis-1 Page" ? "active" : "")">
-                            <a class="sidenav-item-link" href="/RnD_Users/MfgAnalysis1">
+                            <a class="sidenav-item-link" href="/Analysis/Analysis1">
                                 <i class="mdi mdi-chart-line"></i>
                                 <span class="nav-text">Mfg. Analysis - 1</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="@(activePage == "Mfg Analysis-2 Page" ? "active" : "")">
+                            <a class="sidenav-item-link" href="/Analysis/Analysis2">
+                                <i class="mdi mdi-chart-line"></i>
+                                <span class="nav-text">Mfg. Analysis - 2</span>
+                            </a>
+                        </li>
+                   @*      <li>
                             <a class="sidenav-item-link" href="analytics.html">
                                 <i class="mdi mdi-chart-bell-curve"></i>
                                 <span class="nav-text">Mfg. Analysis - 2</span>
                             </a>
-                        </li>
-                        <!-- ====================================
-                          sidebar - USERS GROUP - END
-                        ===================================== --> *@
+                        </li> *@
+
+
+                       
                     </ul>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 ﻿@page
 @using IntugentWebApp.Models
+@using System.Data;
 @model IntugentWebApp.Pages.RnD_Users.HomeModel
 @{
     ViewData["ActivePage"] = "R&D Home Page";
@@ -29,9 +30,10 @@
                             <!-- Testing Status -->
                             <div class="form-floating mb-2">
                                 <select class="form-select" id="testingStatus">
-                                    <option selected>Testing in Progress</option>
-                                    <option value="1">Property Testing Complete</option>
-                                    <option value="2">Abandoned</option>
+                           @*      @foreach (DataRowView row in Model.gTestStat1)
+                                {
+                                    <option value="@row["PropName"]" selected="@(Model.gTestStat1SelectedValue == Int32.Parse(row["sName"].ToString()))">@row["sName"]</option>
+                                }  *@
                                 </select>
                                 <label for="testingStatus">Testing Status</label>
                             </div>
@@ -41,9 +43,10 @@
                             <!-- Product Code -->
                             <div class="form-floating mb-2">
                                 <select class="form-select" id="productCode">
-                                    <option selected>PR 101</option>
-                                    <option value="1">PR 102</option>
-                                    <option value="2">PR 103</option>
+                              @*       @foreach (DataRowView row in Model.gProd1)
+                                {
+                                    <option value="@row["Product"]" selected="@(Model.gProd1SelectedValue == (row["Product Code"].ToString()))">@row["Product"]</option>
+                                }   *@
                                 </select>
                                 <label for="productCode">Product Code</label>
                             </div>
@@ -66,9 +69,9 @@
                         <div class="col-lg-4">
                             <!-- Group -->
                             <div class="mb-2 row">
-                                <label for="Group" class="col-md-3 col-form-label">Group</label>
-                                <div class="col-md-9">
-                                    <input type="text" value="Global R&D" class="form-control" id="Group" readonly>
+                                <label for="Groups" class="col-md-3 text-right mr-5 col-form-label">Group</label>
+                                <div class="col-md-8">
+                                    <input type="text" value="Global R&D" class="form-control" id="Groups" readonly>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +79,7 @@
                         <div class="col-lg-4">
                             <!-- After Date -->
                             <div class="form-floating mb-2">
-                                <input type="date" class="form-control" id="afterDate" placeholder="">
+                                <input type="date" class="form-control" value="@Model.gRndDate2?.ToString("yyyy-MM-dd")" id="afterDate" placeholder="">
                                 <label for="afterDate">Experiment Date - After or At</label>
                             </div>
                         </div>
@@ -85,7 +88,7 @@
 
                             <!-- Before Date -->
                             <div class="form-floating mb-2">
-                                <input type="date" class="form-control" id="beforeDate">
+                                <input type="date" class="form-control" value="@Model.gRndDate1?.ToString("yyyy-MM-dd")" id="beforeDate">
                                 <label for="beforeDate">Experiment Date - Before or At</label>
                             </div>
                         </div>
@@ -96,14 +99,14 @@
                         <div class="col-lg-8">
                             <!-- Project Study Name -->
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="projectStudyName" placeholder="">
+                                <input type="text" class="form-control" value="" id="projectStudyName" placeholder="">
                                 <label for="projectStudyName">Project/Study Name - Contains</label>
                             </div>
                         </div>
 
                         <div class="col-lg-4 d-flex justify-content-end">
                             <div class="row" style="margin: 0;">
-                                <button type="button" class="btn btn-primary m-auto">
+                                <button type="button" class="btn btn-primary m-auto" onclick="gSearchDataSets()">
                                     Retrieve Top 20 Datasets
                                 </button>
                             </div>
@@ -242,6 +245,23 @@
             });
 
             
+        }
+
+        function gSearchDataSets() {
+
+            $.ajax({
+                type: "POST",
+                url: "/RnD_Users/Home?handler=GSearchDataSets_Click",
+                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                success: function (response) {
+                    console.log('Server response:', response);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+
+
         }
 
     </script>

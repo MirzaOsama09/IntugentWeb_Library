@@ -2,6 +2,7 @@ using IntugentClassLbrary.Classes;
 using IntugentClassLbrary.Pages;
 using IntugentClassLibrary.Classes;
 using IntugentClassLibrary.Pages.Mfg;
+using IntugentClassLibrary.Pages.Rnd;
 using IntugentClassLibrary.Utilities;
 using IntugentWebApp.Utilities;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
@@ -34,6 +35,9 @@ namespace IntugentWebApp.Pages
             if (_objectsService.CDefualts != null && _objectsService.CLists != null && _objectsService.Cbfile != null)
             {
                 SetOptionBoxes(_objectsService.CDefualts, _objectsService.CLists);
+
+                CAnalysisData cAnalysis = new CAnalysisData(_objectsService.Cbfile, _objectsService.CDefualts);
+                _objectsService.CAnalysisData1 = cAnalysis;
                 
                 MfgHome mfgHome = new MfgHome(_objectsService.CDefualts, _objectsService.CLists, _objectsService.Cbfile);
                 _objectsService.MfgHome = mfgHome;
@@ -59,9 +63,9 @@ namespace IntugentWebApp.Pages
                 MfgReports mfgReports = new MfgReports(_objectsService.Cbfile, _objectsService.CDefualts);
                 _objectsService.MfgReport = mfgReports;
 
-                CAnalysisData cAnalysis = new CAnalysisData(_objectsService.Cbfile, _objectsService.CDefualts);
-                _objectsService.CAnalysisData1 = cAnalysis;
-            }
+                RNDHome rNDHome = new RNDHome(_objectsService.CDefualts, _objectsService.CLists, _objectsService.Cbfile);
+                _objectsService.RNDHome = rNDHome;
+                    }
 
 
         }

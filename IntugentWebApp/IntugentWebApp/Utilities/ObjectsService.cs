@@ -1,6 +1,7 @@
 ﻿using IntugentClassLbrary.Classes;
 using IntugentClassLibrary.Classes;
 using IntugentClassLibrary.Pages.Mfg;
+using IntugentClassLibrary.Pages.Rnd;
 using IntugentWebApp.Pages.Mfg_Group;
 
 namespace IntugentWebApp.Utilities
@@ -25,6 +26,9 @@ namespace IntugentWebApp.Utilities
         public MfgJetMixing?  MfgJetMixing { get; set; }
         public MfgProcessCheck MfgProcesscheck { get; set; }
         public MfgReports MfgReport { get; set; }
+
+        //              RND Variables
+        public RNDHome RNDHome { get; set; }
 
 
         //              local variables

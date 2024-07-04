@@ -1,0 +1,349 @@
+﻿@page
+@model IntugentWebApp.Pages.RnD_Users.RNDPropertiesDatafileModel
+@{
+    ViewData["ActivePage"] = "Properties & Data Files";
+}
+@* Error Message *@
+@if (TempData["ErrorOnServer"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: @TempData["ErrorOnServer"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="row">
+    <div class="col-8 row" >
+        <!-- Reactivity Data -->
+        <div class="row " style="height:300px;">
+        <div class="card card-default col-8">
+            <div class="card-header align-items-center">
+                <h2 class="">Reactivity Data</h2>
+                <h2 class="px-8">Enter Measured Values</h2>
+                
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Bind Gas Name Here</th>
+                            <th scope="col">#1</th>
+                            <th scope="col">#2</th>
+                            <th scope="col">#3</th>
+                            <th scope="col">#4</th>
+                            <th scope="col">#5</th>
+                            <th scope="col">#6</th>
+                            <th scope="col">#7</th>
+                            <th scope="col">#8</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*      @foreach (DataRow row in Model.gChemDel.Rows)
+                        {
+
+                        <tr>
+                        <td>@row["sName"]</td>
+                        <td>@row["sValue"]</td>
+                        </tr>
+
+                        } *@
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Predicted Values -->
+        <div class="card card-default col-4">
+            <div class="card-header align-items-center">
+                <h2 class="">Predicted Values</h2>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#1</th>
+                            <th scope="col">#2</th>
+                            <th scope="col">#3</th>
+                            <th scope="col">#4</th>
+                            <th scope="col">#5</th>
+                            <th scope="col">#6</th>
+                            <th scope="col">#7</th>
+                            <th scope="col">#8</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*      @foreach (DataRow row in Model.gChemDel.Rows)
+                        {
+
+                        <tr>
+                        <td>@row["sName"]</td>
+                        <td>@row["sValue"]</td>
+                        </tr>
+
+                        } *@
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
+
+        <!-- FTIR, and Photoacoustic Data -->
+        <div class="row" style="height:200px;">
+            <div class="card card-default col-8">
+                <div class="card-header align-items-center">
+                    <h2 class="">FTIR, and Photoacoustic Data</h2>
+                    <h2 class="px-8">Enter Measured Values</h2>
+
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Bind Gas Name Here</th>
+                                <th scope="col">#1</th>
+                                <th scope="col">#2</th>
+                                <th scope="col">#3</th>
+                                <th scope="col">#4</th>
+                                <th scope="col">#5</th>
+                                <th scope="col">#6</th>
+                                <th scope="col">#7</th>
+                                <th scope="col">#8</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*      @foreach (DataRow row in Model.gChemDel.Rows)
+                            {
+
+                            <tr>
+                            <td>@row["sName"]</td>
+                            <td>@row["sValue"]</td>
+                            </tr>
+
+                            } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Predicted Values -->
+            <div class="card card-default col-4">
+                <div class="card-header align-items-center">
+                    <h2 class="">Predicted Values</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#1</th>
+                                <th scope="col">#2</th>
+                                <th scope="col">#3</th>
+                                <th scope="col">#4</th>
+                                <th scope="col">#5</th>
+                                <th scope="col">#6</th>
+                                <th scope="col">#7</th>
+                                <th scope="col">#8</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*      @foreach (DataRow row in Model.gChemDel.Rows)
+                            {
+
+                            <tr>
+                            <td>@row["sName"]</td>
+                            <td>@row["sValue"]</td>
+                            </tr>
+
+                            } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Calculated Physical & Hot Plate Propertes -->
+        <div class="row" style="height:300px;">
+            <div class="card card-default col-8">
+                <div class="card-header align-items-center">
+                    <h2 class="">Calculated Physical & Hot Plate Propertes</h2>
+                    <h2 class="px-8">Enter Measured Values</h2>
+
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Bind Gas Name Here</th>
+                                <th scope="col">#1</th>
+                                <th scope="col">#2</th>
+                                <th scope="col">#3</th>
+                                <th scope="col">#4</th>
+                                <th scope="col">#5</th>
+                                <th scope="col">#6</th>
+                                <th scope="col">#7</th>
+                                <th scope="col">#8</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*      @foreach (DataRow row in Model.gChemDel.Rows)
+                            {
+
+                            <tr>
+                            <td>@row["sName"]</td>
+                            <td>@row["sValue"]</td>
+                            </tr>
+
+                            } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Predicted Values -->
+            <div class="card card-default col-4">
+                <div class="card-header align-items-center">
+                    <h2 class="">Predicted Values</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#1</th>
+                                <th scope="col">#2</th>
+                                <th scope="col">#3</th>
+                                <th scope="col">#4</th>
+                                <th scope="col">#5</th>
+                                <th scope="col">#6</th>
+                                <th scope="col">#7</th>
+                                <th scope="col">#8</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*      @foreach (DataRow row in Model.gChemDel.Rows)
+                            {
+
+                            <tr>
+                            <td>@row["sName"]</td>
+                            <td>@row["sValue"]</td>
+                            </tr>
+
+                            } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col-4 row">
+        <!-- Properties Testing Complete -->
+        <div class="custom-control custom-checkbox px-8 py-8">
+            <input type="checkbox" class="custom-control-input" id="PropertiesTestingComplete" checked="" onchange="">
+            <label class="custom-control-label" for="PropertiesTestingComplete">Properties Testing Complete</label>
+        </div>
+     
+        <!-- Commercial / Experimental Designation -->
+        <div class="row" style="height:300px;">
+            <div class="card card-default col-12">
+                <div class="card-header align-items-center">
+                    <h2 class="">Commercial / Experimental Designation</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Formulation #</th>
+                                <th scope="col">Commercial Product Name</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*      @foreach (DataRow row in Model.gChemDel.Rows)
+                            {
+
+                            <tr>
+                            <td>@row["sName"]</td>
+                            <td>@row["sValue"]</td>
+                            </tr>
+
+                            } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+           
+        </div>
+     
+        <!--Formulation Specific Notes (255 characters max) -->
+        <div class="row" style="height:300px;">
+            <div class="card card-default col-12">
+                <div class="card-header align-items-center">
+                    <h2 class="">Formulation Specific Notes (255 characters max)</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Form #</th>
+                                <th scope="col">Note</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*      @foreach (DataRow row in Model.gChemDel.Rows)
+                            {
+
+                            <tr>
+                            <td>@row["sName"]</td>
+                            <td>@row["sValue"]</td>
+                            </tr>
+
+                            } *@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+   
+    <!-- Foamat & Other Data Files  (*** Enter or paste the file path in the cell ***) -->
+    <div class="row" style="height:150px;">
+        <div class="card card-default col-12">
+            <div class="card-header align-items-center">
+                <h2 class="">Foamat & Other Data Files  (*** Enter or paste the file path in the cell ***)</h2>
+
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-bordered table-hover table-striped table-responsive-md">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Data / File  Type</th>
+                            <th scope="col">#1</th>
+                            <th scope="col">#2</th>
+                            <th scope="col">#3</th>
+                            <th scope="col">#4</th>
+                            <th scope="col">#5</th>
+                            <th scope="col">#6</th>
+                            <th scope="col">#7</th>
+                            <th scope="col">#8</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*      @foreach (DataRow row in Model.gChemDel.Rows)
+                        {
+
+                        <tr>
+                        <td>@row["sName"]</td>
+                        <td>@row["sValue"]</td>
+                        </tr>
+
+                        } *@
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+    </div>
+
+</div>

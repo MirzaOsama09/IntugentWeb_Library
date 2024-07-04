@@ -13,6 +13,7 @@
   <ItemGroup>
     <Content Remove="Pages\Mfg_Group\DimensionStability.cshtml" />
     <Content Remove="Pages\Mfg_Group\testing.cshtml" />
+    <Content Remove="Pages\RnD_Users\RNDRawPropData.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +41,11 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\Mfg_Group\DimensionStability.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\RnD_Users\RNDRawPropData.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\RnD_Users\RNDRawPropData.cshtml" />
   </ItemGroup>
 
 </Project>
